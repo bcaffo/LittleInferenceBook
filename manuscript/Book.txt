@@ -1,4 +1,5 @@
-toc.md
 preface.md
 01_introduction.md
+02_probability.md
+
 
