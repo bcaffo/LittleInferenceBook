@@ -1,14 +1,23 @@
 Introduction
 ####
 
+
+
+
 ## Statistical inference defined
 
-Statistical inference is the process of drawing formal conclusions from
-data. 
+Statistical inference is the process of generalizing to 
+a population from noisy statistical data. 
 
 In our class, we wil define formal statistical inference as settings where one wants to infer facts about a population using noisy
 statistical data where uncertainty must be accounted for.
 
+
+Hi and welcome to the Corsera class an Introduction to statistical inference is part of the data science specialization.
+
+My name is Brian Caffo, I'm a professor in the Department of Bio Statistics in John Hopkins University and I'll be your instructor. I'm joined by my co-instructors Jeff Leek and Roger Peng, who are also in the Department of Bio Statistics. Statistical inference is the process of drawing formal conclusions from data.
+
+In our class we're going to define formal statistical inferences settings where one wants to infer facts about a population using noisy statistical data, where uncertainty must be accounted for. So in fact, whenever someone says something like, the probability that something occurs. Or gives a confidence interval, or a hypothesis test, they are performing statistical inference.
 
 ## Motivating example: who's going to win the election?
 
@@ -23,6 +32,20 @@ may change their vote by the time the election occurs.
 How do we collect a reasonable subset of data and quantify the
 uncertainty in the process to produce a good guess at who will win?
 
+This class will teach you not only how to do these things, but why to do them and what are the inherent limitations in the various forms of inference. A good example of statistical inference is trying to predict who going to win an election. Basically, in every major election, pollsters would like to
+know, ahead of time, who is going to win. Hence, the target of estimation, the estimate, is clear: the percentage of people in a particular group who will vote for each candidate.
+
+But we can't poll everyone. And even if we could, some people might change their vote prior to the election. And so, we need some method for being able
+to draw conclusions from the data that we have, and also quantify the uncertainty associated with having made that conclusion from an incomplete set of data that may change over time.
+
+This is a formal statistical inference.  Perhaps the most famous version of a formal statistical inference.  In this case, the way in which inference
+tends to be performed in this particular set of problems is to draw an analogy with a box, with color balls in it.
+
+Let's say, two colors, white and red that you get to mix up the balls and draw a certain number of them. It is by.
+
+This simplified version of the problem was well understood mathematics, that we are able to perform inference. Therefore, to perform inference, you need
+to understand how the assumptions of how your data was collected relates to this simplified setting with the balls in the box.
+
 
 ## Motivating example: is hormone replacement therapy effective? 
 
@@ -36,9 +59,51 @@ evidence?
 
 See WHI writing group paper JAMA 2002, Vol 288:321 - 333. for the paper and Steinkellner et al. Menopause 2012, Vol 19:616 621 for adiscussion of the long term impacts
 
+
+A fairly important example of statistical imprints occurred with the Women's Health Initiative where they investigated hormone replacement therapy. Prior to the study, hormone replacement therapy was a standard care for post-menopausal women. In this clinical trial investigated its efficacy.
+
+It was a clinical trial in that they randomized the treatment hormone replacement therapy to a group of people while randomizing a placebo or standard of care to another group of people. The randomization then balanced unobserved covariates hopefully. So that, inferences would likely not be
+contaminated by them.
+
+However, based on a statistically based protocol, this study had to be stopped, because HRT was shown not only to be non-effective, but also 
+have a negative impact on several key health outcomes.
+
+So, there's several interesting things to discuss for this class.
+
+One, was the important question of the, that the study was designed to
+investigate. Is HRT effective?
+
+And to discuss why did they do randomization, how would one answer a question like that, how would one formulate the problem, and how would one perform the statistical inference?
+
+There's a second question that's actually much harder that we will not discuss which is, how long should we continue the trial in the presence of contrary evidence? This is a very challenging question and depends on many factors including morality, how long can we give a treatment relative to a certain amount of evidence against it to otherwise healthy people versus.
+
+How long can we run the trial? Can we stop the trial, just based on
+random fluctuations that one would expect to occur with low sample sizes.
+
+So one was bound between these considerations, if you want to actually achieve the evidence required to make medical decisions.
+
+So question two is in fact, a quite difficult and challenging question. And questions one is actually a fairly challenging question, but one that we'll be able to make significant headway at in this class. And I would say, this is by no means the end of this topic, in terms of discussing hormone replace therapy in the medical literature.
+
+So this JAMA paper in 2002 is one that you can refer to, but then there's been of course, over a decade of work on this, and so certainly don't view this discussion as a component of making your own personal medical decisions, given that the recommendations have been refined quite a bit since this study.
+  
 ## Motivating example 
 ### Brain activation
 
+
+Here's another interesting and kind of funny example of statistical inference.
+
+In the area that I work in, so called functional resonance imaging, they stick people in an MRI scanner. And they have them do a task. And as they do this task, they record magnetic residence images. And then, they have them say, not do the task for a little bit and they do the task for another little bit, then they not do the task for another little bit.
+
+They compare the times when they're doing the task, the images when they're doing the task to the images when they're not. And they look and they find areas that are then activated relative to the task, as a simple example when someone's performing some motor function like tapping their finger.
+
+When you compare that to the times when they're not tapping their finger, the
+motor area of the primary motor area lights up, exactly like you would expect, in the area associated with your finger.
+
+This has led, this initial discovery has led to mountains of paper on so called mapping the brain. In generalizations to harder areas, such as trying to investigate the ways in which different areas of the brain communicate with one another using the same technology. At one point, some investigators wanted to illustrate, the ways in which people can obtain false positives in this area by in fact conducting a study, not with a person in the scanner, but by sticking a dead salmon into the scanner and performing a rote style analysis.
+
+There are many interesting aspects to their, to the way in which they conduct, conducted the study. And many ways in which they highlight failings  of performing lots of hypothesis tests without accounting for multiple comparisons.  
+
+In this case, if you do lots of hypothesis tests without it counting for multiple comparisons you in fact, see activation in this dead salmon. Which of course, as far as anyone could tell, really doesn't have any sort of brain activation system it's a dead salmon.
 
 
 
@@ -56,6 +121,43 @@ or random sampling, or implicit as the aggregation of many complex uknown proces
 - Statistical inference requires navigating the set of assumptions and
 tools and subsequently thinking about how to draw conclusions from data.
 
+So at any rate, highlight something we are going to talk about the classes, how do you perform inference when you're performing lots and lots and lots and lots of hypothesis tests.  And hopefully, you won't get caught declaring brain activation in a dead salmon. I don't think you would anyway. But after this class, you for sure will.
+
+I hope I've convinced you that statistical inference is a key subject for a modern data scientist. It is only through the formalism of statistical inference that you can create parsimonious new knowledge about a population from noisy, uncertain data.
+
+The examples that we covered illustrate some of the important concerns in statistical inference. For example, is the sample representative of the population you'd like to draw inferences about.
+
+In our polling example, if we had a very biased sample, then our conclusions would not be representative of voters on election day. And our results of course would not, probably would not pan out.
+
+In our HRT example we talked about a clinical trial. The clinical trial randomization tries to balance unknown and unobserved variables that might
+contaminate our conclusions. Something we did not talk about but, might
+be a problem is missing data.
+
+In our HRT example, what if, by virtue of not being blinded. This was not the case in the HRT example. But imagine if you did a clinical trial and those
+who received the placebo were aware that they received the placebo. And the sickest in that group decided to drop out of the trial because they were going to pursue other therapies that precluded them from being in the
+trial. Then at that point, your conclusions might be very biased, because
+in the placebo condition, the sickest people were all dropping out.
+
+Missing data has created a systematic bias that is unrelated to the mechanisms under, there, that's related to the mechanisms being studied.
+The next bullet point is actually quite difficult.  What randomness exists in the data, and how do we use and adjust for it?
+
+Randomness can arise in several ways.  For example, the randomness from the randomization scheme, and the randomness from the way in which the data was
+sampled, and the randomness from the assumption that large numbers are
+unobserved things accumulate in ways that can be modeled as is if they are
+statistical randomness. All of those represent kinds of things we're willing to model as random or we explicitly know are random, in the case of randomization.
+
+The final bullet point is, are we trying to estimate some underlying mechanistic model. If so, we can build that model into our statistical inferential probability model. And that's often a good way to go.
+
+So, this fundamentals of statistic inference requires navigating these set of assumptions and tools and subsequently thinking about how to draw conclusions for the data and, understanding how robust your conclusions are to those assumptions.
+
+Statistical inference is a very deep area that can take decades to learn. However, in this class, we're going to give you some of he very fundamentals.
+Let's go through some examples, goals of inference.
+
+In this class, not only will we estimate things, we'll actually formally define the estimands. So, our sample mean will be the estimate
+of a population mean.
+
+So in our polling example, we want to estimate the proportion of people who will vote for a candidate on election day among people who are actually going to vote on election day.  However, we're going to have potentially biased small sample that we're going to have to do that with, and so we want to quantify the uncertainty in that small sample, and acknowledge the potential biases, and acknowledge.  How our assumptions has played into both our estimate and how we've quantified the uncertainty in that estimate. We might want to determine whether a population quantity is a benchmark value.
+
 - 
 ## Example goals of inference
 
@@ -69,6 +171,95 @@ a population quantity (the proportion of people who will
 4. Determine the impact of a policy? ("If we reduce polution levels,
   will asthma rates decline?")
 5. Talk about the probability that something occurs.
+
+Is the treatment effective?
+
+In this point, I'm alluding to a topic called hypothesis testing. We might want to test the hypothesis is the, proportion of people who respond to  treatment equal to the proportion of people who respond to a control therapy.  
+We might want to infer a mechanistic relationship when, qua, quantities are
+measured with noise.
+
+For example, what is the slope of Hooke's law? If you were a physicist and you want to infer Hooke's law from a set of sample springs that you have. You of course, won't get things falling exactly perfectly on a line. You might want to infer that line using the tools of inference, adjusting for the uncertainty given that there's noise in your measurement.
+
+We'll talk a lot about how exactly to do that in our regression class. We might want to determine the impact of a policy. So, for example, if we reduce product, produce, pollution levels, will asthma rates decline?  And as an example in that case, we might evaluate that question by doing something
+like a natural experiment. Looking at places where pollution levels decline naturally and trying to evaluate our assumptions, as to the comparability of the population before the pollution levels declined, and the population after
+pollution levels declined.
+
+As an example, you might have a place where a major pollutant type company moved and set up shop somewhere else. So that the pollution rates declined,
+before and after the company was there.  You could look at asthma rates before and after. Of course, you would have to assume or evaluate, whether or not the subjects that were there before the company left and after the
+company left are comparable among other characteristics other than asthma rates.  That's the kind of questions we're going to answer.
+
+Again, we're going to talk about the other effects and dealing with confounders a lot more during our regression class. Finally in five, I talk about a very generic statement.
+
+Whenever anyone talks about the probability that something occurs where
+they've estimated that probability from data, they're making an inference.
+They're talking about a population probability. 
+
+Okay. And that, that is a, that is-  Again, something that we need to have a formal framework around.  If you ever use the word probability, you need to know the topics in this class.
+
+Let's talk about some tools of the trade in inference.
+
+Randomization is an example tool of the trade, whereby, you're interested in balancing unobserved coverts that may contaminate your inference. So in HRT examples, they randomize the treatment in placebo to make the groups as comparable as possible.  
+
+In random sampling, we're interested in selecting subjects or units that are as representative as possible to the population
+that we're interested in making inferences about. That's for example key when you're doing polling. You want the people that you poll to be as representative as possible as the people who are going to vote on election day. Sampling models, are concerned with creating a statistical model for the sampling process.
+
+The most common model is so called IID, or independent identically distributed. This model can be highly warranted, for example, when you've conducted random sampling. Or it can be highly suspect in other cases.
+
+And a lot of times, we do not have much control over the sampling process, so our sampling model's made but at least, after this class, we'll be wide
+eyed about what entails in that, in this so called, in these assumptions.
+
+Hypothesis testing is an inferential technique where we're interested in making decisions. You have two hypotheses and you treat one as if it was the status quo, and you'd like to see if you could collect enough data or if you,
+if the data presents enough evidence to knock you off that status quo. That's so called hypothesis testing or null hypothesis testing.
+
+Confidence intervals are a related topic, and we'll show in this class exactly how we're related, which is concerned with quantifying uncertainty in
+estimation. So when you get a mean that is an estimator. It has an estimand. How well does it do in estimating that estimand in the terms of uncertainty?
+
+Probability models, are the formal connection that occurs between a data and a population of interests. So generally, you do not know the probability
+model, and so they are either assumed or approximated.
+
+But if you want the formal way in which you connect the data to a population, the most common way of doing that is via a probability model. Study design is the process of designing experiments.
+
+So, for example, you might design your experiment to make your inferences as tight as possible. To make it as likely as possible that you would reject an hypothesis if in fact, an hypothesis is false.
+
+You might design your study via randomization to balance unobserved coverts and you might design your study with random sampling, so that your population that you're studying is as representative as possible of the population that you're interested in.
+
+So study design is the process of combining these things in order to get the study that you want. Nonparametric bootstrapping and permutation testing, the last two points here, are very data centric inferential techniques.
+
+Nonparametric bootstrapping is useful for example, for creating confidence
+intervals. But with minimal assumptions where you will live very much so, in the data while you're doing it.
+
+Same thing with permutation testing. So, there's a giant bifurcation in the way that people think about inference in the division between frequency and Bayesian thinking on inference. This is just one of the many ways on which
+inference is approached.
+
+And in fact, I think hopefully, at least on the previous slide, you can
+see that there's many, many different factors to think about when thinking about inference. And the Bayes versus frequency discussion is only one of those many factors. 
+
+In this class, we're mostly going to think in terms of frequency style, inference a frequency style probability. Here, by frequency probability, I mean, the long run portion of times that an event occurs in independently, identically, repetit, identically distributed repetitions.
+
+So for example, when I roll a die over and over and over again, I'm going to
+assume that I get a one, one sixth of the time and that's a frequency probability. Frequency inferences uses frequency interpretation of probabilities to do things like control error rates. So you might say, what should I decide, given my da, data controlling the long run proportion of mistakes I make at a tolerable level in independent repetitions of this experiment.
+
+Even if you only get one repetition, we're calibrating our error rates relative to the idea of independent replications of the experiment. That's how we're going to figure, that's how we're going to teach most of specialization, and particular the inference part of this class. Being data scientists, in addition to these classic treatments of probability and inference that we're going to go over, we're also going to consider some
+inferential strategies that rely heavily on the observed data, like bootstrapping and permutation testing.
+
+These are tools that data scientists use a lot. But as probability modeling is going to be our starting point, we're going to first build up basic probability.
+
+So in the next lecture we'll cover probability at a fairly high level, I might add. Because I think it's important for data scientists to have a good foundation in probability and inference.
+
+That where this class, I think for many people, is the hardest class in the
+series. However, we're going to omit lots of topics of inference that would be covered if you were to, for example, get a Master's degree in statistics.
+
+So as an example, we will not cover explicit use of random sampling in inferences in the way in which some sample survey and polling. People who conduct polls, use random sampling as part of their inferential strategy. Same thing with explicit use of randomization in inferences. If you want more on that, you might look into literature on so called causal inference.
+
+Bayesian probability and Bayesian statistics, we won't cover too much. Missing data, we will not cover too much but again, it's a very important topic. Study design, we'll, we'll cover basic sample size calculations but other than that, we're not going to cover too much on study design.
+
+So welcome to the statistical inference class, as a part of the data science
+specialization. We really glad that you enrolled in it.  Many students find statistical inference to be the most difficult class of the specialization, and with good reason.
+
+Inference is the most difficult topic in the specialization by far. I've been studying inference now for over 15 years. And I feel like I've learned something new every day. However, inference is a key component of being a data scientist. If you don't understand statistical inference,then you don't really understand statistics.
+
+And without it, there's no way that you'll be able to generalize beyond your data in a way that's meaningful. And so we really look forward, to trying
+to get you started on the road to understanding this very important topic.
 
 -
 ## Example tools of the trade 
