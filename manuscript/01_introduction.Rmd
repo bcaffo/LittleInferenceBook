@@ -1,6 +1,12 @@
 Introduction
 ####
 
+Welcome to The Little Inference Book, a different kind of textbook for 
+a new age of teaching. This book is a companion to the class
+Statistical Inference, as part of the Coursera Data Science Specialization
+from the Johns Hopkins Bloomberg School of Public Health.
+
+
 ## Statistical inference defined
 
 Statistical inference is the process of drawing formal conclusions from
