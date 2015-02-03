@@ -9,12 +9,14 @@ Before we begin discussing probability, let's dispense with some deep philosphic
 
 For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
 
-## Where to get a more thorough treatments of  probability
+## Where to get a more thorough treatment of  probability
 
 In this lecture, we will cover the fundamentals of probability at low enough of a level to have a basic understanding for the rest of the series. For a more complete treatment see the class Mathematical Biostatistics Boot Camp 1, which can be viewed on YouTube [here](Youtube: www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition, there's  the actual [Coursera course](Coursera: www.coursera.org/course/biostats) that I run periodically (this is the first Coursera class that I ever taught).  In addition there are a set of (notes on github)[http://github.com/bcaffo/Caffo-Coursera]. Finally, there's a followup class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more devoted  to biostatistical topics that has an associated [YouTube playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM), [Coursera Class](https://www.coursera.org/course/biostats2) and [GitHub notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2). 
 
 
 ## Kolmogorov's Three Rules
+
+[Watch this lecture before beginning](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Given a random experiment (say rolling a die) a probability measure is a population quantity
 that summarizes the randomness.  The brilliant discovery of the father of probability, the [Russian mathematician Kolmogorov](http://en.wikipedia.org/wiki/Andrey_Kolmogorov), was that 
