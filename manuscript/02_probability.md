@@ -76,29 +76,30 @@ Then
 Given the scenario, it's likely, some fraction of the population has both. This example serves as a reminder *don't add probabilities unless the events are mutually exclusive*. We'll have a similar rule for multiplying probabilities and independence.
 
 
-Probability calculus is useful for understanding the rules that probabilities
-must follow. 
-
-However, we need ways to model and think about probabilities for
-numeric outcomes of experiments (broadly defined). 
-
-Densities and mass functions for random variables are the best starting point for this.
-
-Remember, everything we're talking about up to at this point is a population quantity 
-not a statement about what occurs in the data.   We're going with this is: use the data to estimate properties of the population.
 
 ## Random variables
 
-- A **random variable** is a numerical outcome of an experiment.
-- The random variables that we study will come in two varieties,
-  **discrete** or **continuous**.
-- Discrete random variable are random variables that take on only a
-countable number of possibilities and we talk about the probability that they
-take specific values
-- Continuous random variable can conceptually take any value on the real line or some subset of the real line and we talk about the probability that they line within
-some range
+Probability calculus is useful for understanding the rules that probabilities must follow. 
+However, we need ways to model and think about probabilities for numeric outcomes of experiments (broadly defined). 
+Densities and mass functions for random variables are the best starting point for this. You've already
+heard of a density since  you've heard of the famous "bell curve", or Gaussian density. In this section
+you'll learn exactly what the bell curve is and how to work with it.
 
----
+Remember, everything we're talking about up to at this point is a population quantity, 
+not a statement about what occurs in our data in the same sense that 50% probability for head is a statement about
+the coin and how we're flipping it, not a statement about the percentage of heads we obtained in a particular
+set of flips.  This is an important distinction that we will emphasize over and over in this course. Statistical
+inference is about describing populations using data. Probability density functions are a way to mathematically
+characterize the population. In this course, we'll assume that our sample is a random draw from the population.
+
+So our definition is that a **random variable** is a numerical outcome of an experiment.
+The random variables that we study will come in two varieties,
+  **discrete** or **continuous**. Discrete random variable are random variables that take on only a
+countable number of possibilities. Mass functions will assign probabilities that they
+take specific values.  Continuous random variable can conceptually take any value on the real line or 
+some subset of the real line and we talk about the probability that they line within some range. Densities
+will characterize these probabilies.
+
 
 ## Examples of variables that can be thought of as random variables
 
