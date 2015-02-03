@@ -5,12 +5,16 @@ In our treatment, probability is a law that assigns numbers to the long run occu
 To get started on this lecture, 
 [watch this video ](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ) before beginning the next XXX sections. 
 
-## More thorough treatments of  probability
+Before we begin discussing probability, let's dispense with some deep philosphical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occuring without apparent deterministic paterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probabilitity for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin. 
+
+For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
+
+## Where to get a more thorough treatments of  probability
 
 In this lecture, we will cover the fundamentals of probability at low enough of a level to have a basic understanding for the rest of the series. For a more complete treatment see the class Mathematical Biostatistics Boot Camp 1, which can be viewed on YouTube [here](Youtube: www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition, there's  the actual [Coursera course](Coursera: www.coursera.org/course/biostats) that I run periodically (this is the first Coursera class that I ever taught).  In addition there are a set of (notes on github)[http://github.com/bcaffo/Caffo-Coursera]. Finally, there's a followup class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more devoted  to biostatistical topics that has an associated [YouTube playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM), [Coursera Class](https://www.coursera.org/course/biostats2) and [GitHub notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2). 
 
 
-## Probability, 3 Rules
+## Kolmogorov's Three Rules
 
 Given a random experiment (say rolling a die) a probability measure is a population quantity
 that summarizes the randomness.  The brilliant discovery of the father of probability, the [Russian mathematician Kolmogorov](http://en.wikipedia.org/wiki/Andrey_Kolmogorov), was that 
@@ -27,7 +31,7 @@ From these simple rules all of the familiar rules of probability can be develope
 
 I would like to reiterate the important definition that we wrote out: *mutually exclusive*.  Two events are mutually exclusive if they cannot both simultaneously occur. For example, we cannot simultaneously get a 1 and a 2 on a die.  Rule 3 says that since the event of getting a 1 and 2 on a die are mutually exclusive, the probability of getting at least one (the union) is the sum of their probabilities. So if we know that the probability of getting a 1 is 1/6 and the probability of getting a 2 is 1/6, then the probability of getting a 1 or a 2 is 2/6, the sum of the two probabilities since they are mutually exclusive.
 
-## Rules probability must follow
+## Consequences of The Three Rules
 
 Let's cover some consequences of our three simple rules.  Take, for example, the probability that something occurs is 1 minus the probability of the opposite occurring.  Let {$$}A{/$$} be the event that we get a 1 or a 2 on a rolled die. Then {$$}A^c{/$$} is the opposite, getting a 3, 4, 5 or 6. Since {$$}A{/$$} and {$$}A^c{/$$} cannot both simultaneously occur, they are mutually exclusive. So the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) + P(A^c){/$$}. Notice, that the probability that either occurs is the probability of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that something occurs, which is 1 by rule number 2.  So we have that {$$}1 = P(A) + P(A^c){/$$} or that  {$$}P(A) = 1 - P(A^c){/$$}. 
 
