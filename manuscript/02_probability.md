@@ -1,38 +1,37 @@
-Probability
-####
+# Probability
 
-## Probability
+Probability forms the foundation for almost all treatments of statistical inference. 
+In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations. 
+To get started on this lecture, 
+[watch this video ](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ) before beginning the next XXX sections. 
 
-- In these slides we will cover the basics of probability at low enough level
-to have a basic understanding for the rest of the series
-- For a more complete treatment see the class Mathematical Biostatistics Boot Camp 1
-    - Youtube: www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-
-    - Coursera: www.coursera.org/course/biostats
-    - Git: http://github.com/bcaffo/Caffo-Coursera
+## More thorough treatments of  probability
+
+In this lecture, we will cover the fundamentals of probability at low enough of a level to have a basic understanding for the rest of the series. For a more complete treatment see the class Mathematical Biostatistics Boot Camp 1, which can be viewed on YouTube [here](Youtube: www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition, there's  the actual [Coursera course](Coursera: www.coursera.org/course/biostats) that I run periodically (this is the first Coursera class that I ever taught).  In addition there are a set of (notes on github)[http://github.com/bcaffo/Caffo-Coursera]. Finally, there's a followup class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more devoted  to biostatistical topics that has an associated [YouTube playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM), [Coursera Class](https://www.coursera.org/course/biostats2) and [GitHub notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2). 
 
 
----
-
-## Probability
+## Probability, 3 Rules
 
 Given a random experiment (say rolling a die) a probability measure is a population quantity
-that summarizes the randomness.
+that summarizes the randomness.  The brilliant discovery of the father of probability, the [Russian mathematician Kolmogorov](http://en.wikipedia.org/wiki/Andrey_Kolmogorov), was that 
+to satisfy our intuition about how probability should behave, only three rules were needed.
 
-Specifically, probability takes a possible outcome from the expertiment and:
+Consider an experiment with a random outcome. Probability takes a possible outcome from an experiment and:
 
-- assigns it a number between 0 and 1 
-- so that the probability that something occurs is 1 (the die must be rolled)
-and 
-- so that the probability of the union of any two sets of outcomes that have nothing in common (mutually exclusive)
+1. assigns it a number between 0 and 1 
+2. requires that the probability that something occurs is 1 
+3. required that the probability of the union of any two sets of outcomes that have nothing in common (mutually exclusive)
 is the sum of their respective probabilities.
 
+From these simple rules all of the familiar rules of probability can be developed.  This all might seem a little odd at first and so we'll build up our intuition with some simple examples based on coin flipping and die rolling. 
 
-The Russian mathematician Kolmogorov formalized these rules.
-
----
-
+I would like to reiterate the important definition that we wrote out: *mutually exclusive*.  Two events are mutually exclusive if they cannot both simultaneously occur. For example, we cannot simultaneously get a 1 and a 2 on a die.  Rule 3 says that since the event of getting a 1 and 2 on a die are mutually exclusive, the probability of getting at least one (the union) is the sum of their probabilities. So if we know that the probability of getting a 1 is 1/6 and the probability of getting a 2 is 1/6, then the probability of getting a 1 or a 2 is 2/6, the sum of the two probabilities since they are mutually exclusive.
 
 ## Rules probability must follow
+
+Let's cover some consequences of our three simple rules.  Take, for example, the probability that something occurs is 1 minus the probability of the opposite occurring.  Let {$$}A{/$$} be the event that we get a 1 or a 2 on a rolled die. Then {$$}A^c{/$$} is the opposite, getting a 3, 4, 5 or 6. Since {$$}A{/$$} and {$$}A^c{/$$} cannot both simultaneously occur, they are mutually exclusive. So the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) + P(A^c){/$$}. Notice, that the probability that either occurs is the probability of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that something occurs, which is 1 by rule number 2.  So we have that {$$}1 = P(A) + P(A^c){/$$} or that  {$$}P(A) = 1 - P(A^c){/$$}. 
+
+We won't go through this tedious exercise (since Kolmorogov already did it for us). Instead here's a list of some of the consequences of Kolmogorov's rules that are often useful.
 
 - The probability that nothing occurs is 0
 - The probability that something occurs is 1
@@ -41,46 +40,35 @@ The Russian mathematician Kolmogorov formalized these rules.
     two (or more) things that can not simultaneously occur (mutually exclusive) 
     is the sum of their
     respective probabilities
-- If an event A implies the occurrence of event B, then the probability of A
-occurring is less than the probability that B occurs
 - For any two events the probability that at least one occurs is the sum of their
     probabilities minus their intersection.
 
----
+This last rules states that {$$}P(A \cup B) = P(A) + P(B)  - P(A \cap B){/$$} shows what is the issue with adding probabilities that are not mutually exclusive.  If we do this, we've added the probability that both occur in twice!  (Watch the video where I draw a Venn diagram to illustrate this).
 
-## Example
+### Example
 
 The National Sleep Foundation ([www.sleepfoundation.org](http://www.sleepfoundation.org/)) reports that around 3% of the American population has sleep apnea. They also report that around 10% of the North American and European population has restless leg syndrome. Does this imply that 13% of people will have at least one sleep problems of these sorts?
-
----
-
-## Example continued
 
 Answer: No, the events can simultaneously occur and so 
 are not mutually exclusive. To elaborate let:
 
----
-## If you want to see the mathematics
-
-$$
+{$$}
 \begin{eqnarray*}
     A_1 & = & \{\mbox{Person has sleep apnea}\} \\
     A_2 & = & \{\mbox{Person has RLS}\} 
   \end{eqnarray*}
-$$
+{/$$}
 
 Then 
 
-$$
+{$$}
 \begin{eqnarray*}
     P(A_1 \cup A_2 ) & = & P(A_1) + P(A_2) - P(A_1 \cap A_2) \\
    & = & 0.13 - \mbox{Probability of having both}
   \end{eqnarray*}
-$$
-Likely, some fraction of the population has both.
+{/$$}
+Given the scenario, it's likely, some fraction of the population has both. This example serves as a reminder *don't add probabilities unless the events are mutually exclusive*. We'll have a similar rule for multiplying probabilities and independence.
 
----
-## Going further
 
 Probability calculus is useful for understanding the rules that probabilities
 must follow. 
@@ -91,10 +79,8 @@ numeric outcomes of experiments (broadly defined).
 Densities and mass functions for random variables are the best starting point for this.
 
 Remember, everything we're talking about up to at this point is a population quantity 
-not a statement about what occurs in the data.  
-- We're going with this is: use the data to estimate properties of the population.
+not a statement about what occurs in the data.   We're going with this is: use the data to estimate properties of the population.
 
----
 ## Random variables
 
 - A **random variable** is a numerical outcome of an experiment.
@@ -323,6 +309,3 @@ qbeta(0.5, 2, 1)
   discussed is the **population median**.
 - A probability model connects the data to the population using assumptions.
 - Therefore the median we're discussing is the **estimand**, the sample median will be the **estimator**
-
-
-
