@@ -65,17 +65,161 @@ are not mutually exclusive. To elaborate let:
   \end{eqnarray*}
 {/$$}
 
+
+Probability forms the foundation for almost all treatments of statistical
+inference.
+ In our treatment, probability is a law that assigns numbers to the
+long run occurrence of random phenomena after repeated unrelated realizations.
+To get started on this lecture,
+ [watch this video
+](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ) before
+beginning the next XXX sections.
+
+Before we begin discussing probability, let's dispense with some deep
+philosphical questions, such as "What is randomness?" and "What is the
+fundamental interpretation of probability?". One could spend a lifetime studying
+these questions (and some have). For our purposes, randomness is any process
+occuring without apparent deterministic paterns. Thus we will treat many things
+as if they were random when, in fact they are completely deterministic. In my
+field, biostatistics, we often model disease outcomes as if they were random
+when they are the result of many mechanistic components whose aggregate behavior
+appears random. Probabilitity for us will be the long long run proportion of
+times some occurs in repeated unrelated realizations. So, think of the
+proportion of times that you get a head when flipping a coin.
+
+For the interested student, I would recommend the books and work by Ian Hacking
+to learn more about these deep philosophical issues. For us data scientists, the
+above definitions will work fine.
+
+## Where to get a more thorough treatment of  probability
+
+In this lecture, we will cover the fundamentals of probability at low enough of
+a level to have a basic understanding for the rest of the series. For a more
+complete treatment see the class Mathematical Biostatistics Boot Camp 1, which
+can be viewed on YouTube [here](Youtube:
+www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
+there's  the actual [Coursera course](Coursera:
+www.coursera.org/course/biostats) that I run periodically (this is the first
+Coursera class that I ever taught).  In addition there are a set of (notes on
+github)[http://github.com/bcaffo/Caffo-Coursera]. Finally, there's a followup
+class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more
+devoted  to biostatistical topics that has an associated [YouTube
+playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM),
+[Coursera Class](https://www.coursera.org/course/biostats2) and [GitHub
+notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2).
+
+## Kolmogorov's Three Rules
+
+[Watch this lecture before
+beginning](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+Given a random experiment (say rolling a die) a probability measure is a
+population quantity
+ that summarizes the randomness.  The brilliant discovery of
+the father of probability, the [Russian mathematician
+Kolmogorov](http://en.wikipedia.org/wiki/Andrey_Kolmogorov), was that
+ to
+satisfy our intuition about how probability should behave, only three rules were
+needed.
+
+Consider an experiment with a random outcome. Probability takes a possible
+outcome from an experiment and:
+
+1. assigns it a number between 0 and 1
+ 2. requires that the probability that
+something occurs is 1
+ 3. required that the probability of the union of any two
+sets of outcomes that have nothing in common (mutually exclusive)
+ is the sum of
+their respective probabilities.
+
+From these simple rules all of the familiar rules of probability can be
+developed.  This all might seem a little odd at first and so we'll build up our
+intuition with some simple examples based on coin flipping and die rolling.
+
+I would like to reiterate the important definition that we wrote out: *mutually
+exclusive*.  Two events are mutually exclusive if they cannot both
+simultaneously occur. For example, we cannot simultaneously get a 1 and a 2 on a
+die.  Rule 3 says that since the event of getting a 1 and 2 on a die are
+mutually exclusive, the probability of getting at least one (the union) is the
+sum of their probabilities. So if we know that the probability of getting a 1 is
+1/6 and the probability of getting a 2 is 1/6, then the probability of getting a
+1 or a 2 is 2/6, the sum of the two probabilities since they are mutually
+exclusive.
+
+## Consequences of The Three Rules
+
+Let's cover some consequences of our three simple rules.  Take, for example, the
+probability that something occurs is 1 minus the probability of the opposite
+occurring.  Let {$$}A{/$$} be the event that we get a 1 or a 2 on a rolled die.
+Then {$$}A^c{/$$} is the opposite, getting a 3, 4, 5 or 6. Since {$$}A{/$$} and
+{$$}A^c{/$$} cannot both simultaneously occur, they are mutually exclusive. So
+the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) +
+P(A^c){/$$}. Notice, that the probability that either occurs is the probability
+of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that
+something occurs, which is 1 by rule number 2.  So we have that {$$}1 = P(A) +
+P(A^c){/$$} or that  {$$}P(A) = 1 - P(A^c){/$$}.
+
+We won't go through this tedious exercise (since Kolmorogov already did it for
+us). Instead here's a list of some of the consequences of Kolmogorov's rules
+that are often useful.
+
+- The probability that nothing occurs is 0
+ The probability that something
+- occurs is 1
+ The probability of something is 1 minus the probability that the
+- opposite occurs
+ The probability of at least one of
+     two (or more) things
+- that can not simultaneously occur (mutually exclusive)
+     is the sum of
+- their
+     respective probabilities
+ For any two events the probability that
+- at least one occurs is the sum of their
+     probabilities minus their
+- intersection.
+
+This last rules states that {$$}P(A \cup B) = P(A) + P(B)  - P(A \cap B){/$$}
+shows what is the issue with adding probabilities that are not mutually
+exclusive.  If we do this, we've added the probability that both occur in twice!
+(Watch the video where I draw a Venn diagram to illustrate this).
+
+### Example of Implementing Probability Calculus
+
+The National Sleep Foundation
+([www.sleepfoundation.org](http://www.sleepfoundation.org/)) reports that around
+3% of the American population has sleep apnea. They also report that around 10%
+of the North American and European population has restless leg syndrome. Does
+this imply that 13% of people will have at least one sleep problems of these
+sorts? In other words, can we simply add these two
+ probabilities?
+
+Answer: No, the events can simultaneously occur and so
+ are not mutually
+exclusive. To elaborate let:
+
+{$$}
+ \begin{eqnarray*}
+     A_1 & = & \{\mbox{Person has sleep apnea}\} \\
+A_2 & = & \{\mbox{Person has RLS}\}
+   \end{eqnarray*}
+ {/$$}
+
 Then
 
 {$$}
-\begin{eqnarray*}
-    P(A_1 \cup A_2 ) & = & P(A_1) + P(A_2) - P(A_1 \cap A_2) \\
-   & = & 0.13 - \mbox{Probability of having both}
-  \end{eqnarray*}
-{/$$}
-Given the scenario, it's likely, some fraction of the population has both. This example serves as a reminder *don't add probabilities unless the events are mutually exclusive*. We'll have a similar rule for multiplying probabilities and independence.
+ \begin{eqnarray*}
+     P(A_1 \cup A_2 ) & = & P(A_1) + P(A_2) - P(A_1 \cap
+A_2) \\
+    & = & 0.13 - \mbox{Probability of having both}
+   \end{eqnarray*}
+ {/$$}
 
-
+Given the scenario, it's likely that some fraction of the population has both.
+This example serves as a reminder *don't add probabilities unless the events are
+mutually exclusive*. We'll have a similar rule for multiplying probabilities and
+independence.
 
 ## Random variables
 
@@ -114,39 +258,121 @@ Specific instances of treating variables as if random
 - The number of people who click on an ad
 - Intelligence quotients for a sample of children
 
----
 
 ## PMF
+Probability calculus is useful for understanding the rules that probabilities
+must follow.
+ However, we need ways to model and think about probabilities for
+numeric outcomes of experiments (broadly defined).
+ Densities and mass functions
+for random variables are the best starting point for this. You've already
+ heard
+of a density since  you've heard of the famous "bell curve", or Gaussian
+density. In this section
+ you'll learn exactly what the bell curve is and how to
+work with it.
+
+Remember, everything we're talking about up to at this point is a population
+quantity,
+ not a statement about what occurs in our data in the same sense that
+50% probability for head is a statement about
+ the coin and how we're flipping
+it, not a statement about the percentage of heads we obtained in a particular
+set of flips.  This is an important distinction that we will emphasize over and
+over in this course. Statistical
+ inference is about describing populations
+using data. Probability density functions are a way to mathematically
+characterize the population. In this course, we'll assume that our sample is a
+random draw from the population.
+
+So our definition is that a **random variable** is a numerical outcome of an
+experiment.
+ The random variables that we study will come in two varieties,
+**discrete** or **continuous**. Discrete random variable are random variables
+that take on only a
+ countable number of possibilities. Mass functions will
+assign probabilities that they
+ take specific values.  Continuous random
+variable can conceptually take any value on the real line or
+ some subset of the
+real line and we talk about the probability that they line within some range.
+Densities
+ will characterize these probabilities.
+
+Let's consider some examples of measurements that could be considered random variables.
+First, familiar gambling experiments like the tossing of a coin and the rolling
+of a die produce random variables. For the coin, we typically code a tail as
+a 0 and a head as a 1. (For the die, the number facing up would be the random
+variable.) We'll use these examples a lot to help us build intuition. However,
+they aren't interesting in the sense of lacking any context. Nonetheless,
+the coin example is particularly useful since many of the experiments we
+consider will be modeled as if tossing a biased coin. Modeling
+any binary characteristic from a random sample of a population can be
+thought of as a coin toss, with the random sampling performing the roll of the
+toss and the population percentage of individuals with the characteristic
+is the probability of a head. Consider, for example, logging whether or
+not subjects were hypertensive in a random sample. Each subject's
+outcome can be modeled as a coin toss. In a similar sense the die roll serves
+as our model for phenomena with more than one level, such as hair color or
+rating scales.
+
+Consider also the random variable of the number of web hits for a site each day.
+This variable is a count, but is largely unbounded (or at least we couldn't
+put a specific reasonable upper limit). Random variables like this are often modeled
+with the so called Poisson distribution.
+
+Finally, consider some continuous random variables. Think of things like
+lengths or weights. It is mathematically convenient to model these
+as if they were continuous (even if measurements were truncated liberally).
+In fact, even discrete random variables with lots of levels are often
+treated as continuous for convenience.  
+
+For all of these kinds of random variables, we need convenient mathematical
+functions to model the probabilities of collections of realizations. These
+functions, called mass functions and densities,
+take possible values of the random variables, and assign the associated
+probabilities. These entities describe the population of interest. So, consider
+the most famous density, the normal distribution. Saying that body mass
+indices follow a normal distribution is a statement about the population of
+interest. The goal is to use our data to figure out things about that normal
+distribution, where it's centered, how spread out it is and even
+whether our assumption of normality is warranted!
+
+## Probability Mass Functions
 
 A probability mass function evaluated at a value corresponds to the
-probability that a random variable takes that value. To be a valid
-pmf a function, $p$, must satisfy
+ probability
+that a random variable takes that value. To be a valid pmf a function, $p$,
+must satisfy
 
-  1. It must always be larger than or equal to 0.
-  2. The sum of the possible values that the random variable can take has to add up to one.
+1. It must always be larger than or equal to 0.
+2. The sum of the possible values that the random variable can take has to add up to one.
 
----
 
 ## Example
 
 Let $X$ be the result of a coin flip where $X=0$ represents
-tails and $X = 1$ represents heads.
-$$
-p(x) = (1/2)^{x} (1/2)^{1-x} ~~\mbox{ for }~~x = 0,1
-$$
+ tails and $X = 1$
+represents heads.
+ $$
+ p(x) = (1/2)^{x} (1/2)^{1-x} ~~\mbox{ for }~~x = 0,1
+ $$
 Suppose that we do not know whether or not the coin is fair; Let
-$\theta$ be the probability of a head expressed as a proportion
-(between 0 and 1).
-$$
+ $\theta$ be
+the probability of a head expressed as a proportion
+ (between 0 and 1).
+ $$
 p(x) = \theta^{x} (1 - \theta)^{1-x} ~~\mbox{ for }~~x = 0,1
-$$
+ $$
 
 ---
 
 ## PDF
 
-A probability density function (pdf), is a function associated with
-a continuous random variable
+A probability density function (pdf), is a function associated with a continuous random variable
+=======
+ a
+continuous random variable
 
   *Areas under pdfs correspond to probabilities for that random variable*
 
@@ -157,7 +383,8 @@ To be a valid pdf, a function must satisfy
 2. The total area under it must be one.
 
 ---
-## Example
+---
+ ## Example
 
 Suppose that the proportion of help calls that get addressed in
 a random day by a help line is given by
@@ -167,20 +394,31 @@ f(x) = \left\{\begin{array}{ll}
     0                 & \mbox{ otherwise}
 \end{array} \right.
 $$
+=======
+ a random day by
+a help line is given by
+ $$
+ f(x) = \left\{\begin{array}{ll}
+     2 x & \mbox{
+for }& 0< x < 1 \\
+     0                 & \mbox{ otherwise}
+ \end{array}
+\right.
+ $$
 
 Is this a mathematically valid density?
 
 ---
 
-
 ```r
-x <- c(-0.5, 0, 1, 1, 1.5)
-y <- c(0, 0, 2, 0, 0)
-plot(x, y, lwd = 3, frame = FALSE, type = "l")
-```
+ x <- c(-0.5, 0, 1, 1, 1.5)
+ y <- c(0, 0, 2, 0, 0)
+ plot(x, y, lwd = 3,
+frame = FALSE, type = "l")
+ ```
 
-<img src="figure/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
-
+<img src="figure/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1"
+alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 ---
 
@@ -188,43 +426,50 @@ plot(x, y, lwd = 3, frame = FALSE, type = "l")
 
 What is the probability that 75% or fewer of calls get addressed?
 
-<img src="figure/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
-
+<img src="figure/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2"
+alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 ---
 
 ```r
-1.5 * 0.75/2
-```
+ 1.5 * 0.75/2
+ ```
 
 ```
-## [1] 0.5625
-```
+ ## [1] 0.5625
+ ```
 
 ```r
-pbeta(0.75, 2, 1)
-```
+ pbeta(0.75, 2, 1)
+ ```
 
 ```
-## [1] 0.5625
-```
+ ## [1] 0.5625
+ ```
 
 ---
 
 ## CDF and survival function
-### Certain areas are so useful, we give them names
+ ### Certain areas are so useful, we give them
+## names
 
-- The **cumulative distribution function** (CDF) of a random variable, $X$, returns the probability that the random variable is less than or equal to the value $x$
-$$
-F(x) = P(X \leq x)
-$$
-(This definition applies regardless of whether $X$ is discrete or continuous.)
-- The **survival function** of a random variable $X$ is defined as the probability
-that the random variable is greater than the value $x$
-$$
-S(x) = P(X > x)
-$$
-- Notice that $S(x) = 1 - F(x)$
+- The **cumulative distribution function** (CDF) of a random variable, $X$,
+- returns the probability that the random variable is less than or equal to the
+- value $x$
+ $$
+ F(x) = P(X \leq x)
+ $$
+ (This definition applies regardless of
+- whether $X$ is discrete or continuous.)
+ The **survival function** of a random
+- variable $X$ is defined as the probability
+ that the random variable is
+- greater than the value $x$
+ $$
+ S(x) = P(X > x)
+ $$
+ Notice that $S(x) = 1 -
+- F(x)$
 
 ---
 
@@ -233,23 +478,22 @@ $$
 What are the survival function and CDF from the density considered before?
 
 For $1 \geq x \geq 0$
-$$
-F(x) = P(X \leq x) = \frac{1}{2} Base \times Height = \frac{1}{2} (x) \times (2 x) = x^2
-$$
+ $$
+ F(x) = P(X \leq x) = \frac{1}{2} Base \times Height =
+\frac{1}{2} (x) \times (2 x) = x^2
+ $$
 
 $$
-S(x) = 1 - x^2
-$$
-
+ S(x) = 1 - x^2
+ $$
 
 ```r
-pbeta(c(0.4, 0.5, 0.6), 2, 1)
-```
+ pbeta(c(0.4, 0.5, 0.6), 2, 1)
+ ```
 
 ```
-## [1] 0.16 0.25 0.36
-```
-
+ ## [1] 0.16 0.25 0.36
+ ```
 
 ---
 
@@ -259,60 +503,91 @@ You've heard of sample quantiles. If you were the 95th percentile on an exam, yo
 that 95% of people scored worse than you and 5% scored better.
 These are sample quantities. Here we define their population analogs.
 
+=======
+You've heard of sample quantiles. If you were the 95th percentile on an exam,
+you know
+ that 95% of people scored worse than you and 5% scored better.
+ These
+are sample quantities. Here we define their population analogs.
+>>>>>>> 0692b03a47e8f6369ad116fcab70b0b1de324be5
 
 ---
-## Definition
+---
+ ## Definition
 
-The  $\alpha^{th}$ **quantile** of a distribution with distribution function $F$ is the point $x_\alpha$ so that
-$$
-F(x_\alpha) = \alpha
-$$
-- A **percentile** is simply a quantile with $\alpha$ expressed as a percent
-- The **median** is the $50^{th}$ percentile
+The  $\alpha^{th}$ **quantile** of a distribution with distribution function $F$
+is the point $x_\alpha$ so that
+ $$
+ F(x_\alpha) = \alpha
+ $$
+ - A
+**percentile** is simply a quantile with $\alpha$ expressed as a percent
+ - The
+**median** is the $50^{th}$ percentile
 
 ---
-## For example
+---
+ ## For example
 
 The $95^{th}$ percentile of a distribution is the point so that:
-- the probability that a random variable drawn from the population is less is 95%
-- the probability that a random variable drawn from the population is more is 5%
+ - the
+probability that a random variable drawn from the population is less is 95%
+ -
+the probability that a random variable drawn from the population is more is 5%
 
 ---
+<<<<<<< HEAD
 ## Example
 What is the median of the distribution that we were working with before?
 - We want to solve $0.5 = F(x) = x^2$
 - Resulting in the solution
+=======
+---
+ ## Example
+ What is the median of the distribution that we were
+---
+working with before?
+ - We want to solve $0.5 = F(x) = x^2$
+ - Resulting in
+---
+the solution
 
 ```r
-sqrt(0.5)
-```
+ sqrt(0.5)
+ ```
 
 ```
-## [1] 0.7071
-```
+ ## [1] 0.7071
+ ```
 
 - Therefore, about 0.7071 of calls being answered on a random day is the median.
 
 ---
-## Example continued
-R can approximate quantiles for you for common distributions
-
+---
+ ## Example continued
+ R can approximate quantiles for you for common
+---
+distributions
 
 ```r
-qbeta(0.5, 2, 1)
-```
+ qbeta(0.5, 2, 1)
+ ```
 
 ```
-## [1] 0.7071
-```
-
+ ## [1] 0.7071
+ ```
 
 ---
 
 ## Summary
 
-- You might be wondering at this point "I've heard of a median before, it didn't require integration. Where's the data?"
-- We're referring to are **population quantities**. Therefore, the median being
-  discussed is the **population median**.
-- A probability model connects the data to the population using assumptions.
-- Therefore the median we're discussing is the **estimand**, the sample median will be the **estimator**
+- You might be wondering at this point "I've heard of a median before, it didn't
+- require integration. Where's the data?"
+ We're referring to are **population
+- quantities**. Therefore, the median being
+   discussed is the **population
+- median**.
+ A probability model connects the data to the population using
+- assumptions.
+ Therefore the median we're discussing is the **estimand**, the
+- sample median will be the **estimator**
