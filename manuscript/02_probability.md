@@ -272,6 +272,7 @@ density function.
 Specifically, to be a valid pdf, a function must satisfy
 1. It must be larger than or equal to zero everywhere.
 2. The total area under it must be one.
+
 ### Example
 
 Suppose that the proportion of help calls that get addressed in
@@ -291,8 +292,8 @@ frame = FALSE, type = "l")
  ```
  An image of the density function is given below
 
-<img src="figure/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1"
-alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
+[Help call density](images/triangleDensity.png)
+
 
 Is this a mathematically valid density? To answer this
 we need to make sure it satisfies our two conditions.
