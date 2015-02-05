@@ -9,87 +9,6 @@ Before we begin discussing probability, let's dispense with some deep philosphic
 
 For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
 
-## Where to get a more thorough treatment of  probability
-
-In this lecture, we will cover the fundamentals of probability at low enough of a level to have a basic understanding for the rest of the series. For a more complete treatment see the class Mathematical Biostatistics Boot Camp 1, which can be viewed on YouTube [here](Youtube: www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition, there's  the actual [Coursera course](Coursera: www.coursera.org/course/biostats) that I run periodically (this is the first Coursera class that I ever taught).  In addition there are a set of (notes on github)[http://github.com/bcaffo/Caffo-Coursera]. Finally, there's a followup class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more devoted  to biostatistical topics that has an associated [YouTube playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM), [Coursera Class](https://www.coursera.org/course/biostats2) and [GitHub notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2).
-
-
-## Kolmogorov's Three Rules
-
-[Watch this lecture before beginning](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
-
-Given a random experiment (say rolling a die) a probability measure is a population quantity
-that summarizes the randomness.  The brilliant discovery of the father of probability, the [Russian mathematician Kolmogorov](http://en.wikipedia.org/wiki/Andrey_Kolmogorov), was that
-to satisfy our intuition about how probability should behave, only three rules were needed.
-
-Consider an experiment with a random outcome. Probability takes a possible outcome from an experiment and:
-
-1. assigns it a number between 0 and 1
-2. requires that the probability that something occurs is 1
-3. required that the probability of the union of any two sets of outcomes that have nothing in common (mutually exclusive)
-is the sum of their respective probabilities.
-
-From these simple rules all of the familiar rules of probability can be developed.  This all might seem a little odd at first and so we'll build up our intuition with some simple examples based on coin flipping and die rolling.
-
-I would like to reiterate the important definition that we wrote out: *mutually exclusive*.  Two events are mutually exclusive if they cannot both simultaneously occur. For example, we cannot simultaneously get a 1 and a 2 on a die.  Rule 3 says that since the event of getting a 1 and 2 on a die are mutually exclusive, the probability of getting at least one (the union) is the sum of their probabilities. So if we know that the probability of getting a 1 is 1/6 and the probability of getting a 2 is 1/6, then the probability of getting a 1 or a 2 is 2/6, the sum of the two probabilities since they are mutually exclusive.
-
-## Consequences of The Three Rules
-
-Let's cover some consequences of our three simple rules.  Take, for example, the probability that something occurs is 1 minus the probability of the opposite occurring.  Let {$$}A{/$$} be the event that we get a 1 or a 2 on a rolled die. Then {$$}A^c{/$$} is the opposite, getting a 3, 4, 5 or 6. Since {$$}A{/$$} and {$$}A^c{/$$} cannot both simultaneously occur, they are mutually exclusive. So the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) + P(A^c){/$$}. Notice, that the probability that either occurs is the probability of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that something occurs, which is 1 by rule number 2.  So we have that {$$}1 = P(A) + P(A^c){/$$} or that  {$$}P(A) = 1 - P(A^c){/$$}.
-
-We won't go through this tedious exercise (since Kolmorogov already did it for us). Instead here's a list of some of the consequences of Kolmogorov's rules that are often useful.
-
-- The probability that nothing occurs is 0
-- The probability that something occurs is 1
-- The probability of something is 1 minus the probability that the opposite occurs
-- The probability of at least one of
-    two (or more) things that can not simultaneously occur (mutually exclusive)
-    is the sum of their
-    respective probabilities
-- For any two events the probability that at least one occurs is the sum of their
-    probabilities minus their intersection.
-
-This last rules states that {$$}P(A \cup B) = P(A) + P(B)  - P(A \cap B){/$$} shows what is the issue with adding probabilities that are not mutually exclusive.  If we do this, we've added the probability that both occur in twice!  (Watch the video where I draw a Venn diagram to illustrate this).
-
-### Example
-
-The National Sleep Foundation ([www.sleepfoundation.org](http://www.sleepfoundation.org/)) reports that around 3% of the American population has sleep apnea. They also report that around 10% of the North American and European population has restless leg syndrome. Does this imply that 13% of people will have at least one sleep problems of these sorts?
-
-Answer: No, the events can simultaneously occur and so
-are not mutually exclusive. To elaborate let:
-
-{$$}
-\begin{eqnarray*}
-    A_1 & = & \{\mbox{Person has sleep apnea}\} \\
-    A_2 & = & \{\mbox{Person has RLS}\}
-  \end{eqnarray*}
-{/$$}
-
-
-Probability forms the foundation for almost all treatments of statistical
-inference.
- In our treatment, probability is a law that assigns numbers to the
-long run occurrence of random phenomena after repeated unrelated realizations.
-To get started on this lecture,
- [watch this video
-](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ) before
-beginning the next XXX sections.
-
-Before we begin discussing probability, let's dispense with some deep
-philosphical questions, such as "What is randomness?" and "What is the
-fundamental interpretation of probability?". One could spend a lifetime studying
-these questions (and some have). For our purposes, randomness is any process
-occuring without apparent deterministic paterns. Thus we will treat many things
-as if they were random when, in fact they are completely deterministic. In my
-field, biostatistics, we often model disease outcomes as if they were random
-when they are the result of many mechanistic components whose aggregate behavior
-appears random. Probabilitity for us will be the long long run proportion of
-times some occurs in repeated unrelated realizations. So, think of the
-proportion of times that you get a head when flipping a coin.
-
-For the interested student, I would recommend the books and work by Ian Hacking
-to learn more about these deep philosophical issues. For us data scientists, the
-above definitions will work fine.
 
 ## Where to get a more thorough treatment of  probability
 
@@ -126,9 +45,9 @@ Consider an experiment with a random outcome. Probability takes a possible
 outcome from an experiment and:
 
 1. assigns it a number between 0 and 1
- 2. requires that the probability that
+2. requires that the probability that
 something occurs is 1
- 3. required that the probability of the union of any two
+3. required that the probability of the union of any two
 sets of outcomes that have nothing in common (mutually exclusive)
  is the sum of
 their respective probabilities.
@@ -223,46 +142,7 @@ independence.
 
 ## Random variables
 
-Probability calculus is useful for understanding the rules that probabilities must follow.
-However, we need ways to model and think about probabilities for numeric outcomes of experiments (broadly defined).
-Densities and mass functions for random variables are the best starting point for this. You've already
-heard of a density since  you've heard of the famous "bell curve", or Gaussian density. In this section
-you'll learn exactly what the bell curve is and how to work with it.
-
-Remember, everything we're talking about up to at this point is a population quantity,
-not a statement about what occurs in our data in the same sense that 50% probability for head is a statement about
-the coin and how we're flipping it, not a statement about the percentage of heads we obtained in a particular
-set of flips.  This is an important distinction that we will emphasize over and over in this course. Statistical
-inference is about describing populations using data. Probability density functions are a way to mathematically
-characterize the population. In this course, we'll assume that our sample is a random draw from the population.
-
-So our definition is that a **random variable** is a numerical outcome of an experiment.
-The random variables that we study will come in two varieties,
-  **discrete** or **continuous**. Discrete random variable are random variables that take on only a
-countable number of possibilities. Mass functions will assign probabilities that they
-take specific values.  Continuous random variable can conceptually take any value on the real line or
-some subset of the real line and we talk about the probability that they line within some range. Densities
-will characterize these probabilies.
-
-
-## Examples of variables that can be thought of as random variables
-
-Experiments that we use for intuition and building context
-- The $(0-1)$ outcome of the flip of a coin
-- The outcome from the roll of a die
-
-Specific instances of treating variables as if random
-- The web site traffic on a given day
-- The BMI of a subject four years after a baseline measurement
-- The hypertension status of a subject randomly drawn from a population
-- The number of people who click on an ad
-- Intelligence quotients for a sample of children
-
-
-## PMF
-Probability calculus is useful for understanding the rules that probabilities
-must follow.
- However, we need ways to model and think about probabilities for
+Probability calculus is useful for understanding the rules that probabilities must follow. However, we need ways to model and think about probabilities for
 numeric outcomes of experiments (broadly defined).
  Densities and mass functions
 for random variables are the best starting point for this. You've already
@@ -338,7 +218,7 @@ interest. The goal is to use our data to figure out things about that normal
 distribution, where it's centered, how spread out it is and even
 whether our assumption of normality is warranted!
 
-## Probability Mass Functions
+### Probability Mass Functions
 
 A probability mass function evaluated at a value corresponds to the
  probability
@@ -349,7 +229,7 @@ must satisfy
 2. The sum of the possible values that the random variable can take has to add up to one.
 
 
-## Example
+#### Example
 
 Let $X$ be the result of a coin flip where $X=0$ represents
  tails and $X = 1$
