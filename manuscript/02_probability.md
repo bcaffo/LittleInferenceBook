@@ -72,9 +72,10 @@ Let's cover some consequences of our three simple rules.  Take, for example, the
 probability that something occurs is 1 minus the probability of the opposite
 occurring.  Let {$$}A{/$$} be the event that we get a 1 or a 2 on a rolled die.
 Then {$$}A^c{/$$} is the opposite, getting a 3, 4, 5 or 6. Since {$$}A{/$$} and
-{$$}A^c{/$$} cannot both simultaneously occur, they are mutually exclusive. So
-the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) +
-P(A^c){/$$}. Notice, that the probability that either occurs is the probability
+{$$}A^c{/$$}
+cannot both simultaneously occur, they are mutually exclusive. So
+the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) + P(A^c){/$$}.
+Notice, that the probability that either occurs is the probability
 of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that
 something occurs, which is 1 by rule number 2.  So we have that {$$}1 = P(A) +
 P(A^c){/$$} or that  {$$}P(A) = 1 - P(A^c){/$$}.
@@ -218,7 +219,7 @@ interest. The goal is to use our data to figure out things about that normal
 distribution, where it's centered, how spread out it is and even
 whether our assumption of normality is warranted!
 
-### Probability Mass Functions
+## Probability Mass Functions
 
 A probability mass function evaluated at a value corresponds to the
  probability
@@ -229,80 +230,78 @@ must satisfy
 2. The sum of the possible values that the random variable can take has to add up to one.
 
 
-#### Example
+### Example
 
-Let $X$ be the result of a coin flip where $X=0$ represents
- tails and $X = 1$
+Let {$$}X{/$$} be the result of a coin flip where {$$}X=0{/$$} represents
+ tails and {$$}X = 1{/$$}
 represents heads.
- $$
+{$$}
  p(x) = (1/2)^{x} (1/2)^{1-x} ~~\mbox{ for }~~x = 0,1
- $$
+{/$$}
 Suppose that we do not know whether or not the coin is fair; Let
- $\theta$ be
+ {$$}\theta{/$$} be
 the probability of a head expressed as a proportion
  (between 0 and 1).
- $$
+{$$}
 p(x) = \theta^{x} (1 - \theta)^{1-x} ~~\mbox{ for }~~x = 0,1
- $$
+{/$$}
 
----
 
-## PDF
+## Probability density functions
 
-A probability density function (pdf), is a function associated with a continuous random variable
-=======
- a
-continuous random variable
+A probability density function (pdf), is a function associated with a continuous random variable. Because of the peculiarities
+of treating measurements as having been recorded to infinite
+decimal expansions, we need a different set of rules. This
+leads us to the central dogma of probability density functions:
 
-  *Areas under pdfs correspond to probabilities for that random variable*
+*Areas under pdfs correspond to probabilities for that random variable*
 
-To be a valid pdf, a function must satisfy
+Therefore, when one says that intelligence quotients (IQ) in population follows a bell
+curve, they are saying that the probability of a randomly
+selected from this population having an IQ between
+two values is given by the area under the bell curve.
 
+Not every function can be a valid probability density
+function. For example, if the function dips below zero,
+then we could have negative probabilities. If the function
+contains too much area underneath it, we could have
+probabilities larger than one. The following two
+rules tell us when a function is a valid probability
+density function.
+
+Specifically, to be a valid pdf, a function must satisfy
 1. It must be larger than or equal to zero everywhere.
-
 2. The total area under it must be one.
-
----
----
- ## Example
+### Example
 
 Suppose that the proportion of help calls that get addressed in
 a random day by a help line is given by
-$$
+{$$}
 f(x) = \left\{\begin{array}{ll}
     2 x & \mbox{ for }& 0< x < 1 \\
     0                 & \mbox{ otherwise}
 \end{array} \right.
-$$
-=======
- a random day by
-a help line is given by
- $$
- f(x) = \left\{\begin{array}{ll}
-     2 x & \mbox{
-for }& 0< x < 1 \\
-     0                 & \mbox{ otherwise}
- \end{array}
-\right.
- $$
-
-Is this a mathematically valid density?
-
----
-
+{/$$}
+The R code for plotting this density is
 ```r
  x <- c(-0.5, 0, 1, 1, 1.5)
  y <- c(0, 0, 2, 0, 0)
  plot(x, y, lwd = 3,
 frame = FALSE, type = "l")
  ```
+ An image of the density function is given below
 
 <img src="figure/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1"
 alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
----
+Is this a mathematically valid density? To answer this
+we need to make sure it satisfies our two conditions.
+First it's clearly nonnegative. The area is similarly
+easy. Being a right triangle in the only section of the
+density that is above zero, we can calculate it as
+1/2 the area of the base times the height. This
+is {$$}\frac{1}{2} \times 1 \times 2 = 1{/$$}
 
-## Example continued
 
 What is the probability that 75% or fewer of calls get addressed?
 
@@ -383,7 +382,6 @@ You've heard of sample quantiles. If you were the 95th percentile on an exam, yo
 that 95% of people scored worse than you and 5% scored better.
 These are sample quantities. Here we define their population analogs.
 
-=======
 You've heard of sample quantiles. If you were the 95th percentile on an exam,
 you know
  that 95% of people scored worse than you and 5% scored better.
