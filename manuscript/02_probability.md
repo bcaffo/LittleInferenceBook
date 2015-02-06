@@ -233,18 +233,16 @@ must satisfy
 
 ### Example
 
-Let {$$}X{/$$} be the result of a coin flip where {$$}X=0{/$$} represents
- tails and {$$}X = 1{/$$}
+Let {$$}X{/$$} be the result of a coin flip where {$$}X=0{/$$}
+represents tails and {$$}X = 1{/$$}
 represents heads. {$$}p(x) = (1/2)^{x} (1/2)^{1-x}{/$$}
 for {$$}x = 0,1{/$$}.
 Suppose that we do not know whether or not the coin is fair; Let
  {$$}\theta{/$$} be
 the probability of a head expressed as a proportion
  (between 0 and 1).
-{$$}
-p(x) = \theta^{x} (1 - \theta)^{1-x}
-{/$$}
-for {$$} x = 0,1 {/$$}
+{$$}p(x) = \theta^{x} (1 - \theta)^{1-x} {/$$}
+for {$$}x = 0,1 {/$$}
 
 ## Probability density functions
 
@@ -279,9 +277,10 @@ a random day by a help line is given by {$$} f(x) = 2 x {/$$}
 for {$$}0< x < 1{/$$}. The R code for plotting this density is
 
 {line-numbers=off,lang=r}
-~~~~~~ x <- c(-0.5, 0, 1, 1, 1.5)
- y <- c(0, 0, 2, 0, 0)
- plot(x, y, lwd = 3,
+~~~~~~
+x <- c(-0.5, 0, 1, 1, 1.5)
+y <- c(0, 0, 2, 0, 0)
+plot(x, y, lwd = 3,
 frame = FALSE, type = "l")
 ~~~~~~
 
