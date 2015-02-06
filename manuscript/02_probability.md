@@ -235,18 +235,16 @@ must satisfy
 
 Let {$$}X{/$$} be the result of a coin flip where {$$}X=0{/$$} represents
  tails and {$$}X = 1{/$$}
-represents heads.
-{$$}
- p(x) = (1/2)^{x} (1/2)^{1-x} ~~\mbox{ for }~~x = 0,1
-{/$$}
+represents heads. {$$}p(x) = (1/2)^{x} (1/2)^{1-x}{/$$}
+for {$$}x = 0,1{/$$}.
 Suppose that we do not know whether or not the coin is fair; Let
  {$$}\theta{/$$} be
 the probability of a head expressed as a proportion
  (between 0 and 1).
 {$$}
-p(x) = \theta^{x} (1 - \theta)^{1-x} ~~\mbox{ for }~~x = 0,1
+p(x) = \theta^{x} (1 - \theta)^{1-x}
 {/$$}
-
+for {$$} x = 0,1 {/$$}
 
 ## Probability density functions
 
@@ -278,20 +276,24 @@ Specifically, to be a valid pdf, a function must satisfy
 
 Suppose that the proportion of help calls that get addressed in
 a random day by a help line is given by
+
 {$$}
 f(x) = \left\{\begin{array}{ll}
     2 x & \mbox{ for }& 0< x < 1 \\
     0                 & \mbox{ otherwise}
 \end{array} \right.
 {/$$}
+
 The R code for plotting this density is
-```r
- x <- c(-0.5, 0, 1, 1, 1.5)
+
+{line-numbers=off,lang=R}
+~~~~~~ x <- c(-0.5, 0, 1, 1, 1.5)
  y <- c(0, 0, 2, 0, 0)
  plot(x, y, lwd = 3,
 frame = FALSE, type = "l")
- ```
- An image of the density function is given below
+~~~~~~
+
+An image of the density function is given below
 
 ![Help call density](images/triangleDensity.png)
 
