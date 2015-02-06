@@ -275,18 +275,10 @@ Specifically, to be a valid pdf, a function must satisfy
 ### Example
 
 Suppose that the proportion of help calls that get addressed in
-a random day by a help line is given by
+a random day by a help line is given by {$$} f(x) = 2 x {/$$}
+for {$$}0< x < 1{/$$}. The R code for plotting this density is
 
-{$$}
-f(x) = \left\{\begin{array}{ll}
-    2 x & \mbox{ for }& 0< x < 1 \\
-    0                 & \mbox{ otherwise}
-\end{array} \right.
-{/$$}
-
-The R code for plotting this density is
-
-{line-numbers=off,lang=R}
+{line-numbers=off,lang=r}
 ~~~~~~ x <- c(-0.5, 0, 1, 1, 1.5)
  y <- c(0, 0, 2, 0, 0)
  plot(x, y, lwd = 3,
@@ -311,8 +303,6 @@ What is the probability that 75% or fewer of calls get addressed?
 
 <img src="figure/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2"
 alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
-
----
 
 ```r
  1.5 * 0.75/2
