@@ -293,7 +293,7 @@ frame = FALSE, type = "l")
  ```
  An image of the density function is given below
 
-[Help call density](images/triangleDensity.png)
+![Help call density](images/triangleDensity.png)
 
 
 Is this a mathematically valid density? To answer this
