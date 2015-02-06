@@ -142,6 +142,7 @@ mutually exclusive*. We'll have a similar rule for multiplying probabilities and
 independence.
 
 ## Random variables
+[Watch this video before reading this section](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Probability calculus is useful for understanding the rules that probabilities must follow. However, we need ways to model and think about probabilities for
 numeric outcomes of experiments (broadly defined).
@@ -254,7 +255,7 @@ of treating measurements as having been recorded to infinite
 decimal expansions, we need a different set of rules. This
 leads us to the central dogma of probability density functions:
 
-*Areas under pdfs correspond to probabilities for that random variable*
+*Areas under PDFs correspond to probabilities for that random variable*
 
 Therefore, when one says that intelligence quotients (IQ) in population follows a bell
 curve, they are saying that the probability of a randomly
