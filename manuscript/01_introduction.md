@@ -134,3 +134,6 @@ addressing missing data.
   1. The epidemiological literature is very focused on using study design to investigate public health.
   2. The classical development of study design in agriculture broadly covers design and design principles.
   3. The industrial quality control literature covers design thoroughly.
+
+
+## swirl

@@ -1,9 +1,8 @@
 # Probability
+[watch this video before beginning](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
-To get started on this lecture,
-[watch this video ](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ) before beginning the next XXX sections.
 
 Before we begin discussing probability, let's dispense with some deep philosphical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occuring without apparent deterministic paterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probabilitity for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
 
@@ -246,7 +245,10 @@ for {$$}x = 0,1 {/$$}
 
 ## Probability density functions
 
-A probability density function (pdf), is a function associated with a continuous random variable. Because of the peculiarities
+[Watch this video before beginning](http://youtu.be/mPe0Us4VYDM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+A probability density function (pdf), is a function associated with a continuous
+random variable. Because of the peculiarities
 of treating measurements as having been recorded to infinite
 decimal expansions, we need a different set of rules. This
 leads us to the central dogma of probability density functions:
@@ -300,24 +302,44 @@ is {$$}\frac{1}{2} \times 1 \times 2 = 1{/$$}
 
 Now consider answering the following question.
 What is the probability that 75% or fewer of calls get addressed?
+Remember, for continuous random variables, probabilities are represented
+by areas underneath the density function. So, we want the area from
+0.75 and below, as illustrated by the figure below.
 
 ![Help call density](images/triangleDensityArea.png)
 
+This again is a right triangle, with length of the base as 0.75
+and height 1.5. The R code below shows the calculation.
 
 {line-numbers=off,lang=r}
 ~~~~~~
 > 1.5 * 0.75/2
 
 [1] 0.5625
+~~~~~~
+
+Thus, the probability of 75% or fewer calls getting addressed in a random
+day for this help line is 56%. We'll do this a lot throughout this class
+and work with more useful densities. It should be noted that this specific
+density is a special case of the so called *beta* density. Below I show how
+to use R's built in evaluation function for the beta density to get the
+probability.
+
+{line-numbers=off,lang=r}
+~~~~~~
 
 > pbeta(0.75, 2, 1)
 
 [1] 0.5625
 ~~~~~~
 
+Notice the syntax `pbeta`. In R, a prefix of `p` returns probabilities,
+`d` returns the density, `q` returns the quantile and `r` returns generated
+random variables. (You'll learn what each of these does in subsequent sections.)
+
 ## CDF and survival function
 
-Certain areas are so useful, we give them names.
+Certain areas of PDFs and PMFs are so useful, we give them names.
 The **cumulative distribution function** (CDF) of a random variable, {$$}X{/$$},
 returns the probability that the random variable is less than or equal to the
 value {$$}x{/$$}. Notice the (slightly annoying) convention that we use an upper
@@ -355,15 +377,20 @@ S(x) = P(X > x)
 
 What are the survival function and CDF from the density considered before?
 
-For {$$}1 \geq x \geq 0{/$$}
-
 {$$}
-F(x) = P(X \leq x) = \frac{1}{2} Base \times Height = \frac{1}{2} (x) \times (2 x) = x^2
+F(x) = P(X \leq x) = \frac{1}{2} Base \times Height = \frac{1}{2} (x) \times (2 x) = x^2,
 {/$$}
 
+for {$$}1 \geq x \geq 0{/$$}. Notice that calculating the survival function
+is now trivial given that we've already calculated the distribution function.
+
 {$$}
- S(x) = 1 - x^2
+ S(x) = 1 = F(x) = 1 - x^2
 {/$$}
+
+Again, R has a function that calculates the distribution function for us
+in this case, `pbeta`. Let's try calculating {$$}F(.4){/$$}, {$$}F(.5){/$$}
+and {$$}F(.6){/$$}
 
 {line-numbers=off,lang=r}
 ~~~~~~
@@ -372,39 +399,47 @@ F(x) = P(X \leq x) = \frac{1}{2} Base \times Height = \frac{1}{2} (x) \times (2 
 [1] 0.16 0.25 0.36
  ~~~~~~
 
+Notice, of course, these are simply the numbers squared. By default the prefix
+`p` in front of a density in R gives the distribution function (`pbeta`, `pnorm`,
+  `pgamma`). If you want the survival function values, you could always subtract
+  by one, or give the argument `lower.tail = FALSE` as an argument to the function,
+  which asks R to calculate the upper area instead of the lower.
+
 ## Quantiles
 
 You've heard of sample quantiles. If you were the 95th percentile on an exam, you know
 that 95% of people scored worse than you and 5% scored better.
-These are sample quantities. Here we define their population analogs.
-
-You've heard of sample quantiles. If you were the 95th percentile on an exam,
-you know
- that 95% of people scored worse than you and 5% scored better.
- These
-are sample quantities. Here we define their population analogs.
-
-The  $\alpha^{th}$ **quantile** of a distribution with distribution function $F$
-is the point $x_\alpha$ so that
- $$
- F(x_\alpha) = \alpha
- $$
- - A
-**percentile** is simply a quantile with $\alpha$ expressed as a percent
- - The
-**median** is the $50^{th}$ percentile
+These are sample quantities. But you might have wondered, what are my sample
+quantiles estimating? In fact, they are estimating the population quantiles.
+Here we define these population analogs.  
 
 
-The $95^{th}$ percentile of a distribution is the point so that:
- - the
-probability that a random variable drawn from the population is less is 95%
- -
-the probability that a random variable drawn from the population is more is 5%
+The  {$$}\alpha^{th}{/$$} **quantile** of a distribution
+with distribution function {$$}F{/$$} is the point {$$}x_\alpha{/$$} so that
 
-## Example
+{$$}
+F(x_\alpha) = \alpha
+{/$$}
+
+So the 0.95 quantile of a distribution is the point so that 95% of the mass
+of the density lies below it. Or, in other words, the point so that the
+probability of getting a randomly sampled point below it is 0.95. This is
+analogous to the sample
+quantiles where the 0.95 sample quantile is the value so that 95% of the data
+lies below it.
+
+ A **percentile** is simply a quantile with {$$}\alpha{/$$} expressed as a percent
+ rather than a proportion.  The (population)
+**median** is the {$$}50^{th}{/$$} percentile. Remember that percentiles
+are not probabilities! Remember that quantiles have units. So the population
+median height is the height (in inches say) so that the probability that a randomly selected
+person from the population is shorter is 50%. The sample, or empirical,
+median would be the height so in a sample so that 50% of the people in the
+sample were shorter.
+
+### Example
 What is the median of the distribution that we were working with before?
-- We want to solve $0.5 = F(x) = x^2$
-- Resulting in the solution
+We want to solve {$$}0.5 = F(x) = x^2{/$$}, resulting in the solution
 
 {line-numbers=off,lang=r}
 ~~~~~~
@@ -413,9 +448,11 @@ What is the median of the distribution that we were working with before?
 [1] 0.7071
 ~~~~~~
 
-Therefore, about 0.7071 of calls being answered on a random day is the median.
+Therefore, 0.7071 of calls being answered on a random day is the median.
+Or, the probability that 70% or fewer calls get answered is 50%.
 
-R can approximate quantiles for you for common distributions
+R can approximate quantiles for you for common distributions with the
+prefix `q` in front of the distribution name
 
 {line-numbers=off,lang=r}
 ~~~~~~
@@ -424,15 +461,4 @@ R can approximate quantiles for you for common distributions
 [1] 0.7071
 ~~~~~~
 
-## Summary
-
-- You might be wondering at this point "I've heard of a median before, it didn't
-- require integration. Where's the data?"
- We're referring to are **population
-- quantities**. Therefore, the median being
-   discussed is the **population
-- median**.
- A probability model connects the data to the population using
-- assumptions.
- Therefore the median we're discussing is the **estimand**, the
-- sample median will be the **estimator**
+## Exercises
