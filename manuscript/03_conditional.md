@@ -103,17 +103,25 @@ that the subject actually has the disease, {$$}P(+ ~|~ D){/$$}
 The **specificity** is the probability that the test is negative given that
 the subject does not have the disease, {$$}P(- ~|~ D^c){/$$}
 
----
+So, conceptually at least, the sensitivity and specificity are straightforward
+to estimate. Take people known to have and not have the disease and apply the
+diagnostic test to them. However, the reality of estimating these quantities
+is quite challenging. For example, are the people known to have the disease
+in its later stages, while the diagnostic will be used on people in the early
+stages where it's harder to detect? Let's put these subtleties to the side
+and assume that they are known well.
 
-## More definitions
+The quantities that we'd like to know are the predictive values.
 
-- The **positive predictive value** is the probability that the subject has the  disease given that the test is positive, $P(D ~|~ +)$
-- The **negative predictive value** is the probability that the subject does not have the disease given that the test is negative, $P(D^c ~|~ -)$
-- The **prevalence of the disease** is the marginal probability of disease, $P(D)$
+The **positive predictive value** is the probability that the subject has the  disease given that the test is positive, {$$}P(D ~|~ +){/$$}
 
----
+The **negative predictive value** is the probability that the subject does not have the disease given that the test is negative, {$$}P(D^c ~|~ -){/$$}
 
-## More definitions
+Finally, we need one last thing, the **prevalence of the disease** -
+which is the marginal probability of disease, {$$}P(D){/$$}
+
+
+## Diagnostic Likelihood Ratios
 
 - The **diagnostic likelihood ratio of a positive test**, labeled $DLR_+$, is $P(+ ~|~ D) / P(+ ~|~ D^c)$, which is the $$sensitivity / (1 - specificity)$$
 - The **diagnostic likelihood ratio of a negative test**, labeled $DLR_-$, is $P(- ~|~ D) / P(- ~|~ D^c)$, which is the $$(1 - sensitivity) / specificity$$
