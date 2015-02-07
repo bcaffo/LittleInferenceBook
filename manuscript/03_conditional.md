@@ -29,31 +29,33 @@ that {$$}B{/$$} has occurred is:
 P(A ~|~ B) = \frac{P(A \cap B)}{P(B)}.
 {/$$}
 
-If {$$}A{/$$} and {$$}B{/$$} are *independent* (formally
-defined later in the lecture), then
+If {$$}A{/$$} and {$$}B{/$$} are unrelated in any way, or in other words
+*independent*, (disccussed more later in the lecture), then
 
 {$$}
 P(A ~|~ B) = \frac{P(A) P(B)}{P(B)} = P(A)
 {/$$}
 
-
-## Example
-
-- Consider our die roll example
-- $B = \{1, 3, 5\}$
-- $A = \{1\}$
-$$
-  \begin{eqnarray*}
-P(\mbox{one given that roll is odd})  & = & P(A ~|~ B) \\ \\
-  & = & \frac{P(A \cap B)}{P(B)} \\ \\
-  & = & \frac{P(A)}{P(B)} \\ \\
-  & = & \frac{1/6}{3/6} = \frac{1}{3}
-  \end{eqnarray*}
-$$
+That is, if the occurrence of {$$}B{/$$} offers no information about the
+occurrence of {$$}A{/$$} - the probability conditional on the information
+is the same as the probability without the information, we say that the
+two events are independent.
 
 
+### Example
 
----
+Consider our die roll example again. Here we have that
+{$$}B = \{1, 3, 5\}{/$$} and  {$$}A = \{1\}{/$$}
+
+{$$}
+P(\mbox{one given that roll is odd}) = P(A ~|~ B)
+= \frac{P(A \cap B)}{P(B)}
+= \frac{P(A)}{P(B)}
+= \frac{1/6}{3/6} = \frac{1}{3}
+{/$$}
+
+Which exactly mirrors our intuition.
+
 
 ## Bayes' rule
 Baye's rule allows us to reverse the conditioning set provided
