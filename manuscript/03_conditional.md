@@ -1,3 +1,5 @@
+# Conditional probability
+
 ## Conditional probability, motivation
 [Watch this video before beginning](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
