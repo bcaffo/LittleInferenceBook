@@ -1,4 +1,6 @@
 ## Conditional probability, motivation
+[Watch this video before beginning](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 Conditioning a central subject in statistics.
 If we are given information about a random variable, it changes
 the probabilities associated with it. For example,
@@ -58,21 +60,46 @@ Which exactly mirrors our intuition.
 
 
 ## Bayes' rule
+[Watch this video before beginning](http://youtu.be/TfeaZ_26iQk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+Baye's rule is a famous result in statistics and probability. It forms
+the foundation for large branches of statistical thinking.
 Baye's rule allows us to reverse the conditioning set provided
-that we know some marginal probabilities
+that we know some marginal probabilities.
+
+Why is this useful? Consider our lung cancer example again. It would be
+relatively easy for physicians to calculate the probability that the
+diagnostic method is positive for people with lung cancer and negative for
+people without. They could take several people who are already known to
+have the disease and apply the test and conversely take people known not
+to have the disease. However, for the collection of people with a positive
+test result, the reverse probability is more of interest, "given a positive
+test what is the probability of having the disease?", and "given a given
+a negative test what is the probability of not having the disease?".
+
+Baye's rule allows us to switch the conditioning event, provided a little
+bit of extra information. Formally Baye's rule is:
+
 $$
 P(B ~|~ A) = \frac{P(A ~|~ B) P(B)}{P(A ~|~ B) P(B) + P(A ~|~ B^c)P(B^c)}.
 $$
 
+### Diagnostic tests
+Since diagnostic tests are a really good example of Baye's rule in practice,
+let's go over them in greater detail. (In addition, understanding Baye's rule
+will be helpful for your own ability to understand medical tests that you
+see in your daily life). We require a few definitions first.
 
----
+Let {$$}+{/$$} and {$$}-{/$$} be the events that the result of a
+diagnostic test is positive or negative respectively
+Let {$$}D{/$$} and {$$}D^c{/$$} be the event that the subject of the
+test has or does not have the disease respectively
 
-## Diagnostic tests
+The **sensitivity** is the probability that the test is positive given
+that the subject actually has the disease, {$$}P(+ ~|~ D){/$$}
 
-- Let $+$ and $-$ be the events that the result of a diagnostic test is positive or negative respectively
-- Let $D$ and $D^c$ be the event that the subject of the test has or does not have the disease respectively
-- The **sensitivity** is the probability that the test is positive given that the subject actually has the disease, $P(+ ~|~ D)$
-- The **specificity** is the probability that the test is negative given that the subject does not have the disease, $P(- ~|~ D^c)$
+The **specificity** is the probability that the test is negative given that
+the subject does not have the disease, {$$}P(- ~|~ D^c){/$$}
 
 ---
 
@@ -171,6 +198,7 @@ $$
 ---
 
 ## Independence
+[Watch this video before beginning](http://youtu.be/MY1EfrR1ZUs?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 - Two events $A$ and $B$ are **independent** if $$P(A \cap B) = P(A)P(B)$$
 - Equivalently if $P(A ~|~ B) = P(A)$
