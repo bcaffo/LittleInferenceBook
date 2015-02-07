@@ -278,10 +278,9 @@ for {$$}0< x < 1{/$$}. The R code for plotting this density is
 
 {line-numbers=off,lang=r}
 ~~~~~~
-x <- c(-0.5, 0, 1, 1, 1.5)
-y <- c(0, 0, 2, 0, 0)
-plot(x, y, lwd = 3,
-frame = FALSE, type = "l")
+> x <- c(-0.5, 0, 1, 1, 1.5)
+> y <- c(0, 0, 2, 0, 0)
+> plot(x, y, lwd = 3,frame = FALSE, type = "l")
 ~~~~~~
 
 An image of the density function is given below
@@ -291,83 +290,87 @@ An image of the density function is given below
 
 Is this a mathematically valid density? To answer this
 we need to make sure it satisfies our two conditions.
-First it's clearly nonnegative. The area is similarly
+First it's clearly nonnegative (it's at or above
+the horizontal axis everywhere). The area is similarly
 easy. Being a right triangle in the only section of the
 density that is above zero, we can calculate it as
 1/2 the area of the base times the height. This
 is {$$}\frac{1}{2} \times 1 \times 2 = 1{/$$}
 
 
+Now consider answering the following question.
 What is the probability that 75% or fewer of calls get addressed?
 
-<img src="figure/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2"
-alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+![Help call density](images/triangleDensityArea.png)
 
-```r
- 1.5 * 0.75/2
- ```
 
-```
- ## [1] 0.5625
- ```
+{line-numbers=off,lang=r}
+~~~~~~
+> 1.5 * 0.75/2
 
-```r
- pbeta(0.75, 2, 1)
- ```
+[1] 0.5625
 
-```
- ## [1] 0.5625
- ```
+> pbeta(0.75, 2, 1)
 
----
+[1] 0.5625
+~~~~~~
 
 ## CDF and survival function
- ### Certain areas are so useful, we give them
-## names
 
-- The **cumulative distribution function** (CDF) of a random variable, $X$,
-- returns the probability that the random variable is less than or equal to the
-- value $x$
- $$
- F(x) = P(X \leq x)
- $$
- (This definition applies regardless of
-- whether $X$ is discrete or continuous.)
- The **survival function** of a random
-- variable $X$ is defined as the probability
- that the random variable is
-- greater than the value $x$
- $$
- S(x) = P(X > x)
- $$
- Notice that $S(x) = 1 -
-- F(x)$
+Certain areas are so useful, we give them names.
+The **cumulative distribution function** (CDF) of a random variable, {$$}X{/$$},
+returns the probability that the random variable is less than or equal to the
+value {$$}x{/$$}. Notice the (slightly annoying) convention that we use an upper
+case {$$}X{/$$} to denote a random, unrealized, version of the random variable
+and a lowercase {$$}x{/$$} to denote a specific number that we plug into.
+(This notation, as odd as it may seem, dates back to Fisher and isn't going
+anywhere, so you might as well get used to it. Uppercase for unrealized random
+variables and lowercase as placeholders for numbers to plug into.) So we
+could write the following to describe the distribution function
+{$$}F{/$$}:
 
----
 
-## Example
+{$$}
+F(x) = P(X \leq x)
+{/$$}
+
+This definition applies regardless of  
+whether the random variable is discrete or continuous. The **survival function**
+of a random variable $X$ is defined as the
+probability that the random variable is greater than the value {$$}x{/$$}.
+
+{$$}
+S(x) = P(X > x)
+{/$$}
+
+ Notice that {$$}S(x) = 1 - F(x){/$$}, since the survival function evaluated
+ at a particular value of {$$}x{/$$} is calculating the probability of the
+ opposite event (greater than as opposed to less than or equal to). The
+ survival function is often preferred in biostatistical applications while
+ the  distribution function is more generally used (though both convey the
+ same  information.)
+
+
+### Example
 
 What are the survival function and CDF from the density considered before?
 
-For $1 \geq x \geq 0$
- $$
- F(x) = P(X \leq x) = \frac{1}{2} Base \times Height =
-\frac{1}{2} (x) \times (2 x) = x^2
- $$
+For {$$}1 \geq x \geq 0{/$$}
 
-$$
+{$$}
+F(x) = P(X \leq x) = \frac{1}{2} Base \times Height = \frac{1}{2} (x) \times (2 x) = x^2
+{/$$}
+
+{$$}
  S(x) = 1 - x^2
- $$
+{/$$}
 
-```r
- pbeta(c(0.4, 0.5, 0.6), 2, 1)
- ```
+{line-numbers=off,lang=r}
+~~~~~~
+> pbeta(c(0.4, 0.5, 0.6), 2, 1)
 
-```
- ## [1] 0.16 0.25 0.36
- ```
-
----
+[1] 0.16 0.25 0.36
+ ~~~~~~
 
 ## Quantiles
 
@@ -380,11 +383,6 @@ you know
  that 95% of people scored worse than you and 5% scored better.
  These
 are sample quantities. Here we define their population analogs.
->>>>>>> 0692b03a47e8f6369ad116fcab70b0b1de324be5
-
----
----
- ## Definition
 
 The  $\alpha^{th}$ **quantile** of a distribution with distribution function $F$
 is the point $x_\alpha$ so that
@@ -396,9 +394,6 @@ is the point $x_\alpha$ so that
  - The
 **median** is the $50^{th}$ percentile
 
----
----
- ## For example
 
 The $95^{th}$ percentile of a distribution is the point so that:
  - the
@@ -406,49 +401,28 @@ probability that a random variable drawn from the population is less is 95%
  -
 the probability that a random variable drawn from the population is more is 5%
 
----
-<<<<<<< HEAD
 ## Example
 What is the median of the distribution that we were working with before?
 - We want to solve $0.5 = F(x) = x^2$
 - Resulting in the solution
-=======
----
- ## Example
- What is the median of the distribution that we were
----
-working with before?
- - We want to solve $0.5 = F(x) = x^2$
- - Resulting in
----
-the solution
 
-```r
- sqrt(0.5)
- ```
+{line-numbers=off,lang=r}
+~~~~~~
+> sqrt(0.5)
 
-```
- ## [1] 0.7071
- ```
+[1] 0.7071
+~~~~~~
 
-- Therefore, about 0.7071 of calls being answered on a random day is the median.
+Therefore, about 0.7071 of calls being answered on a random day is the median.
 
----
----
- ## Example continued
- R can approximate quantiles for you for common
----
-distributions
+R can approximate quantiles for you for common distributions
 
-```r
- qbeta(0.5, 2, 1)
- ```
+{line-numbers=off,lang=r}
+~~~~~~
+> qbeta(0.5, 2, 1)
 
-```
- ## [1] 0.7071
- ```
-
----
+[1] 0.7071
+~~~~~~
 
 ## Summary
 
