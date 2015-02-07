@@ -1,2 +1,3 @@
 preface.md
 02_probability.md
+03_conditional.md
