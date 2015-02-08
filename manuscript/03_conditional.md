@@ -247,11 +247,12 @@ probabilities.
 Let's cover a very simple example:
 "What is the probability of getting two consecutive heads?". Then we have:
 
-{$$}A = {/$$} Head on flip 1  {$$}P(A) = .5{/$$}
+{$$}A{/$$} is the event of getting a head on flip 1 {$$}P(A) = .5{/$$}
+{$$}B = {$$} is the event of getting a head on flip 2 {$$}P(B) = .5{/$$}
+{$$}A \cap B = {/$$} is the event of getting heads on flips 1 and 2. Then
+independence would tell us that:
 
-{$$}B = {$$} Head on flip 2 {$$}P(B) = .5{/$$}
-
-{$$}A \cap B = {/$$} Head on flips 1 and 2 {$$}P(A \cap B) = P(A)P(B) = .5 \times .5 = .25{/$$}
+{$$}P(A \cap B) = P(A)P(B) = 0.5 \times 0.5 = 0.25{/$$}
 
 This is exactly what we would have intuited of course. But, it's nice that
 the mathematics mirrors our intuition. In more complex settings, it's easy
