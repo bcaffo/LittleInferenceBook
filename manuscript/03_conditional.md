@@ -118,110 +118,131 @@ The **positive predictive value** is the probability that the subject has the  d
 The **negative predictive value** is the probability that the subject does not have the disease given that the test is negative, {$$}P(D^c ~|~ -){/$$}
 
 Finally, we need one last thing, the **prevalence of the disease** -
-which is the marginal probability of disease, {$$}P(D){/$$}
+which is the marginal probability of disease, {$$}P(D){/$$}. Let's now
+try to figure out a PPV in a specific setting.
 
+### Example
 
-## Diagnostic Likelihood Ratios
+A study comparing the efficacy of HIV tests, reports on an experiment which
+concluded that HIV antibody tests have a sensitivity of 99.7% and a specificity of 98.5%
+Suppose that a subject, from a population with a .1% prevalence of HIV, receives a positive test result. What is the positive predictive value?
 
-- The **diagnostic likelihood ratio of a positive test**, labeled $DLR_+$, is $P(+ ~|~ D) / P(+ ~|~ D^c)$, which is the $$sensitivity / (1 - specificity)$$
-- The **diagnostic likelihood ratio of a negative test**, labeled $DLR_-$, is $P(- ~|~ D) / P(- ~|~ D^c)$, which is the $$(1 - sensitivity) / specificity$$
+Mathematically, we want $P(D ~|~ +)$ given the sensitivity, $P(+ ~|~ D) = .997$,
+the specificity, {$$}P(- ~|~ D^c) =.985{/$$} and the prevalence
+{$$}P(D) = .001{/$$}.
 
----
-
-## Example
-
-- A study comparing the efficacy of HIV tests, reports on an experiment which concluded that HIV antibody tests have a sensitivity of 99.7% and a specificity of 98.5%
-- Suppose that a subject, from a population with a .1% prevalence of HIV, receives a positive test result. What is the positive predictive value?
-- Mathematically, we want $P(D ~|~ +)$ given the sensitivity, $P(+ ~|~ D) = .997$, the specificity, $P(- ~|~ D^c) =.985$, and the prevalence $P(D) = .001$
-
----
-
-## Using Bayes' formula
-
-$$
+{$$}
 \begin{eqnarray*}
-  P(D ~|~ +) & = &\frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}\\ \\
- & = & \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + \{1-P(-~|~D^c)\}\{1 - P(D)\}} \\ \\
- & = & \frac{.997\times .001}{.997 \times .001 + .015 \times .999}\\ \\
+P(D ~|~ +) & = &\frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}\\
+ & = & \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + \{1-P(-~|~D^c)\}\{1 - P(D)\}} \\
+ & = & \frac{.997\times .001}{.997 \times .001 + .015 \times .999}\\
  & = & .062
 \end{eqnarray*}
-$$
+{/$$}
 
-- In this population a positive test result only suggests a 6% probability that the subject has the disease
-- (The positive predictive value is 6% for this test)
+In this population a positive test result only suggests a 6% probability that
+the subject has the disease, (the positive predictive value is 6% for this test).
+If you were wondering how it could be so low for this test, the low positive
+predictive value is due to low prevalence of disease and the somewhat modest specificity
 
----
+Suppose it was known that the subject was an intravenous drug user and routinely had intercourse with an HIV infected partner? Our prevalence would change dramatically, thus
+increasing the PPV. You might wonder if there's a way to summarize the
+evidence without appealing to an often unknowable prevalence? Diagnostic
+likelihood ratios provide this for us.
 
-## More on this example
+## Diagnostic Likelihood Ratios
+The diagnostic likelihood ratios summarize the evidence of disease given a
+positive or negative test. They are defined as:
 
-- The low positive predictive value is due to low prevalence of disease and the somewhat modest specificity
-- Suppose it was known that the subject was an intravenous drug user and routinely had intercourse with an HIV infected partner
-- Notice that the evidence implied by a positive test result does not change because of the prevalence of disease in the subject's population, only our interpretation of that evidence changes
 
----
+The **diagnostic likelihood ratio of a positive test**, labeled {$$}DLR_+{/$$},
+is {$$}P(+ ~|~ D) / P(+ ~|~ D^c){/$$}, which is the
+{$$}sensitivity / (1 - specificity){/$$}.
 
-## Likelihood ratios
+The **diagnostic likelihood ratio of a negative test**, labeled {$$}DLR_-{/$$},
+is {$$}P(- ~|~ D) / P(- ~|~ D^c){/$$}, which is the
+{$$}(1 - sensitivity) / specificity{/$$}.
 
-- Using Bayes rule, we have
-  $$
-  P(D ~|~ +) = \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}
-  $$
-  and
-  $$
-  P(D^c ~|~ +) = \frac{P(+~|~D^c)P(D^c)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}.
-  $$
+How do we interpret the DLRs? This is easiest when looking at so called
+**odds ratios**. Remember that if {$$}p{/$$} is a probability, then
+{$$}p / (1 - p){/$$} is the odds. Consider now the odds in our setting:
 
----
+Using Bayes rule, we have
 
-## Likelihood ratios
+{$$}  
+P(D ~|~ +) = \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}
+{/$$}
 
-- Therefore
-$$
+and
+
+{$$}
+P(D^c ~|~ +) = \frac{P(+~|~D^c)P(D^c)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}.
+{/$$}
+
+Therefore, dividing these two equations we have:
+
+{$$}
 \frac{P(D ~|~ +)}{P(D^c ~|~ +)} = \frac{P(+~|~D)}{P(+~|~D^c)}\times \frac{P(D)}{P(D^c)}
-$$
-ie
-$$
-\mbox{post-test odds of }D = DLR_+\times\mbox{pre-test odds of }D
-$$
-- Similarly, $DLR_-$ relates the decrease in the odds of the
-  disease after a negative test result to the odds of disease prior to
-  the test.
+{/$$}
 
----
+In other words, the post test odds of disease is the pretest odds of disease
+times the {$$}DLR_+{/$$}. Similarly, $DLR_-$ relates the decrease in the odds
+of the disease after a negative test result to the odds of disease prior to
+the test.
 
-## HIV example revisited
+So, the DLRs are the factor by which you multiply your pre test odds to get
+your post test odds. Thus, if a test has a {$$}DLR_+{/$$} of 6, regardless
+of the prevalence of disease, the post test odds is six times that of the
+pretest odds.
 
-- Suppose a subject has a positive HIV test
-- $DLR_+ = .997 / (1 - .985) \approx 66$
-- The result of the positive test is that the odds of disease is now 66 times the pretest odds
-- Or, equivalently, the hypothesis of disease is 66 times more supported by the data than the hypothesis of no disease
 
----
+### HIV example revisited
 
-## HIV example revisited
+Let's reconsider our HIV antibody test again.  
+Suppose a subject has a positive HIV test
 
-- Suppose that a subject has a negative test result
-- $DLR_- = (1 - .997) / .985  \approx .003$
-- Therefore, the post-test odds of disease is now $.3\%$ of the pretest odds given the negative test.
-- Or, the hypothesis of disease is supported $.003$ times that of the hypothesis of absence of disease given the negative test result
+{$$}DLR_+ = .997 / (1 - .985) \approx 66{/$$}
 
----
+The result of the positive test is that the odds of disease is now 66 times
+the pretest odds. Or, equivalently, the hypothesis of disease is 66 times
+more supported by the data than the hypothesis of no disease
+
+Suppose instead that a subject has a negative test result
+
+{$$}DLR_- = (1 - .997) / .985  \approx .003{/$$}
+
+Therefore, the post-test odds of disease is now 0.3% of the pretest odds given
+the negative test. Or, the hypothesis of disease is supported {$$}.003{/$$}
+times that of the hypothesis of absence of disease given the negative test result
+
 
 ## Independence
 [Watch this video before beginning](http://youtu.be/MY1EfrR1ZUs?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-- Two events $A$ and $B$ are **independent** if $$P(A \cap B) = P(A)P(B)$$
-- Equivalently if $P(A ~|~ B) = P(A)$
-- Two random variables, $X$ and $Y$ are independent if for any two sets $A$ and $B$ $$P([X \in A] \cap [Y \in B]) = P(X\in A)P(Y\in B)$$
-- If $A$ is independent of $B$ then
-  - $A^c$ is independent of $B$
-  - $A$ is independent of $B^c$
-  - $A^c$ is independent of $B^c$
+Statistical independence of events is the idea that the events are unrelated.
+Consider successive coin flips. Knowledge of the result of the first coin flip
+tells us nothing about the second. We can formalize this into a definition.
 
+Two events {$$}A{/$$} and {$$}B{/$$} are **independent** if
 
----
+{$$}P(A \cap B) = P(A)P(B){/$$}
 
-## Example
+Equivalently if {$$}P(A ~|~ B) = P(A){/$$}. Note that since {$$}A{/$$} is
+independent of {$$}B{/$$} we know that A^c$ is independent of {$$}B{/$$}
+{$$}A{/$$} is independent of {$$}B^c{/$$}
+{$$}A^c{/$$} is independent of {$$}B^c{/$$}.
+
+While this definition works for sets, remember that random variables are really the things
+that we are interested in. Two random variables, {$$}X{/$$} and {$$}Y{/$$} are independent
+if for any two sets
+{$$}A{/$$} and {$$}B{/$$} {$$}P([X \in A] \cap [Y \in B]) = P(X\in A)P(Y\in B){/$$}
+
+We will almost never work with these definitions. Instead, the important
+principle is that probabilities of independent things multiply! This has
+numerous consequences, including the idea that we shouldn't multiply non-independent
+probablities.
+
+### Example
 
 - What is the probability of getting two consecutive heads?
 - $A = \{\mbox{Head on flip 1}\}$ ~ $P(A) = .5$
@@ -229,17 +250,11 @@ $$
 - $A \cap B = \{\mbox{Head on flips 1 and 2}\}$
 - $P(A \cap B) = P(A)P(B) = .5 \times .5 = .25$
 
----
-
-## Example
+### Example
 
 - Volume 309 of Science reports on a physician who was on trial for expert testimony in a criminal trial
 - Based on an estimated prevalence of sudden infant death syndrome of $1$ out of $8,543$, the physician testified that that the probability of a mother having two children with SIDS was $\left(\frac{1}{8,543}\right)^2$
 - The mother on trial was convicted of murder
-
----
-
-## Example: continued
 
 - Relevant to this discussion, the principal mistake was to *assume* that the events of having SIDs within a family are independent
 - That is, $P(A_1 \cap A_2)$ is not necessarily equal to $P(A_1)P(A_2)$
@@ -247,7 +262,6 @@ $$
 - (There are many other statistical points of discussion for this case.)
 
 
----
 ## IID random variables
 
 - Random variables are said to be iid if they are independent and identically distributed
