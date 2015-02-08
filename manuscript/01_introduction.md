@@ -1,5 +1,27 @@
 #Introduction
 
+## Before beginning
+This book is designed as a companion to the [Statistical Inference](https://www.coursera.org/course/statinference)
+Coursera class as part of the [Data Science Specialization](https://www.coursera.org/specialization/jhudatascience/1?utm_medium=courseDescripTop), a
+ten course program offered by three faculty, Jeff Leek, Roger Peng and Brian Caffo,
+at the Johns Hopkins University Department of Biostatistics.
+
+The videos associated with this book
+[can be watched in full here](https://www.youtube.com/watch?v=WkOinijQmPU&list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ),
+though the relevant links to specific videos are placed at the appropriate
+locations throughout the book.
+
+Before beginning this book, we assume that you have a working knowledge
+of the R programming language. If not, there is a wonderful Coursera class
+by Roger Peng, [that can be found here](https://www.coursera.org/course/rprog).
+
+Finally, we should mention `swirl` (statistics with interactive R programming).
+`swirl` is an intelligent tutoring system developed by Nich Carchedi, with contributions
+by Sean Kross and Bill and Gina Croft. It offers a way to learn R in R.
+Download `swirl` [here](http://swirlstats.com). There's a swirl
+[module for this course!](https://github.com/swirldev/swirl_courses#swirl-courses).
+Try it out, it's probably the most effective way to learn.
+
 ## Statistical inference defined
 
 Statistical inference is the process of drawing formal conclusions from
