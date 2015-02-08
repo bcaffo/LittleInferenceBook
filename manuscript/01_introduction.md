@@ -9,11 +9,14 @@ at the Johns Hopkins University Department of Biostatistics.
 The videos associated with this book
 [can be watched in full here](https://www.youtube.com/watch?v=WkOinijQmPU&list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ),
 though the relevant links to specific videos are placed at the appropriate
-locations throughout the book.
+locations throughout.
 
-Before beginning this book, we assume that you have a working knowledge
+Before beginning, we assume that you have a working knowledge
 of the R programming language. If not, there is a wonderful Coursera class
 by Roger Peng, [that can be found here](https://www.coursera.org/course/rprog).
+
+The entirety of the book is on github [here](https://github.com/bcaffo/LittleInferenceBook).
+Please submit pull requests if you find errata!
 
 Finally, we should mention `swirl` (statistics with interactive R programming).
 `swirl` is an intelligent tutoring system developed by Nich Carchedi, with contributions
@@ -157,6 +160,3 @@ addressing missing data.
   1. The epidemiological literature is very focused on using study design to investigate public health.
   2. The classical development of study design in agriculture broadly covers design and design principles.
   3. The industrial quality control literature covers design thoroughly.
-
-
-## swirl
