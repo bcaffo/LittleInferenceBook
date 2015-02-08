@@ -241,3 +241,20 @@ We will almost never work with these definitions. Instead, the important
 principle is that probabilities of independent things multiply! This has
 numerous consequences, including the idea that we shouldn't multiply non-independent
 probabilities.
+
+### Example
+
+Let's cover a very simple example:
+"What is the probability of getting two consecutive heads?". Then we have:
+
+{$$}A{/$$} is the event of getting a head on flip 1 {$$}P(A) = 0.5{/$$}
+{$$}B{$$} is the event of getting a head on flip 2 {$$}P(B) = 0.5{/$$}
+{$$}A \cap B{/$$} is the event of getting heads on flips 1 and 2. Then
+independence would tell us that:
+
+{$$}P(A \cap B) = P(A)P(B) = 0.5 \times 0.5 = 0.25{/$$}
+
+This is exactly what we would have intuited of course. But, it's nice that
+the mathematics mirrors our intuition. In more complex settings, it's easy
+to get tripped up. Consider the following famous (among statisticians at least)
+case study.
