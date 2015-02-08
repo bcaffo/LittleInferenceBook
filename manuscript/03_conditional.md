@@ -82,9 +82,9 @@ a negative test what is the probability of not having the disease?".
 Baye's rule allows us to switch the conditioning event, provided a little
 bit of extra information. Formally Baye's rule is:
 
-$$
+{$$}
 P(B ~|~ A) = \frac{P(A ~|~ B) P(B)}{P(A ~|~ B) P(B) + P(A ~|~ B^c)P(B^c)}.
-$$
+{/$$}
 
 ### Diagnostic tests
 Since diagnostic tests are a really good example of Baye's rule in practice,
@@ -190,7 +190,7 @@ times the {$$}DLR_+{/$$}. Similarly, $DLR_-$ relates the decrease in the odds
 of the disease after a negative test result to the odds of disease prior to
 the test.
 
-So, the DLRs are the factor by which you multiply your pre test odds to get
+So, the DLRs are the factors by which you multiply your pre test odds to get
 your post test odds. Thus, if a test has a {$$}DLR_+{/$$} of 6, regardless
 of the prevalence of disease, the post test odds is six times that of the
 pretest odds.
@@ -240,33 +240,72 @@ if for any two sets
 We will almost never work with these definitions. Instead, the important
 principle is that probabilities of independent things multiply! This has
 numerous consequences, including the idea that we shouldn't multiply non-independent
-probablities.
+probabilities.
 
 ### Example
 
-- What is the probability of getting two consecutive heads?
-- $A = \{\mbox{Head on flip 1}\}$ ~ $P(A) = .5$
-- $B = \{\mbox{Head on flip 2}\}$ ~ $P(B) = .5$
-- $A \cap B = \{\mbox{Head on flips 1 and 2}\}$
-- $P(A \cap B) = P(A)P(B) = .5 \times .5 = .25$
+Let's cover a very simple example:
+"What is the probability of getting two consecutive heads?". Then we have:
 
-### Example
+{$$}A = \{\mbox{Head on flip 1}\} ~~ P(A) = .5{/$$}
 
-- Volume 309 of Science reports on a physician who was on trial for expert testimony in a criminal trial
-- Based on an estimated prevalence of sudden infant death syndrome of $1$ out of $8,543$, the physician testified that that the probability of a mother having two children with SIDS was $\left(\frac{1}{8,543}\right)^2$
-- The mother on trial was convicted of murder
+{$$}B = \{\mbox{Head on flip 2}\}$ ~ $P(B) = .5{/$$}
 
-- Relevant to this discussion, the principal mistake was to *assume* that the events of having SIDs within a family are independent
-- That is, $P(A_1 \cap A_2)$ is not necessarily equal to $P(A_1)P(A_2)$
-- Biological processes that have a believed genetic or familiar environmental component, of course, tend to be dependent within families
-- (There are many other statistical points of discussion for this case.)
+{$$}A \cap B = \{\mbox{Head on flips 1 and 2}\}{/$$}
+
+{$$}P(A \cap B) = P(A)P(B) = .5 \times .5 = .25{/$$}
+
+This is exactly what we would have intuited of course. But, it's nice that
+the mathematics mirrors our intuition. In more complex settings, it's easy
+to get tripped up. Consider the following famous (among statisticians at least)
+case study.
+
+### Case Study
+
+Volume 309 of Science reports on a physician who was on trial for expert
+testimony in a criminal trial. Based on an estimated prevalence of sudden
+infant death syndrome (SIDS) of 1 out of 8,543, a physician testified that that
+the probability of a mother having two children with SIDS was
+{$$}\left(\frac{1}{8,543}\right)^2{/$$}. The mother on trial was convicted
+of murder.
+
+Relevant to this discussion, the principal mistake was to *assume* that the
+events of having SIDs within a family are independent. That is,
+{$$}P(A_1 \cap A_2){/$$} is not necessarily equal to {$$}P(A_1)P(A_2){/$$}.
+This is because biological processes that have a believed genetic or familiar
+environmental component, of course, tend to be dependent within families.
+Thus, we can't just multiply the probabilities to obtain the result.
+
+There are many other interesting aspects to the case. For example, the idea of
+a low probability of an event representing evidence against a plaintiff. (Could
+we convict all lottery winners of fixing the lotter since the chance that they
+would win is so small.)
 
 
 ## IID random variables
+Now that we've introduced random variables and independence, we can introduce
+a central modeling assumption made in statistics. Specifically the idea of a
+random sample. Random variables are said to be independent and
+identically distributed (*iid*) if they are independent and all are drawn from
+the same  population. The reason iid samples are so important is that they are
+are model for random samples. This is a default starting point for most
+statistical inferences.
 
-- Random variables are said to be iid if they are independent and identically distributed
-  - Independent: statistically unrelated from one and another
-  - Identically distributed: all having been drawn from the same population distribution
-- iid random variables are the default model for random samples
-- Many of the important theories of statistics are founded on assuming that variables are iid
-- Assuming a random sample and iid will be the default starting point of inference for this class
+The idea of having a random sample is powerful for a variety of reasons. Consider
+that in some study designs, such as in election polling, great pains are made to make
+sure that the sample is randomly drawn from a population of interest. The idea
+is to expend a lot of effort on design to get robust inferences. In these settings
+assuming that the data is iid is both natural and warranted.
+
+In other settings, the study design is far more opaque, and statistical
+inferences are conducted
+under the assumption that the data arose from a random sample, since it serves
+as a useful benchmark. Most studies in the fields of epidemiology and
+economics fall under this category. Take, for example, studying how policies
+impact countries gross domestic product by looking at countries before and
+after enacting the policies. The countries are not a random sample from the
+set of countries. Instead, conclusions must be made under the assumption that
+the countries are a random sample and the interpretation of the
+strength of the inferences adapted in kind.
+
+## Exercises
