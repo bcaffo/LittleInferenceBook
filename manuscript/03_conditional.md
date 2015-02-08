@@ -201,7 +201,7 @@ pretest odds.
 Let's reconsider our HIV antibody test again.  
 Suppose a subject has a positive HIV test
 
-{$$}DLR_+ = .997 / (1 - .985) \approx 66{/$$}
+{$$}DLR_+ = .997 / (1 - .985) = 66{/$$}
 
 The result of the positive test is that the odds of disease is now 66 times
 the pretest odds. Or, equivalently, the hypothesis of disease is 66 times
@@ -209,7 +209,7 @@ more supported by the data than the hypothesis of no disease
 
 Suppose instead that a subject has a negative test result
 
-{$$}DLR_- = (1 - .997) / .985  \approx .003{/$$}
+{$$}DLR_- = (1 - .997) / .985  =.003{/$$}
 
 Therefore, the post-test odds of disease is now 0.3% of the pretest odds given
 the negative test. Or, the hypothesis of disease is supported {$$}.003{/$$}
@@ -247,9 +247,9 @@ probabilities.
 Let's cover a very simple example:
 "What is the probability of getting two consecutive heads?". Then we have:
 
-{$$}A{/$$} is the event of getting a head on flip 1 {$$}P(A) = .5{/$$}
-{$$}B = {$$} is the event of getting a head on flip 2 {$$}P(B) = .5{/$$}
-{$$}A \cap B = {/$$} is the event of getting heads on flips 1 and 2. Then
+{$$}A{/$$} is the event of getting a head on flip 1 {$$}P(A) = 0.5{/$$}
+{$$}B{$$} is the event of getting a head on flip 2 {$$}P(B) = 0.5{/$$}
+{$$}A \cap B{/$$} is the event of getting heads on flips 1 and 2. Then
 independence would tell us that:
 
 {$$}P(A \cap B) = P(A)P(B) = 0.5 \times 0.5 = 0.25{/$$}
