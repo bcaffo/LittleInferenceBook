@@ -2,3 +2,4 @@ preface.md
 01_introduction.md
 02_probability.md
 03_conditional.md
+04_expectations.md
