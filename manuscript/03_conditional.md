@@ -247,13 +247,11 @@ probabilities.
 Let's cover a very simple example:
 "What is the probability of getting two consecutive heads?". Then we have:
 
-{$$}A = \{\mbox{Head on flip 1}\} ~~ P(A) = .5{/$$}
+{$$}A = {/$$} Head on flip 1  {$$}P(A) = .5{/$$}
 
-{$$}B = \{\mbox{Head on flip 2}\}$ ~ $P(B) = .5{/$$}
+{$$}B = {$$} Head on flip 2 {$$}P(B) = .5{/$$}
 
-{$$}A \cap B = \{\mbox{Head on flips 1 and 2}\}{/$$}
-
-{$$}P(A \cap B) = P(A)P(B) = .5 \times .5 = .25{/$$}
+{$$}A \cap B = {/$$} Head on flips 1 and 2 {$$}P(A \cap B) = P(A)P(B) = .5 \times .5 = .25{/$$}
 
 This is exactly what we would have intuited of course. But, it's nice that
 the mathematics mirrors our intuition. In more complex settings, it's easy
@@ -266,7 +264,7 @@ Volume 309 of Science reports on a physician who was on trial for expert
 testimony in a criminal trial. Based on an estimated prevalence of sudden
 infant death syndrome (SIDS) of 1 out of 8,543, a physician testified that that
 the probability of a mother having two children with SIDS was
-{$$}\left(\frac{1}{8,543}\right)^2{/$$}. The mother on trial was convicted
+{$$}(1 / 8,543)^2{/$$}. The mother on trial was convicted
 of murder.
 
 Relevant to this discussion, the principal mistake was to *assume* that the
