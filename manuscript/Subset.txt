@@ -1,2 +1,3 @@
+preface.md
 01_introduction.md
 04_expectations.md
