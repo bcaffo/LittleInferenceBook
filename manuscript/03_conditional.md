@@ -214,3 +214,30 @@ Suppose instead that a subject has a negative test result
 Therefore, the post-test odds of disease is now 0.3% of the pretest odds given
 the negative test. Or, the hypothesis of disease is supported {$$}.003{/$$}
 times that of the hypothesis of absence of disease given the negative test result
+
+
+## Independence
+[Watch this video before beginning](http://youtu.be/MY1EfrR1ZUs?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+Statistical independence of events is the idea that the events are unrelated.
+Consider successive coin flips. Knowledge of the result of the first coin flip
+tells us nothing about the second. We can formalize this into a definition.
+
+Two events {$$}A{/$$} and {$$}B{/$$} are **independent** if
+
+{$$}P(A \cap B) = P(A)P(B){/$$}
+
+Equivalently if {$$}P(A ~|~ B) = P(A){/$$}. Note that since {$$}A{/$$} is
+independent of {$$}B{/$$} we know that A^c$ is independent of {$$}B{/$$}
+{$$}A{/$$} is independent of {$$}B^c{/$$}
+{$$}A^c{/$$} is independent of {$$}B^c{/$$}.
+
+While this definition works for sets, remember that random variables are really the things
+that we are interested in. Two random variables, {$$}X{/$$} and {$$}Y{/$$} are independent
+if for any two sets
+{$$}A{/$$} and {$$}B{/$$} {$$}P([X \in A] \cap [Y \in B]) = P(X\in A)P(Y\in B){/$$}
+
+We will almost never work with these definitions. Instead, the important
+principle is that probabilities of independent things multiply! This has
+numerous consequences, including the idea that we shouldn't multiply non-independent
+probabilities.
