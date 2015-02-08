@@ -245,10 +245,9 @@ probabilities.
 ### Example
 
 Let's cover a very simple example:
-"What is the probability of getting two consecutive heads?". Then we have:
-
-{$$}A{/$$} is the event of getting a head on flip 1 {$$}P(A) = 0.5{/$$}
-{$$}B/$$} is the event of getting a head on flip 2 {$$}P(B) = 0.5{/$$}
+"What is the probability of getting two consecutive heads?". Then we have
+that {$$}A{/$$} is the event of getting a head on flip 1 {$$}P(A) = 0.5{/$$}
+{$$}B{/$$} is the event of getting a head on flip 2 {$$}P(B) = 0.5{/$$}
 {$$}A \cap B{/$$} is the event of getting heads on flips 1 and 2. Then
 independence would tell us that:
 
