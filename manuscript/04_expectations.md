@@ -1,10 +1,10 @@
-## Expected values
+# Expected values
 [Watch this video before beginning](http://youtu.be/zljxRbu6jyc?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Expected values characterize a distribution. The most useful expected value,
 the mean, characterizes the center of a density or mass function.
 Another expected value summary, the variance, characterizes how spread
-out a density is. Another expected value calcualtion is the skewness,
+out a density is. Another expected value calculation is the skewness,
 which considers how much a density is pulled toward high or low values.
 
 Remember, in this lecture we are discussing population quantities. It is
@@ -14,26 +14,42 @@ population quantity. So, for example, the sample or empirical mean
 estimates the population mean; the sample variance estimates the population
 variance and the sample skewness estimates the population skewness.
 
-<!--
-## The population mean
-- The **expected value** or **mean** of a random variable is the center of its distribution
-- For discrete random variable $X$ with PMF $p(x)$, it is defined as follows
-    $$
-    E[X] = \sum_x xp(x).
-    $$
-    where the sum is taken over the possible values of $x$
-- $E[X]$ represents the center of mass of a collection of locations and weights, $\{x, p(x)\}$
+## The population mean for discrete random variables
+The **expected value** or (population) **mean** of a random variable
+is the center of its distribution.
+For discrete random variable {$$}X{/$$} with PMF {$$}p(x){/$$},
+it is defined as follows:
+
+{$$}
+E[X] = \sum_x xp(x).
+{/$$}
+
+where the sum is taken over the possible values of {$$}x{/$$}. Where did
+they get this idea from? It's taken from the physical idea of the center
+of mass of a distribution. Specifically, {$$}E[X]{/$$}
+represents the center of mass of a collection of locations and weights,
+{$$}\{x, p(x)\}{/$$}.
 
 ## The sample mean
-- The sample mean estimates this population mean
-- The center of mass of the data is the empirical mean
-$$
+It is important to contrast the population mean (the estimand) with the
+sample mean (the estimator).  The sample mean estimates the population
+mean. Not coincidentally, since the population mean is the center of
+mass of the population distribution, the sample mean is the center of
+mass of the data. In fact, it's exactly the same equation
+
+{$$}
 \bar X = \sum_{i=1}^n x_i p(x_i)
-$$
-where $p(x_i) = 1/n$
+{/$$}
+
+where {$$}p(x_i) = 1/n{/$$}.
 
 ### Example Find the center of mass of the bars
-<img src="assets/fig/galton.png" title="plot of chunk galton" alt="plot of chunk galton" style="display: block; margin: auto;" />
+Let's go through an example of illustrating how the sample mean is the
+center of mass of observed data. Below we plot the data 
+
+![Galton's Data]{images/galton.png}
+
+<!--
 
 ### Using manipulate
 ```
@@ -139,5 +155,5 @@ of 10 normals from the same population
 - The more data that goes into the sample mean, the more
 concentrated its density / mass function is around the population mean
 
-## Examples
+## Exercises  
 -->
