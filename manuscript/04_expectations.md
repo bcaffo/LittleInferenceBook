@@ -45,14 +45,27 @@ where {$$}p(x_i) = 1/n{/$$}.
 
 ### Example Find the center of mass of the bars
 Let's go through an example of illustrating how the sample mean is the
-center of mass of observed data. Below we plot the data 
+center of mass of observed data. Below we plot the data
+
+
+{title="Loading in and displaying the Galton data", line-numbers=off,lang=r}
+~~~
+library(UsingR); data(galton); library(ggplot2); library(reshape2)
+longGalton <- melt(galton, measure.vars = c("child", "parent"))
+g <- ggplot(longGalton, aes(x = value)) + geom_histogram(aes(y = ..density..,  fill = variable), binwidth=1, colour = "black") + geom_density(size = 2)
+g <- g + facet_grid(. ~ variable)
+g
+~~~
 
 ![Galton's Data]{images/galton.png}
 
-<!--
+Using rStudio's `manipulate` package, you can try moving the histogram
+around and see what value balances it out. Be sure to watch the video to
+see this in action.
 
-### Using manipulate
-```
+
+{title="Using manipulate to explore the mean", line-numbers=off,lang=r}
+~~~
 library(manipulate)
 myHist <- function(mu){
     g <- ggplot(galton, aes(x = child))
@@ -65,13 +78,25 @@ myHist <- function(mu){
     g
 }
 manipulate(myHist(mu), mu = slider(62, 74, step = 0.5))
-```
+~~~
+
+Going through this exercise, you find that the point that balances out
+the histogram is the empirical mean. (Note there's a small distinction here
+that comes about from rounding with the histogram bar widths, but ignore
+that for the time being.) If the bars of the histogram are from the observed
+data, the point that balances it out is the empirical mean;
+ if the bars are the true population probabilities
+(which we don't know of course) then the point is the population mean. Let's
+now go through some examples of mathematically calculating the population mean.
+
 
 ### The center of mass is the empirical mean
-<img src="assets/fig/lsm.png" title="plot of chunk lsm" alt="plot of chunk lsm" style="display: block; margin: auto;" />
+![Histogram illustration](images/lsm.png) 
 
+<!--
 
 ### Example of a population mean
+[Watch the video before beginning here.](http://youtu.be/F4XMuD_axN8?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 - Suppose a coin is flipped and $X$ is declared $0$ or $1$ corresponding to a head or a tail, respectively
 - What is the expected value of $X$?
