@@ -57,7 +57,7 @@ g <- g + facet_grid(. ~ variable)
 g
 ~~~
 
-![Galton's Data]{images/galton.png}
+![Galton's Data](images/galton.png)
 
 Using rStudio's `manipulate` package, you can try moving the histogram
 around and see what value balances it out. Be sure to watch the video to
@@ -91,31 +91,41 @@ now go through some examples of mathematically calculating the population mean.
 
 
 ### The center of mass is the empirical mean
-![Histogram illustration](images/lsm.png) 
+![Histogram illustration](images/lsm.png)
 
-<!--
 
-### Example of a population mean
+### Example of a population mean, a fair coin
 [Watch the video before beginning here.](http://youtu.be/F4XMuD_axN8?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-- Suppose a coin is flipped and $X$ is declared $0$ or $1$ corresponding to a head or a tail, respectively
-- What is the expected value of $X$?
-    $$
-    E[X] = .5 \times 0 + .5 \times 1 = .5
-    $$
-- Note, if thought about geometrically, this answer is obvious; if two equal weights are spaced at 0 and 1, the center of mass will be $.5$
+Suppose a coin is flipped and {$$}X{/$$} is declared 0 or 1
+corresponding to a head or a tail, respectively. What is the expected value of
+{$$}X{/$$}?
 
-<img src="assets/fig/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
+{$$}
+E[X] = .5 \times 0 + .5 \times 1 = .5
+{/$$}
+
+Note, if thought about geometrically, this answer is obvious;
+if two equal weights are spaced at 0 and 1, the center of mass will be 0.5.
+
+
+![Fair coin mass function](images/fairCoin.png)
 
 ### What about a biased coin?
+Suppose that a random variable, {$$}X{/$$} , is so that
+{$$}P(X=1) = p{/$$} and {$$}P(X=0) = (1 - p){/$$}
+(This is a biased coin when {$$}p\neq 0.5{/$$}).
+What is its expected value?
 
-- Suppose that a random variable, $X$, is so that
-$P(X=1) = p$ and $P(X=0) = (1 - p)$
-- (This is a biased coin when $p\neq 0.5$)
-- What is its expected value?
-$$
+{$$}
 E[X] = 0 * (1 - p) + 1 * p = p
-$$
+{/$$}
+
+Notice that the expected value isn't a value that the coin can take
+in the same way that the sample proportion of heads will also likely be neither
+0 nor 1.
+
+<!--
 
 ### Example Die Roll
 

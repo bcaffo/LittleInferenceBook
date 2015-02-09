@@ -278,17 +278,16 @@ Suppose that the proportion of help calls that get addressed in
 a random day by a help line is given by {$$} f(x) = 2 x {/$$}
 for {$$}0< x < 1{/$$}. The R code for plotting this density is
 
-{line-numbers=off,lang=r}
+{title='Code for plotting the density', line-numbers=off,lang=r}
 ~~~~~~
-> x <- c(-0.5, 0, 1, 1, 1.5)
-> y <- c(0, 0, 2, 0, 0)
-> plot(x, y, lwd = 3,frame = FALSE, type = "l")
+x <- c(-0.5, 0, 1, 1, 1.5)
+y <- c(0, 0, 2, 0, 0)
+plot(x, y, lwd = 3,frame = FALSE, type = "l")
 ~~~~~~
 
-An image of the density function is given below
+The result of the code is given below.
 
 ![Help call density](images/triangleDensity.png)
-
 
 Is this a mathematically valid density? To answer this
 we need to make sure it satisfies our two conditions.
