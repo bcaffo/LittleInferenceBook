@@ -125,20 +125,26 @@ Notice that the expected value isn't a value that the coin can take
 in the same way that the sample proportion of heads will also likely be neither
 0 nor 1.
 
-<!--
+This coin example is not exactly trivial as it serves as the basis for a
+random sample of any population for a binary trait. So, we might model the
+answer from an election polling question as if it were a coin flip.
 
 ### Example Die Roll
 
-- Suppose that a die is rolled and $X$ is the number face up
-- What is the expected value of $X$?
-    $$
-    E[X] = 1 \times \frac{1}{6} + 2 \times \frac{1}{6} +
-    3 \times \frac{1}{6} + 4 \times \frac{1}{6} +
-    5 \times \frac{1}{6} + 6 \times \frac{1}{6} = 3.5
-    $$
-- Again, the geometric argument makes this answer obvious without calculation.
+Suppose that a die is rolled and {$$}X{/$$} is the number face up.
+What is the expected value of $X$?
 
-<img src="assets/fig/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+{$$}
+E[X] = 1 \times \frac{1}{6} + 2 \times \frac{1}{6} +
+3 \times \frac{1}{6} + 4 \times \frac{1}{6} +
+5 \times \frac{1}{6} + 6 \times \frac{1}{6} = 3.5
+{/$$}
+
+Again, the geometric argument makes this answer obvious without calculation.
+
+![Bar graph of die probabilities](images/die.png)
+
+<!--
 
 ## Continuous random variables
 
