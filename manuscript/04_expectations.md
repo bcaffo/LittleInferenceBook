@@ -147,6 +147,7 @@ Again, the geometric argument makes this answer obvious without calculation.
 <!--
 
 ## Continuous random variables
+[Watch this video before beginning](http://youtu.be/YS5EIKsamXI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 For a continuous random variable, $X$, with density, $f$, the expected value is
 again exactly the center of mass of the density
