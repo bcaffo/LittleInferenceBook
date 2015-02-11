@@ -200,20 +200,37 @@ Let's go through several simulation experiments to see this more fully.
 
 
 ## Simulation experiments
-### Standard normals
-Simulating normals with mean 0 and variance 1 versus averages
-of 10 normals from the same population
 
-![Simulation of normals](/images/normalSimulationMean.png)
+### Standard normals
+
+Consider simulating a lot of
+standard normals and plotting a histogram (the blue
+density). Now consider simulating lots of averages of 10 standard normals
+and plotting their histogram (the salmon colored density). Notice that
+they're centered in the same spot! It's also more concentrated around
+that point. (We'll discuss that more in the next lectures).
+
+![Simulation of normals](images/normalSimulationMean.png)
 
 ### Averages of x die rolls
 
-![Simulation of die rolls](dieRollSimulationMean.png)
+Consider rolling a die a lot of times and taking a histogram of the results,
+that's the left most plot. The bars are equally distributed at the six possible
+outcomes and thus the histogram is centered around 3.5.
+Now consider simulating lots of averages of 2 dice. Its histogram is also
+centered at 3.5. So is it for 3 and 4. Notice also the distribution gets
+increasing Gaussian looking (like a bell curve) and increasingly concetrated
+around 3.5.
+
+![Simulation of die rolls](images/dieRollSimulationMean.png)
 
 
 ### Averages of x coin flips
 
-![Simulation of coin flips](coinFlipSimulationMean.png)
+For the coin flip simulation exactly the same occurs. All of the distributions
+are centered around 0.5.
+
+![Simulation of coin flips](images/coinFlipSimulationMean.png)
 
 ## Summarizing what we know
 - Expected values are properties of distributions
