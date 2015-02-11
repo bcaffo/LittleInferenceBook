@@ -199,32 +199,30 @@ we say that the estimator is **unbiased**.
 Let's go through several simulation experiments to see this more fully.
 
 
-<!--
 ## Simulation experiments
 ### Standard normals
 Simulating normals with mean 0 and variance 1 versus averages
 of 10 normals from the same population
 
-<img src="assets/fig/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+![Simulation of normals](/images/normalSimulationMean.png)
 
 ### Averages of x die rolls
 
-<img src="assets/fig/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+![Simulation of die rolls](dieRollSimulationMean.png)
 
 
 ### Averages of x coin flips
-<img src="assets/fig/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
-## Sumarizing what we know
+![Simulation of coin flips](coinFlipSimulationMean.png)
+
+## Summarizing what we know
 - Expected values are properties of distributions
 - The population mean is the center of mass of population
 - The sample mean is the center of mass of the observed data
 - The sample mean is an estimate of the population mean
-- The sample mean is unbiased
-  - The population mean of its distribution is the mean that it's
+- The sample mean is unbiased: the population mean of its distribution is the mean that it's
   trying to estimate
 - The more data that goes into the sample mean, the more
 concentrated its density / mass function is around the population mean
 
 ## Exercises  
--->
