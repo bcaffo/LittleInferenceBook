@@ -3,3 +3,4 @@ preface.md
 02_probability.md
 03_conditional.md
 04_expectations.md
+05_variation.md

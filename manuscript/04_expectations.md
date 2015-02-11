@@ -232,7 +232,7 @@ are centered around 0.5.
 
 ![Simulation of coin flips](images/coinFlipSimulationMean.png)
 
-## Summarizing what we know
+## Summary
 - Expected values are properties of distributions
 - The population mean is the center of mass of population
 - The sample mean is the center of mass of the observed data
