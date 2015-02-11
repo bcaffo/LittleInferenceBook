@@ -144,33 +144,62 @@ Again, the geometric argument makes this answer obvious without calculation.
 
 ![Bar graph of die probabilities](images/die.png)
 
-<!--
 
 ## Continuous random variables
 [Watch this video before beginning](http://youtu.be/YS5EIKsamXI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-For a continuous random variable, $X$, with density, $f$, the expected value is
-again exactly the center of mass of the density
+For a continuous random variable, {$$}X{/$$}, with density, {$$}f{/$$},
+the expected value is again exactly the center of mass of the density. Think
+of it like cutting the continuous density out of a thick piece of wood and
+trying to find the point where it balances out.
 
 
 ### Example
 
-- Consider a density where $f(x) = 1$ for $x$ between zero and one
-- (Is this a valid density?)
-- Suppose that $X$ follows this density; what is its expected value?  
-<img src="assets/fig/unnamed-chunk-3.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
+Consider a density where {$$}f(x) = 1{/$$} for {$$}x{/$$} between zero and one.
+Suppose that {$$}X{/$$} follows this density; what is its expected value?  
+
+![Uniform Density](images/uniform.png)
+
+The answer is clear since the density looks like a box, it would balance
+out exactly in the middle, 0.5.
+
+### Facts about expected values
+Recall that expected values are properties of population
+distributions. The expected value, or mean, height is the center of the
+population density of heights.
+
+Interestingly, the average of ten randomly sampled
+people's height is itself of random variable, in the same way that the
+average of ten die roll is itself a random number. Thus, the distribution
+of heights gives rise to the distribution of averages of ten heights
+in the same way that distribution associated with a die roll gives
+rise to the distribution of the average of ten dice.
+
+An important question to ask is: "What does the distribution of averages
+look like?".  This question is important, since it tells us things about
+averages, the best way to estimate the population mean, when we only get
+to observe one average.
+
+Consider the die rolls again. If wanted to know the distribution of averages
+of 100 die rolls, you could (at least in principle) roll 100 dice, take the
+average and repeat that process. Imagine, if you could only roll the 100
+dice once. Then we would have direct information about the distribution of
+die rolls (since we have 100 of them), but we wouldn't have any direct
+information about the distribution of the average of 100 die rolls, since
+we only observed one.
+
+Fortunately, the mathematics tells us about that distribution. Notably,
+it's centered at the same spot as the original distribution!
+Thus, the distribution of the estimator (the sample mean) is centered at
+the distribution of what it's estimating (the population mean).
+- When the expected value of an estimator is what its trying to estimate,
+we say that the estimator is **unbiased**.
+
+Let's go through several simulation experiments to see this more fully.
 
 
-## Facts about expected values
-
-- Recall that expected values are properties of distributions
-- Note the average of random variables is itself a random variable
-and its associated distribution has an expected value
-- The center of this distribution is the same as that of the original distribution
-- Therefore, the expected value of the **sample mean** is the population mean that it's trying to estimate
-- When the expected value of an estimator is what its trying to estimate, we say that the estimator is **unbiased**
-- Let's try a simulation experiment
-
+<!--
 ## Simulation experiments
 ### Standard normals
 Simulating normals with mean 0 and variance 1 versus averages
