@@ -44,7 +44,7 @@ Then let's calculate the other bit of information that we need, {$$}E[X^2]{/$$}.
 
 Thus now we can calculate the variance as:
 
-{$$}Var(X) = E[X^2] - E[X]^2 \approx 2.92{/$$}
+{$$}Var(X) = E[X^2] - E[X]^2 \approx 2.92.{/$$}
 
 <!--
 
