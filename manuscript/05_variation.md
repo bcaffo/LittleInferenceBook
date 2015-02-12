@@ -46,17 +46,37 @@ Thus now we can calculate the variance as:
 
 {$$}Var(X) = E[X^2] - E[X]^2 \approx 2.92.{/$$}
 
-<!--
 
 ## Example
 
-- What's the variance from the result of the toss of a coin with probability of heads (1) of $p$?
+- What's the variance from the result of the toss of a
+(potentially biased) coin with probability of heads (1) of {$$}p{/$$}?
 
-  - $E[X] = 0 \times (1 - p) + 1 \times p = p$
-  - $E[X^2] = E[X] = p$
+First recall that
+{$$}E[X] = 0 \times (1 - p) + 1 \times p = p.{/$$}
 
-$$Var(X) = E[X^2] - E[X]^2 = p - p^2 = p(1 - p)$$
+Secondly, recall that since {$$}X{/$$} is either 0 or 1,
+{$$}X^2 = X{/$$}. So we know that:
 
+{$$}E[X^2] = E[X] = p{/$$}
+
+Thus we can now calculate the variance of a coin flip as
+{$$}Var(X) = E[X^2] - E[X]^2 = p - p^2 = p(1 - p).{/$$}
+
+This is a well known formula, so it's worth committing
+to memory. It's interesting to note that this function is
+maximized at {$$}p = 0.5{/$$}.
+
+{title="Plotting the binomial variance", line-numbers=off,lang=r}
+~~~
+p = seq(0 , 1, length = 1000)
+y = p * (1 - p)
+plot(p, y, type = "l", lwd = 3, frame = FALSE)
+~~~
+
+![Plot of the binomial variance](images/binomialVariance.png)
+
+<!--
 
 ---
 ## Distributions with increasing variance
