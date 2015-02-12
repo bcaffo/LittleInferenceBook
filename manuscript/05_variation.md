@@ -1,11 +1,16 @@
 
 # Variation
-[Watch this video before beginning](http://youtu.be/oLQVU-VRiHo?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/oLQVU-VRiHo?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 ## The variance
 Recall that the mean of distribution was a measure of its center.
-The variance, on the other hand, is a measure of *spread*. We saw an example
-of this when we looked at the distribution of averages; they were always centered
+The variance, on the other hand, is a measure of *spread*.
+To get a sense, the plot below shows a series of increasing
+variances.
+![Distributions with increasing variance](images/variances.png)
+
+We saw another example
+of how variances changed in the last chapter when we looked at the distribution of averages; they were always centered
 at the same spot as the original distribution, but are less spread out.
 Thus, it is less likely for sample means to be far away from the population
 mean than it is for individual observations. (This is why the sample mean is
@@ -34,6 +39,8 @@ of interest is, unlike the sample variance which measures how spread out the
 observed data are. Just like the sample mean estimates the
 population mean, the sample variance will estimate the population variance.
 
+
+
 ### Example
 
 What's the variance from the result of a toss of a die?
@@ -49,7 +56,7 @@ Thus now we can calculate the variance as:
 
 ## Example
 
-- What's the variance from the result of the toss of a
+What's the variance from the result of the toss of a
 (potentially biased) coin with probability of heads (1) of {$$}p{/$$}?
 
 First recall that
@@ -76,25 +83,31 @@ plot(p, y, type = "l", lwd = 3, frame = FALSE)
 
 ![Plot of the binomial variance](images/binomialVariance.png)
 
-<!--
-
----
-## Distributions with increasing variance
-<img src="assets/fig/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
-
----
 ## The sample variance
-- The sample variance is
-$$
+The sample variance is the estimator of the population
+variance. Recall that the population variance is the
+expected squared deviation around the population mean.
+The sample variance is (almost) the average squared deviation
+of observations around the sample mean. It is given by
+
+{$$}
 S^2 = \frac{\sum_{i=1} (X_i - \bar X)^2}{n-1}
-$$
-(almost, but not quite, the average squared deviation from
-the sample mean)
-- It is also a random variable
-  - It has an associate population distribution
-  - Its expected value is the population variance
-  - Its distribution gets more concentrated around the population variance with mroe data
-- Its square root is the sample standard deviation
+{/$$}
+
+The sample standard deviation is the square root of the sample variance.
+
+The sample variance is almost, but not quite, the average squared deviation from
+the sample mean since we divide by {$$}n-1{/$$} instead of
+{$$}n{/$$}. Why do we do this you might ask? To answer that question
+we have to think in the terms of simulations. Remember that the
+sample variance is a random variable, thus it has a distribution
+and that distribution has an associated population mean. That
+mean is the population variance that we're trying to estimate
+if we divide by {$$}(n-1){/$$} rather than {$$}n{/$$}.
+
+Moreover, as we collect more data, the distribution of the
+sample variance gets more concentrated around the population
+variance that it's estimating.
 
 
 ---
@@ -107,6 +120,7 @@ the sample mean)
 ## Variances of x die rolls
 <img src="assets/fig/unnamed-chunk-3.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
+<!--
 
 ---
 
