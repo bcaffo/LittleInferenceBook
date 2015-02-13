@@ -109,16 +109,27 @@ Moreover, as we collect more data, the distribution of the
 sample variance gets more concentrated around the population
 variance that it's estimating.
 
-
----
-## Simulation experiment
+## Simulation experiments
 ### Simulating from a population with variance 1
+Let's try simulating collections of standard normals and taking the variance.
+If we repeat this over and over, we get a sense of the distribution of
+sample variances variances.
 
-<img src="assets/fig/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+![Simulation of variances of samples of standard normals](images/normalVariances.png)
 
----
-## Variances of x die rolls
-<img src="assets/fig/unnamed-chunk-3.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
+Notice that these histograms are always centered in the same spot, 1. In
+other words, the sample variance is an unbiased estimate of the population
+variances. Notice also that they get more concentrated around the 1 as
+more data goes into them. Thus, sample variances comprised of more observations
+are less variable than sample variances comprised of fewer.
+
+### Variances of x die rolls
+Let's try the same thing, now only with die rolls instead of simulating standard
+normals. In this experiment, we simulated samples of die rolls, took the
+variance and then repeated that process over and over. What is plotted
+are histograms of the collections of sample variances.
+
+
 
 <!--
 
