@@ -7,7 +7,7 @@ Recall that the mean of distribution was a measure of its center.
 The variance, on the other hand, is a measure of *spread*.
 To get a sense, the plot below shows a series of increasing
 variances.
-![Distributions with increasing variance](images/variances.png)
+![Distributions with increasing variance](images/normalVariances.png)
 
 We saw another example
 of how variances changed in the last chapter when we looked at the distribution of averages; they were always centered
@@ -136,161 +136,160 @@ this chapter. Notice each of the histograms are centered there. In addition,
 the get more concentrated around 2.92 as more the variances are comprised
 of more dice.
 
-<!--
 
-## Recall the mean
-- Recall that the average of random sample from a population
-is itself a random variable
-- We know that this distribution is centered around the population
-mean, $E[\bar X] = \mu$
-- We also know what its variance is $Var(\bar X) = \sigma^2 / n$
-- This is very useful, since we don't have repeat sample means
-to get its variance; now we know how it relates to
-the population variance
-- We call the standard deviation of a statistic a standard error
+## The standard error of the mean
 
----
-## To summarize
-- The sample variance, $S^2$, estimates the population variance, $\sigma^2$
-- The distribution of the sample variance is centered around $\sigma^2$
-- The variance of the sample mean is $\sigma^2 / n$
-  - Its logical estimate is $s^2 / n$
-  - The logical estimate of the standard error is $S / \sqrt{n}$
-- $S$, the standard deviation, talks about how variable the population is
-- $S/\sqrt{n}$, the standard error, talks about how variable averages of random samples of size $n$ from the population are
+At last, we finally get to a perhaps very surprising (and useful) fact:
+how to estimate the variability in a sample, when we only get to observe
+one realization.  Recall that the average of random sample from a population
+is itself a random variable having a distribution, which in simulation
+settings we can explore by repeated sampling averages.  
+We know that this distribution is centered around the population
+mean, {$$}E[\bar X] = \mu{/$$}. We also know the variance of the distribution
+of means of random samples.
 
----
-## Simulation example
-Standard normals have variance 1; means of $n$ standard normals
-have standard deviation $1/\sqrt{n}$
+The variance of the sample mean is: {$$}Var(\bar X) = \sigma^2 / n{/$$}
+where {$$}\sigma^2{/$$} is the variance of the population being sampled
+from.
 
+This is very useful, since we don't have repeat sample means
+to get its variance directly using the data. We already know a good estimate of
+{$$}\sigma^2{/$$} via the sample variance. So, we can get a good estimate
+of the variability of the mean, even though we only get to observer 1 mean.
 
-```r
-nosim <- 1000
-n <- 10
-sd(apply(matrix(rnorm(nosim * n), nosim), 1, mean))
-```
+Notice also this explains why in all of our simulation experiments the
+variance of the sample mean kept getting smaller as the sample size
+increased. This is because of the square root of the sample size in the
+denominator.
 
-```
-## [1] 0.3156
-```
+Often we take the square root of the variance of the mean to get the standard
+deviation of the mean. We call the standard deviation of a statistic its
+standard error.
 
-```r
-1 / sqrt(n)
-```
+## Summing up
+* The sample variance, {$$}S^2{/$$}, estimates the population variance, {$$}\sigma^2{/$$}
+* The distribution of the sample variance is centered around {$$}\sigma^2{/$$}
+* The variance of the sample mean is {$$}\sigma^2 / n{/$$}
+  * Its logical estimate is {$$}s^2 / n{/$$}
+  * The logical estimate of the standard error is {$$}S / \sqrt{n}{/$$}
+* {$$}S{/$$}, the standard deviation, talks about how variable the population is
+* {$$}S/\sqrt{n}{/$$}, the standard error, talks about how variable averages of random
+samples of size $n$ from the population are
 
-```
-## [1] 0.3162
-```
+### Simulation example 1: standard normals
 
-
----
-## Simulation example
-Standard uniforms have variance $1/12$; means of
-random samples of $n$ uniforms have sd $1/\sqrt{12 \times n}$
+Standard normals have variance 1. Let's try sampling
+means of {$$}n{/$$} standard normals. If our theory is correct, they should
+ have standard deviation {$$}1/\sqrt{n}{/$$}
 
 
+{title="Simulating means of random normals", line-numbers=off,lang=r}
+~~~
+> nosim <- 1000
+> n <- 10
+## simulate nosim averages of 10 standard normals
+> sd(apply(matrix(rnorm(nosim * n), nosim), 1, mean))
+[1] 0.3156
+## Let's check to make sure that this is sigma / sqrt(n)
+> 1 / sqrt(n)
+[1] 0.3162
+~~~
 
-```r
-nosim <- 1000
-n <- 10
-sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
-```
+So, in this simulation, we simulated 1000 means of 10 standard normals. Our
+theory says the standard deviation of averages of 10 standard normals must
+be {$$}1/\sqrt{n}{/$$}. Taking the standard deviation of the 10000 means yields
+nearly exactly that. (Note that to get it to be exact, we'd have to simulate
+infinitely many means.)
 
-```
-## [1] 0.09017
-```
-
-```r
-1 / sqrt(12 * n)
-```
-
-```
-## [1] 0.09129
-```
-
-
----
-## Simulation example
-Poisson(4) have variance $4$; means of
-random samples of $n$ Poisson(4) have sd $2/\sqrt{n}$
+### Simulation example 2: uniform density
+Standard uniforms have variance {$$}1/12{/$$}. Our theory mandates
+that means of random samples of {$$}n{/$$} uniforms
+have sd {$$}1/\sqrt{12 \times n}{/$$}. Let's try it with a simulation.
 
 
 
-```r
-nosim <- 1000
-n <- 10
-sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
-```
+{title="Simulating means of uniforms", line-numbers=off,lang=r}
+~~~
+> nosim <- 1000
+> n <- 10
+> sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
+[1] 0.09017
+> 1 / sqrt(12 * n)
+[1] 0.09129
+~~~
 
-```
-## [1] 0.6219
-```
-
-```r
-2 / sqrt(n)
-```
-
-```
-## [1] 0.6325
-```
-
-
----
-## Simulation example
-Fair coin flips have variance $0.25$; means of
-random samples of $n$ coin flips have sd $1 / (2 \sqrt{n})$
+## Simulation example 3: Poisson
+Poisson(4) have variance {$$}4{/$$}. Thus means of
+random samples of {$$}n{/$$} Poisson(4)
+should have standard deviation {$$}2/\sqrt{n}{/$$}. Again let's try it out.
 
 
 
-```r
-nosim <- 1000
-n <- 10
-sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
+{title="Simulating means of Poisson variates", line-numbers=off,lang=r}
+~~~
+> nosim <- 1000
+> n <- 10
+> sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
+[1] 0.6219
+> 2 / sqrt(n)
+[1] 0.6325
+~~~
+
+## Simulation example 4: coin flips
+Our last example is an important one. Recall that the variance of a
+coin flip is {$$}p (1 - p){/$$}. Therefore the variance of the average
+of {$$}n{/$$} coin flips should be {$$}\sqrt{\frac{p(1-p)}{n}}{/$$}.
+
+Let's just do the simulation with a fair coin. Such coin
+flips have variance 0.25. Thus means of
+random samples of {$$}n{/$$} coin flips have sd {$$}1 / (2 \sqrt{n}){/$$}.
+Let's try it.
+
+
+
+{title="Simulating means of coin flips", line-numbers=off,lang=r}
+~~~
+> nosim <- 1000
+> n <- 10
+> sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
                 nosim), 1, mean))
-```
+[1] 0.1587
+> 1 / (2 * sqrt(n))
+[1] 0.1581
 
-```
-## [1] 0.1587
-```
-
-```r
-1 / (2 * sqrt(n))
-```
-
-```
-## [1] 0.1581
-```
-
----
 ## Data example
+Now let's work through a data example to show how the standard error of the
+mean is used in practice. We'll use the father.son height data from Francis
+Galton.
 
-```r
+{title="Loading the data", line-numbers=off,lang=r}
+~~~
 library(UsingR); data(father.son);
 x <- father.son$sheight
 n<-length(x)
-```
+~~~
 
----
-## Plot of the son's heights
-<img src="assets/fig/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
+Here's a histogram of the sons' heights from the dataset.
+![Histogram of the sons' heights](images/fatherSon.png). Let's
+calculate different variances and interpret them in this context.
 
----
-## Let's interpret these numbers
+{title="Loading the data", line-numbers=off,lang=r}
+~~~
+>round(c(var(x), var(x) / n, sd(x), sd(x) / sqrt(n)),2)
+[1] 7.92 0.01 2.81 0.09
+~~~
 
-```r
-round(c(var(x), var(x) / n, sd(x), sd(x) / sqrt(n)),2)
-```
+The first number, 7.92, and its square root, 2.81, are the estimated variances
+of the sons' heights. Therefore, 7.92 tells us exactly how variable
+sons' heights were in the data and (under the assumption that these sons
+are a random sample from the population) estimates how variable sons' heights are
+in the population. In contrast 0.01 and the square root 0.09, estimate how
+variable averages of {$$}n{/$$} sons' heights are.
 
-```
-## [1] 7.92 0.01 2.81 0.09
-```
+Therefore, the smaller numbers discuss the precision of our estimate of the mean
+of sons' heights. The larger numbers discuss how variable sons' heights are in general.
 
-<img src="assets/fig/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
-
-
----
-## Summarizing what we know about variances
+# Summarizing what we know about variances
 - The sample variance estimates the population variance
 - The distribution of the sample variance is centered at
 what its estimating
@@ -301,4 +300,5 @@ divided by $n$
 - It turns out that we can say a lot about the distribution of
 averages from random samples,
 even though we only get one to look at in a given data set
--->
+
+## Exercises
