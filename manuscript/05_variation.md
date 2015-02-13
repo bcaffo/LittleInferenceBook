@@ -129,11 +129,14 @@ normals. In this experiment, we simulated samples of die rolls, took the
 variance and then repeated that process over and over. What is plotted
 are histograms of the collections of sample variances.
 
+![Simulated distributions of variances of dies](images/dieVariances.png)
 
+Recall that we calculated the variance of a die roll as 2.92 earlier on in
+this chapter. Notice each of the histograms are centered there. In addition,
+the get more concentrated around 2.92 as more the variances are comprised
+of more dice.
 
 <!--
-
----
 
 ## Recall the mean
 - Recall that the average of random sample from a population
