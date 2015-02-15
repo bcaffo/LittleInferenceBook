@@ -110,6 +110,9 @@ sample variance gets more concentrated around the population
 variance that it's estimating.
 
 ## Simulation experiments
+
+![Watch this video before beginning.](http://youtu.be/uPjHB9JjGKI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 ### Simulating from a population with variance 1
 Let's try simulating collections of standard normals and taking the variance.
 If we repeat this over and over, we get a sense of the distribution of
@@ -177,6 +180,8 @@ standard error.
 samples of size $n$ from the population are
 
 ### Simulation example 1: standard normals
+
+![Watch this video before beginning.](http://youtu.be/uPjHB9JjGKI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Standard normals have variance 1. Let's try sampling
 means of {$$}n{/$$} standard normals. If our theory is correct, they should
@@ -258,6 +263,8 @@ Let's try it.
 [1] 0.1581
 
 ## Data example
+![Watch this before beginning](http://youtu.be/Lm2DMVyZVxk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 Now let's work through a data example to show how the standard error of the
 mean is used in practice. We'll use the father.son height data from Francis
 Galton.
