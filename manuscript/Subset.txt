@@ -1,4 +1,4 @@
 preface.md
-06_variation.md
+05_variation.md
 06_common.md
-07_asymptotics
+07_asymptotics.md
