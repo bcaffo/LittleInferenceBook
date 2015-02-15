@@ -54,7 +54,7 @@ Thus now we can calculate the variance as:
 {$$}Var(X) = E[X^2] - E[X]^2 \approx 2.92.{/$$}
 
 
-## Example
+### Example
 
 What's the variance from the result of the toss of a
 (potentially biased) coin with probability of heads (1) of {$$}p{/$$}?
@@ -223,12 +223,10 @@ have sd {$$}1/\sqrt{12 \times n}{/$$}. Let's try it with a simulation.
 [1] 0.09129
 ~~~
 
-## Simulation example 3: Poisson
+### Simulation example 3: Poisson
 Poisson(4) have variance {$$}4{/$$}. Thus means of
 random samples of {$$}n{/$$} Poisson(4)
 should have standard deviation {$$}2/\sqrt{n}{/$$}. Again let's try it out.
-
-
 
 {title="Simulating means of Poisson variates", line-numbers=off,lang=r}
 ~~~
@@ -240,7 +238,7 @@ should have standard deviation {$$}2/\sqrt{n}{/$$}. Again let's try it out.
 [1] 0.6325
 ~~~
 
-## Simulation example 4: coin flips
+### Simulation example 4: coin flips
 Our last example is an important one. Recall that the variance of a
 coin flip is {$$}p (1 - p){/$$}. Therefore the variance of the average
 of {$$}n{/$$} coin flips should be {$$}\sqrt{\frac{p(1-p)}{n}}{/$$}.
@@ -296,7 +294,7 @@ variable averages of {$$}n{/$$} sons' heights are.
 Therefore, the smaller numbers discuss the precision of our estimate of the mean
 of sons' heights. The larger numbers discuss how variable sons' heights are in general.
 
-# Summarizing what we know about variances
+## Summarizing what we know about variances
 - The sample variance estimates the population variance
 - The distribution of the sample variance is centered at
 what its estimating

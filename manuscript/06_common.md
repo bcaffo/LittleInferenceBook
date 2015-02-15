@@ -126,7 +126,7 @@ then to estimate everything about the population, we need only estimate
 the population mean and variance. (Estimated by the sample mean and variance.)
 
 
-## The standard normal distribution with reference quantiles
+### Reference quantiles for the standard normal
 The normal distribution is so important that it is useful to memorize
 reference probabilities and quantiles. The image below shows reference lines
 at 0, 1, 2 and 3 standard deviations above and below 0. This is for the standard
@@ -234,6 +234,8 @@ days are independent and identically distributed)? We can obtain this as
 ~~~
 
 ## The Poisson distribution
+[Watch this video before beginning.](http://youtu.be/ZPLZg7qz4xE?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 The Poisson distribution is used to model counts. It is perhaps only second
 to the normal distribution usefulness. In fact, the Bernoulli, binomial
 and multinomial distributions can all be modeled by clever uses of the
