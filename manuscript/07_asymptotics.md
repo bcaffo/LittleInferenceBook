@@ -366,7 +366,7 @@ In general, one should use the add two successes and failures method for binomia
 confidence intervals with smaller {$$}n{/$$}. For very small {$$}n{/$$} consider
 using an exact interval (not covered in this class).
 
-
+<!--
 ## Poisson interval
 
 Since the Poisson distribution is so central for data science, let's
@@ -457,3 +457,4 @@ don't require the CLT
   * But a quick fix for small sample size binomial calculations is to add 2 successes and failures.
 
 ## Exercises
+-->
