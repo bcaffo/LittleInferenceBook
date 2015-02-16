@@ -81,76 +81,65 @@ myplot2 <- function(df){
 manipulate(myplot2(df), df = slider(1, 20, step = 1))
 ~~~
 
-## Note's about the *t* interval
+### Note's about the *t* interval
 
-- The *t* interval technically assumes that the data are iid normal, though it is robust to this assumption.
-- It works well whenever the distribution of the data is roughly symmetric and mound shaped
-- Paired observations are often analyzed using the *t* interval by taking differences
-- For large degrees of freedom, *t* quantiles become the same as standard normal quantiles; therefore this interval converges to the same interval as the CLT yielded
-- For skewed distributions, the spirit of the *t* interval assumptions are violated
-  - Also, for skewed distributions, it doesn't make a lot of sense to center the interval at the mean
-  - In this case, consider taking logs or using a different summary like the median
-- For highly discrete data, like binary, other intervals are available
+* The *t* interval technically assumes that the data are iid normal, though it is robust to this assumption.
+* It works well whenever the distribution of the data is roughly symmetric and mound shaped.
+* Paired observations are often analyzed using the *t* interval by taking differences.
+* For large degrees of freedom, *t* quantiles become the same as standard normal quantiles; therefore this interval converges to the same interval as the CLT yielded.
+* For skewed distributions, the spirit of the *t* interval assumptions are violated.
+  * Also, for skewed distributions, it doesn't make a lot of sense to center the interval at the mean.
+  * In this case, consider taking logs or using a different summary like the median.
+* For highly discrete data, like binary, other intervals are available.
 
-<!--
-## Sleep data
+### Example of the *t* interval, Gosset's sleep data
 
-In R typing `data(sleep)` brings up the sleep data originally
+In R typing `r data(sleep)` brings up the sleep data originally
 analyzed in Gosset's Biometrika paper, which shows the increase in
 hours for 10 patients on two soporific drugs. R treats the data as two
 groups rather than paired.
 
----
 ## The data
 
-```r
-data(sleep)
-head(sleep)
-```
+{title="Loading Galton's data.", line-numbers=off,lang=r}
+~~~
+> data(sleep)
+> head(sleep)
+   extra group ID
+ 1   0.7     1  1
+ 2  -1.6     1  2
+ 3  -0.2     1  3
+ 4  -1.2     1  4
+ 5  -0.1     1  5
+ 6   3.4     1  6
+~~~
 
-```
-##   extra group ID
-## 1   0.7     1  1
-## 2  -1.6     1  2
-## 3  -0.2     1  3
-## 4  -1.2     1  4
-## 5  -0.1     1  5
-## 6   3.4     1  6
-```
+Here's a plot of the data.
 
----
-## Plotting the data
-<img src="assets/fig/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep.png)
 
----
-## Results
-
-```r
+{title="Loading Galton's data.", line-numbers=off,lang=r}
+~~~
 g1 <- sleep$extra[1 : 10]; g2 <- sleep$extra[11 : 20]
 difference <- g2 - g1
 mn <- mean(difference); s <- sd(difference); n <- 10
-```
-
-```r
+## Calculating directly
 mn + c(-1, 1) * qt(.975, n-1) * s / sqrt(n)
+## using R's built in function
 t.test(difference)
+## using R's built in function, another format
 t.test(g2, g1, paired = TRUE)
+## using R's built in function, another format
 t.test(extra ~ I(relevel(group, 2)), paired = TRUE, data = sleep)
-```
+## Below are the results (after a little formatting)
+        [,1] [,2]
+ [1,] 0.7001 2.46
+ [2,] 0.7001 2.46
+ [3,] 0.7001 2.46
+ [4,] 0.7001 2.46
+~~~
 
----
-## The results
-(After a little formatting)
-
-```
-##        [,1] [,2]
-## [1,] 0.7001 2.46
-## [2,] 0.7001 2.46
-## [3,] 0.7001 2.46
-## [4,] 0.7001 2.46
-```
-
----
+<!--
 
 ## Independent group *t* confidence intervals
 
