@@ -208,6 +208,7 @@ rbind(
 ~~~
 
 The results are:
+
 {line-numbers=off,lang=r}
 ~~~
        [,1]  [,2]
@@ -260,6 +261,7 @@ rbind(
 )
 ~~~
 
+{line-numbers=off,lang=r}
 ~~~
       [,1]   [,2]
 [1,] -108.1 -14.81

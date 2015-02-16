@@ -11,12 +11,16 @@ The videos associated with this book
 though the relevant links to specific videos are placed at the appropriate
 locations throughout.
 
+
 Before beginning, we assume that you have a working knowledge
 of the R programming language. If not, there is a wonderful Coursera class
 by Roger Peng, [that can be found here](https://www.coursera.org/course/rprog).
 
 The entirety of the book is on github [here](https://github.com/bcaffo/LittleInferenceBook).
-Please submit pull requests if you find errata!
+Please submit pull requests if you find errata! In addition the course notes can be found
+also on github [here](https://github.com/bcaffo/courses/tree/master/06_StatisticalInference).
+While most code is in the book, *all* of the code for every figure and analysis in the
+book is in the R markdown files files (.Rmd) for the respective lectures.
 
 Finally, we should mention `swirl` (statistics with interactive R programming).
 `swirl` is an intelligent tutoring system developed by Nich Carchedi, with contributions

@@ -12,9 +12,10 @@ markdown documents on github and in more convenient forms (epub, mobi) on
 Leanpub and retail outlets.
 
 The Little Statistical Inference Book by Brian Caffo is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/),
+which requires author attribution for derivative works, non-commercial use of derivative
+works and that changes are shared in the same way as the original work.
 
-![Creative Commons](images/cc.png)
 
 ## About the picture on the cover
 The picture on the cover is a public domain image taken from Wikipedia's
