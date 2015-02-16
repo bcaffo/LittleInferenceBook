@@ -387,6 +387,7 @@ So our Poisson interval is:
 \hat \lambda \pm  Z_{1-\alpha/2} \sqrt{\frac{\hat \lambda}{t}}
 {/$$}
 
+<!--
 
 ### Example
 A nuclear pump failed 5 times out of 94.32 days.
@@ -410,7 +411,6 @@ it has to be evaluated numerically.
 [1] 0.01721 0.12371
 ~~~
 
-<!--
 
 ### Simulating the Poisson coverage rate
 Let's see how the asymptotic interval performs for lambda
