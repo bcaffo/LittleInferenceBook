@@ -366,7 +366,6 @@ In general, one should use the add two successes and failures method for binomia
 confidence intervals with smaller {$$}n{/$$}. For very small {$$}n{/$$} consider
 using an exact interval (not covered in this class).
 
-<!--
 ## Poisson interval
 
 Since the Poisson distribution is so central for data science, let's
@@ -387,6 +386,8 @@ So our Poisson interval is:
 {$$}
 \hat \lambda \pm  Z_{1-\alpha/2} \sqrt{\frac{\hat \lambda}{t}}
 {/$$}
+
+<!--
 
 ### Example
 A nuclear pump failed 5 times out of 94.32 days.
