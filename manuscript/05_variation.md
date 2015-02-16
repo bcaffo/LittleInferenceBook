@@ -277,8 +277,10 @@ n<-length(x)
 ~~~
 
 Here's a histogram of the sons' heights from the dataset.
-![Histogram of the sons' heights](images/fatherSon.png). Let's
-calculate different variances and interpret them in this context.
+Let' calculate different variances and interpret them in this context.
+
+![Histogram of the sons' heights](images/fatherSon.png)
+
 
 {title="Loading the data", line-numbers=off,lang=r}
 ~~~
@@ -297,14 +299,14 @@ Therefore, the smaller numbers discuss the precision of our estimate of the mean
 of sons' heights. The larger numbers discuss how variable sons' heights are in general.
 
 ## Summarizing what we know about variances
-- The sample variance estimates the population variance
-- The distribution of the sample variance is centered at
+* The sample variance estimates the population variance
+* The distribution of the sample variance is centered at
 what its estimating
-- It gets more concentrated around the population variance with larger sample sizes
-- The variance of the sample mean is the population variance
+* It gets more concentrated around the population variance with larger sample sizes
+* The variance of the sample mean is the population variance
 divided by $n$
-  - The square root is the standard error
-- It turns out that we can say a lot about the distribution of
+  * The square root is the standard error
+* It turns out that we can say a lot about the distribution of
 averages from random samples,
 even though we only get one to look at in a given data set
 

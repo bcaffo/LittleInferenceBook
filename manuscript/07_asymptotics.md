@@ -290,7 +290,7 @@ We can do this via simulation. Let's consider different values of
 {$$}p{/$$} and look at the Wald interval's coverage when we repeatedly
 create confidence intervals.
 
-{title='Code for investigating Wald interval coverage", line-numbers=off,lang=r}
+{title="Code for investigating Wald interval coverage", line-numbers=off,lang=r}
 ~~~
 n <- 20
 pvals <- seq(0.1, 0.9, by = 0.05)
@@ -303,7 +303,7 @@ coverage <- sapply(pvals, function(p) {
 })
 ~~~
 
-![Plot of Wald interval coverage.](images/waldCoverages.png)
+![Plot of Wald interval coverage.](images/waldCoverage.png)
 
 The figure shows that if we were to repeatedly try experiments for
 any fixed value of {$$}p{/$$}, it's rarely the case that our intervals
@@ -316,7 +316,7 @@ So what's happening? Recall that the CLT is an approximation. In this case
 for many of the values of {$$}p{/$$}. Let's see if the coverage improves
 for larger {$$}n{/$$}.
 
-{title='Code for investigating Wald interval coverage", line-numbers=off,lang=r}
+{title="Code for investigating Wald interval coverage", line-numbers=off,lang=r}
 ~~~
 n <- 100
 pvals <- seq(0.1, 0.9, by = 0.05)
@@ -340,7 +340,7 @@ This interval has much better coverage. Let's show it
 via a simulation.
 
 
-{title='Code for investigating Agresti/Coull interval coverage
+{title="Code for investigating Agresti/Coull interval coverage
 when {$$}n=20{/$$}.", line-numbers=off,lang=r}
 ~~~
 n <- 20
@@ -366,46 +366,58 @@ In general, one should use the add two successes and failures method for binomia
 confidence intervals with smaller {$$}n{/$$}. For very small {$$}n{/$$} consider
 using an exact interval (not covered in this class).
 
-<!--
+
 ## Poisson interval
-* A nuclear pump failed 5 times out of 94.32 days, give a 95% confidence interval for the failure rate per day?
-* $X \sim Poisson(\lambda t)$.
-* Estimate $\hat \lambda = X/t$
-* $Var(\hat \lambda) = \lambda / t$
-* $\hat \lambda / t$ is our variance estimate
 
----
-## R code
+Since the Poisson distribution is so central for data science, let's
+do a Poisson confidence interval. Remember that if
+{$$}X \sim \mbox{Poisson}(\lamda t){/$$}
+then our estimate of {$$}\lambda{/$$} is {$$}\hat \lambda = X/t{/$$}.
+Furthermore, we know that
+{$$}Var(\hat \lambda) = \lambda / t{/$$} and so the natural estimate
+is  {$$}\hat \lambda / t{/$$}. While it's not immediate
+how the CLT applies in this case, the interval is of the familiar form
 
-```r
-x <- 5
-t <- 94.32
-lambda <- x/t
-round(lambda + c(-1, 1) * qnorm(0.975) * sqrt(lambda/t), 3)
-```
+{$$}
+\mbox{Estimate} \pm Z_{1-\alpha/2} \mbox{SE}
+{/$$}
 
-```
-## [1] 0.007 0.099
-```
+So our Poisson interval is:
 
-```r
-poisson.test(x, T = 94.32)$conf
-```
+{$$}
+\hat \lambda \pm  Z_{1-\alpha/2} \sqrt{\frac{\hat \lambda}{t}}
+{/$$}
 
-```
-## [1] 0.01721 0.12371
-## attr(,"conf.level")
-## [1] 0.95
-```
+### Example
+A nuclear pump failed 5 times out of 94.32 days.
+Give a 95% confidence interval for the failure rate per day.
 
+### R code
 
+{title="Code for asymptotic Poisson confidence interval", line-numbers=off,lang=r}
+~~~
+> x <- 5
+> t <- 94.32
+> lambda <- x/t
+> round(lambda + c(-1, 1) * qnorm(0.975) * sqrt(lambda/t), 3)
+[1] 0.007 0.099
+~~~
 
----
-## Simulating the Poisson coverage rate
-Let's see how this interval performs for lambda
-values near what we're estimating
+A non-asymptotic test, one that guarantees coverage, is also available. But,
+it has to be evaluated numerically.
 
-```r
+{title="Code for asymptotic Poisson confidence interval", line-numbers=off,lang=r}
+~~~
+> poisson.test(x, T = 94.32)$conf
+[1] 0.01721 0.12371
+~~~
+
+### Simulating the Poisson coverage rate
+Let's see how the asymptotic interval performs for lambda
+values near what we're estimating.
+
+{title="Code for evaluating the coverage of the asymptotic Poisson confidence interval", line-numbers=off,lang=r}
+~~~
 lambdavals <- seq(0.005, 0.1, by = 0.01)
 nosim <- 1000
 t <- 100
@@ -415,42 +427,33 @@ coverage <- sapply(lambdavals, function(lambda) {
     ul <- lhats + qnorm(0.975) * sqrt(lhats/t)
     mean(ll < lambda & ul > lambda)
 })
-```
+~~~
+
+![Coverage of Poisson intervals for various values of lambda](images/poissonCoverage.png)
 
 
+The coverage can be low for low values of lambda. In this case the asymptotics
+works as we increase the monitoring time, t. Here's the coverage if we
+increase {$$}t{/$$} to 1,000.
 
+![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2.png)
 
----
-## Covarage
-(Gets really bad for small values of lambda)
-<img src="assets/fig/unnamed-chunk-17.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" style="display: block; margin: auto;" />
-
-
-
-
----
-## What if we increase t to 1000?
-<img src="assets/fig/unnamed-chunk-18.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
-
-
-
----
 ## Summary
-- The LLN states that averages of iid samples
-converge to the population means that they are estimating
-- The CLT states that averages are approximately normal, with
-distributions
-  - centered at the population mean
-  - with standard deviation equal to the standard error of the mean
-  - CLT gives no guarantee that $n$ is large enough
-- Taking the mean and adding and subtracting the relevant
-normal quantile times the SE yields a confidence interval for the mean
-  - Adding and subtracting 2 SEs works for 95% intervals
-- Confidence intervals get wider as the coverage increases
-(why?)
-- Confidence intervals get narrower with less variability or
+* The LLN states that averages of iid samples.
+converge to the population means that they are estimating.
+* The CLT states that averages are approximately normal, with
+distributions.
+  * centered at the population mean.
+  * with standard deviation equal to the standard error of the mean.
+  * CLT gives no guarantee that $n$ is large enough.
+* Taking the mean and adding and subtracting the relevant.
+normal quantile times the SE yields a confidence interval for the mean.
+  * Adding and subtracting 2 SEs works for 95% intervals.
+* Confidence intervals get wider as the coverage increases.
+* Confidence intervals get narrower with less variability or
 larger sample sizes
-- The Poisson and binomial case have exact intervals that
+* The Poisson and binomial case have exact intervals that
 don't require the CLT
-  - But a quick fix for small sample size binomial calculations is to add 2 successes and failures
--->
+  * But a quick fix for small sample size binomial calculations is to add 2 successes and failures.
+
+## Exercises
