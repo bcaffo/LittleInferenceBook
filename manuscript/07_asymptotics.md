@@ -387,13 +387,10 @@ So our Poisson interval is:
 \hat \lambda \pm  Z_{1-\alpha/2} \sqrt{\frac{\hat \lambda}{t}}
 {/$$}
 
-<!--
 
 ### Example
 A nuclear pump failed 5 times out of 94.32 days.
 Give a 95% confidence interval for the failure rate per day.
-
-### R code
 
 {title="Code for asymptotic Poisson confidence interval", line-numbers=off,lang=r}
 ~~~
@@ -412,6 +409,8 @@ it has to be evaluated numerically.
 > poisson.test(x, T = 94.32)$conf
 [1] 0.01721 0.12371
 ~~~
+
+<!--
 
 ### Simulating the Poisson coverage rate
 Let's see how the asymptotic interval performs for lambda
