@@ -83,6 +83,8 @@ manipulate(myplot2(df), df = slider(1, 20, step = 1))
 
 ### Note's about the *t* interval
 
+In this section, we give an overview of important facts about the *t* distribution.
+
 * The *t* interval technically assumes that the data are iid normal, though it is robust to this assumption.
 * It works well whenever the distribution of the data is roughly symmetric and mound shaped.
 * Paired observations are often analyzed using the *t* interval by taking differences.
@@ -93,6 +95,8 @@ manipulate(myplot2(df), df = slider(1, 20, step = 1))
 * For highly discrete data, like binary, other intervals are available.
 
 ### Example of the *t* interval, Gosset's sleep data
+
+[Watch this video before beginning.](http://youtu.be/2L41xqPvPso?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 In R typing `r data(sleep)` brings up the sleep data originally
 analyzed in Gosset's Biometrika paper, which shows the increase in
@@ -114,9 +118,12 @@ groups rather than paired.
  6   3.4     1  6
 ~~~
 
-Here's a plot of the data.
+Here's a plot of the data. In this plot paired observations are connected with a line.
 
 ![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep.png)
+
+Now let's calculate the *t* interval for the differences from baseline to followup.
+Below we give four different ways for calculating the interval.
 
 {title="Loading Galton's data.", line-numbers=off,lang=r}
 ~~~
@@ -139,77 +146,89 @@ t.test(extra ~ I(relevel(group, 2)), paired = TRUE, data = sleep)
  [4,] 0.7001 2.46
 ~~~
 
-<!--
+Therefore our 95% confidence
+interval estimate for the mean change (followup - baseline) is 0.70 to 2.45
 
 ## Independent group *t* confidence intervals
 
-- Suppose that we want to compare the mean blood pressure between two groups in a randomized trial; those who received the treatment to those who received a placebo
-- We cannot use the paired t test because the groups are independent and may have different sample sizes
-- We now present methods for comparing independent groups
+[Watch this video before beginning](http://youtu.be/J1XqN0yumEQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
----
+Suppose that we want to compare the mean blood pressure between two groups in a randomized trial;
+those who received the treatment to those who received a placebo. The randomization is useful for
+attempting to balance unobserved covariates that might contaminate our results. Because of the randomization, it
+would be reasonable to compare the two groups without considering further variables.
+
+We cannot use the paired *t* interval that we just used for Galton's data,
+ because the groups are independent. Person 1 from the treated group has no relationship with person 1
+ from the control group. Moreover, the groups may have different sample sizes, so taking paired differences
+ may not even be possible even if it isn't advisable in this setting.
+
+We now present methods for creating confidence intervals for comparing independent groups.
+
 ## Confidence interval
 
-- Therefore a $(1 - \alpha)\times 100\%$ confidence interval for $\mu_y - \mu_x$ is
-$$
-    \bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p\left(\frac{1}{n_x} + \frac{1}{n_y}\right)^{1/2}
-$$
-- The pooled variance estimator is $$S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2)$$
-- Remember this interval is assuming a constant variance across the two groups
-- If there is some doubt, assume a different variance per group, which we will discuss later
+A {$$}(1 - \alpha)\times 100\%{/$$} confidence interval for the mean difference between the groups,
+{$$}\mu_y - \mu_x{/$$} is:
 
----
+{$$}
+\bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p\left(\frac{1}{n_x} + \frac{1}{n_y}\right)^{1/2}.
+{/$$}
 
-## Example
-### Based on Rosner, Fundamentals of Biostatistics
-(Really a very good reference book)
+The notation {$$}t_{n_x + n_y - 2, 1 - \alpha/2}{/$$} means a *t* quantile with
+{$$}n_x + n_y - 2 {/$$} degrees of freedom. The pooled variance estimator is:
 
-- Comparing SBP for 8 oral contraceptive users versus 21 controls
-- $\bar X_{OC} = 132.86$ mmHg with $s_{OC} = 15.34$ mmHg
-- $\bar X_{C} = 127.44$ mmHg with $s_{C} = 18.23$ mmHg
-- Pooled variance estimate
+{$$}
+S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2).
+{/$$}
 
-```r
-sp <- sqrt((7 * 15.34^2 + 20 * 18.23^2) / (8 + 21 - 2))
-132.86 - 127.44 + c(-1, 1) * qt(.975, 27) * sp * (1 / 8 + 1 / 21)^.5
-```
+This variance estimate is used if one is willing to assume a constant variance across the groups.
+It is a weighted average of the group-specific variances, with greater weight given to whichever
+group has the larger sample size.
 
-```
-## [1] -9.521 20.361
-```
+If there is some doubt about the constant variance assumption, assume a different variance per group, which we will discuss later.
 
 
----
 ## Mistakenly treating the sleep data as grouped
 
-```r
+Let's first go through an example where we treat paired data as if it were independent.
+Consider Galton's sleep data from before. In the code below, we do the R code
+for grouped data directly, and using the `r t.test` function.
+
+{title="Galton's data treated as grouped and independent.", line-numbers=off,lang=r}
+~~~
 n1 <- length(g1); n2 <- length(g2)
 sp <- sqrt( ((n1 - 1) * sd(x1)^2 + (n2-1) * sd(x2)^2) / (n1 + n2-2))
 md <- mean(g2) - mean(g1)
 semd <- sp * sqrt(1 / n1 + 1/n2)
 rbind(
-md + c(-1, 1) * qt(.975, n1 + n2 - 2) * semd,  
-t.test(g2, g1, paired = FALSE, var.equal = TRUE)$conf,
-t.test(g2, g1, paired = TRUE)$conf
+  md + c(-1, 1) * qt(.975, n1 + n2 - 2) * semd,  
+  t.test(g2, g1, paired = FALSE, var.equal = TRUE)$conf,
+  t.test(g2, g1, paired = TRUE)$conf
 )
-```
+~~~
 
-```
-##         [,1]  [,2]
-## [1,] -0.2039 3.364
-## [2,] -0.2039 3.364
-## [3,]  0.7001 2.460
-```
+The results are:
+{line-numbers=off,lang=r}
+~~~
+       [,1]  [,2]
+[1,] -0.2039 3.364
+[2,] -0.2039 3.364
+[3,]  0.7001 2.460
+~~~
 
----
-## Grouped versus independent
-<img src="assets/fig/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+Notice that the paired interval (the last row) is entirely above zero while
+the grouped interval contains zero.  Thus, acknowledging the pairing explains variation that would otherwise be absorbed into the
+variation for the group means. As a result, treating the groups as independent results in wider intervals. Even if it didn't
+result in a shorter interval, the paired interval would be correct as the groups are not statistically independent!
 
----
+### `ChickWeight` data in R
 
-## `ChickWeight` data in R
+Now let's try an example with actual independent groups. Load in the ChickWeight
+data in R. We are also going to manipulate the dataset to have a total weight gain
+variable using dplyr.
 
-```r
+{line-numbers=off,lang=r}
+~~~
 library(datasets); data(ChickWeight); library(reshape2)
 ##define weight gain or loss
 wideCW <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")
@@ -218,72 +237,73 @@ library(dplyr)
 wideCW <- mutate(wideCW,
   gain = time21 - time0
 )
-```
+~~~
 
----
-## Plotting the raw data
-
-<img src="assets/fig/unnamed-chunk-12.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+Here's a plot of the data.
 
 
+![Chickweight data over time.](images/chickweight.png)
 
----
-## Weight gain by diet
-<img src="assets/fig/unnamed-chunk-13.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
+Here's a plot only of the weight gain for the diets.
 
----
-## Let's do a t interval
+![Violin plots of chickweight data by weight gain (final minus baseline) by diet.](images/chickweightgroups.png)
 
-```r
+Now let's do a *t* interval comparing groups 1 and 4. We'll show the two intervals, one
+assuming that the variances are equal and one assuming otherwise.
+
+{title="Code for t interval of the chickWeight data", line-numbers=off,lang=r}
+~~~
 wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
 rbind(
-t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE, data = wideCW14)$conf,
-t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
+  t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE, data = wideCW14)$conf,
+  t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
 )
-```
+~~~
 
-```
-##        [,1]   [,2]
-## [1,] -108.1 -14.81
-## [2,] -104.7 -18.30
-```
+~~~
+      [,1]   [,2]
+[1,] -108.1 -14.81
+[2,] -104.7 -18.30
+~~~
 
-
----
+For the time being, let's interpret the equal variance interval. Since the interval is entirely
+below zero it suggest that group 1 had less weight gain than group 4 (at 95% confidence).
 
 ## Unequal variances
 
-- Under unequal variances
-$$
+[Watch this video before beginning.](https://www.youtube.com/watch?v=CVDdbR4VuOE&list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ&index=24)
+
+Under unequal variances our *t* interval becomes:
+{$$}
 \bar Y - \bar X \pm t_{df} \times \left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}
-$$
-where $t_{df}$ is calculated with degrees of freedom
-$$
+{/$$}
+where {$$}t_{df}{/$$} is the *t* quantile calculated with degrees of freedom
+
+{$$}
 df=    \frac{\left(S_x^2 / n_x + S_y^2/n_y\right)^2}
     {\left(\frac{S_x^2}{n_x}\right)^2 / (n_x - 1) +
       \left(\frac{S_y^2}{n_y}\right)^2 / (n_y - 1)}
-$$
-will be approximately a 95% interval
-- This works really well
-  - So when in doubt, just assume unequal variances
+{/$$}
 
----
+which will be approximately a 95% interval. This works really well.
+So when in doubt, just assume unequal variances
 
-## Example
+Referring back to the previous chickWeight example, the violin plots suggest that considering
+unequal variances would be wise. Recall the code is
 
-- Comparing SBP for 8 oral contraceptive users versus 21 controls
-- $\bar X_{OC} = 132.86$ mmHg with $s_{OC} = 15.34$ mmHg
-- $\bar X_{C} = 127.44$ mmHg with $s_{C} = 18.23$ mmHg
-- $df=15.04$, $t_{15.04, .975} = 2.13$
-- Interval
-$$
-132.86 - 127.44 \pm 2.13 \left(\frac{15.34^2}{8} + \frac{18.23^2}{21} \right)^{1/2}
-= [-8.91, 19.75]
-$$
-- In R, `t.test(..., var.equal = FALSE)`
+~~~
+> t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
+[2,] -104.7 -18.30
+~~~
 
----
-## Comparing other kinds of data
+This interval is remains entirely below zero. However, it is wider than the equal variance interval.
+
+## Summary
+* The *t* distribution is useful for small sample size comparison.
+* It technically assumes normality, but is robust to this assumption within limits.
+* The *t* distribution gives rise to *t* confidence intervals (and tests, which we will see later)
+
+For other kinds of data, there are preferable small and large sample intervals and tests.
 * For binomial data, there's lots of ways to compare two groups
   * Relative risk, risk difference, odds ratio.
   * Chi-squared tests, normal approximations, exact tests.
@@ -292,4 +312,5 @@ $$
   and count data until covering glms in the regression class.
 * In addition, Mathematical Biostatistics Boot Camp 2 covers many special
   cases relevant to biostatistics.
--->
+
+## Exercises
