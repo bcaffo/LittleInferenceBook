@@ -1,8 +1,9 @@
 
 # Variation
-[Watch this video before beginning.](http://youtu.be/oLQVU-VRiHo?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 ## The variance
+[Watch this video before beginning.](http://youtu.be/oLQVU-VRiHo?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 Recall that the mean of distribution was a measure of its center.
 The variance, on the other hand, is a measure of *spread*.
 To get a sense, the plot below shows a series of increasing
@@ -111,7 +112,7 @@ variance that it's estimating.
 
 ## Simulation experiments
 
-![Watch this video before beginning.](http://youtu.be/uPjHB9JjGKI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/uPjHB9JjGKI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 ### Simulating from a population with variance 1
 Let's try simulating collections of standard normals and taking the variance.
@@ -169,7 +170,7 @@ Often we take the square root of the variance of the mean to get the standard
 deviation of the mean. We call the standard deviation of a statistic its
 standard error.
 
-## Summing up
+### Summing up
 * The sample variance, {$$}S^2{/$$}, estimates the population variance, {$$}\sigma^2{/$$}
 * The distribution of the sample variance is centered around {$$}\sigma^2{/$$}
 * The variance of the sample mean is {$$}\sigma^2 / n{/$$}
@@ -181,7 +182,7 @@ samples of size $n$ from the population are
 
 ### Simulation example 1: standard normals
 
-![Watch this video before beginning.](http://youtu.be/uPjHB9JjGKI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/uPjHB9JjGKI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Standard normals have variance 1. Let's try sampling
 means of {$$}n{/$$} standard normals. If our theory is correct, they should
@@ -259,9 +260,10 @@ Let's try it.
 [1] 0.1587
 > 1 / (2 * sqrt(n))
 [1] 0.1581
+~~~
 
 ## Data example
-![Watch this before beginning](http://youtu.be/Lm2DMVyZVxk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this before beginning](http://youtu.be/Lm2DMVyZVxk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Now let's work through a data example to show how the standard error of the
 mean is used in practice. We'll use the father.son height data from Francis

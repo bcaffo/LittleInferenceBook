@@ -83,9 +83,9 @@ birth, what's the probability of getting {$$}7{/$$} or more girls out of
 {title="Simulating means of coin flips", line-numbers=off,lang=r}
 ~~~
 > choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
-## [1] 0.03516
+[1] 0.03516
 > pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
-## [1] 0.03516
+[1] 0.03516
 ~~~
 
 ## The normal distribution
@@ -230,7 +230,7 @@ days are independent and identically distributed)? We can obtain this as
 {title="Finding a normal quantile", line-numbers=off,lang=r}
 ~~~
 > qnorm(0.75, mean = 1020, sd = 50)
-## [1] 1054
+[1] 1054
 ~~~
 
 ## The Poisson distribution
@@ -279,7 +279,7 @@ is the probability that $3$ or fewer people show up for the whole time?
 {title="Finding a normal quantile", line-numbers=off,lang=r}
 ~~~
 > ppois(3, lambda = 2.5 * 4)
-## [1] 0.01034
+[1] 0.01034
 ~~~
 
 Therefore, there is about a 1% chance that 3 or fewer people show up. Notice
@@ -294,7 +294,7 @@ is an accurate approximation to the binomial distribution. Formally, if
 Poisson where {$$}\lambda = n p{/$$} provided that {$$}n{/$$} is large
 {$$}p{/$$} is small.
 
-### Example, Poisson approximation to the binomial
+#### Example, Poisson approximation to the binomial
 
 We flip a coin with success probability $0.01$ five hundred times.
 What's the probability of 2 or fewer successes?
@@ -303,9 +303,9 @@ What's the probability of 2 or fewer successes?
 {title="Finding a normal quantile", line-numbers=off,lang=r}
 ~~~
 > vpbinom(2, size = 500, prob = 0.01)
-## [1] 0.1234
+[1] 0.1234
 > ppois(2, lambda = 500 * 0.01)
-## [1] 0.1247
+[1] 0.1247
 ~~~
 
 So we can see that the probabilities agree quite well. This approximation is
