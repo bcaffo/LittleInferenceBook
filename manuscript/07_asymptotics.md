@@ -370,7 +370,7 @@ using an exact interval (not covered in this class).
 
 Since the Poisson distribution is so central for data science, let's
 do a Poisson confidence interval. Remember that if
-{$$}X \sim \mbox{Poisson}(\lamda t){/$$}
+{$$}X \sim \mbox{Poisson}(\lambda t){/$$}
 then our estimate of {$$}\lambda{/$$} is {$$}\hat \lambda = X/t{/$$}.
 Furthermore, we know that
 {$$}Var(\hat \lambda) = \lambda / t{/$$} and so the natural estimate
