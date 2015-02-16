@@ -387,7 +387,6 @@ So our Poisson interval is:
 \hat \lambda \pm  Z_{1-\alpha/2} \sqrt{\frac{\hat \lambda}{t}}
 {/$$}
 
-<!--
 
 ### Example
 A nuclear pump failed 5 times out of 94.32 days.
@@ -457,4 +456,3 @@ don't require the CLT
   * But a quick fix for small sample size binomial calculations is to add 2 successes and failures.
 
 ## Exercises
--->
