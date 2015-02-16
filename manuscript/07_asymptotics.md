@@ -226,7 +226,7 @@ is called a Wald confidence interval for {$$}p{/$$}. Remember also that
 {$$}p(1 - p){/$$} is maximized at 1/4. Plugging this in we find
 that a quick and dirty interval is
 
-{$$}\hat p \pm \frac{1}{\sqrt{n}}.$$
+{$$}\hat p \pm \frac{1}{\sqrt{n}}.{/$$}
 
 This is useful for doing quick confidence intervals in your head.
 
@@ -340,8 +340,7 @@ This interval has much better coverage. Let's show it
 via a simulation.
 
 
-{title="Code for investigating Agresti/Coull interval coverage
-when {$$}n=20{/$$}.", line-numbers=off,lang=r}
+{title="Code for investigating Agresti/Coull interval coverage when n=20.", line-numbers=off,lang=r}
 ~~~
 n <- 20
 pvals <- seq(0.1, 0.9, by = 0.05)
@@ -404,7 +403,7 @@ Give a 95% confidence interval for the failure rate per day.
 A non-asymptotic test, one that guarantees coverage, is also available. But,
 it has to be evaluated numerically.
 
-{title="Code for asymptotic Poisson confidence interval", line-numbers=off,lang=r}
+{title="Code for exact Poisson confidence interval", line-numbers=off,lang=r}
 ~~~
 > poisson.test(x, T = 94.32)$conf
 [1] 0.01721 0.12371
@@ -450,9 +449,9 @@ normal quantile times the SE yields a confidence interval for the mean.
   * Adding and subtracting 2 SEs works for 95% intervals.
 * Confidence intervals get wider as the coverage increases.
 * Confidence intervals get narrower with less variability or
-larger sample sizes
+larger sample sizes.
 * The Poisson and binomial case have exact intervals that
-don't require the CLT
+don't require the CLT.
   * But a quick fix for small sample size binomial calculations is to add 2 successes and failures.
 
 ## Exercises
