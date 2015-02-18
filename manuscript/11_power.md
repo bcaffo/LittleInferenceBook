@@ -1,76 +1,61 @@
----
-title       : Power
-subtitle    : Statistical Inference
-author      : Brian Caffo, Jeff Leek, Roger Peng
-job         : Johns Hopkins Bloomberg School of Public Health
-logo        : bloomberg_shield.png
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-url:
-  lib: ../../librariesNew
-  assets: ../../assets
-widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
----
+# Power
 
 ## Power
-- Power is the probability of rejecting the null hypothesis when it is false
-- Ergo, power (as its name would suggest) is a good thing; you want more power
-- A type II error (a bad thing, as its name would suggest) is failing to reject the null hypothesis when it's false; the probability of a type II error is usually called $\beta$
-- Note Power  $= 1 - \beta$
+[Watch this video before beginning.](http://youtu.be/-TsBOLiW4rQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
----
-## Notes
-- Consider our previous example involving RDI
-- $H_0: \mu = 30$ versus $H_a: \mu > 30$
-- Then power is 
-$$P\left(\frac{\bar X - 30}{s /\sqrt{n}} > t_{1-\alpha,n-1} ~;~ \mu = \mu_a \right)$$
-- Note that this is a function that depends on the specific value of $\mu_a$!
-- Notice as $\mu_a$ approaches $30$ the power approaches $\alpha$
+Power is the probability of rejecting the null hypothesis when it is false.
+Ergo, power (as its name would suggest) is a good thing; you want more power.
+A type II error (a bad thing, as its name would suggest) is failing to reject
+the null hypothesis when it's false; the probability of a type II error is
+usually called {$$}\beta{/$$}. Note Power  {$$}= 1 - \beta{/$$}.
+
+Let's go through an example of calculating power.
+Consider our previous example involving RDI.
+{$$}H_0: \mu = 30{/$$} versus {$$}H_a: \mu > 30{/$$}.
+Then power is:
+
+{$$}P\left(\frac{\bar X - 30}{s /\sqrt{n}} > t_{1-\alpha,n-1} ~;~ \mu = \mu_a \right).{/$$}
+
+Note that this is a function that depends on the specific value of $\mu_a$!
+Further notice that as {$$}\mu_a{/$$} approaches 30 the power approaches {$$}\alpha{/$$}.
 
 
----
-## Calculating power for Gaussian data
-- We reject if $\frac{\bar X - 30}{\sigma /\sqrt{n}} > z_{1-\alpha}$    
-    - Equivalently if $\bar X > 30 + Z_{1-\alpha} \frac{\sigma}{\sqrt{n}}$
-- Under $H_0 : \bar X \sim N(\mu_0, \sigma^2 / n)$
-- Under $H_a : \bar X \sim N(\mu_a, \sigma^2 / n)$
-- So we want 
+Pushing this example further, we reject if
 
-```r
+{$$}Z = \frac{\bar X - 30}{\sigma /\sqrt{n}} > z_{1-\alpha}{/$$}
+
+Or, equivalently, if
+
+{$$}\bar X > 30 + Z_{1-\alpha} \frac{\sigma}{\sqrt{n}}{/$$}
+
+But, note that, under {$$}H_0 : \bar X \sim N(\mu_0, \sigma^2 / n){/$$}.
+However, under {$$}H_a : \bar X \sim N(\mu_a, \sigma^2 / n){/$$}.
+
+So in general for this test we we want:
+
+{title="Power calculation for the sleep example in R", lang=r, line-numbers=off}
+~~~
 alpha = 0.05
 z = qnorm(1 - alpha)
 pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n), lower.tail = FALSE)
-```
+~~~
 
+Let's plug in the specific numbers for our example where:
+{$$}\mu_a = 32{/$$}, {$$}\mu_0 = 30{/$$}, {$$}n =16{/$$}, {$$}\sigma = 4{/$$}.
 
----
-## Example continued
-- $\mu_a = 32$, $\mu_0 = 30$, $n =16$, $\sigma = 4$
-
-```r
-mu0 = 30
-mua = 32
-sigma = 4
-n = 16
-z = qnorm(1 - alpha)
-pnorm(mu0 + z * sigma/sqrt(n), mean = mu0, sd = sigma/sqrt(n), lower.tail = FALSE)
-```
-
-```
-## [1] 0.05
-```
-
-```r
-pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n), lower.tail = FALSE)
-```
-
-```
-## [1] 0.6388
-```
-
-
+{lang=r, line-numbers=off}
+~~~
+> mu0 = 30
+> mua = 32
+> sigma = 4
+> n = 16
+> z = qnorm(1 - alpha)
+> pnorm(mu0 + z * sigma/sqrt(n), mean = mu0, sd = sigma/sqrt(n), lower.tail = FALSE)
+[1] 0.05
+> pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n), lower.tail = FALSE)
+[1] 0.6388
+~~~
+<!--
 ---
 ##  Plotting the power curve
 
@@ -86,16 +71,16 @@ library(manipulate)
 mu0 = 30
 myplot <- function(sigma, mua, n, alpha) {
     g = ggplot(data.frame(mu = c(27, 36)), aes(x = mu))
-    g = g + stat_function(fun = dnorm, geom = "line", args = list(mean = mu0, 
+    g = g + stat_function(fun = dnorm, geom = "line", args = list(mean = mu0,
         sd = sigma/sqrt(n)), size = 2, col = "red")
-    g = g + stat_function(fun = dnorm, geom = "line", args = list(mean = mua, 
+    g = g + stat_function(fun = dnorm, geom = "line", args = list(mean = mua,
         sd = sigma/sqrt(n)), size = 2, col = "blue")
     xitc = mu0 + qnorm(1 - alpha) * sigma/sqrt(n)
     g = g + geom_vline(xintercept = xitc, size = 3)
     g
 }
-manipulate(myplot(sigma, mua, n, alpha), sigma = slider(1, 10, step = 1, initial = 4), 
-    mua = slider(30, 35, step = 1, initial = 32), n = slider(1, 50, step = 1, 
+manipulate(myplot(sigma, mua, n, alpha), sigma = slider(1, 10, step = 1, initial = 4),
+    mua = slider(30, 35, step = 1, initial = 32), n = slider(1, 50, step = 1,
         initial = 16), alpha = slider(0.01, 0.1, step = 0.01, initial = 0.05))
 
 ```
@@ -104,7 +89,7 @@ manipulate(myplot(sigma, mua, n, alpha), sigma = slider(1, 10, step = 1, initial
 
 ---
 ## Question
-- When testing $H_a : \mu > \mu_0$, notice if power is $1 - \beta$, then 
+- When testing $H_a : \mu > \mu_0$, notice if power is $1 - \beta$, then
 $$1 - \beta = P\left(\bar X > \mu_0 + z_{1-\alpha} \frac{\sigma}{\sqrt{n}} ; \mu = \mu_a \right)$$
 - where $\bar X \sim N(\mu_a, \sigma^2 / n)$
 - Unknowns: $\mu_a$, $\sigma$, $n$, $\beta$
@@ -191,5 +176,4 @@ power.t.test(power = 0.8, delta = 100, sd = 200, type = "one.sample", alt = "one
 ```
 ## [1] 26.14
 ```
-
-
+-->

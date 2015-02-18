@@ -1,1 +1,1 @@
-10_pvalues.md
+11_power.md
