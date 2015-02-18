@@ -8,3 +8,4 @@ preface.md
 07_asymptotics.md
 08_tcis.md
 09_ht.md
+10_pvalues.md
