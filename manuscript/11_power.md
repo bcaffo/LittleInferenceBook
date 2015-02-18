@@ -65,7 +65,7 @@ rejection is 64% when the true value of {$$}\mu{\$$} is 32. We could create
 a curve of the power as a function of {$$}\mu_a{\$$}, as seen below.
 We also varied the sample size to see how the curve depends on that.
 
-![Plot of power as {$$}\mu_a{\$$} varies.](images/powerCurve.png)
+![Plot of power as {$$}\mu_a{/$$} varies.](images/powerCurve.png)
 
 The code below shows how to use manipulate to investigate power
 as the various inputs change.
@@ -112,7 +112,7 @@ Specify any 3 of the unknowns and you can solve for the remainder.
 - Power goes up as {$$}\mu_1{/$$} gets further away from $\mu_0$
 - Power goes up as {$$}n{/$$} goes up
 - Power doesn't need {$$}\mu_a{/$$}, {$$}\sigma{/$$} and {$$}n{/$$}, instead only {$$}\frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma}{/$$}
-  - The quantity {$$}\frac{\mu_a - \mu_0}{\sigma}{/$$} is called the effect size, the difference in the means in standard deviation units.
+  - The quantity {$$}\frac{\mu_a - \mu_0}{\sigma}{/$$} is called the *effect size*, the difference in the means in standard deviation units.
   - Being unit free, it has some hope of interpretability across settings.
 
 ## T-test power
@@ -123,11 +123,12 @@ we now assume that {$$}n=16{/$$}. The power is
 
 {$$}
 P\left(\frac{\bar X - \mu_0}{S /\sqrt{n}} > t_{1-\alpha, n-1} ~;~ \mu = \mu_a \right)
-{ /$$}
+{/$$}
 
 Calculating this requires the so-called non-central t distribution.
 However, fortunately for us, the R function `r power.t.test` does this very well.
-Omit (exactly) any one of the arguments and it solves for it.
+Omit (exactly) any one of the arguments and it solves for it. Our t-test
+power again only relies on the effect size.
 
 Let's do our example trying different options.
 
