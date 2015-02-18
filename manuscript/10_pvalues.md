@@ -17,87 +17,112 @@ The following manuscripts are interesting reads about P-values.
   * [normal deviate](http://normaldeviate.wordpress.com/2013/03/14/double-misunderstandings-about-p-values/)
   * [Error statistics](http://errorstatistics.com/2013/06/14/p-values-cant-be-trusted-except-when-used-to-argue-that-p-values-cant-be-trusted/)
 
-<!--
 
 ## What is a P-value?
 
-__Idea__: Suppose nothing is going on - how unusual is it to see the estimate we got?
+The central idea of a P-value is to assume that the null hypothesis is true and
+calculate how unusual it would be to see data as extreme as was seen
+in favor of the alternative hypothesis. The formal definition is:
 
-__Approach__:
+A **P-value** is the probability of observing data as or more extreme in
+favor of the alternative that was actually obtained, where the probability
+is calculated assuming that the null hypothesis is true.
 
-1. Define the hypothetical distribution of a data summary (statistic) when "nothing is going on" (_null hypothesis_)
-2. Calculate the summary/statistic with the data we have (_test statistic_)
-3. Compare what we calculated to our hypothetical distribution and see if the value is "extreme" (_p-value_)
 
----
-## P-values
-* The P-value is the probability under the null hypothesis of obtaining evidence as extreme or more extreme than that obtained
-* If the P-value is small, then either $H_0$ is true and we have observed a rare event or $H_0$ is false
-*  Suppos that you get a $T$ statistic of $2.5$ for 15 df testing $H_0:\mu = \mu_0$
-versus $H_a : \mu > \mu_0$.
-  * What's the probability of getting a $T$ statistic as large as $2.5$?
+A P-value then requires a few steps.
+1. Decide on a statistic that evaluates support of the null or alternative hypothesis.
+2. Decide on a distribution of that statistic under the null hypothesis (null distribution).
+3. Calculate the probability of obtaining a statistic as or more extreme as was observed
+using the distribution in 2.
 
-```r
-pt(2.5, 15, lower.tail = FALSE)
-```
+The way to interpret P-values is as follows. If the P-value is small, then either $H_0$ is true and we have observed a rare event or $H_0$ is false (or possibly the null model is incorrect).
 
-```
-## [1] 0.01225
-```
+Let's do a quick example. Suppose that you get a $T$ statistic of 2.5
+for 15 degrees of freedom  testing {$$}H_0:\mu = \mu_0{/$$}
+versus {$$}H_a : \mu > \mu_0{/$$}.
+What's the probability of getting a $T$ statistic as large as 2.5?
 
-* Therefore, the probability of seeing evidence as extreme or more extreme than that actually obtained under $H_0$ is 0.0123
+{title="P-value calculation in R.", line-numbers=off,lang=r}
+~~~
+> pt(2.5, 15, lower.tail = FALSE)
+[1] 0.01225
+~~~
 
----
+Therefore, the probability of seeing evidence as extreme or more extreme than that actually obtained under {$$}H_0{/$$} is 0.0123. So, (assuming our model is correct)
+either we observed data that was pretty unlikely under the null, or the null
+hypothesis if false.
+
 ## The attained significance level
-* Our test statistic was $2$ for $H_0 : \mu_0  = 30$ versus $H_a:\mu > 30$.
-* Notice that we rejected the one sided test when $\alpha = 0.05$, would we reject if $\alpha = 0.01$, how about $0.001$?
-* The smallest value for alpha that you still reject the null hypothesis is called the *attained significance level*
-* This is equivalent, but philosophically a little different from, the *P-value*
 
----
-## Notes
-* By reporting a P-value the reader can perform the hypothesis
-  test at whatever $\alpha$ level he or she choses
-* If the P-value is less than $\alpha$ you reject the null hypothesis
+Recall in a previous chapter that our
+test statistic was 2 for {$$}H_0 : \mu_0  = 30{/$$} versus {$$}H_a:\mu > 30{$$}
+using a normal test ({$$}n{/$$} was 100). Notice that we rejected the one
+sided test when {$$}\alpha = 0.05{/$$}, would we reject if {$$}\alpha = 0.01{/$$},
+how about 0.001?
+
+The smallest value for alpha that you still reject the null hypothesis is called
+the *attained significance level*.
+This is mathematically equivalent, but philosophically a little different from,
+the *P-value*. Whereas the P-value is interpreted in the terms of how
+probabilistically extreme our test statistic is under the null, the attained
+significance level merely conveys what the smallest level of {$$}\alpha{/$$}
+that one could reject at.
+
+
+This equivalence makes P-values very convenient to convey. The reader of
+the results can perform the test at whatever {$$}\alpha{/$$} he or she
+choses. This is especially useful in multiple testing circumstances.
+
+Here's the two rules for performing hypothesis tests with P-values.
+* If the P-value for a test is less than {$$}\alpha{/$$} you reject the null hypothesis
 * For two sided hypothesis test, double the smaller of the two one
   sided hypothesis test Pvalues
 
----
-## Revisiting an earlier example
-- Suppose a friend has $8$ children, $7$ of which are girls and none are twins
-- If each gender has an independent $50$% probability for each birth, what's the probability of getting $7$ or more girls out of $8$ births?
 
-```r
-choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
-```
+## Binomial P-value example
+Suppose a friend has 8 children, 7 of which are girls and none are twins.
+If each gender has an independent 50% probability for each birth,
+what's the probability of getting 7 or more girls out of 8 births?
 
-```
-## [1] 0.03516
-```
+This calculation is a P-value where the statistic is the number of girls
+and the null distribution is a fair coin flip for each gender. We want to test
+{$$}H_0: p=0.5{/$$} versus {$$}H_a: p > 0.5{/$$}, where {$$}p{/$$} is the
+probability of having a girl for each birth.
 
-```r
-pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
-```
+Recall here's the calculation:
 
-```
-## [1] 0.03516
-```
+{title="Example of a Binomial P-value calculation in R.", line-numbers=off,lang=r}
+~~~
+> pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
+[1] 0.03516
+~~~
 
+Since our P-value is less than 0.05 we would reject at a 5% error rate. Note,
+however, if we were doing a two sided test, we would have to double the P-value
+and thus would then fail to reject.
 
----
 ## Poisson example
-- Suppose that a hospital has an infection rate of 10 infections per 100 person/days at risk (rate of 0.1) during the last monitoring period.
-- Assume that an infection rate of 0.05 is an important benchmark.
-- Given the model, could the observed rate being larger than 0.05 be attributed to chance?
-- Under $H_0: \lambda = 0.05$ so that $\lambda_0 100 = 5$
-- Consider $H_a: \lambda > 0.05$.
+[Watch this video before beginning.](http://youtu.be/Tcw2OVyEX3s?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ )
 
+Suppose that a hospital has an infection rate of
+10 infections per 100 person/days at risk (rate of 0.1)
+during the last monitoring period. Assume that an infection rate of 0.05
+is an important benchmark.
 
-```r
-ppois(9, 5, lower.tail = FALSE)
-```
+Given a Poisson model, could the observed rate being larger than
+0.05 be attributed to chance? We want to test {$$}H_0: \lambda = 0.05{/$$}
+where {$$}\lambda{/$$} is the rate of infections per person day so that
+5 would be the rate per 100 days. Thus we want to know if 9 events per
+100 person/days is unusual
+with respect to a Poisson distribution with a rate of 5 events per 100.
+Consider $H_a: \lambda > 0.05$.
 
-```
-## [1] 0.03183
-```
--->
+{title="Poisson P-value calculation.", line-numbers=off,lang=r}
+~~~
+> ppois(9, 5, lower.tail = FALSE)
+[1] 0.03183
+~~~
+
+Again, since this P-value is less than 0.05 we reject the null hypothesis.
+The P-value would be 0.06 for  two sided hypothesis (double) and so we would
+fail to reject in that case.
