@@ -75,15 +75,18 @@ Use the simulated statistics to either define a confidence interval or take the 
 
 ### Nonparametric bootstrap algorithm example
 
-Bootstrap procedure for calculating confidence interval for the median from a data set of $n$ observations
+Bootstrap procedure for calculating confidence interval for the median from a data set of {$$}n{/$$} observations
 
-  i. Sample $n$ observations **with replacement** from the observed data resulting in one simulated complete data set
+  i. Sample {$$}n{/$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
   ii. Take the median of the simulated data set
-  iii. Repeat these two steps $B$ times, resulting in $B$ simulated medians
-  iv. These medians are approximately drawn from the sampling distribution of the median of $n$ observations; therefore we can
+  iii. Repeat these two steps {$$}B{/$$} times, resulting in {$$}B{/$$} simulated medians
+  iv. These medians are approximately drawn from the sampling distribution of the median of {$$}n{/$$} observations; therefore we can
     - Draw a histogram of them
     - Calculate their standard deviation to estimate the standard error of the median
-    - Take the $2.5^{th}$ and $97.5^{th}$ percentiles as a confidence interval for the median
+    - Take the {$$}2.5^{th}{/$$} and {$$}97.5^{th}{/$$} percentiles as a confidence interval for the median
+
+For the general bootstrap, just replace the median with whatever statistic that
+you're investigating.
 
 ### Example code
 
@@ -151,11 +154,18 @@ g
 ![Comparison of insect spray.](images/bootstrapping4.png)
 
 ## Permutation tests
--  Consider the null hypothesis that the distribution of the observations from each group is the same
--  Then, the group labels are irrelevant
+Consider comparing means between the group. However, let's
+use the calculate the distribution of our statistic under
+a null hypothesis that the labels are irrelevant (exchangeable).
+This is a handy way to create a null distribution for our
+test statistic by simply permuting the labels over and over and
+seeing how extreme our data are with respct to this permuted
+distribution.
+
+The procedure would be as follows:
 - Consider a data from with count and spray
 - Permute the spray (group) labels
-- Recalculate the statistic
+- Recalculate the statistic (examples:)
   - Mean difference in counts
   - Geometric means
   - T statistic
@@ -165,21 +175,36 @@ the alternative) than the observed
 
 
 ## Variations on permutation testing
-Data type | Statistic | Test name
----|---|---|
-Ranks | rank sum | rank sum test
-Binary | hypergeometric prob | Fisher's exact test
-Raw data | | ordinary permutation test
 
-- Also, so-called *randomization tests* are exactly permutation tests, with a different motivation.
-- For matched data, one can randomize the signs
-  - For ranks, this results in the signed rank test
-- Permutation strategies work for regression as well
-  - Permuting a regressor of interest
-- Permutation tests work very well in multivariate settings
+This idea of exchangeability of the group labels is so powerful, that it's
+been reinvented several times in statistic. The table below gives three
+famous tests that are obtained by permuting group labels.
 
+Data type | Statistic           | Test name           |
+----------|---------------------|---------------------|
+Ranks     | rank sum            | rank sum test       |
+Binary    | hypergeometric prob | Fisher's exact test |
+Raw data  |                     | permutation test    |
+----------|---------------------|---------------------|
+
+Also, so-called *randomization tests* are exactly permutation tests, with a
+different motivation. In that case, think of the permutation test as replicating
+the random assignment over and over.
+
+For matched or paired data, it wouldn't make sense to randomize the group labels, since
+that would break the association between the pairs. Instead,
+one can randomize the signs of the pairs. For data that has been replaced
+by ranks, you might of heard of this test before as the
+the signed rank test.
+
+Again we won't cover more complex examples, but it should be said that
+permutation strategies work for regression as well by permuting a
+regressor of interest (though this needs to be done with care).
+These tests work very well in massively multivariate settings.
 
 ## Permutation test B v C
+Let's create some code for our example. Our statistic will be the difference
+in the means in each group.
 
 subdata <- InsectSprays[InsectSprays$spray %in% c("B", "C"),]
 {title="Permutation distribution for the insect sprays dataset", lang=r,line-numbers=off}
@@ -199,13 +224,18 @@ Let's look at some of the results. First let's look at the observed statistic.
 [1] 13.25
 ~~~
 
+Now let's see what proportion of times we got a simulated
+statistic larger than our observed statistic.
+
 {lang=r,line-numbers=off}
 ~~~
 mean(permutations > observedStat)
 [1] 0
 ~~~
 
-## Histogram of permutations B v C
+Since this is 0, our estimate of the P-value is 0 (i.e. we strongly reject the
+  NULL). It's useful to look at a histogram of permuted statistics with a
+  vertical line drawn at the observed test statistic for reference.
 
 ![Permutation distribution from the insectsprays dataset](images/bootstrapping4.png)
 
