@@ -10,3 +10,4 @@ preface.md
 09_ht.md
 10_pvalues.md
 11_power.md
+13_bootstrapping.md

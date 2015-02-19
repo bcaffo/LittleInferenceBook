@@ -1,18 +1,5 @@
----
-title       : Multiple testing
-subtitle    : Statistical Inference 
-author      : Brian Caffo, Jeffrey Leek, Roger Peng
-job         : Johns Hopkins Bloomberg School of Public Health
-logo        : bloomberg_shield.png
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow   # 
-url:
-  lib: ../../librariesNew
-  assets: ../../assets
-widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
----
+# Multiple testing
+
 ## Key ideas
 
 * Hypothesis testing/significance analysis is commonly overused
@@ -22,13 +9,13 @@ mode        : selfcontained # {standalone, draft}
   * Correction
 
 
----
+<!--
 
 ## Three eras of statistics
 
 __The age of Quetelet and his successors, in which huge census-level data sets were brought to bear on simple but important questions__: Are there more male than female births? Is the rate of insanity rising?
 
-The classical period of Pearson, Fisher, Neyman, Hotelling, and their successors, intellectual giants who __developed a theory of optimal inference capable of wringing every drop of information out of a scientific experiment__. The questions dealt with still tended to be simple Is treatment A better than treatment B? 
+The classical period of Pearson, Fisher, Neyman, Hotelling, and their successors, intellectual giants who __developed a theory of optimal inference capable of wringing every drop of information out of a scientific experiment__. The questions dealt with still tended to be simple Is treatment A better than treatment B?
 
 __The era of scientific mass production__, in which new technologies typified by the microarray allow a single team of scientists to produce data sets of a size Quetelet would envy. But now the flood of data is accompanied by a deluge of questions, perhaps thousands of estimates or hypothesis tests that the statistician is charged with answering together; not at all what the classical masters had in mind. Which variables matter among the thousands measured? How do you relate unrelated information?
 
@@ -63,7 +50,7 @@ __The era of scientific mass production__, in which new technologies typified by
 
 ## Types of errors
 
-Suppose you are testing a hypothesis that a parameter $\beta$ equals zero versus the alternative that it does not equal zero. These are the possible outcomes. 
+Suppose you are testing a hypothesis that a parameter $\beta$ equals zero versus the alternative that it does not equal zero. These are the possible outcomes.
 </br></br>
 
                     | $\beta=0$   | $\beta\neq0$   |  Hypotheses
@@ -76,7 +63,7 @@ Claim $\beta\neq 0$ |      $V$    |      $S$       |  $R$
 
 __Type I error or false positive ($V$)__ Say that the parameter does not equal zero when it does
 
-__Type II error or false negative ($T$)__ Say that the parameter equals zero when it doesn't 
+__Type II error or false negative ($T$)__ Say that the parameter equals zero when it doesn't
 
 
 ---
@@ -95,13 +82,13 @@ __False discovery rate (FDR)__ - The rate at which claims of significance are fa
 
 ## Controlling the false positive rate
 
-If P-values are correctly calculated calling all $P < \alpha$ significant will control the false positive rate at level $\alpha$ on average. 
+If P-values are correctly calculated calling all $P < \alpha$ significant will control the false positive rate at level $\alpha$ on average.
 
-<redtext>Problem</redtext>: Suppose that you perform 10,000 tests and $\beta = 0$ for all of them. 
+<redtext>Problem</redtext>: Suppose that you perform 10,000 tests and $\beta = 0$ for all of them.
 
-Suppose that you call all $P < 0.05$ significant. 
+Suppose that you call all $P < 0.05$ significant.
 
-The expected number of false positives is: $10,000 \times 0.05 = 500$  false positives. 
+The expected number of false positives is: $10,000 \times 0.05 = 500$  false positives.
 
 __How do we avoid so many false positives?__
 
@@ -111,9 +98,9 @@ __How do we avoid so many false positives?__
 ## Controlling family-wise error rate (FWER)
 
 
-The [Bonferroni correction](http://en.wikipedia.org/wiki/Bonferroni_correction) is the oldest multiple testing correction. 
+The [Bonferroni correction](http://en.wikipedia.org/wiki/Bonferroni_correction) is the oldest multiple testing correction.
 
-__Basic idea__: 
+__Basic idea__:
 * Suppose you do $m$ tests
 * You want to control FWER at level $\alpha$ so $Pr(V \geq 1) < \alpha$
 * Calculate P-values normally
@@ -128,9 +115,9 @@ __Cons__: May be very conservative
 
 ## Controlling false discovery rate (FDR)
 
-This is the most popular correction when performing _lots_ of tests say in genomics, imaging, astronomy, or other signal-processing disciplines. 
+This is the most popular correction when performing _lots_ of tests say in genomics, imaging, astronomy, or other signal-processing disciplines.
 
-__Basic idea__: 
+__Basic idea__:
 * Suppose you do $m$ tests
 * You want to control FDR at level $\alpha$ so $E\left[\frac{V}{R}\right]$
 * Calculate P-values normally
@@ -158,10 +145,10 @@ Controlling all error rates at $\alpha = 0.20$
 * They _are not p-values_ anymore
 * But they can be used directly without adjusting $\alpha$
 
-__Example__: 
+__Example__:
 * Suppose P-values are $P_1,\ldots,P_m$
 * You could adjust them by taking $P_i^{fwer} = \max{m \times P_i,1}$ for each P-value.
-* Then if you call all $P_i^{fwer} < \alpha$ significant you will control the FWER. 
+* Then if you call all $P_i^{fwer} < \alpha$ significant you will control the FWER.
 
 ---
 
@@ -286,7 +273,7 @@ plot(pValues, p.adjust(pValues, method = "bonferroni"), pch = 19)
 plot(pValues, p.adjust(pValues, method = "BH"), pch = 19)
 ```
 
-![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3.png)
 
 
 
@@ -305,4 +292,4 @@ __Further resources__:
 * [Multiple testing procedures with applications to genomics](http://www.amazon.com/Multiple-Procedures-Applications-Genomics-Statistics/dp/0387493166/ref=sr_1_2/102-3292576-129059?ie=UTF8&s=books&qid=1187394873&sr=1-2)
 * [Statistical significance for genome-wide studies](http://www.pnas.org/content/100/16/9440.full)
 * [Introduction to multiple testing](http://ies.ed.gov/ncee/pubs/20084018/app_b.asp)
-
+-->
