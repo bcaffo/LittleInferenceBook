@@ -38,6 +38,8 @@ content with using the empirical distribution. This is the clever idea of the bo
 
 ### Example Galton's fathers and sons dataset
 
+[Watch this video before beginning.](http://youtu.be/yNTWcmbWvWg?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 The code below creates resamples via draws of size n with replacement with the original data
  of the son's heights from Galton's data
 and plots a histrogram of the median of each resampled dataset.
@@ -58,7 +60,9 @@ resampledMedians <- apply(resamples, 1, median)
 
 ![Bootstrapping example for the median of sons' heights from Galton's ](images/bootstrapping3.png)
 
-### The bootstrap principle
+## The bootstrap principle
+
+![Watch this video before beginning](http://youtu.be/BKrMjX7FBno?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Suppose that I have a statistic that estimates some population parameter, but I don't know its sampling distribution.
 The bootstrap principle suggests using the distribution defined by the data to approximate its sampling distribution
@@ -89,6 +93,7 @@ For the general bootstrap, just replace the median with whatever statistic that
 you're investigating.
 
 ### Example code
+
 
 Consider our father/son data from before. Here is
 the relevant code for doing the resampling.
@@ -140,7 +145,10 @@ g
 - Better percentile bootstrap confidence intervals correct for bias.
 - There are lots of variations on bootstrap procedures; the book "An Introduction to the Bootstrap"" by Efron and Tibshirani is a great place to start for both bootstrap and jackknife information.
 
-## Group comparisons
+## Group comparisons via permutation tests
+
+[Watch this video before beginning.](http://youtu.be/nn1t9Kk7nn8?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 Consider comparing two independent groups. Example, comparing sprays B and C.
 
 {lang=r,line-numbers=off}
