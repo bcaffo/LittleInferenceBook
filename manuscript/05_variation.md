@@ -323,3 +323,16 @@ even though we only get one to look at in a given data set.
 4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
   - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
   - Yes, you have to get repeat averages.
+5. A random variable takes the value -4 with probability .2 and 1 with probability .8. What
+is the variance of this random variable? [Watch a video solution to this problem.](http://youtu.be/Em-xJeQO1rc?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
+and [look at a version with a worked out solution.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#6)
+6. If {$$}\bar X{/$$} and {$$}\bar Y{/$$} are comprised of n iid random variables arising from distributions
+having  means {$$}\mu_x{/$$} and {$$}\mu_y{/$$}, respectively and common variance
+{$$}\sigma^2{/$$}
+what is the variance {$$}\bar X - \bar Y{/$$}?
+[Watch a video solution to this problem here](http://youtu.be/7zJhPzX6jns?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see a typed up solution here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#7)
+7. Let {$$}X{/$$} be a random variable having standard deviation {$$}\sigma{/$$}. What can
+be said about the variance of {$$}X /\sigma{/$$}? [Watch a video solution to this
+problem here](http://youtu.be/0WUj18_BUPA?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and
+[typed  up solutions here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#8).
+8. 
