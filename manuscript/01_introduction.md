@@ -161,10 +161,10 @@ up basic probability as our first task.
 ## Exercises
 
 1. The goal of statistical inference is to?
-  a. Infer facts about a population from a sample.
-  b. Infer facts about the sample from a population.
-  c. Calculate sample quantities to understand your data.
-  d. To torture Data Science students.
+  - a. Infer facts about a population from a sample.
+  - b. Infer facts about the sample from a population.
+  - c. Calculate sample quantities to understand your data.
+  - d. To torture Data Science students.
 2. The goal of randomization of a treatment in a randomized trial is to?
   a. It doesn't really do anything.
   b. To obtain a representative sample of subjects from the population of interest.
