@@ -477,3 +477,18 @@ don't require the CLT.
   * But a quick fix for small sample size binomial calculations is to add 2 successes and failures.
 
 ## Exercises
+1. I simulate 1,000,000 standard normals. The LLN says that their sample average must be close to?
+  a. 1
+  b. 0
+2. About what is the probability of getting 45 or fewer heads out 100 flips of a fair coin? (Use the CLT, not the exact binomial calculation).
+  a. Around 16%
+  b. Pretty close to 50%
+3. Consider the father.son data. Using the CLT and assuming that the fathers are a random sample from a population of interest, what is a 95% confidence mean height in inches?
+  a. 62.2 to 73.1
+  b. 67.5 to 67.9
+4. The goal of a a confidence interval having coverage 95% is to imply that:
+  a. If one were to repeated collect samples and reconstruct the intervals, around 95% percent of them would contain the true mean being estimated.
+  b. The probability that the sample mean is in the interval is 95%.
+5. The rate of search entries into a web site was 10 per minute when monitoring for an hour. Use R to calculate the exact Poisson interval for the rate of events per minute?
+  a. 9.2 to 10.8
+  b. 0.08 to 0.31
