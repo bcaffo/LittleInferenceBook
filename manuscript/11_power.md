@@ -153,3 +153,25 @@ power.t.test(power = 0.8, delta = 2, sd = 4, type = "one.sample", alt = "one.sid
 > power.t.test(power = 0.8, delta = 100, sd = 200, type = "one.sample", alt = "one.sided")$n
 [1] 26.14
 ~~~
+
+## Exercises
+
+1. Power is a probability calculation assuming which is true:
+  - The null hypothesis
+  - The alternative hypothesis
+  - Both the null and alternative
+2. As your sample size gets bigger, all else equal, what do you think would happen to power?
+  - It would get larger
+  - It would get smaller
+  - It would stay the same
+  - It cannot be determined from the information given
+3. What happens to power as {$$}\mu_a{/$$} gets further from {$$}\mu_0{/$$}?
+  - Power decreases
+  - Power increases
+  - Power stays the same
+  - Power oscillates
+4. In the context of calculating power, the effect size is?
+  - The null mean divided by the standard deviation
+  - The alternative mean divided by the standard error
+  - The difference between the null and alternative means divided by the standard deviation
+  - The standard error divided by the null mean

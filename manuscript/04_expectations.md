@@ -247,17 +247,17 @@ concentrated its density / mass function is around the population mean.
 ## Exercises  
 
 1. A standard die takes the values 1, 2, 3, 4, 5, 6 with equal probability. What is the expected value?
-  a. 1
-  b. 3
-  c. 3.5
-  d. 4
+  - 1
+  - 3
+  - 3.5
+  - 4
 2. Consider a density that is uniform from -1 to 1. (I.e. has height equal to 1/2 and looks like a box starting at -1 and ending at 1). What is the mean of this distribution?
-  a. 0
-  b. 1
-  c. -1
-  d. It's impossible to tell from the information given
+  - 0
+  - 1
+  - -1
+  - It's impossible to tell from the information given
 3. If a population has mean {$$}\mu{/$$}, what is the mean of the distribution of averages of 20 observations from this distribution?
-  a. 20
-  b. {$$}\mu{/$$}
-  c. It can't be obtained from the information given
-  d. {$$}\mu/20{/$$}
+  - 20
+  - {$$}\mu{/$$}
+  - It can't be obtained from the information given
+  - {$$}\mu/20{/$$}

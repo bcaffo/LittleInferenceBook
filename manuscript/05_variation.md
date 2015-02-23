@@ -308,18 +308,18 @@ even though we only get one to look at in a given data set.
 
 ## Exercises
 1. If I have a random sample from a population, the sample variance is an estimate of?
-  a. The population standard deviation.
-  b. The population variance.
-  c. The sample variance.
-  d. The sample standard deviation.
+  - The population standard deviation.
+  - The population variance.
+  - The sample variance.
+  - The sample standard deviation.
 2. The distribution of the sample variance of a random sample from a population is centered at what?
-  a. The population variance.
-  b. The population mean.
+  - The population variance.
+  - The population mean.
 3. I keep drawing samples of size {$$}n{/$$} from a population with variance {$$}\sigma^2{/$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
-  a. {$$}\sigma^2{/$$}
-  b. {$$}\sigma^2/n{/$$}
-  c. {$$}n\sigma^2{/$$}
-  d. {$$}\sigma\sqrt{n}{/$$}
+  - {$$}\sigma^2{/$$}
+  - {$$}\sigma^2/n{/$$}
+  - {$$}n\sigma^2{/$$}
+  - {$$}\sigma\sqrt{n}{/$$}
 4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
-  a. No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
-  b. Yes, you have to get repeat averages.
+  - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
+  - Yes, you have to get repeat averages.

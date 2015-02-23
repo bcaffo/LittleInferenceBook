@@ -325,11 +325,11 @@ For other kinds of data, there are preferable small and large sample intervals a
 ## Exercises
 
 1. For iid Gaussian data, the statistic {$$}\frac{\bar X - \mu}{s / \sqrt{n}}{/$$} must follow a:
-  a. Z distribution
-  b. *t* distribution
+  - Z distribution
+  - *t* distribution
 2. Paired differences T confidence intervals are useful when:
-  a. Pairs of observations are linked, such as when there is subject level matching or in a study with baseline and follow up measurements on all participants.
-  b. When there was randomization of a treatment between two independent groups.
+  - Pairs of observations are linked, such as when there is subject level matching or in a study with baseline and follow up measurements on all participants.
+  - When there was randomization of a treatment between two independent groups.
 3. The assumption that the variances are equal for the independent group T interval means that:
-  a. The sample variances have to be nearly identical.
-  b. The population variances are identical, but the sample variances may be different.
+  - The sample variances have to be nearly identical.
+  - The population variances are identical, but the sample variances may be different.
