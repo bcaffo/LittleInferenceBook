@@ -62,7 +62,7 @@ resampledMedians <- apply(resamples, 1, median)
 
 ## The bootstrap principle
 
-![Watch this video before beginning](http://youtu.be/BKrMjX7FBno?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/BKrMjX7FBno?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Suppose that I have a statistic that estimates some population parameter, but I don't know its sampling distribution.
 The bootstrap principle suggests using the distribution defined by the data to approximate its sampling distribution
@@ -79,12 +79,13 @@ Use the simulated statistics to either define a confidence interval or take the 
 
 ### Nonparametric bootstrap algorithm example
 
-Bootstrap procedure for calculating confidence interval for the median from a data set of {$$}n{/$$} observations
+Bootstrap procedure for calculating confidence interval for the median from a data set of {$$}n{/$$} observations:
 
-  i. Sample {$$}n{/$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
-  ii. Take the median of the simulated data set
-  iii. Repeat these two steps {$$}B{/$$} times, resulting in {$$}B{/$$} simulated medians
-  iv. These medians are approximately drawn from the sampling distribution of the median of {$$}n{/$$} observations; therefore we can
+1. Sample {$$}n{/$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
+2. Take the median of the simulated data set
+3. Repeat these two steps {$$}B{/$$} times, resulting in {$$}B{/$$} simulated medians
+4. These medians are approximately drawn from the sampling distribution of the median of {$$}n{/$$} observations; therefore we can:
+
     - Draw a histogram of them
     - Calculate their standard deviation to estimate the standard error of the median
     - Take the {$$}2.5^{th}{/$$} and {$$}97.5^{th}{/$$} percentiles as a confidence interval for the median
@@ -139,11 +140,11 @@ g
 
 ![Bootstrapping example for the median of sons' heights from Galton's ](images/bootstrapping3.png)
 
-### Notes on the bootstrap
+### Summary notes on the bootstrap
 
 - The bootstrap is non-parametric.
 - Better percentile bootstrap confidence intervals correct for bias.
-- There are lots of variations on bootstrap procedures; the book "An Introduction to the Bootstrap"" by Efron and Tibshirani is a great place to start for both bootstrap and jackknife information.
+- There are lots of variations on bootstrap procedures; the book [An Introduction to the Bootstrap](http://www.crcpress.com/product/isbn/9780412042317) by Efron and Tibshirani is a great place to start for both bootstrap and jackknife information.
 
 ## Group comparisons via permutation tests
 
@@ -171,15 +172,13 @@ seeing how extreme our data are with respct to this permuted
 distribution.
 
 The procedure would be as follows:
-- Consider a data from with count and spray
-- Permute the spray (group) labels
-- Recalculate the statistic (examples:)
-  - Mean difference in counts
-  - Geometric means
-  - T statistic
-- Calculate the percentage of simulations where
+
+1. consider a data from with count and spray,
+2. permute the spray (group) labels,
+3. recalculate the statistic (such as the difference in means),
+4. calculate the percentage of simulations where
 the simulated statistic was more extreme (toward
-the alternative) than the observed
+the alternative) than the observed.
 
 
 ## Variations on permutation testing
@@ -188,12 +187,15 @@ This idea of exchangeability of the group labels is so powerful, that it's
 been reinvented several times in statistic. The table below gives three
 famous tests that are obtained by permuting group labels.
 
-Data type | Statistic           | Test name           |
-----------|---------------------|---------------------|
-Ranks     | rank sum            | rank sum test       |
-Binary    | hypergeometric prob | Fisher's exact test |
-Raw data  |                     | permutation test    |
-----------|---------------------|---------------------|
+
+|----------|---------------------|---------------------|
+|Data type | Statistic           | Test name           |
+|----------|---------------------|---------------------|
+|Ranks     | rank sum            | rank sum test       |
+|Binary    | hypergeometric prob | Fisher's exact test |
+|Raw data  |                     | permutation test    |
+|----------|---------------------|---------------------|
+
 
 Also, so-called *randomization tests* are exactly permutation tests, with a
 different motivation. In that case, think of the permutation test as replicating
@@ -214,9 +216,9 @@ These tests work very well in massively multivariate settings.
 Let's create some code for our example. Our statistic will be the difference
 in the means in each group.
 
-subdata <- InsectSprays[InsectSprays$spray %in% c("B", "C"),]
-{title="Permutation distribution for the insect sprays dataset", lang=r,line-numbers=off}
+{title="Permutation distribution for the insect sprays dataset.", lang=r,line-numbers=off}
 ~~~
+subdata <- InsectSprays[InsectSprays$spray %in% c("B", "C"),]
 y <- subdata$count
 group <- as.character(subdata$spray)
 testStat <- function(w, g) mean(w[g == "B"]) - mean(w[g == "C"])
@@ -245,6 +247,6 @@ Since this is 0, our estimate of the P-value is 0 (i.e. we strongly reject the
   NULL). It's useful to look at a histogram of permuted statistics with a
   vertical line drawn at the observed test statistic for reference.
 
-![Permutation distribution from the insectsprays dataset](images/bootstrapping4.png)
+![Permutation distribution from the insectsprays dataset](images/bootstrapping5.png)
 
 ## Exercises

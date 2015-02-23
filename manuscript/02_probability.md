@@ -4,7 +4,7 @@
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
 
-Before we begin discussing probability, let's dispense with some deep philosphical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occuring without apparent deterministic paterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probabilitity for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
+Before we begin discussing probability, let's dispense with some deep philosphical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occuring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
 
 For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
 
@@ -18,8 +18,8 @@ can be viewed on YouTube [here](Youtube:
 www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
 there's  the actual [Coursera course](Coursera:
 www.coursera.org/course/biostats) that I run periodically (this is the first
-Coursera class that I ever taught).  In addition there are a set of (notes on
-github)[http://github.com/bcaffo/Caffo-Coursera]. Finally, there's a followup
+Coursera class that I ever taught).  Also there are a set of [notes on
+github](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a followup
 class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more
 devoted  to biostatistical topics that has an associated [YouTube
 playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM),
@@ -29,7 +29,7 @@ notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2).
 ## Kolmogorov's Three Rules
 
 [Watch this lecture before
-beginning](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+beginning.](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Given a random experiment (say rolling a die) a probability measure is a
 population quantity
@@ -76,28 +76,18 @@ cannot both simultaneously occur, they are mutually exclusive. So
 the probability that either {$$}A{/$$} or {$$}A^c{/$$}  is {$$}P(A) + P(A^c){/$$}.
 Notice, that the probability that either occurs is the probability
 of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that
-something occurs, which is 1 by rule number 2.  So we have that {$$}1 = P(A) +
-P(A^c){/$$} or that  {$$}P(A) = 1 - P(A^c){/$$}.
+something occurs, which is 1 by rule number 2.  So we have that
+{$$}1 = P(A) + P(A^c){/$$} or that {$$}P(A) = 1 - P(A^c){/$$}.
 
 We won't go through this tedious exercise (since Kolmorogov already did it for
 us). Instead here's a list of some of the consequences of Kolmogorov's rules
 that are often useful.
 
-- The probability that nothing occurs is 0
- The probability that something
-- occurs is 1
- The probability of something is 1 minus the probability that the
-- opposite occurs
- The probability of at least one of
-     two (or more) things
-- that can not simultaneously occur (mutually exclusive)
-     is the sum of
-- their
-     respective probabilities
- For any two events the probability that
-- at least one occurs is the sum of their
-     probabilities minus their
-- intersection.
+1. The probability that nothing occurs is 0
+2. The probability that something occurs is 1
+3.  The probability of something is 1 minus the probability that the opposite occurs
+4.  The probability of at least one of two (or more) things that can not simultaneously occur (mutually exclusive)  is the sum of their respective probabilities
+5. For any two events the probability that at least one occurs is the sum of their probabilities minus their intersection.
 
 This last rules states that {$$}P(A \cup B) = P(A) + P(B)  - P(A \cap B){/$$}
 shows what is the issue with adding probabilities that are not mutually
@@ -155,7 +145,7 @@ work with it.
 
 Remember, everything we're talking about up to at this point is a population
 quantity,
- not a statement about what occurs in our data in the same sense that
+ not a statement about what occurs in our data. Think about the fact that
 50% probability for head is a statement about
  the coin and how we're flipping
 it, not a statement about the percentage of heads we obtained in a particular
@@ -184,8 +174,8 @@ Let's consider some examples of measurements that could be considered random var
 First, familiar gambling experiments like the tossing of a coin and the rolling
 of a die produce random variables. For the coin, we typically code a tail as
 a 0 and a head as a 1. (For the die, the number facing up would be the random
-variable.) We'll use these examples a lot to help us build intuition. However,
-they aren't interesting in the sense of lacking any context. Nonetheless,
+variable.) We will use these examples a lot to help us build intuition. However,
+they aren't interesting in the sense of seeming very contrived. Nonetheless,
 the coin example is particularly useful since many of the experiments we
 consider will be modeled as if tossing a biased coin. Modeling
 any binary characteristic from a random sample of a population can be
@@ -219,12 +209,12 @@ interest. The goal is to use our data to figure out things about that normal
 distribution, where it's centered, how spread out it is and even
 whether our assumption of normality is warranted!
 
-## Probability Mass Functions
+## Probability mass functions
 
 A probability mass function evaluated at a value corresponds to the
  probability
-that a random variable takes that value. To be a valid pmf a function, $p$,
-must satisfy
+that a random variable takes that value. To be a valid pmf a function, {$$}p{/$$},
+must satisfy:
 
 1. It must always be larger than or equal to 0.
 2. The sum of the possible values that the random variable can take has to add up to one.
@@ -245,7 +235,7 @@ for {$$}x = 0,1 {/$$}
 
 ## Probability density functions
 
-[Watch this video before beginning](http://youtu.be/mPe0Us4VYDM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/mPe0Us4VYDM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 A probability density function (pdf), is a function associated with a continuous
 random variable. Because of the peculiarities
@@ -269,6 +259,7 @@ rules tell us when a function is a valid probability
 density function.
 
 Specifically, to be a valid pdf, a function must satisfy
+
 1. It must be larger than or equal to zero everywhere.
 2. The total area under it must be one.
 
@@ -278,7 +269,7 @@ Suppose that the proportion of help calls that get addressed in
 a random day by a help line is given by {$$} f(x) = 2 x {/$$}
 for {$$}0< x < 1{/$$}. The R code for plotting this density is
 
-{title='Code for plotting the density', line-numbers=off,lang=r}
+{title="Code for plotting the density", line-numbers=off,lang=r}
 ~~~~~~
 x <- c(-0.5, 0, 1, 1, 1.5)
 y <- c(0, 0, 2, 0, 0)
@@ -357,7 +348,7 @@ F(x) = P(X \leq x)
 
 This definition applies regardless of  
 whether the random variable is discrete or continuous. The **survival function**
-of a random variable $X$ is defined as the
+of a random variable {$$}X{/$$} is defined as the
 probability that the random variable is greater than the value {$$}x{/$$}.
 
 {$$}

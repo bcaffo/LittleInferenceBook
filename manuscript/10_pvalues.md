@@ -1,7 +1,7 @@
 # P-values
 
 ## Introduction to P-values
-[Watch this video before beginning](http://youtu.be/Ky68x_7iK6c?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/Ky68x_7iK6c?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 P-values are the most common measure of statistical significance.
 Their ubiquity, along with concern over their interpretation and use
@@ -25,7 +25,7 @@ calculate how unusual it would be to see data as extreme as was seen
 in favor of the alternative hypothesis. The formal definition is:
 
 A **P-value** is the probability of observing data as or more extreme in
-favor of the alternative that was actually obtained, where the probability
+favor of the alternative than was actually obtained, where the probability
 is calculated assuming that the null hypothesis is true.
 
 
@@ -35,12 +35,12 @@ A P-value then requires a few steps.
 3. Calculate the probability of obtaining a statistic as or more extreme as was observed
 using the distribution in 2.
 
-The way to interpret P-values is as follows. If the P-value is small, then either $H_0$ is true and we have observed a rare event or $H_0$ is false (or possibly the null model is incorrect).
+The way to interpret P-values is as follows. If the P-value is small, then either {$$}H_0{/$$} is true and we have observed a rare event or {$$}H_0{/$$} is false (or possibly the null model is incorrect).
 
-Let's do a quick example. Suppose that you get a $T$ statistic of 2.5
+Let's do a quick example. Suppose that you get a *t* statistic of 2.5
 for 15 degrees of freedom  testing {$$}H_0:\mu = \mu_0{/$$}
 versus {$$}H_a : \mu > \mu_0{/$$}.
-What's the probability of getting a $T$ statistic as large as 2.5?
+What's the probability of getting a *t* statistic as large as 2.5?
 
 {title="P-value calculation in R.", line-numbers=off,lang=r}
 ~~~
@@ -55,7 +55,7 @@ hypothesis if false.
 ## The attained significance level
 
 Recall in a previous chapter that our
-test statistic was 2 for {$$}H_0 : \mu_0  = 30{/$$} versus {$$}H_a:\mu > 30{$$}
+test statistic was 2 for {$$}H_0 : \mu_0  = 30{/$$} versus {$$}H_a:\mu > 30{/$$}
 using a normal test ({$$}n{/$$} was 100). Notice that we rejected the one
 sided test when {$$}\alpha = 0.05{/$$}, would we reject if {$$}\alpha = 0.01{/$$},
 how about 0.001?
@@ -115,7 +115,7 @@ where {$$}\lambda{/$$} is the rate of infections per person day so that
 5 would be the rate per 100 days. Thus we want to know if 9 events per
 100 person/days is unusual
 with respect to a Poisson distribution with a rate of 5 events per 100.
-Consider $H_a: \lambda > 0.05$.
+Consider {$$}H_a: \lambda > 0.05{/$$}.
 
 {title="Poisson P-value calculation.", line-numbers=off,lang=r}
 ~~~
@@ -126,3 +126,5 @@ Consider $H_a: \lambda > 0.05$.
 Again, since this P-value is less than 0.05 we reject the null hypothesis.
 The P-value would be 0.06 for  two sided hypothesis (double) and so we would
 fail to reject in that case.
+
+## Exercises

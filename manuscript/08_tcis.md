@@ -1,29 +1,30 @@
-# T Confidence intervals
+# *t* Confidence intervals
 
 ## Small sample confidence intervals
-[Watch this video before beginning](http://youtu.be/pHXrDMjzyYg?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/pHXrDMjzyYg?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 In the previous lecture, we discussed creating a confidence interval
 using the CLT. Our intervals took the form:
 
-{$$}Est \pm ZQ \times SE_{Est}.{/$$}
+{$$}Est \pm Z \times SE_{Est}.{/$$}
 
 In this lecture, we discuss some methods for small samples, notably
 Gosset's *t* distribution and *t* confidence intervals.
 
 These intervals are of the form:
 
-{$$}Est \pm TQ \times SE_{Est}.{/$$}
+{$$}Est \pm t \times SE_{Est}.{/$$}
 
 So the only change is that we've replaced the Z quantile now with a *t*
 quantile. These are some of the handiest of intervals in all of statistics.
 If you want a rule between whether to use a *t* interval
-or normal interval, just always use the T interval.
+or normal interval, just always use the *t* interval.
 
 ## Gosset's *t* distribution
 
 The *t* distribution was invented by William Gosset
-(under the pseudonym "Student") in 1908. This distribution
+(under the pseudonym "Student") in 1908. Fisher provided further mathematical
+details about the distribution later. This distribution
 has thicker tails than the normal. It's
 indexed by a degrees of freedom and it gets more like a standard normal as
 the degrees of freedom get larger. It assumes that the underlying data are iid
@@ -81,7 +82,7 @@ myplot2 <- function(df){
 manipulate(myplot2(df), df = slider(1, 20, step = 1))
 ~~~
 
-### Note's about the *t* interval
+### Summary notes
 
 In this section, we give an overview of important facts about the *t* distribution.
 
@@ -146,12 +147,12 @@ t.test(extra ~ I(relevel(group, 2)), paired = TRUE, data = sleep)
  [4,] 0.7001 2.46
 ~~~
 
-Therefore our 95% confidence
-interval estimate for the mean change (followup - baseline) is 0.70 to 2.45
+Therefore, since our interval doesn't include 0, our 95% confidence
+interval estimate for the mean change (followup - baseline) is 0.70 to 2.45.
 
 ## Independent group *t* confidence intervals
 
-[Watch this video before beginning](http://youtu.be/J1XqN0yumEQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/J1XqN0yumEQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Suppose that we want to compare the mean blood pressure between two groups in a randomized trial;
 those who received the treatment to those who received a placebo. The randomization is useful for
@@ -171,7 +172,8 @@ A {$$}(1 - \alpha)\times 100\%{/$$} confidence interval for the mean difference 
 {$$}\mu_y - \mu_x{/$$} is:
 
 {$$}
-\bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p\left(\frac{1}{n_x} + \frac{1}{n_y}\right)^{1/2}.
+\bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p
+\left( \frac{1}{n_x} + \frac{1}{n_y} \right)^{1/2}.
 {/$$}
 
 The notation {$$}t_{n_x + n_y - 2, 1 - \alpha/2}{/$$} means a *t* quantile with
@@ -217,14 +219,14 @@ The results are:
 [3,]  0.7001 2.460
 ~~~
 
-Notice that the paired interval (the last row) is entirely above zero while
-the grouped interval contains zero.  Thus, acknowledging the pairing explains variation that would otherwise be absorbed into the
+Notice that the paired interval (the last row) is entirely above zero.
+The grouped interval (first two rows) contains zero.  Thus, acknowledging the pairing explains variation that would otherwise be absorbed into the
 variation for the group means. As a result, treating the groups as independent results in wider intervals. Even if it didn't
 result in a shorter interval, the paired interval would be correct as the groups are not statistically independent!
 
 ### `ChickWeight` data in R
 
-Now let's try an example with actual independent groups. Load in the ChickWeight
+Now let's try an example with actual independent groups. Load in the `ChickWeight`
 data in R. We are also going to manipulate the dataset to have a total weight gain
 variable using dplyr.
 
@@ -276,10 +278,12 @@ below zero it suggest that group 1 had less weight gain than group 4 (at 95% con
 [Watch this video before beginning.](https://www.youtube.com/watch?v=CVDdbR4VuOE&list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ&index=24)
 
 Under unequal variances our *t* interval becomes:
+
 {$$}
 \bar Y - \bar X \pm t_{df} \times \left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}
 {/$$}
-where {$$}t_{df}{/$$} is the *t* quantile calculated with degrees of freedom
+
+where {$$}t_{df}{/$$} is the *t* quantile calculated with degrees of freedom:
 
 {$$}
 df=    \frac{\left(S_x^2 / n_x + S_y^2/n_y\right)^2}
@@ -288,11 +292,13 @@ df=    \frac{\left(S_x^2 / n_x + S_y^2/n_y\right)^2}
 {/$$}
 
 which will be approximately a 95% interval. This works really well.
-So when in doubt, just assume unequal variances
+So when in doubt, just assume unequal variances. Also, we present the formula
+for completeness. In practice, it's easy to mess up, so make sure to do `t.test`.
 
-Referring back to the previous chickWeight example, the violin plots suggest that considering
+Referring back to the previous `ChickWeight` example, the violin plots suggest that considering
 unequal variances would be wise. Recall the code is
 
+{line-numbers=off,lang=r}
 ~~~
 > t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
 [2,] -104.7 -18.30
@@ -300,13 +306,14 @@ unequal variances would be wise. Recall the code is
 
 This interval is remains entirely below zero. However, it is wider than the equal variance interval.
 
-## Summary
-* The *t* distribution is useful for small sample size comparison.
+## Summary notes
+* The *t* distribution is useful for small sample size comparisons.
 * It technically assumes normality, but is robust to this assumption within limits.
 * The *t* distribution gives rise to *t* confidence intervals (and tests, which we will see later)
 
 For other kinds of data, there are preferable small and large sample intervals and tests.
-* For binomial data, there's lots of ways to compare two groups
+
+* For binomial data, there's lots of ways to compare two groups.
   * Relative risk, risk difference, odds ratio.
   * Chi-squared tests, normal approximations, exact tests.
 * For count data, there's also Chi-squared tests and exact tests.

@@ -1,7 +1,7 @@
 # Conditional probability
 
 ## Conditional probability, motivation
-[Watch this video before beginning](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Conditioning a central subject in statistics.
 If we are given information about a random variable, it changes
@@ -186,7 +186,7 @@ Therefore, dividing these two equations we have:
 {/$$}
 
 In other words, the post test odds of disease is the pretest odds of disease
-times the {$$}DLR_+{/$$}. Similarly, $DLR_-$ relates the decrease in the odds
+times the {$$}DLR_+{/$$}. Similarly, {$$}DLR_-{/$$} relates the decrease in the odds
 of the disease after a negative test result to the odds of disease prior to
 the test.
 
@@ -217,7 +217,7 @@ times that of the hypothesis of absence of disease given the negative test resul
 
 
 ## Independence
-[Watch this video before beginning](http://youtu.be/MY1EfrR1ZUs?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/MY1EfrR1ZUs?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Statistical independence of events is the idea that the events are unrelated.
 Consider successive coin flips. Knowledge of the result of the first coin flip

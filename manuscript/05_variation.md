@@ -8,7 +8,8 @@ Recall that the mean of distribution was a measure of its center.
 The variance, on the other hand, is a measure of *spread*.
 To get a sense, the plot below shows a series of increasing
 variances.
-![Distributions with increasing variance](images/normalVariances.png)
+
+![Distributions with increasing variance](images/normalVariances2.png)
 
 We saw another example
 of how variances changed in the last chapter when we looked at the distribution of averages; they were always centered
@@ -21,20 +22,20 @@ If {$$}X{/$$} is a random variable with mean {$$}\mu{/$$}, the variance of
 {$$}X{/$$} is defined as
 
 {$$}
-Var(X) = E[(X - \mu)^2] = E[X^2] - E[X]^2
+Var(X) = E[(X - \mu)^2] = E[X^2] - E[X]^2.
 {/$$}
 
 The rightmost equation is the shortcut formula that is almost always used
 for calculating variances in practice.  
-Thus the variance is the expected (squared) distance from the mean.  
-Densities with a higher variance are more spread out than densities with
+Thus the variance is the expected (squared) distance from the mean. Densities
+with a higher variance are more spread out than densities with
 a lower variance. The square root of the variance is called the
 **standard deviation**. The main benefit of working with standard deviations
 is that they have the same units as the data, whereas the variance has the
 units squared.
 
 In this class, we'll only cover a few basic examples for calculating a variance.
-Otherwise, we're going to use the idea. Also remember, what we're talking
+Otherwise, we're going to use the ideas without the formalism. Also remember, what we're talking
 about is the population variance. It measures how spread out the population
 of interest is, unlike the sample variance which measures how spread out the
 observed data are. Just like the sample mean estimates the
@@ -44,8 +45,7 @@ population mean, the sample variance will estimate the population variance.
 
 ### Example
 
-What's the variance from the result of a toss of a die?
-First recall that {$$}E[X] = 3.5{/$$}, as we discussed in the previous lecture.
+What's the variance from the result of a toss of a die? First recall that {$$}E[X] = 3.5{/$$}, as we discussed in the previous lecture.
 Then let's calculate the other bit of information that we need, {$$}E[X^2]{/$$}.
 
 {$$}E[X^2] = 1 ^ 2 \times \frac{1}{6} + 2 ^ 2 \times \frac{1}{6} + 3 ^ 2 \times \frac{1}{6} + 4 ^ 2 \times \frac{1}{6} + 5 ^ 2 \times \frac{1}{6} + 6 ^ 2 \times \frac{1}{6} = 15.17{/$$}
@@ -58,22 +58,18 @@ Thus now we can calculate the variance as:
 ### Example
 
 What's the variance from the result of the toss of a
-(potentially biased) coin with probability of heads (1) of {$$}p{/$$}?
-
-First recall that
-{$$}E[X] = 0 \times (1 - p) + 1 \times p = p.{/$$}
-
-Secondly, recall that since {$$}X{/$$} is either 0 or 1,
+(potentially biased) coin with probability of heads (1) of {$$}p{/$$}? First recall that
+{$$}E[X] = 0 \times (1 - p) + 1 \times p = p.{/$$} Secondly, recall that since {$$}X{/$$} is either 0 or 1,
 {$$}X^2 = X{/$$}. So we know that:
 
-{$$}E[X^2] = E[X] = p{/$$}
+{$$}E[X^2] = E[X] = p.{/$$}
 
 Thus we can now calculate the variance of a coin flip as
 {$$}Var(X) = E[X^2] - E[X]^2 = p - p^2 = p(1 - p).{/$$}
-
 This is a well known formula, so it's worth committing
 to memory. It's interesting to note that this function is
-maximized at {$$}p = 0.5{/$$}.
+maximized at {$$}p = 0.5{/$$}. The plot below shows this by
+plotting {$$}p(1-p){/$$} by {$$}p{/$$}.
 
 {title="Plotting the binomial variance", line-numbers=off,lang=r}
 ~~~
@@ -96,8 +92,8 @@ S^2 = \frac{\sum_{i=1} (X_i - \bar X)^2}{n-1}
 {/$$}
 
 The sample standard deviation is the square root of the sample variance.
-
-The sample variance is almost, but not quite, the average squared deviation from
+Note again that
+the sample variance is almost, but not quite, the average squared deviation from
 the sample mean since we divide by {$$}n-1{/$$} instead of
 {$$}n{/$$}. Why do we do this you might ask? To answer that question
 we have to think in the terms of simulations. Remember that the
@@ -106,7 +102,7 @@ and that distribution has an associated population mean. That
 mean is the population variance that we're trying to estimate
 if we divide by {$$}(n-1){/$$} rather than {$$}n{/$$}.
 
-Moreover, as we collect more data, the distribution of the
+It is also nice that as we collect more data the distribution of the
 sample variance gets more concentrated around the population
 variance that it's estimating.
 
@@ -144,12 +140,12 @@ of more dice.
 ## The standard error of the mean
 
 At last, we finally get to a perhaps very surprising (and useful) fact:
-how to estimate the variability in a sample, when we only get to observe
+how to estimate the variability of the mean of a sample, when we only get to observe
 one realization.  Recall that the average of random sample from a population
 is itself a random variable having a distribution, which in simulation
-settings we can explore by repeated sampling averages.  
-We know that this distribution is centered around the population
-mean, {$$}E[\bar X] = \mu{/$$}. We also know the variance of the distribution
+settings we can explore by repeated sampling averages. We know that this
+distribution is centered around the population mean,
+{$$}E[\bar X] = \mu{/$$}. We also know the variance of the distribution
 of means of random samples.
 
 The variance of the sample mean is: {$$}Var(\bar X) = \sigma^2 / n{/$$}
@@ -170,15 +166,15 @@ Often we take the square root of the variance of the mean to get the standard
 deviation of the mean. We call the standard deviation of a statistic its
 standard error.
 
-### Summing up
-* The sample variance, {$$}S^2{/$$}, estimates the population variance, {$$}\sigma^2{/$$}
-* The distribution of the sample variance is centered around {$$}\sigma^2{/$$}
-* The variance of the sample mean is {$$}\sigma^2 / n{/$$}
-  * Its logical estimate is {$$}s^2 / n{/$$}
-  * The logical estimate of the standard error is {$$}S / \sqrt{n}{/$$}
-* {$$}S{/$$}, the standard deviation, talks about how variable the population is
+### Summary notes
+* The sample variance, {$$}S^2{/$$}, estimates the population variance, {$$}\sigma^2{/$$}.
+* The distribution of the sample variance is centered around {$$}\sigma^2{/$$}.
+* The variance of the sample mean is {$$}\sigma^2 / n{/$$}.
+  * Its logical estimate is {$$}s^2 / n{/$$}.
+  * The logical estimate of the standard error is {$$}S / \sqrt{n}{/$$}.
+* {$$}S{/$$}, the standard deviation, talks about how variable the population is.
 * {$$}S/\sqrt{n}{/$$}, the standard error, talks about how variable averages of random
-samples of size $n$ from the population are
+samples of size {$$}n{/$$} from the population are.
 
 ### Simulation example 1: standard normals
 
@@ -204,7 +200,8 @@ means of {$$}n{/$$} standard normals. If our theory is correct, they should
 So, in this simulation, we simulated 1000 means of 10 standard normals. Our
 theory says the standard deviation of averages of 10 standard normals must
 be {$$}1/\sqrt{n}{/$$}. Taking the standard deviation of the 10000 means yields
-nearly exactly that. (Note that to get it to be exact, we'd have to simulate
+nearly exactly that. (Note that it's only close, 0.3156 versus 0.31632.
+ To get it to be exact, we'd have to simulate
 infinitely many means.)
 
 ### Simulation example 2: uniform density
@@ -225,7 +222,7 @@ have sd {$$}1/\sqrt{12 \times n}{/$$}. Let's try it with a simulation.
 ~~~
 
 ### Simulation example 3: Poisson
-Poisson(4) have variance {$$}4{/$$}. Thus means of
+Poisson(4) random variables have variance {$$}4{/$$}. Thus means of
 random samples of {$$}n{/$$} Poisson(4)
 should have standard deviation {$$}2/\sqrt{n}{/$$}. Again let's try it out.
 
@@ -241,7 +238,7 @@ should have standard deviation {$$}2/\sqrt{n}{/$$}. Again let's try it out.
 
 ### Simulation example 4: coin flips
 Our last example is an important one. Recall that the variance of a
-coin flip is {$$}p (1 - p){/$$}. Therefore the variance of the average
+coin flip is {$$}p (1 - p){/$$}. Therefore the standard deviation of the average
 of {$$}n{/$$} coin flips should be {$$}\sqrt{\frac{p(1-p)}{n}}{/$$}.
 
 Let's just do the simulation with a fair coin. Such coin
@@ -263,10 +260,10 @@ Let's try it.
 ~~~
 
 ## Data example
-[Watch this before beginning](http://youtu.be/Lm2DMVyZVxk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this before beginning.](http://youtu.be/Lm2DMVyZVxk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Now let's work through a data example to show how the standard error of the
-mean is used in practice. We'll use the father.son height data from Francis
+mean is used in practice. We'll use the `father.son` height data from Francis
 Galton.
 
 {title="Loading the data", line-numbers=off,lang=r}
@@ -288,26 +285,25 @@ Let' calculate different variances and interpret them in this context.
 [1] 7.92 0.01 2.81 0.09
 ~~~
 
-The first number, 7.92, and its square root, 2.81, are the estimated variances
-of the sons' heights. Therefore, 7.92 tells us exactly how variable
-sons' heights were in the data and (under the assumption that these sons
-are a random sample from the population) estimates how variable sons' heights are
-in the population. In contrast 0.01 and the square root 0.09, estimate how
+The first number, 7.92, and its square root, 2.81, are the estimated variance
+and standard deviation of the sons' heights. Therefore, 7.92 tells us exactly how variable
+sons' heights were in the data and estimates how variable sons' heights are
+in the population. In contrast 0.01, and the square root 0.09, estimate how
 variable averages of {$$}n{/$$} sons' heights are.
 
 Therefore, the smaller numbers discuss the precision of our estimate of the mean
 of sons' heights. The larger numbers discuss how variable sons' heights are in general.
 
-## Summarizing what we know about variances
-* The sample variance estimates the population variance
+## Summary notes
+* The sample variance estimates the population variance.
 * The distribution of the sample variance is centered at
-what its estimating
-* It gets more concentrated around the population variance with larger sample sizes
+what its estimating.
+* It gets more concentrated around the population variance with larger sample sizes.
 * The variance of the sample mean is the population variance
-divided by $n$
-  * The square root is the standard error
+divided by {$$}n{/$$}.
+  * The square root is the standard error.
 * It turns out that we can say a lot about the distribution of
 averages from random samples,
-even though we only get one to look at in a given data set
+even though we only get one to look at in a given data set.
 
 ## Exercises

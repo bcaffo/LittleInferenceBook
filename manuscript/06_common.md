@@ -4,7 +4,7 @@
 ## The Bernoulli distribution
 
 The **Bernoulli distribution** arises as the result of a binary outcome, such
-as a coon flip. Thus, Bernoulli random variables take (only)
+as a coin flip. Thus, Bernoulli random variables take (only)
 the values 1 and 0 with probabilities of (say) {$$}p{/$$} and {$$}1-p{/$$},
 respectively. Recall that the
 PMF for a Bernoulli random variable {$$}X{/$$} is
@@ -12,7 +12,7 @@ PMF for a Bernoulli random variable {$$}X{/$$} is
 
 The mean of a Bernoulli random variable is {$$}p{/$$} and the variance is
 {$$}p(1 - p){/$$}. If we let {$$}X{/$$} be a Bernoulli random variable,
-it is typical to call {$$}X=1{/$$} as a "success" and $X=0$ as a "failure".
+it is typical to call {$$}X=1{/$$} as a "success" and {$$}X=0{/$$} as a "failure".
 
 If a random variable follows a Bernoulli distribution with success probability
 {$$}p{/$$} we write that {$$}X \sim {/$$} Bernoulli{$$}(p){/$$}.
@@ -25,7 +25,7 @@ a participant has high blood pressure would be reasonably modeled as Bernoulli.
 
 ## Binomial trials
 
-The *binomial random variables* are obtained as the sum of iid Bernoulli trials.
+The **binomial random variables** are obtained as the sum of iid Bernoulli trials.
 So if a Bernoulli trial is the result of a coin flip, a binomial random variable
 is the total number of heads.
 
@@ -76,7 +76,7 @@ birth, what's the probability of getting {$$}7{/$$} or more girls out of
 \begin{array}{c}
   8 \\ 8
 \end{array}
-\right) .5^{8}(1-.5)^{0} \approx 0.04
+\right) .5^{8}(1-.5)^{0} \approx 0.04 .
 {/$$}
 
 
@@ -94,7 +94,7 @@ birth, what's the probability of getting {$$}7{/$$} or more girls out of
 The normal distribution is easily the handiest distribution in all of
 statistics. It can be used in an endless variety of settings. Moreover,
 as we'll see later on in the course, sample means follow normal distributions
-naturally for large sample sizes.
+ for large sample sizes.
 
 Remember the goal of probability modeling. We are assuming a probability
 distribution for our population as a way of parsimoniously characterizing
@@ -108,7 +108,7 @@ if the associated  density is:
  (2\pi \sigma^2)^{-1/2}e^{-(x - \mu)^2/2\sigma^2}.
 {/$$}
 
-If {$$}X{/$$} a RV with this density then {$$}E[X] = \mu{/$$} and
+If {$$}X{/$$} is a RV with this density then {$$}E[X] = \mu{/$$} and
 {$$}Var(X) = \sigma^2{/$$}. That is, the normal distribution is characterized
 by the mean and variance.  We write {$$}X\sim N(\mu, \sigma^2){/$$} to denote
 a normal random variable.  When {$$}\mu = 0{/$$} and {$$}\sigma = 1{/$$}
@@ -116,14 +116,15 @@ the resulting distribution is called **the standard normal distribution**.
 Standard normal RVs are often labeled {$$}Z{/$$}
 
 Consider an example, if we say that intelligence quotients are normally
-distributed with a mean of 100 and a standard deviation of 15, then we
+distributed with a mean of 100 and a standard deviation of 15. Then, we
 are saying that if we randomly sample a person from this population, the
 probability that they have an IQ of say 120 or larger, is governed by a
 normal distribution with a mean of 100 and a variance of {$$}15^2{/$$}.
 
 Taken another way, if we know that the population is normally distributed
 then to estimate everything about the population, we need only estimate
-the population mean and variance. (Estimated by the sample mean and variance.)
+the population mean and variance. (Estimated by the sample mean and
+  the sample variance.)
 
 
 ### Reference quantiles for the standard normal
@@ -137,13 +138,13 @@ and 3 standard deviations above and below {$$}\mu{/$$}, the population mean.
 
 The most relevant probabilities are.
 
-1. Approximately 68\%, 95\% and 99\%  of the normal density lies within 1, 2 and 3 standard deviations from the mean, respectively
+1. Approximately 68\%, 95\% and 99\%  of the normal density lies within 1, 2 and 3 standard deviations from the mean, respectively.
 2. -1.28, -1.645, -1.96 and -2.33 are the {$$}10^{th}{/$$}, {$$}5^{th}{/$$},
 {$$}2.5^{th}{/$$} and {$$}1^{st}{/$$} percentiles of the standard normal
-distribution respectively
+distribution, respectively.
 3. By symmetry, 1.28, 1.645, 1.96 and 2.33 are the {$$}90^{th}{/$$},
 {$$}95^{th}{/$$}, {$$}97.5^{th}{/$$} and {$$}99^{th}{/$$} percentiles of the
-standard normal distribution respectively
+standard normal distribution, respectively.
 
 
 
@@ -156,7 +157,6 @@ be standard normals and vice versa. For example If
 
 {$$}Z = \frac{X -\mu}{\sigma} \sim N(0, 1).{/$$}
 
-For
 If {$$}Z{/$$} is standard normal
 
 {$$}X = \mu + \sigma Z \sim N(\mu, \sigma^2){/$$}
@@ -182,10 +182,10 @@ To put some context on our previous setting, population
 mean BMI for men [is reported as](http://www.ncbi.nlm.nih.gov/pubmed/23675464)
 29 {$$}kg/mg^2{/$$} with a
 standard deviation of 4.73. Assuming normality of BMI, what is the population
-{$$}95^/{th}{/$$} percentile? The answer is then
+{$$}95^{th}{/$$} percentile? The answer is then:
 
 {$$}
-29 + 4.73 \times 1.645 = 36.78
+29 + 4.73 \times 1.645 = 36.78.
 {/$$}
 
 Or alternatively, we could simply type `r qnorm(.95, 29, 4.73)` in R.
@@ -195,19 +195,19 @@ a randomly drawn subject from this population has a BMI less than 24.27?
 Notice that
 
 {$$}
-\frac{24.27 - 29}{4.73} = -1
+\frac{24.27 - 29}{4.73} = -1.
 {/$$}
 
 Therefore, 24.27 is 1 standard deviation below the mean. We know that 16% lies
 below or above 1 standard deviation from the mean. Thus 16% lies below.
-Alternatively, `r pnorm(24.27, 29, 4.73)`.
+Alternatively, `pnorm(24.27, 29, 4.73)` yields the result.
 
 ### Example
 
 Assume that the number of daily ad clicks for a company
 is (approximately) normally distributed with a mean of 1020 and a standard
 deviation of 50. What's the probability of getting
-more than  1,160 clicks in a day?
+more than  1,160 clicks in a day? Notice that:
 
 {$$}
 \frac{1160 - 1020}{50} = 2.8
@@ -225,7 +225,7 @@ that we can also obtain the probability as `r pnorm(2.8, lower.tail = FALSE)`.
 Consider the previous example again. What number of daily ad clicks
 would represent
 the one where 75% of days have fewer clicks (assuming
-days are independent and identically distributed)? We can obtain this as
+days are independent and identically distributed)? We can obtain this as:
 
 {title="Finding a normal quantile", line-numbers=off,lang=r}
 ~~~
@@ -253,22 +253,22 @@ tabulations of discrete characteristics. Finally, when {$$}n{/$$} is large
 and {$$}p{/$$} is small, the Poisson is an accurate approximation to the
 binomial distribution.
 
-The Poisson mass function is
+The Poisson mass function is:
 
 {$$}
 P(X = x; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}
 {/$$}
 
 for {$$}x=0,1,\ldots{/$$}. The mean of this distribution is
-{$$}\lambda{/$$}. The variance of this distribution is {$$}\lambda{/$$}.
+{$$}\lambda{/$$}. The variance of this distribution is also {$$}\lambda{/$$}.
 Notice that {$$}x{/$$} ranges from 0 to {$$}\infty{/$$}. Therefore,
 the Poisson distribution is especially useful for modeling unbounded counts.
 
 ### Rates and Poisson random variables
-The Poisson distribution is especially useful for rates, counts that occur
+The Poisson distribution is useful for rates, counts that occur
 over units of time. Specifically, if  {$$}X \sim Poisson(\lambda t){/$$}
 where {$$}\lambda = E[X / t]{/$$} is the expected count per unit of time
-{$$}t{/$$} is the total monitoring time.
+and {$$}t{/$$} is the total monitoring time.
 
 ### Example
 The number of people that show up at a bus stop is Poisson with
@@ -296,7 +296,7 @@ Poisson where {$$}\lambda = n p{/$$} provided that {$$}n{/$$} is large
 
 #### Example, Poisson approximation to the binomial
 
-We flip a coin with success probability $0.01$ five hundred times.
+We flip a coin with success probability 0.01 five hundred times.
 What's the probability of 2 or fewer successes?
 
 
@@ -310,3 +310,5 @@ What's the probability of 2 or fewer successes?
 
 So we can see that the probabilities agree quite well. This approximation is
 often done as the Poisson model is a more convenient model in many respects.
+
+## Exercises

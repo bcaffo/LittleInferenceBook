@@ -1,10 +1,10 @@
 # Expected values
-[Watch this video before beginning](http://youtu.be/zljxRbu6jyc?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/zljxRbu6jyc?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Expected values characterize a distribution. The most useful expected value,
 the mean, characterizes the center of a density or mass function.
 Another expected value summary, the variance, characterizes how spread
-out a density is. Another expected value calculation is the skewness,
+out a density is. Yet another expected value calculation is the skewness,
 which considers how much a density is pulled toward high or low values.
 
 Remember, in this lecture we are discussing population quantities. It is
@@ -26,26 +26,28 @@ E[X] = \sum_x xp(x).
 
 where the sum is taken over the possible values of {$$}x{/$$}. Where did
 they get this idea from? It's taken from the physical idea of the center
-of mass of a distribution. Specifically, {$$}E[X]{/$$}
+of mass. Specifically, {$$}E[X]{/$$}
 represents the center of mass of a collection of locations and weights,
-{$$}\{x, p(x)\}{/$$}.
+{$$}\{x, p(x)\}{/$$}. We can exploit this fact the quickly calculate
+population means for distributions where the center of mass is obvious.
 
 ## The sample mean
 It is important to contrast the population mean (the estimand) with the
 sample mean (the estimator).  The sample mean estimates the population
 mean. Not coincidentally, since the population mean is the center of
 mass of the population distribution, the sample mean is the center of
-mass of the data. In fact, it's exactly the same equation
+mass of the data. In fact, it's exactly the same equation:
 
 {$$}
-\bar X = \sum_{i=1}^n x_i p(x_i)
+\bar X = \sum_{i=1}^n x_i p(x_i),
 {/$$}
 
 where {$$}p(x_i) = 1/n{/$$}.
 
 ### Example Find the center of mass of the bars
 Let's go through an example of illustrating how the sample mean is the
-center of mass of observed data. Below we plot the data
+center of mass of observed data. Below we plot Galton's fathers and sons
+data:
 
 
 {title="Loading in and displaying the Galton data", line-numbers=off,lang=r}
@@ -114,7 +116,7 @@ if two equal weights are spaced at 0 and 1, the center of mass will be 0.5.
 ### What about a biased coin?
 Suppose that a random variable, {$$}X{/$$} , is so that
 {$$}P(X=1) = p{/$$} and {$$}P(X=0) = (1 - p){/$$}
-(This is a biased coin when {$$}p\neq 0.5{/$$}).
+(This is a biased coin when {$$}p\neq 0.5{/$$}.)
 What is its expected value?
 
 {$$}
@@ -132,7 +134,7 @@ answer from an election polling question as if it were a coin flip.
 ### Example Die Roll
 
 Suppose that a die is rolled and {$$}X{/$$} is the number face up.
-What is the expected value of $X$?
+What is the expected value of {$$}X{/$$}?
 
 {$$}
 E[X] = 1 \times \frac{1}{6} + 2 \times \frac{1}{6} +
@@ -146,7 +148,7 @@ Again, the geometric argument makes this answer obvious without calculation.
 
 
 ## Continuous random variables
-[Watch this video before beginning](http://youtu.be/YS5EIKsamXI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/YS5EIKsamXI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 For a continuous random variable, {$$}X{/$$}, with density, {$$}f{/$$},
 the expected value is again exactly the center of mass of the density. Think
@@ -169,9 +171,9 @@ Recall that expected values are properties of population
 distributions. The expected value, or mean, height is the center of the
 population density of heights.
 
-Interestingly, the average of ten randomly sampled
+Of course, the average of ten randomly sampled
 people's height is itself of random variable, in the same way that the
-average of ten die roll is itself a random number. Thus, the distribution
+average of ten die rolls is itself a random number. Thus, the distribution
 of heights gives rise to the distribution of averages of ten heights
 in the same way that distribution associated with a die roll gives
 rise to the distribution of the average of ten dice.
@@ -187,13 +189,13 @@ average and repeat that process. Imagine, if you could only roll the 100
 dice once. Then we would have direct information about the distribution of
 die rolls (since we have 100 of them), but we wouldn't have any direct
 information about the distribution of the average of 100 die rolls, since
-we only observed one.
+we only observed one average.
 
 Fortunately, the mathematics tells us about that distribution. Notably,
 it's centered at the same spot as the original distribution!
 Thus, the distribution of the estimator (the sample mean) is centered at
 the distribution of what it's estimating (the population mean).
-- When the expected value of an estimator is what its trying to estimate,
+When the expected value of an estimator is what its trying to estimate,
 we say that the estimator is **unbiased**.
 
 Let's go through several simulation experiments to see this more fully.
@@ -232,14 +234,14 @@ are centered around 0.5.
 
 ![Simulation of coin flips](images/coinFlipSimulationMean.png)
 
-## Summary
-- Expected values are properties of distributions
-- The population mean is the center of mass of population
-- The sample mean is the center of mass of the observed data
-- The sample mean is an estimate of the population mean
+## Summary notes
+- Expected values are properties of distributions.
+- The population mean is the center of mass of population.
+- The sample mean is the center of mass of the observed data.
+- The sample mean is an estimate of the population mean.
 - The sample mean is unbiased: the population mean of its distribution is the mean that it's
-  trying to estimate
-- The more data that goes into the sample mean, the more
-concentrated its density / mass function is around the population mean
+  trying to estimate.
+- The more data that goes into the sample mean, the more.
+concentrated its density / mass function is around the population mean.
 
 ## Exercises  

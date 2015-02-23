@@ -7,7 +7,8 @@ Asymptotics is the term for the behavior of statistics as the sample size
 limits to infinity.
 Asymptotics are incredibly useful for simple statistical inference and approximations.
 Asymptotics often make hard problems easy and difficult calculations simple.
-We will not cover in this book, but is true nonetheless, that asymptotics
+We will not cover the philosophical considerations
+ in this book, but is true nonetheless, that asymptotics
 often lead to nice understanding of procedures. In fact, the ideas of asymptotics
 are so important form the basis for frequency interpretation of probabilities
 by considering the long run proportion of times an event occurs.
@@ -53,7 +54,7 @@ g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
 ~~~
 
-![Result of the ](images/normalLLN.png)
+![Cumulative average from  standard normal simulations.](images/normalLLN.png)
 
 
 ### Law of large numbers in action, coin flip
@@ -69,7 +70,7 @@ g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
 ~~~
 
-![Cumulative proportion of heads from a sequence of coin flips](images/coinLLN.png
+![Cumulative proportion of heads from a sequence of coin flips.](images/coinLLN.png)
 
 
 ### Discussion
@@ -81,7 +82,7 @@ The sample variance and the sample standard deviation of iid random variables ar
 
 
 ## The Central Limit Theorem
-[Watch this video before beginning](http://youtu.be/FAIyVHmniK0?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/FAIyVHmniK0?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 The **Central Limit Theorem** (CLT) is one of the most important theorems in statistics.
 For our purposes, the CLT states that the distribution of averages of iid variables
@@ -95,6 +96,7 @@ population distribution is. Because of this, the CLT applies in an endless
 variety of settings and is one of the most important theorems ever discovered.
 
 The formal result is that
+
 {$$}
 \frac{\bar X_n - \mu}{\sigma / \sqrt{n}}=
 \frac{\sqrt n (\bar X_n - \mu)}{\sigma}
@@ -114,16 +116,21 @@ that the resulting distribution looks like a bell curve.
 
 ### Die rolling
 
-- Simulate a standard normal random variable by rolling {$$}n{/$$} (six sided)
-- Let {$$}X_i{/$$} be the outcome for die {$$}i{/$$}
-- Then note that {$$}\mu = E[X_i] = 3.5{/$$}
-- {$$}Var(X_i) = 2.92{/$$}
-- SE {$$}\sqrt{2.92 / n} = 1.71 / \sqrt{n}{/$$}
+- Simulate a standard normal random variable by rolling {$$}n{/$$} (six sided) dice.
+- Let {$$}X_i{/$$} be the outcome for die {$$}i{/$$}.
+- Then note that {$$}\mu = E[X_i] = 3.5{/$$}.
+- Recall also that {$$}Var(X_i) = 2.92{/$$}.
+- SE {$$}\sqrt{2.92 / n} = 1.71 / \sqrt{n}{/$$}.
 - Lets roll {$$}n{/$$} dice, take their mean, subtract off 3.5,
-and divide by {$$}1.71 / \sqrt{n}{/$$} and repeat this over and over
+and divide by {$$}1.71 / \sqrt{n}{/$$} and repeat this over and over.
 
 ![Result of coin CLT simulation.](images/dieCLT.png)
 
+It's pretty remarkable that the approximation works so well with so few rolls
+of the die.
+So, if you're stranded on an island, and need to simulate a standard normal
+without a computer, but you do have a die, you can get a pretty good approximation
+with 10 rolls even.
 
 ### Coin CLT
 
@@ -137,7 +144,7 @@ coin flips. We know that:
 * {$$}Var(X_i) = p(1-p){/$$},
 * {$$}\sqrt{Var(\hat p)} = \sqrt{p(1-p)/n}{/$$}.
 
-Because of the CLT, we know that:
+Furthermore, because of the CLT, we also know that:
 
 {$$}
 \frac{\hat p - p}{\sqrt{p(1-p)/n}}
@@ -151,12 +158,17 @@ of heads, subtract off 0.5 and multiply the result by
 
 ![Results of the coin CLT simulation.](images/coinCLT.png)
 
-The convergence to normality is governed by how far from 0.5 {$$}p{/$$} is.
+This convergence doesn't look quite as good as the die, since the coin has
+fewer possible outcomes. In fact, among coins of various degrees of bias,
+the convergence to normality is governed by how far from 0.5 {$$}p{/$$} is.
 Let's redo the simulation, now using {$$}p=0.9{/$$} instead of {$$}p=0.5{/$$}
 like we did before.
 
 ![Results of the simulation when p=0.9](images/coinCLT2.png)
 
+Notice that the convergence to normality is quite poor. Thus, be careful
+when using CLT approximations for sample proportions when your proportion
+is very close to 0 or 1.
 
 ## Confidence intervals
 [Watch this video before beginning.](http://youtu.be/u85aQ0mtiZ8?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
@@ -179,11 +191,11 @@ Similarly,
 {$$}\mu - 2 \sigma /\sqrt{n}{/$$}
 
 is pretty far in the left tail (only 2.5% chance of a normal being smaller than
-2 sds in the tail). So the probability
+2 standard deviations in the tail). So the probability
 {$$}\bar X{/$$} is bigger than {$$}\mu + 2 \sigma / \sqrt{n}{/$$}
 or smaller than {$$}\mu - 2 \sigma / \sqrt{n}{/$$} is 5%.
-Or equivalently, the probability that these limits contain {$$}\mu{\$$}
-is 95%. The quantity
+Or equivalently, the probability that these limits contain {$$}\mu{/$$}
+is 95%. The quantity:
 
 {$$}\bar X \pm 2 \sigma /\sqrt{n}{/$$}
 
@@ -208,7 +220,8 @@ Give a confidence interval for the average height of sons in Galton's data.
 [1] 5.710 5.738
 ~~~
 
-So we estimate the average height of the sons as 5.71 to 5.74 with 95%
+Here we divided by 12 to get our interval in feet instead of
+inches. So we estimate the average height of the sons as 5.71 to 5.74 with 95%
 confidence.
 
 ### Example using sample proportions
@@ -218,17 +231,19 @@ with common success probability {$$}p{/$$} then {$$}\sigma^2 = p(1 - p){/$$}.
 The interval takes the form:
 
 {$$}
-\hat p \pm z_{1 - \alpha/2}  \sqrt{\frac{p(1 - p)}{n}}
+\hat p \pm z_{1 - \alpha/2}  \sqrt{\frac{p(1 - p)}{n}}.
 {/$$}
 
 Replacing {$$}p{/$$} by {$$}\hat p{/$$} in the standard error results in what
 is called a Wald confidence interval for {$$}p{/$$}. Remember also that
-{$$}p(1 - p){/$$} is maximized at 1/4. Plugging this in we find
-that a quick and dirty interval is
+{$$}p(1 - p){/$$} is maximized at 1/4. Plugging this in and setting
+our {$$}Z{/$$} quantile as 2 (which is about a 95% interval) we find
+that a quick and dirty confidence interval is:
 
 {$$}\hat p \pm \frac{1}{\sqrt{n}}.{/$$}
 
-This is useful for doing quick confidence intervals in your head.
+This is useful for doing quick confidence intervals for binomial
+proportions in your head.
 
 ### Example
 Your campaign advisor told you that in a random sample of 100 likely voters,
@@ -244,10 +259,10 @@ Without access to a computer or calculator, how precise is this estimate?
 so a back of the envelope calculation gives an approximate 95% interval
 of `(0.46, 0.66)`.
 
-Thus, there's not enough votes for you to relax, better go do more campaigning!
+Thus, since the interval contains 0.5 and numbers below it, there's not enough votes for you to relax; better go do more campaigning!
 
 The basic rule of thumb is then, {$$}1/\sqrt{n}{/$$} gives you a
-good estimate for the margin of error of a proportion. Thus, {$$}n=100{/$$$}  
+good estimate for the margin of error of a proportion. Thus, {$$}n=100{/$$}  
 for about 1 decimal place, 10,000 for 2, 1,000,000 for 3.
 
 {line-numbers=off,lang=r}
@@ -258,13 +273,14 @@ for about 1 decimal place, 10,000 for 2, 1,000,000 for 3.
 
 We could very easily do the full Wald interval, which is less conservative
 (may provide a narrower interval). Remember the Wald interval for a
-binomial proportion is
+binomial proportion is:
 
 {$$}
 \hat p \pm Z_{1-\alpha/2} \sqrt{\frac{\hat p (1 - \hat p)}{n}}.
 {/$$}
 
-Here's the R code for our election setting, both coding d
+Here's the R code for our election setting, both coding it directly
+and using `binom.test`.
 
 {line-numbers=off,lang=r}
 ~~~
@@ -331,7 +347,11 @@ coverage2 <- sapply(pvals, function(p) {
 
 ![Output of simulation with {$$}n=100{/$$}.](images/waldCoverage2.png)
 
-There's exact fixes to make this interval work better. However, for a
+Now it looks much better. Of course, increasing our sample size is rarely
+an option. There's exact fixes to make this interval work better for small
+sample sizes.
+
+However, for a
 quick fix is to take your data and add two successes and two failures.
 So, for example, in our election example, we would form our interval
 with 58 votes out of 104 sampled (disregarding that the actual numbers
@@ -357,9 +377,11 @@ coverage <- sapply(pvals, function(p) {
 
 The coverage is better, if maybe a little conservative in the sense of being
 over the 95% line most of the time. If the interval is too conservative, it's
-likely too wide. To see this clearly, imagine if we made our interval
+likely a little too wide. To see this clearly, imagine if we made our interval
 {$$}-\infty{/$$} to {$$}\infty{/$$}. Then we would always have 100% coverage
-in any setting, but the interval wouldn't be useful.
+in any setting, but the interval wouldn't be useful. Nonetheless, the Agrestic/Coull
+interval gives a much better trade off between coverage and width than the Wald
+interval.
 
 In general, one should use the add two successes and failures method for binomial
 confidence intervals with smaller {$$}n{/$$}. For very small {$$}n{/$$} consider
@@ -377,7 +399,7 @@ is  {$$}\hat \lambda / t{/$$}. While it's not immediate
 how the CLT applies in this case, the interval is of the familiar form
 
 {$$}
-\mbox{Estimate} \pm Z_{1-\alpha/2} \mbox{SE}
+\mbox{Estimate} \pm Z_{1-\alpha/2} \mbox{SE}.
 {/$$}
 
 So our Poisson interval is:
@@ -436,7 +458,7 @@ increase {$$}t{/$$} to 1,000.
 
 ![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2.png)
 
-## Summary
+## Summary notes
 * The LLN states that averages of iid samples.
 converge to the population means that they are estimating.
 * The CLT states that averages are approximately normal, with

@@ -1,7 +1,7 @@
 # Power
 
 ## Power
-[Watch this video before beginning](http://youtu.be/-TsBOLiW4rQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/-TsBOLiW4rQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 and then
 [watch this video as well.](http://youtu.be/GRS2b1aedmk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
@@ -18,7 +18,7 @@ Then power is:
 
 {$$}P\left(\frac{\bar X - 30}{s /\sqrt{n}} > t_{1-\alpha,n-1} ~;~ \mu = \mu_a \right).{/$$}
 
-Note that this is a function that depends on the specific value of $\mu_a$!
+Note that this is a function that depends on the specific value of {$$}\mu_a{/$$}!
 Further notice that as {$$}\mu_a{/$$} approaches 30 the power approaches {$$}\alpha{/$$}.
 
 
@@ -33,7 +33,7 @@ Or, equivalently, if
 But, note that, under {$$}H_0 : \bar X \sim N(\mu_0, \sigma^2 / n){/$$}.
 However, under {$$}H_a : \bar X \sim N(\mu_a, \sigma^2 / n){/$$}.
 
-So in general for this test we we want:
+So for this test we could calculate power with this R code:
 
 {title="Power calculation for the sleep example in R", lang=r, line-numbers=off}
 ~~~
@@ -58,11 +58,11 @@ Let's plug in the specific numbers for our example where:
 [1] 0.6388
 ~~~
 
-So, when we plug in {$$}\mu_0{\$$}, the value under the null hypothesis, we
+When we plug in {$$}\mu_0{/$$}, the value under the null hypothesis, we
 get that the probability of rejection is 5%, as the test was designed. However,
 when we plug in a value of 32, we get 64%. Therefore, the probability of
-rejection is 64% when the true value of {$$}\mu{\$$} is 32. We could create
-a curve of the power as a function of {$$}\mu_a{\$$}, as seen below.
+rejection is 64% when the true value of {$$}\mu{/$$} is 32. We could create
+a curve of the power as a function of {$$}\mu_a{/$$}, as seen below.
 We also varied the sample size to see how the curve depends on that.
 
 ![Plot of power as {$$}\mu_a{/$$} varies.](images/powerCurve.png)
@@ -92,7 +92,7 @@ manipulate(myplot(sigma, mua, n, alpha), sigma = slider(1, 10, step = 1, initial
 ## Question
 [Watch this video before beginning.](http://youtu.be/3bWhP5MyuqI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
- When testing $H_a : \mu > \mu_0$, notice if power is $1 - \beta$, then
+ When testing {$$}H_a : \mu > \mu_0{/$$}, notice if power is {$$}1 - \beta{/$$}, then
 
 {$$}1 - \beta = P\left(\bar X > \mu_0 + z_{1-\alpha} \frac{\sigma}{\sqrt{n}} ; \mu = \mu_a \right){/$$}
 
@@ -116,17 +116,17 @@ Specify any 3 of the unknowns and you can solve for the remainder.
   - Being unit free, it has some hope of interpretability across settings.
 
 ## T-test power
-[Watch this before beginning](http://youtu.be/1DiwutNpt5Y?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this before beginning.](http://youtu.be/1DiwutNpt5Y?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Consider calculating power for a Gossett's *t* test for our example where
 we now assume that {$$}n=16{/$$}. The power is
 
 {$$}
-P\left(\frac{\bar X - \mu_0}{S /\sqrt{n}} > t_{1-\alpha, n-1} ~;~ \mu = \mu_a \right)
+P\left(\frac{\bar X - \mu_0}{S /\sqrt{n}} > t_{1-\alpha, n-1} ~;~ \mu = \mu_a \right).
 {/$$}
 
 Calculating this requires the so-called non-central t distribution.
-However, fortunately for us, the R function `r power.t.test` does this very well.
+However, fortunately for us, the R function `power.t.test` does this very well.
 Omit (exactly) any one of the arguments and it solves for it. Our t-test
 power again only relies on the effect size.
 
