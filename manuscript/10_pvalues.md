@@ -128,3 +128,15 @@ The P-value would be 0.06 for  two sided hypothesis (double) and so we would
 fail to reject in that case.
 
 ## Exercises
+1. P-values are probabilities that are calculated assuming which hypothesis is true?
+  a. the alternative
+  b. the null
+2. You get a P-value of 0.06. Would you reject for a type I error rate of 0.05?
+  a. Yes you would reject the null
+  b. No you would not reject the null
+  c. It depends on information not given
+3. The proposed procedure for getting a two sided P-value for the exact binomial test considered here is what?
+  a. Multiplying the one sided P-value by one half
+  b. Doubling the larger of the two one sided P-values
+  c. Doubling the smaller of the two one sided P-values
+  d. No procedure exists
