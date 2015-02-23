@@ -251,13 +251,11 @@ concentrated its density / mass function is around the population mean.
   b. 3
   c. 3.5
   d. 4
-
 2. Consider a density that is uniform from -1 to 1. (I.e. has height equal to 1/2 and looks like a box starting at -1 and ending at 1). What is the mean of this distribution?
   a. 0
   b. 1
   c. -1
   d. It's impossible to tell from the information given
-
 3. If a population has mean {$$}\mu{/$$}, what is the mean of the distribution of averages of 20 observations from this distribution?
   a. 20
   b. {$$}\mu{/$$}

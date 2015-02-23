@@ -165,13 +165,11 @@ up basic probability as our first task.
   b. Infer facts about the sample from a population.
   c. Calculate sample quantities to understand your data.
   d. To torture Data Science students.
-
 2. The goal of randomization of a treatment in a randomized trial is to?
   a. It doesn't really do anything.
   b. To obtain a representative sample of subjects from the population of interest.
   c. Balance unobserved covariates that may contaminate the comparison between the treated and control groups.
   d. To add variation to our conclusions.
-
 3. Probability is a?
   a. Population quantity that we can potentially estimate from data.
   b. A data quantity that does not require the idea of a population.

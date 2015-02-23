@@ -456,18 +456,15 @@ prefix `q` in front of the distribution name
 1. Can you add the probabilities of any to events to get the probability of at least one occurring?
   a. No.
   b. Yes.
-
 2. I define a PMF, {$$}p{/$$} so that for {$$}x = 0{/$$} and {$$}x=1{/$$} we have
 {$$}p(0) = -0.1{/$$} and {$$}p(1)  = 1.1{/$$}. Is this a valid PMF?
   a. Nope, it isn't.
   b. Yes, it is.
-
 3. What is the probability that 75% or fewer calls get answered in a randomly sampled day from the population distribution from this chapter?
   a. About 99%.
   b. About 75%.
   c. About 55%.
   d. About 10%.
-
 4. The 97.5th percentile of a distribution is?
   a. The data point so that 97.5 percent of the observations lie below it.
   b. The value so that the probability that a random variable drawn from this population is less than it is 97.5%.

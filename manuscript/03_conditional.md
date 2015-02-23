@@ -313,13 +313,11 @@ strength of the inferences adapted in kind.
   b. 1/4
   c. 1/13
   d. 13/54
-
 2. The odds associated with a probability, {$$}p{/$$}, are defined as:
   a. Exactly the same thing as the probability, {$$}p{/$$}.
   b. {$$}1 / p{/$$}
   c. {$$}p / (1 - p){/$$}
   d. {$$}-2 \log(p){/$$}
-
 3. The probability of getting two sixes when rolling a pair of dice is:
   a. 1/2
   b. 1/4
