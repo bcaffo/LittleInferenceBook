@@ -309,17 +309,15 @@ strength of the inferences adapted in kind.
 ## Exercises
 
 1. I pull a card from a deck and do not show you the result. I say that the resulting card is a heart. What is the probability that it is the queen of hearts?
-  - 1/52
-  - 1/4
-  - 1/13
-  - 13/54
-2. The odds associated with a probability, {$$}p{/$$}, are defined as:
-  - Exactly the same thing as the probability, {$$}p{/$$}.
-  - {$$}1 / p{/$$}
-  - {$$}p / (1 - p){/$$}
-  - {$$}-2 \log(p){/$$}
-3. The probability of getting two sixes when rolling a pair of dice is:
-  - 1/2
-  - 1/4
-  - 1/6
-  - 1/36
+2. The odds associated with a probability, {$$}p{/$$}, are defined as?
+3. The probability of getting two sixes when rolling a pair of dice is?
+4. The probability that a manuscript gets accepted to a journal is 12% (say). However,
+given that a revision is asked for, the probability that it gets accepted
+is 90%. Is it possible that the probability that a manuscript has a revision
+asked for is 20%? [Watch a video of this problem getting solved](http://youtu.be/E4kE4M1J15s?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see
+the worked out solutions here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#3).
+6. Suppose 5% of housing projects have issues with asbestos. The sensitivity of a test
+for asbestos is 93% and the specificity is 88%. What is the probability that a
+housing project has no asbestos given a negative test expressed as a percentage
+to the nearest percentage point? [Watch a video solution here](https://www.youtube.com/watch?v=rbI97tSvGvQ&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=11) and [see the
+worked out problem here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#5).

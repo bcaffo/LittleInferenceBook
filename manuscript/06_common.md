@@ -313,12 +313,22 @@ often done as the Poisson model is a more convenient model in many respects.
 
 ## Exercises
 1. Your friend claims that changing the font to comic sans will result in more ad revenue on your web sites. When presented in random order, 9 pages out of 10 had more revenue when the font was set to comic sans. If it was really a coin flip for these 10 sites, what's the probability of getting 9 or 10 out of 10 with more revenue for the new font?
-  - Only about 1%
-  - It's actually pretty likely, 50%
-  - About 15%
 2. A software company is doing an analysis of documentation errors of their products. They sampled their very large codebase in chunks and found that the number of errors per chunk was approximately normally distributed with a mean of 11 errors and a standard deviation of 2. When randomly selecting a chunk from their codebase, whats the probability of fewer than 5 documentation errors?
-  - Greater than 5%
-  - Less than 5%
 3. The number of search entries entered at a web site is Poisson at a rate of 9 searches per minute. The site is monitored for 5 minutes. What is the probability of 40 or fewer searches in that time frame?
-  - Around 5%
-  - Around 25%
+4. Suppose that the number of web hits to a particular site are approximately normally
+distributed with a mean of 100 hits per day and a standard deviation of 10 hits per day. What's the probability that a given day has fewer than 93 hits per day
+expressed as a percentage to the nearest percentage point?
+[Watch a video solution](https://www.youtube.com/watch?v=E-ancc7iTho&index=10&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#4).
+5. Suppose that the number of web hits to a particular site are approximately normally
+distributed with a mean of 100 hits per day and a standard deviation of 10 hits per day.
+What number of web hits per day represents the number so that only
+5% of days have more hits? [Watch a video solution](https://www.youtube.com/watch?v=rv48_5C8gx4&index=12&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem and solution](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#6).
+6. Suppose that the number of web hits to a particular site are approximately normally
+distributed with a mean of 100 hits per day and a standard deviation of 10 hits per day.
+Imagine taking a random sample of 50 days. What number of web hits would
+be the point so that only 5% of averages of 50 days of web traffic have more hits?
+[Watch a video solution](https://www.youtube.com/watch?v=c_B2AuOhdzg&index=13&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem and solution](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#7).
+7. You don't believe that your friend can discern good wine from cheap. Assuming
+that you're right, in a blind test where you randomize 6 paired varieties (Merlot,
+Chianti, ...) of cheap and expensive wines.
+What is the change that she gets 5 or 6 right? [Watch a video solution](https://www.youtube.com/watch?v=ILm2OUl6p_w&index=14&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the original problem](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#8).

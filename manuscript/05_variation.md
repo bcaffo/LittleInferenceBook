@@ -316,10 +316,6 @@ even though we only get one to look at in a given data set.
   - The population variance.
   - The population mean.
 3. I keep drawing samples of size {$$}n{/$$} from a population with variance {$$}\sigma^2{/$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
-  - {$$}\sigma^2{/$$}
-  - {$$}\sigma^2/n{/$$}
-  - {$$}n\sigma^2{/$$}
-  - {$$}\sigma\sqrt{n}{/$$}
 4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
   - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
   - Yes, you have to get repeat averages.
@@ -335,4 +331,6 @@ what is the variance {$$}\bar X - \bar Y{/$$}?
 be said about the variance of {$$}X /\sigma{/$$}? [Watch a video solution to this
 problem here](http://youtu.be/0WUj18_BUPA?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and
 [typed  up solutions here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#8).
-8. 
+8. Consider the following pmf given in R by the code `p <- c(.1, .2, .3, .4)`
+and 'x <- 2 : 5`. What is the variance? [Watch a video solution to this problem here](http://youtu.be/HSn8n4DsGSg?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
+and [here is the problem worked out](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#10).

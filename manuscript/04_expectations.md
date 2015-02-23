@@ -247,19 +247,6 @@ concentrated its density / mass function is around the population mean.
 ## Exercises  
 
 1. A standard die takes the values 1, 2, 3, 4, 5, 6 with equal probability. What is the expected value?
-  - 1
-  - 3
-  - 3.5
-  - 4
 2. Consider a density that is uniform from -1 to 1. (I.e. has height equal to 1/2 and looks like a box starting at -1 and ending at 1). What is the mean of this distribution?
-  - 0
-  - 1
-  - -1
-  - It's impossible to tell from the information given
 3. If a population has mean {$$}\mu{/$$}, what is the mean of the distribution of averages of 20 observations from this distribution?
-  - 20
-  - {$$}\mu{/$$}
-  - It can't be obtained from the information given
-  - {$$}\mu/20{/$$}
 4. You are playing a game with a friend where you flip a coin and if it comes up heads you give her  {$$}X{/$$} dollars and if it comes up tails she gives you $Y$ dollars. The odds that the coin is heads is {$$}d{/$$}. What is your expected earnings? [Watch a video of the solution to this problem](http://youtu.be/5J88Zq0q81o?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [look at the problem and the solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#5)
- 

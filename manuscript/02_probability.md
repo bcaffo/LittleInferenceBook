@@ -454,24 +454,14 @@ prefix `q` in front of the distribution name
 ## Exercises
 
 1. Can you add the probabilities of any to events to get the probability of at least one occurring?
-  - No.
-  - Yes.
 2. I define a PMF, {$$}p{/$$} so that for {$$}x = 0{/$$} and {$$}x=1{/$$} we have
 {$$}p(0) = -0.1{/$$} and {$$}p(1)  = 1.1{/$$}. Is this a valid PMF?
-  - Nope, it isn't.
-  - Yes, it is.
 3. What is the probability that 75% or fewer calls get answered in a randomly sampled day from the population distribution from this chapter?
-  - About 99%.
-  - About 75%.
-  - About 55%.
-  - About 10%.
 4. The 97.5th percentile of a distribution is?
-  - The data point so that 97.5 percent of the observations lie below it.
-  - The value so that the probability that a random variable drawn from this population is less than it is 97.5%.
 5. Consider influenza epidemics for two parent heterosexual families. Suppose that the probability is 15% that at least one of the parents has contracted the disease. The probability that the father has contracted influenza is 10% while that the mother contracted the disease is 9%. What is the probability that both contracted influenza expressed as a whole number percentage?
 [Watch a video solution to this problem.](http://youtu.be/CvnmoCuIN08?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and
 [see a written out solution.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#3)
 6. A random variable, {$$}X{/$$}, is uniform, a box from 0 to 1 of height 1. (So that it's density is {$$}f(x) = 1{/$$} for {$$}0\leq x \leq 1{/$$}.)
 What is it's median expressed to two decimal places? [Watch a video solution to this problem
 here](http://youtu.be/UXcarD-1xAM?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see written solutions here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#4).
-7. If a continuous density that never touches the horizontal axis is symmetric about zero, can we say that its associated median is zero? [Watch a worked out solution to this problem here]() and [see the question and a typed up answer here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#9)
+7. If a continuous density that never touches the horizontal axis is symmetric about zero, can we say that its associated median is zero? [Watch a worked out solution to this problem here](http://youtu.be/sn48CGH_TXI?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the question and a typed up answer here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#9)
