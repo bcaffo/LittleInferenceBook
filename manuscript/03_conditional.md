@@ -307,3 +307,21 @@ the countries are a random sample and the interpretation of the
 strength of the inferences adapted in kind.
 
 ## Exercises
+
+1. I pull a card from a deck and do not show you the result. I say that the resulting card is a heart. What is the probability that it is the queen of hearts?
+  a. 1/52
+  b. 1/4
+  c. 1/13
+  d. 13/54
+
+2. The odds associated with a probability, {$$}p{/$$}, are defined as:
+  a. Exactly the same thing as the probability, {$$}p{/$$}.
+  b. {$$}1 / p{/$$}
+  c. {$$}p / (1 - p){/$$}
+  d. {$$}-2 \log(p){/$$}
+
+3. The probability of getting two sixes when rolling a pair of dice is:
+  a. 1/2
+  b. 1/4
+  c. 1/6
+  d. 1/36
