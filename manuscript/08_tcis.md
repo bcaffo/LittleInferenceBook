@@ -333,3 +333,18 @@ For other kinds of data, there are preferable small and large sample intervals a
 3. The assumption that the variances are equal for the independent group T interval means that:
   - The sample variances have to be nearly identical.
   - The population variances are identical, but the sample variances may be different.
+4. Load the data set `mtcars` in the `datasets` R package. Calculate a
+95% confidence interval to the nearest MPG for the variable `mpg`. [Watch a video solution](https://www.youtube.com/watch?v=5BPY6JqRLbE&index=19&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see written solutions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#3).
+5. Suppose that standard deviation of 9 paired differences is $1$. What value would the average difference have to be so that the lower endpoint of a 95%
+students t confidence interval touches zero? [Watch a video solution here](https://www.youtube.com/watch?v=ioDwUPCy508&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=20)
+and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#4).
+6. An independent group Student's T interval is used instead of
+a paired T interval when:
+  * The observations are paired between the groups.
+  * The observations between the groups are naturally assumed to be statistically independent.
+  * As long as you do it correctly, either is fine.
+  * More details are needed to answer this question.
+[watch a discussion of this problem](https://www.youtube.com/watch?v=zJWJljxJ7Zk&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=21) and [see the text.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#5)
+7. Consider the `mtcars` dataset. Construct a 95% T interval for MPG comparing
+4 to 6 cylinder cars (subtracting in the order of 4 - 6)
+assume a constant variance. [Watch a video solution](https://www.youtube.com/watch?v=15la-fb6hlA&index=22&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#6).

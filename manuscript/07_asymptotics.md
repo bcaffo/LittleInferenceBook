@@ -484,3 +484,8 @@ don't require the CLT.
   - If one were to repeated collect samples and reconstruct the intervals, around 95% percent of them would contain the true mean being estimated.
   - The probability that the sample mean is in the interval is 95%.
 5. The rate of search entries into a web site was 10 per minute when monitoring for an hour. Use R to calculate the exact Poisson interval for the rate of events per minute?
+6. Consider a uniform distribution. If we were to sample 100 draws from a
+a uniform distribution (which has mean 0.5, and variance 1/12) and take their
+mean, {$$}\bar X{/$$}.
+What is the approximate probability of getting as large as 0.51 or larger?
+[Watch this video solution](https://www.youtube.com/watch?v=JsiLK0g3IZ4&index=15&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem and solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#9).
