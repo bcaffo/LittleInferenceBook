@@ -42,7 +42,7 @@ content with using the empirical distribution. This is the clever idea of the bo
 
 The code below creates resamples via draws of size n with replacement with the original data
  of the son's heights from Galton's data
-and plots a histrogram of the median of each resampled dataset.
+and plots a histogram of the median of each resampled dataset.
 
 {title="Bootstrapping example", lang=r, line-numbers=off}
 ~~~
@@ -129,7 +129,7 @@ bootstrap 95% confidence interval for the median.
 68.43 68.81
 ~~~
 
-We also always want to plot a histrogram or density estimate of our simulated statistic.
+We also always want to plot a histogram or density estimate of our simulated statistic.
 
 {lang=r,line-numbers=off}
 ~~~
@@ -168,7 +168,7 @@ use the calculate the distribution of our statistic under
 a null hypothesis that the labels are irrelevant (exchangeable).
 This is a handy way to create a null distribution for our
 test statistic by simply permuting the labels over and over and
-seeing how extreme our data are with respct to this permuted
+seeing how extreme our data are with respect to this permuted
 distribution.
 
 The procedure would be as follows:

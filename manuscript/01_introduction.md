@@ -23,7 +23,7 @@ While most code is in the book, *all* of the code for every figure and analysis 
 book is in the R markdown files files (.Rmd) for the respective lectures.
 
 Finally, we should mention `swirl` (statistics with interactive R programming).
-`swirl` is an intelligent tutoring system developed by Nich Carchedi, with contributions
+`swirl` is an intelligent tutoring system developed by Nick Carchedi, with contributions
 by Sean Kross and Bill and Gina Croft. It offers a way to learn R in R.
 Download `swirl` [here](http://swirlstats.com). There's a swirl
 [module for this course!](https://github.com/swirldev/swirl_courses#swirl-courses).
@@ -39,7 +39,7 @@ living within our data. With statistical inference, we're trying to generate
 new knowledge; we’re trying to extend beyond our data to a population to get
 answers.
 
-In our class, we wil define formal statistical inference as settings where one wants to infer facts about a population using noisy
+In our class, we will define formal statistical inference as settings where one wants to infer facts about a population using noisy
 statistical data where uncertainty must be accounted for.
 
 
@@ -85,7 +85,7 @@ Paramount among our concerns are:
 * Are there known and observed, known and unobserved or unknown and unobserved variables that contaminate our conclusions?
 * Is there systematic bias created by missing data or the design or conduct of the study?
 * What randomness exists in the data and how do we use or adjust for it? Here randomness can either be explicit via randomization
-or random sampling, or implicit as the aggregation of many complex uknown processes.
+or random sampling, or implicit as the aggregation of many complex unknown processes.
 * Are we trying to estimate an underlying mechanistic model of phenomena under study?
 
 Statistical inference requires navigating the set of assumptions and

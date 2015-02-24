@@ -150,7 +150,7 @@ and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homew
 6. A web site was monitored for a year and it received 520 hits per day. In the first
 30 days in the next year, the site received 15,800 hits. Assuming that web hits
 are Poisson. Give an exact one sided P-value to the hypothesis that web hits are up this year over last. Do you reject? [Watch the video solutions](https://www.youtube.com/watch?v=cE_88-Q7TX0&index=31&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#7).
-7. Suppose that in an AB test, one advertising scheme led to an average of 10 purchases per day for a sample of 100 days, while the other led to 11 purchaces per day, also for a sample of 100 days.
+7. Suppose that in an AB test, one advertising scheme led to an average of 10 purchases per day for a sample of 100 days, while the other led to 11 purchases per day, also for a sample of 100 days.
 Assuming a common standard deviation of 4 purchases per day.
 Assuming that the groups are independent and that they days are iid, perform a Z test of
 equivalence. Give a P-value for the test? [Watch a video solution](https://www.youtube.com/watch?v=Or4ly4rOiaA&index=32&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the

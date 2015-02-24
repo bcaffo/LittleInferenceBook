@@ -180,7 +180,7 @@ a confidence interval using the CLT is constructed.
 
 According to the CLT, the sample mean, {$$}\bar X{/$$},
 is approximately normal with mean {$$}\mu{/$$} and standard
-deviation {$$}\sigma / \sqrt{n}{/$$}. Futhermore,
+deviation {$$}\sigma / \sqrt{n}{/$$}. Furthermore,
 
 {$$}\mu + 2 \sigma /\sqrt{n}{/$$}
 

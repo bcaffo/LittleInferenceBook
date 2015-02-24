@@ -118,7 +118,7 @@ Specify any 3 of the unknowns and you can solve for the remainder.
 ## T-test power
 [Watch this before beginning.](http://youtu.be/1DiwutNpt5Y?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-Consider calculating power for a Gossett's *t* test for our example where
+Consider calculating power for a Gosset's *t* test for our example where
 we now assume that {$$}n=16{/$$}. The power is
 
 {$$}

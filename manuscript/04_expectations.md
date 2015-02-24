@@ -221,7 +221,7 @@ that's the left most plot. The bars are equally distributed at the six possible
 outcomes and thus the histogram is centered around 3.5.
 Now consider simulating lots of averages of 2 dice. Its histogram is also
 centered at 3.5. So is it for 3 and 4. Notice also the distribution gets
-increasing Gaussian looking (like a bell curve) and increasingly concetrated
+increasing Gaussian looking (like a bell curve) and increasingly concentrated
 around 3.5.
 
 ![Simulation of die rolls](images/dieRollSimulationMean.png)
