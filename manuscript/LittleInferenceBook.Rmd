@@ -1,0 +1,9 @@
+---
+output: html_document
+---
+
+```{r book, results='asis', echo = FALSE}
+cat(readLines(con = "./01_introduction.md", encoding = "Latin1"), sep = "\n")
+
+```
+
