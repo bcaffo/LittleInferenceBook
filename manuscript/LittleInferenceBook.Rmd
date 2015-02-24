@@ -7,9 +7,31 @@ output:
 
 
 ```{r book, results='asis', echo = FALSE}
-cat(readLines(con = "./01_introduction.md", encoding = "Latin1"), "\n", sep = "\n")
-prob <- readLines(con = "./02_probability.md", encoding = "Latin1")
-prob <- gsub(pattern = "[{]/?[$]{2}[}]", replacement = "$$", prob)
-cat(prob, "\n", sep = "\n")
+
+# Get list of .md files
+chapters <- list.files(pattern = "[.]md")
+
+# Order the files starting with the non-numbered
+chapters <- chapters[order(grepl("^[0-9]", chapters), chapters)]
+
+# Set the encoding
+encoding <- "Latin1"
+
+# Output the content of every file, substituting the equation markers
+invisible(
+  sapply(X = chapters, encoding = encoding,
+         FUN = function(file, encoding){
+           # Read in file contents
+           contents <- readLines(con = file, encoding = encoding)
+           
+           # Replace with correct equation markers
+           contents <- gsub(pattern = "[{]/?[$]{2}[}]",
+                            replacement = "$$",
+                            x = contents)
+           
+           # Output file contents
+           cat(contents, "\n", sep = "\n")
+         })
+)
 ```
 
