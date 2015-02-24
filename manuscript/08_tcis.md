@@ -347,4 +347,22 @@ a paired T interval when:
 [watch a discussion of this problem](https://www.youtube.com/watch?v=zJWJljxJ7Zk&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=21) and [see the text.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#5)
 7. Consider the `mtcars` dataset. Construct a 95% T interval for MPG comparing
 4 to 6 cylinder cars (subtracting in the order of 4 - 6)
-assume a constant variance. [Watch a video solution](https://www.youtube.com/watch?v=15la-fb6hlA&index=22&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#6).
+assume a constant variance. [Watch a video solution](https://www.youtube.com/watch?v=QfuMgsUlu_w&index=23&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#6).
+10.
+9. If someone put a gun to your head and said "Your confidence interval
+must contain what it's estimating or I'll pull the trigger", what would
+be the smart thing to do?
+  * Make your interval as wide as possible.
+  * Make your interval as small as possible.
+  * Call the authorities.
+[Watch the video solution](https://www.youtube.com/watch?v=8zM1RV4Rb7A&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=24) and [see the text.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#7)
+10. Refer back to comparing MPG for 4 versus 6 cylinders (question 7).
+What do you conclude?
+  * The interval is above zero, suggesting 6 is better than 4 in the terms of MPG.
+  * The interval is above zero, suggesting 4 is better than 6 in the terms of MPG.
+  * The interval does not tell you anything about the hypothesis test; you have to do the test.
+  * The interval contains 0 suggesting no difference.
+[Watch a video solution](https://www.youtube.com/watch?v=zUVoueHLPdo&index=25&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#8)
+11. Suppose that 18 obese subjects were randomized, 9 each, to a new diet pill and a placebo. Subjects' body mass indices (BMIs) were measured at a baseline and again after having received the treatment or placebo for four weeks. The average difference from follow-up to the baseline (followup - baseline) was 3 kg/m2 for the treated group and 1 kg/m2 for the placebo group. The corresponding standard deviations of the differences was 1.5 kg/m2 for the treatment group and 1.8 kg/m2 for the placebo group. The study aims to answer whether the change in BMI over the four week period appear to differ between the treated and placebo groups.
+What is the pooled variance estimate? [Watch a video solution here](https://www.youtube.com/watch?v=kzRzrrDWTRQ&index=26&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see
+the text here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#9)

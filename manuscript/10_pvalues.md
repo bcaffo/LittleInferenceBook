@@ -140,3 +140,24 @@ fail to reject in that case.
   - Doubling the larger of the two one sided P-values
   - Doubling the smaller of the two one sided P-values
   - No procedure exists
+4. Consider again the `mtcars` dataset. Use a two group t-test to test
+  the hypothesis that the 4 and 6 cyl cars have the same mpg.  Use
+  a two sided test with unequal variances. Give a P-value. [Watch the video here](https://www.youtube.com/watch?v=Zo5TirzS9rU&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=28)
+  and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#4)
+5. You believe the coin that you're flipping is biased towards heads. You get 55 heads out of
+100 flips. Give an exact P-value for the hypothesis that the coin is fair. [Watch a video solution](https://www.youtube.com/watch?v=0sqOErsfhqo&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=30)
+and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#6).
+6. A web site was monitored for a year and it received 520 hits per day. In the first
+30 days in the next year, the site received 15,800 hits. Assuming that web hits
+are Poisson. Give an exact one sided P-value to the hypothesis that web hits are up this year over last. Do you reject? [Watch the video solutions](https://www.youtube.com/watch?v=cE_88-Q7TX0&index=31&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#7).
+7. Suppose that in an AB test, one advertising scheme led to an average of 10 purchases per day for a sample of 100 days, while the other led to 11 purchaces per day, also for a sample of 100 days.
+Assuming a common standard deviation of 4 purchases per day.
+Assuming that the groups are independent and that they days are iid, perform a Z test of
+equivalence. Give a P-value for the test? [Watch a video solution](https://www.youtube.com/watch?v=Or4ly4rOiaA&index=32&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the
+text.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#8)
+8. Consider the `mtcars` data set.
+  * Give the p-value for a t-test comparing MPG for 6 and 8 cylinder cars assuming equal variance, as a proportion to 3 decimal places.
+  * Give the associated P-value for a z test.
+  * Give the common standard deviation estimate for MPG across cylinders to 3 decimal places.
+  * Would the t test reject at the two sided 0.05 level (0 for no 1 for yes)?
+[Watch a video solution](https://www.youtube.com/watch?v=m0B5p0w2wJI&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=37) and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#13). 

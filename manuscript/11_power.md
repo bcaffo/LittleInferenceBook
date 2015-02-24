@@ -175,3 +175,12 @@ power.t.test(power = 0.8, delta = 2, sd = 4, type = "one.sample", alt = "one.sid
   - The alternative mean divided by the standard error
   - The difference between the null and alternative means divided by the standard deviation
   - The standard error divided by the null mean
+5. Recall this problem "Suppose that in an AB test, one advertising scheme led to an average of 10 purchases per day for a sample of 100 days, while the other led to 11 purchases per day, also for a sample of 100 days.
+Assuming a common standard deviation of 4 purchases per day." Assuming that 10 purchases per day is a benchmark null value,
+that days are iid and that the standard deviation is 4 purchases for day. Suppose that you
+plan on sampling 100 days. What would be the power for a one sided 5%
+Z mean test that purchases per day
+have increased under the alternative of {$$}\mu = 11{/$$} purchase per day? [Watch a video
+solution](https://www.youtube.com/watch?v=RiS6EFnPYY8&index=34&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#10).
+6. Researchers would like to conduct a study of healthy adults to detect a four year mean brain volume loss of .01 mm3. Assume that the standard deviation of four year volume loss in this population is .04 mm3.  What is necessary sample size for the study for a 5% one sided test versus a null hypothesis of no volume loss to achieve 80% power? [Watch the video solution](https://www.youtube.com/watch?v=lrXyJrtatzk&index=35&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
+and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#11).
