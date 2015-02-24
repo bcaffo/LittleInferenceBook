@@ -127,7 +127,7 @@ A study comparing the efficacy of HIV tests, reports on an experiment which
 concluded that HIV antibody tests have a sensitivity of 99.7% and a specificity of 98.5%
 Suppose that a subject, from a population with a .1% prevalence of HIV, receives a positive test result. What is the positive predictive value?
 
-Mathematically, we want $P(D ~|~ +)$ given the sensitivity, $P(+ ~|~ D) = .997$,
+Mathematically, we want {$$}P(D ~|~ +){/$$} given the sensitivity, {$$}P(+ ~|~ D) = .997{/$$},
 the specificity, {$$}P(- ~|~ D^c) =.985{/$$} and the prevalence
 {$$}P(D) = .001{/$$}.
 

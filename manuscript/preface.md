@@ -22,4 +22,4 @@ The picture on the cover is a public domain image taken from Wikipedia's
 article on Francis Galton's quincunx. Francis Galton was an 19th century
 polymath who invented many of key concepts of statistics. The quincunx
 was an ingenious invention for illustrating the central limit theorem
-using a Chines pinball setup.
+using a pinball setup.

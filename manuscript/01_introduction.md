@@ -35,8 +35,8 @@ Try it out, it's probably the most effective way to learn.
 
 We'll define statistical inference as the process of generating conclusions about
 a population from a noisy sample. Without statistical inference we’re simply
-living within our data. With statistical inference, when trying to generate
-new knowledge we’re trying to extend beyond our data to a population to get
+living within our data. With statistical inference, we're trying to generate
+new knowledge; we’re trying to extend beyond our data to a population to get
 answers.
 
 In our class, we wil define formal statistical inference as settings where one wants to infer facts about a population using noisy
@@ -67,7 +67,7 @@ That probability talks about, refers to population.
 ### Motivating example, brain activation
 
 An example that’s very close to the research I do is trying to predict what
-areas of the brain activate when a person is put in the FMRI scanner. In
+areas of the brain activate when a person is put in the fMRI scanner. In
 that case, people are doing a task while in the scanner, for example, tapping
 their finger or something like that, and we’d like to compare when they are
 tapping their finger to when they are not tapping their finger and try to
@@ -81,8 +81,8 @@ to use data to create general conclusions about a population.
 
 Paramount among our concerns are:
 
-* is the sample representative of the population that we'd like to draw inferences about,
-* are there known and observed, known and unobserved or unknown and unobserved variables that contaminate our conclusions?
+* Is the sample representative of the population that we'd like to draw inferences about?
+* Are there known and observed, known and unobserved or unknown and unobserved variables that contaminate our conclusions?
 * Is there systematic bias created by missing data or the design or conduct of the study?
 * What randomness exists in the data and how do we use or adjust for it? Here randomness can either be explicit via randomization
 or random sampling, or implicit as the aggregation of many complex uknown processes.
@@ -147,11 +147,11 @@ of beliefs to perform inference. Answers questions like "Given my subjective bel
 should I believe now?"
 
 Data scientists tend to fall within shades of gray of these and various other schools of inference.
-Furthermore, there are many shades of gray between the styles of inferences so
+Furthermore, there are so many shades of gray between the styles of inferences
 that it is hard to pin down most modern statisticians as either Bayesian or
 frequentist. In this class, we will primarily focus on basic sampling models,
 basic probability models and frequency style analyses
-to create standard inferences.
+to create standard inferences. This is the most popular style of inference by far.
 
 Being data scientists,  we will also consider some inferential strategies that  
 rely heavily on the observed data, such as permutation testing
