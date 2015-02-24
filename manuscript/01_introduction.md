@@ -34,9 +34,9 @@ Try it out, it's probably the most effective way to learn.
 [Watch this video before beginning.](http://youtu.be/WkOinijQmPU?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 We'll define statistical inference as the process of generating conclusions about
-a population from a noisy sample. Without statistical inference we’re simply
+a population from a noisy sample. Without statistical inference we're simply
 living within our data. With statistical inference, we're trying to generate
-new knowledge; we’re trying to extend beyond our data to a population to get
+new knowledge; we're trying to extend beyond our data to a population to get
 answers.
 
 In our class, we will define formal statistical inference as settings where one wants to infer facts about a population using noisy
@@ -60,16 +60,16 @@ uncertainty in the process to produce a good guess at who will win?
 ## Motivating example, predicting the weather
 
 When a weatherman tells you the probability that it will rain tomorrow is
-70%, they’re trying to use historical data
-to predict tomorrow’s weather - and to actually attach a probability to it.
+70%, they're trying to use historical data
+to predict tomorrow's weather - and to actually attach a probability to it.
 That probability talks about, refers to population.
 
 ### Motivating example, brain activation
 
-An example that’s very close to the research I do is trying to predict what
+An example that's very close to the research I do is trying to predict what
 areas of the brain activate when a person is put in the fMRI scanner. In
 that case, people are doing a task while in the scanner, for example, tapping
-their finger or something like that, and we’d like to compare when they are
+their finger or something like that, and we'd like to compare when they are
 tapping their finger to when they are not tapping their finger and try to
 figure out what areas of the brain are associated with the finger tapping.
 
