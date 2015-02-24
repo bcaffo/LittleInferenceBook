@@ -2,10 +2,11 @@
 output: html_document
 ---
 
+
 ```{r book, results='asis', echo = FALSE}
-cat(readLines(con = "./01_introduction.md", encoding = "Latin1"), sep = "\n")
+cat(readLines(con = "./01_introduction.md", encoding = "Latin1"), "\n", sep = "\n")
 prob <- readLines(con = "./02_probability.md", encoding = "Latin1")
 prob <- gsub(pattern = "[{]/?[$]{2}[}]", replacement = "$$", prob)
-cat(prob, sep = "\n")
+cat(prob, "\n", sep = "\n")
 ```
 
