@@ -19,7 +19,7 @@ www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
 there's  the actual [Coursera course](Coursera:
 www.coursera.org/course/biostats) that I run periodically (this is the first
 Coursera class that I ever taught).  Also there are a set of [notes on
-github](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a followup
+GitHub](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a followup
 class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more
 devoted  to biostatistical topics that has an associated [YouTube
 playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM),
