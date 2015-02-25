@@ -54,7 +54,7 @@ data:
 ~~~
 library(UsingR); data(galton); library(ggplot2); library(reshape2)
 longGalton <- melt(galton, measure.vars = c("child", "parent"))
-g <- ggplot(longGalton, aes(x = value)) + geom_histogram(aes(y = ..density..,  fill = variable), binwidth=1, colour = "black") + geom_density(size = 2)
+g <- ggplot(longGalton, aes(x = value)) + geom_histogram(aes(y = ..density..,  fill = variable), binwidth=1, color = "black") + geom_density(size = 2)
 g <- g + facet_grid(. ~ variable)
 g
 ~~~
@@ -72,7 +72,7 @@ library(manipulate)
 myHist <- function(mu){
     g <- ggplot(galton, aes(x = child))
     g <- g + geom_histogram(fill = "salmon",
-      binwidth=1, aes(y = ..density..), colour = "black")
+      binwidth=1, aes(y = ..density..), color = "black")
     g <- g + geom_density(size = 2)
     g <- g + geom_vline(xintercept = mu, size = 2)
     mse <- round(mean((galton$child - mu)^2), 3)  
@@ -221,7 +221,7 @@ that's the left most plot. The bars are equally distributed at the six possible
 outcomes and thus the histogram is centered around 3.5.
 Now consider simulating lots of averages of 2 dice. Its histogram is also
 centered at 3.5. So is it for 3 and 4. Notice also the distribution gets
-increasing Gaussian looking (like a bell curve) and increasingly concetrated
+increasing Gaussian looking (like a bell curve) and increasingly concentrated
 around 3.5.
 
 ![Simulation of die rolls](images/dieRollSimulationMean.png)

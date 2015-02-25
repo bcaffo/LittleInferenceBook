@@ -302,7 +302,7 @@ What's the probability of 2 or fewer successes?
 
 {title="Finding a normal quantile", line-numbers=off,lang=r}
 ~~~
-> vpbinom(2, size = 500, prob = 0.01)
+> pbinom(2, size = 500, prob = 0.01)
 [1] 0.1234
 > ppois(2, lambda = 500 * 0.01)
 [1] 0.1247

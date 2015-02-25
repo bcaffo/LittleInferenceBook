@@ -4,7 +4,7 @@
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
 
-Before we begin discussing probability, let's dispense with some deep philosphical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occuring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
+Before we begin discussing probability, let's dispense with some deep philosophical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occurring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
 
 For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
 
@@ -19,7 +19,7 @@ www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
 there's  the actual [Coursera course](Coursera:
 www.coursera.org/course/biostats) that I run periodically (this is the first
 Coursera class that I ever taught).  Also there are a set of [notes on
-github](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a followup
+GitHub](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a follow up
 class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more
 devoted  to biostatistical topics that has an associated [YouTube
 playlist](http://www.youtube.com/playlist?list=PLpl-gQkQivXhwOsKPQ4fbCBYOWjvdzrSM),
@@ -79,7 +79,7 @@ of getting a 1, 2, 3, 4, 5 or 6, or in other words, the probability that
 something occurs, which is 1 by rule number 2.  So we have that
 {$$}1 = P(A) + P(A^c){/$$} or that {$$}P(A) = 1 - P(A^c){/$$}.
 
-We won't go through this tedious exercise (since Kolmorogov already did it for
+We won't go through this tedious exercise (since Kolmogorov already did it for
 us). Instead here's a list of some of the consequences of Kolmogorov's rules
 that are often useful.
 

@@ -34,7 +34,7 @@ P(A ~|~ B) = \frac{P(A \cap B)}{P(B)}.
 {/$$}
 
 If {$$}A{/$$} and {$$}B{/$$} are unrelated in any way, or in other words
-*independent*, (disccussed more later in the lecture), then
+*independent*, (discussed more later in the lecture), then
 
 {$$}
 P(A ~|~ B) = \frac{P(A) P(B)}{P(B)} = P(A)
@@ -190,7 +190,7 @@ times the {$$}DLR_+{/$$}. Similarly, {$$}DLR_-{/$$} relates the decrease in the 
 of the disease after a negative test result to the odds of disease prior to
 the test.
 
-So, the DLRs are the factors by which you multiply your pre test odds to get
+So, the DLRs are the factors by which you multiply your pretest odds to get
 your post test odds. Thus, if a test has a {$$}DLR_+{/$$} of 6, regardless
 of the prevalence of disease, the post test odds is six times that of the
 pretest odds.

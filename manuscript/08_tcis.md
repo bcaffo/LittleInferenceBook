@@ -56,7 +56,7 @@ myplot <- function(df){
                   x = xvals,
                   dist = factor(rep(c("Normal", "T"), c(k,k))))
   g <- ggplot(d, aes(x = x, y = y))
-  g <- g + geom_line(size = 2, aes(colour = dist))
+  g <- g + geom_line(size = 2, aes(color = dist))
   g
 }
 manipulate(myplot(mu), mu = slider(1, 20, step = 1))  
@@ -123,7 +123,7 @@ Here's a plot of the data. In this plot paired observations are connected with a
 
 ![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep.png)
 
-Now let's calculate the *t* interval for the differences from baseline to followup.
+Now let's calculate the *t* interval for the differences from baseline to follow up.
 Below we give four different ways for calculating the interval.
 
 {title="Loading Galton's data.", line-numbers=off,lang=r}
@@ -148,7 +148,7 @@ t.test(extra ~ I(relevel(group, 2)), paired = TRUE, data = sleep)
 ~~~
 
 Therefore, since our interval doesn't include 0, our 95% confidence
-interval estimate for the mean change (followup - baseline) is 0.70 to 2.45.
+interval estimate for the mean change (follow up - baseline) is 0.70 to 2.45.
 
 ## Independent group *t* confidence intervals
 

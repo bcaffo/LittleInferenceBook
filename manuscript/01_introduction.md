@@ -16,14 +16,14 @@ Before beginning, we assume that you have a working knowledge
 of the R programming language. If not, there is a wonderful Coursera class
 by Roger Peng, [that can be found here](https://www.coursera.org/course/rprog).
 
-The entirety of the book is on github [here](https://github.com/bcaffo/LittleInferenceBook).
+The entirety of the book is on GitHub [here](https://github.com/bcaffo/LittleInferenceBook).
 Please submit pull requests if you find errata! In addition the course notes can be found
-also on github [here](https://github.com/bcaffo/courses/tree/master/06_StatisticalInference).
+also on GitHub [here](https://github.com/bcaffo/courses/tree/master/06_StatisticalInference).
 While most code is in the book, *all* of the code for every figure and analysis in the
 book is in the R markdown files files (.Rmd) for the respective lectures.
 
 Finally, we should mention `swirl` (statistics with interactive R programming).
-`swirl` is an intelligent tutoring system developed by Nich Carchedi, with contributions
+`swirl` is an intelligent tutoring system developed by Nick Carchedi, with contributions
 by Sean Kross and Bill and Gina Croft. It offers a way to learn R in R.
 Download `swirl` [here](http://swirlstats.com). There's a swirl
 [module for this course!](https://github.com/swirldev/swirl_courses#swirl-courses).
@@ -34,12 +34,12 @@ Try it out, it's probably the most effective way to learn.
 [Watch this video before beginning.](http://youtu.be/WkOinijQmPU?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 We'll define statistical inference as the process of generating conclusions about
-a population from a noisy sample. Without statistical inference we’re simply
+a population from a noisy sample. Without statistical inference we're simply
 living within our data. With statistical inference, we're trying to generate
-new knowledge; we’re trying to extend beyond our data to a population to get
+new knowledge; we're trying to extend beyond our data to a population to get
 answers.
 
-In our class, we wil define formal statistical inference as settings where one wants to infer facts about a population using noisy
+In our class, we will define formal statistical inference as settings where one wants to infer facts about a population using noisy
 statistical data where uncertainty must be accounted for.
 
 
@@ -60,16 +60,16 @@ uncertainty in the process to produce a good guess at who will win?
 ## Motivating example, predicting the weather
 
 When a weatherman tells you the probability that it will rain tomorrow is
-70%, they’re trying to use historical data
-to predict tomorrow’s weather - and to actually attach a probability to it.
+70%, they're trying to use historical data
+to predict tomorrow's weather - and to actually attach a probability to it.
 That probability talks about, refers to population.
 
 ### Motivating example, brain activation
 
-An example that’s very close to the research I do is trying to predict what
+An example that's very close to the research I do is trying to predict what
 areas of the brain activate when a person is put in the fMRI scanner. In
 that case, people are doing a task while in the scanner, for example, tapping
-their finger or something like that, and we’d like to compare when they are
+their finger or something like that, and we'd like to compare when they are
 tapping their finger to when they are not tapping their finger and try to
 figure out what areas of the brain are associated with the finger tapping.
 
@@ -85,7 +85,7 @@ Paramount among our concerns are:
 * Are there known and observed, known and unobserved or unknown and unobserved variables that contaminate our conclusions?
 * Is there systematic bias created by missing data or the design or conduct of the study?
 * What randomness exists in the data and how do we use or adjust for it? Here randomness can either be explicit via randomization
-or random sampling, or implicit as the aggregation of many complex uknown processes.
+or random sampling, or implicit as the aggregation of many complex unknown processes.
 * Are we trying to estimate an underlying mechanistic model of phenomena under study?
 
 Statistical inference requires navigating the set of assumptions and
