@@ -92,7 +92,7 @@ or random sampling, or implicit as the aggregation of many complex unknown proce
 Statistical inference requires navigating the set of assumptions and
 tools and subsequently thinking about how to draw conclusions from data.
 
-## Example goals of inference
+## The goals of inference
 
 You should recognize the goals of inference. Here we list five
 examples of inferential goals.
@@ -109,7 +109,7 @@ a population quantity (the proportion of people who will
 5. Talk about the probability that something occurs.
 
 
-## Example tools of the trade
+## The tools of the trade
 
 Several tools are key to the use of statistical inference. We'll only
 be able to cover a few in this class, but you should recognize them anyway.
