@@ -25,7 +25,7 @@ invisible(
            contents <- readLines(con = file, encoding = encoding)
            
            # Replace with correct equation markers
-           contents <- gsub(pattern = "[{]/?[$]{2}[}]",
+           contents <- gsub(pattern = "([{][$]{2}[}] *)|( *[{]/[$]{2}[}])",
                             replacement = "$$",
                             x = contents)
            
