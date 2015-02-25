@@ -36,6 +36,12 @@ invisible(
                             replacement = "\n**\\2**\n\n```\n\\3\n```\n\n",
                             x = contents)
            
+           # Identify inline equations
+           contents <- gsub(pattern = "[$]{2}", replacement = "$", x = contents)
+           contents <- gsub(pattern = "(\n{2,})[$]([^$]*)[$]",
+                            replacement = "\\1$$\\2$$",
+                            x = contents)
+           
            # Output file contents
            cat(contents, "\n\n", sep = "")
          })
