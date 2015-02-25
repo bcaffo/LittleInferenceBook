@@ -17,7 +17,7 @@ chapters <- chapters[order(grepl("^[0-9]", chapters), chapters)]
 # Set the encoding
 encoding <- "Latin1"
 
-# Output the content of every file, substituting the equation markers
+# Output the content of every file
 invisible(
   sapply(X = chapters, encoding = encoding,
          FUN = function(file, encoding){
@@ -29,8 +29,15 @@ invisible(
                             replacement = "$$",
                             x = contents)
            
+           # Fix code blocks
+           contents <- paste(contents, collapse = "\n")
+           contents <- gsub(pattern = paste0("\n[{](title ?= ?\"([^\"]*)\")?",
+                                     "[^~]*~*[[:space:]]*([^~]*)~*[[:space:]]*"),
+                            replacement = "\n**\\2**\n\n```\n\\3\n```\n\n",
+                            x = contents)
+           
            # Output file contents
-           cat(contents, "\n", sep = "\n")
+           cat(contents, "\n\n", sep = "")
          })
 )
 ```
