@@ -8,11 +8,8 @@ output:
 
 ```{r book, results='asis', echo = FALSE}
 
-# Get list of .md files
-chapters <- list.files(pattern = "[.]md")
-
-# Order the files starting with the non-numbered
-chapters <- chapters[order(grepl("^[0-9]", chapters), chapters)]
+# Get list of .md files from the LeanPub configuration file
+chapters <- readLines(con = "Book.txt")
 
 # Set the encoding
 encoding <- "Latin1"
