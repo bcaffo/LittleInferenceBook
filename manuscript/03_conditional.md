@@ -64,9 +64,9 @@ Which exactly mirrors our intuition.
 ## Bayes' rule
 [Watch this video before beginning](http://youtu.be/TfeaZ_26iQk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-Baye's rule is a famous result in statistics and probability. It forms
+Bayes' rule is a famous result in statistics and probability. It forms
 the foundation for large branches of statistical thinking.
-Baye's rule allows us to reverse the conditioning set provided
+Bayes' rule allows us to reverse the conditioning set provided
 that we know some marginal probabilities.
 
 Why is this useful? Consider our lung cancer example again. It would be
@@ -79,16 +79,16 @@ test result, the reverse probability is more of interest, "given a positive
 test what is the probability of having the disease?", and "given a given
 a negative test what is the probability of not having the disease?".
 
-Baye's rule allows us to switch the conditioning event, provided a little
-bit of extra information. Formally Baye's rule is:
+Bayes' rule allows us to switch the conditioning event, provided a little
+bit of extra information. Formally Bayes' rule is:
 
 {$$}
 P(B ~|~ A) = \frac{P(A ~|~ B) P(B)}{P(A ~|~ B) P(B) + P(A ~|~ B^c)P(B^c)}.
 {/$$}
 
 ### Diagnostic tests
-Since diagnostic tests are a really good example of Baye's rule in practice,
-let's go over them in greater detail. (In addition, understanding Baye's rule
+Since diagnostic tests are a really good example of Bayes' rule in practice,
+let's go over them in greater detail. (In addition, understanding Bayes' rule
 will be helpful for your own ability to understand medical tests that you
 see in your daily life). We require a few definitions first.
 
