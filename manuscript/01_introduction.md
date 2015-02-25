@@ -39,10 +39,6 @@ living within our data. With statistical inference, we're trying to generate
 new knowledge; we're trying to extend beyond our data to a population to get
 answers.
 
-In our class, we will define formal statistical inference as settings where one wants to infer facts about a population using noisy
-statistical data where uncertainty must be accounted for.
-
-
 ## Motivating example: who's going to win the election?
 
 In every major election, pollsters would like to know, ahead of the
@@ -68,8 +64,8 @@ That probability talks about, refers to population.
 
 An example that's very close to the research I do is trying to predict what
 areas of the brain activate when a person is put in the fMRI scanner. In
-that case, people are doing a task while in the scanner, for example, tapping
-their finger or something like that, and we'd like to compare when they are
+that case, people are doing a task while in the scanner. For example, they
+might be tapping their finger. We'd like to compare when they are
 tapping their finger to when they are not tapping their finger and try to
 figure out what areas of the brain are associated with the finger tapping.
 
