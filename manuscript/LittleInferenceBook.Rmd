@@ -3,16 +3,15 @@ output:
   html_document:
     toc: true
     toc_depth: 2
+    includes:
+      before_body: frontmatter.html
 ---
 
 
 ```{r book, results='asis', echo = FALSE}
 
-# Get list of .md files
-chapters <- list.files(pattern = "[.]md")
-
-# Order the files starting with the non-numbered
-chapters <- chapters[order(grepl("^[0-9]", chapters), chapters)]
+# Get list of .md files from the LeanPub configuration file
+chapters <- readLines(con = "Book.txt")
 
 # Set the encoding
 encoding <- "Latin1"
