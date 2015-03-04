@@ -38,8 +38,10 @@ So for this test we could calculate power with this R code:
 
 ```{r , echo=TRUE}
 alpha = 0.05
+mu0 = 30; mua = 32; n = 16; sigma = 4
 z = qnorm(1 - alpha)
-pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n), lower.tail = FALSE)
+pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n),
+      lower.tail = FALSE)
 ```
 
 
