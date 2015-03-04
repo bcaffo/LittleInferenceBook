@@ -55,7 +55,6 @@ Note that there are four possible outcomes of our statistical decision process:
 |$H_0$ | $H_a$ | Type I error          |
 |$H_a$ | $H_a$ | Correctly reject null |
 |$H_a$ | $H_0$ | Type II error         |
-|-------------|--------------|-----------------------|
 
 We will perform hypothesis testing by forcing the probability of a
 Type I error to be  small. This approach consequences, which we can discuss
@@ -296,13 +295,15 @@ Recall that we reformatted this data as follows
 ```{r , echo=TRUE}
 library(datasets); data(ChickWeight); library(reshape2)
 ##define weight gain or loss
-wideCW <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")
-names(wideCW)[-(1 : 2)] <- paste("time", names(wideCW)[-(1 : 2)], sep = "")
+wideCW <- dcast(ChickWeight, Diet + Chick ~ Time,
+                value.var = "weight")
+names(wideCW)[-(1 : 2)] <- paste("time",
+                                 names(wideCW)[-(1 : 2)],
+                                 sep = "")
 library(dplyr)
 wideCW <- mutate(wideCW,
   gain = time21 - time0
 )
-
 ```
 
 
@@ -336,7 +337,6 @@ rejecting is (less than) 5%?
 |         [6 : 8] | 0.1445            |
 |         [7 : 8] | 0.0352            |
 |         [8 : 8] | 0.0039            |
-|-----------------|-------------------|
 
 Thus if we reject under 7 or 8 girls, we will have a less than 5% chance
 of rejecting under the null hypothesis.

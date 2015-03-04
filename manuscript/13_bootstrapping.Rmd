@@ -14,14 +14,43 @@ obtained by repeatedly averaging 50 independent die rolls. By this simulation, w
 any mathematics, we have a good idea of what the distribution of averages of 50 die
 rolls looks like.
 
-![Image of true die roll distribution (left) and simulation of averages of 50 die rolls](images/bootstrapping1.png)
+```{r , echo=FALSE, fig.cap="Image of true die roll distribution (left) and simulation of averages of 50 die rolls", label = "bootstrapping1", fig.height=4}
+library(ggplot2)
+library(gridExtra)
+nosim <- 1000
+
+cfunc <- function(x, n) mean(x)
+g1 = ggplot(data.frame(y = rep(1/6, 6), x = 1 : 6), aes(y = y, x = x))
+g1 = g1 + geom_bar(stat = "identity", fill = "lightblue", colour = "black")
+
+dat <- data.frame(x = apply(matrix(sample(1 : 6, nosim * 50, replace = TRUE), 
+                     nosim), 1, mean))
+g2 <- ggplot(dat, aes(x = x)) + geom_histogram(binwidth=.2, colour = "black", fill = "salmon", aes(y = ..density..)) 
+
+grid.arrange(g1, g2, ncol = 2)
+```
+
 
 Now imagine a case where we didn't know whether or not the die was fair. We have a sample of
 size 50 and we'd like to investigate the distribution of the average of 50 die rolls
 *where we're not allowed to roll the die anymore*. This is more like a real data analysis, we only get one sample
 from the population.
 
-![Image of empirical die roll distribution (left) and simulates of averages of 50 die rolls from this distribution](images/bootstrapping2.png)
+```{r , echo=FALSE, fig.cap="Image of empirical die roll distribution (left) and simulates of averages of 50 die rolls from this distribution", label = "bootstrapping2", fig.height=4}
+n = 50
+B = 1000
+## our data
+x = sample(1 : 6, n, replace = TRUE)
+## bootstrap resamples
+resamples = matrix(sample(x, n * B, replace = TRUE), B, n)
+resampledMeans = apply(resamples, 1, mean)
+g1 <- ggplot(as.data.frame(prop.table(table(x))), aes(x = x, y = Freq)) +
+  geom_bar(colour = "black", fill = "lightblue", stat = "identity") 
+g2 <- ggplot(data.frame(x = resampledMeans), aes(x = x)) +
+  geom_histogram(binwidth=.2, colour = "black", fill = "salmon", aes(y = ..density..)) 
+grid.arrange(g1, g2, ncol = 2)
+```
+
 
 The bootstrap principle is to use the empirical mass function of the data to perform the simulation,
 rather than the true distribution. That is, we simulate averages of 50 samples
@@ -51,16 +80,18 @@ data(father.son)
 x <- father.son$sheight
 n <- length(x)
 B <- 10000
-resamples <- matrix(sample(x,
-                           n * B,
-                           replace = TRUE),
-                    B, n)
+resamples <- matrix(sample(x, n * B, replace = TRUE), B, n)
 resampledMedians <- apply(resamples, 1, median)
-
 ```
 
+```{r , echo=FALSE, fig.cap="Bootstrapping example for the median of sons' heights from Galton's", label = "bootstrapping3"}
+g = ggplot(data.frame(x = resampledMedians), aes(x = x)) 
+g = g + geom_density(size = 2, fill = "red")
+#g = g + geom_histogram(alpha = .20, binwidth=.3, colour = "black", fill = "blue", aes(y = ..density..)) 
+g = g + geom_vline(xintercept = median(x), size = 2)
+g
+```
 
-![Bootstrapping example for the median of sons' heights from Galton's ](images/bootstrapping3.png)
 
 ## The bootstrap principle
 
@@ -109,7 +140,6 @@ resamples <- matrix(sample(x,
                            replace = TRUE),
                     B, n)
 medians <- apply(resamples, 1, median)
-
 ```
 
 
@@ -135,15 +165,13 @@ quantile(medians, c(.025, .975))
 We also always want to plot a histogram or density estimate of our simulated statistic.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.cap="A plot of the histrogram of the resamples", label="bootstrapping4"}
 g = ggplot(data.frame(medians = medians), aes(x = medians))
-g = g + geom_histogram(color = "black", fill = "lightblue", binwidth = 0.05)
+g = g + geom_histogram(color = "black", fill = "lightblue",
+                       binwidth = 0.05)
 g
-
 ```
 
-
-![Bootstrapping example for the median of sons' heights from Galton's ](images/bootstrapping3.png)
 
 ### Summary notes on the bootstrap
 
@@ -158,16 +186,13 @@ g
 Consider comparing two independent groups. Example, comparing sprays B and C.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.cap="Comparison of insect spray.", label = "bootstrapping5", fig.height=5}
 data(InsectSprays)
 g = ggplot(InsectSprays, aes(spray, count, fill = spray))
 g = g + geom_boxplot()
 g
-
 ```
 
-
-![Comparison of insect spray.](images/bootstrapping4.png)
 
 ## Permutation tests
 Consider comparing means between the group. However, let's
@@ -195,13 +220,11 @@ been reinvented several times in statistic. The table below gives three
 famous tests that are obtained by permuting group labels.
 
 
-|----------|---------------------|---------------------|
 |Data type | Statistic           | Test name           |
 |----------|---------------------|---------------------|
 |Ranks     | rank sum            | rank sum test       |
 |Binary    | hypergeometric prob | Fisher's exact test |
 |Raw data  |                     | permutation test    |
-|----------|---------------------|---------------------|
 
 
 Also, so-called *randomization tests* are exactly permutation tests, with a
@@ -230,8 +253,8 @@ y <- subdata$count
 group <- as.character(subdata$spray)
 testStat <- function(w, g) mean(w[g == "B"]) - mean(w[g == "C"])
 observedStat <- testStat(y, group)
-permutations <- sapply(1 : 10000, function(i) testStat(y, sample(group)))
-
+permutations <- sapply(1 : 10000,
+                       function(i) testStat(y, sample(group)))
 ```
 
 
@@ -256,7 +279,13 @@ Since this is 0, our estimate of the P-value is 0 (i.e. we strongly reject the
   NULL). It's useful to look at a histogram of permuted statistics with a
   vertical line drawn at the observed test statistic for reference.
 
-![Permutation distribution from the insectsprays dataset](images/bootstrapping5.png)
+```{r , echo=FALSE, fig.cap="Permutation distribution from the insectsprays dataset", label = "bootstrapping6", fig.height=5}
+g = ggplot(data.frame(permutations = permutations),
+           aes(permutations))
+g = g + geom_histogram(fill = "lightblue", color = "black", binwidth = 1)
+g = g + geom_vline(xintercept = observedStat, size = 2)
+g
+```
 
 ## Exercises
 1. The bootstrap uses what to estimate the sampling distribution of a statistic?

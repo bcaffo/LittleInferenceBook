@@ -270,17 +270,18 @@ a random day by a help line is given by $f(x) = 2 x$
 for $0< x < 1$. The R code for plotting this density is
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.keep='none', label = "help_call_density"}
 x <- c(-0.5, 0, 1, 1, 1.5)
 y <- c(0, 0, 2, 0, 0)
-plot(x, y, lwd = 3,frame = FALSE, type = "l")
-
+p <- plot(x, y, lwd = 3,frame = FALSE, type = "l")
 ```
 
 
 The result of the code is given below.
 
-![Help call density](images/triangleDensity.png)
+```{r , echo=FALSE, ref.label="help_call_density", fig.cap="Help call density", label="triangleDensity"}
+```
+
 
 Is this a mathematically valid density? To answer this
 we need to make sure it satisfies our two conditions.
@@ -298,7 +299,15 @@ Remember, for continuous random variables, probabilities are represented
 by areas underneath the density function. So, we want the area from
 0.75 and below, as illustrated by the figure below.
 
-![Help call density](images/triangleDensityArea.png)
+
+```{r , echo=FALSE, fig.cap="Help call density", label="triangleDensityArea"}
+x <- c(-0.5, 0, 1, 1, 1.5)
+y <- c(0, 0, 2, 0, 0)
+x2 <- c(0, 0.75, 0.75)
+y2 <- c(0, 1.5, 0)
+plot(x, y, lwd = 3,frame = FALSE, type = "l")
+polygon(x = x2, y = y2, col = "lightblue", border = "black", lwd = 3)
+```
 
 This again is a right triangle, with length of the base as 0.75
 and height 1.5. The R code below shows the calculation.

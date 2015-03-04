@@ -48,7 +48,7 @@ You can use rStudio's manipulate function to to compare the *t* and Z
 distributions.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.keep='none', eval=FALSE}
 k <- 1000
 xvals <- seq(-5, 5, length = k)
 myplot <- function(df){
@@ -60,7 +60,6 @@ myplot <- function(df){
   g
 }
 manipulate(myplot(mu), mu = slider(1, 20, step = 1))  
-
 ```
 
 
@@ -69,7 +68,7 @@ the following code plots the upper quantiles of the Z distribution by
 those of the *t* distribution.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.keep='none', eval=FALSE}
 pvals <- seq(.5, .99, by = .01)
 myplot2 <- function(df){
   d <- data.frame(n= qnorm(pvals),t=qt(pvals, df),
@@ -82,7 +81,6 @@ myplot2 <- function(df){
   g
 }
 manipulate(myplot2(df), df = slider(1, 20, step = 1))
-
 ```
 
 
@@ -119,26 +117,34 @@ head(sleep)
 
 Here's a plot of the data. In this plot paired observations are connected with a line.
 
-![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep.png)
+```{r , echo=FALSE, fig.cap="A plot of the pairs of observations from Galton's sleep data.", label = "galtonSleep"}
+library(ggplot2)
+g <- ggplot(sleep, aes(x = group, y = extra, group = factor(ID)))
+g <- g + geom_line(size = 1, aes(colour = ID)) + geom_point(size =10, pch = 21, fill = "salmon", alpha = .5)
+g
+```
+
 
 Now let's calculate the *t* interval for the differences from baseline to follow up.
 Below we give four different ways for calculating the interval.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, results='hold', label="t_tests_ci"}
 g1 <- sleep$extra[1 : 10]; g2 <- sleep$extra[11 : 20]
 difference <- g2 - g1
 mn <- mean(difference); s <- sd(difference); n <- 10
 ## Calculating directly
 mn + c(-1, 1) * qt(.975, n-1) * s / sqrt(n)
 ## using R's built in function
-t.test(difference)
+t.test(difference)$conf.int[1:2]
 ## using R's built in function, another format
-t.test(g2, g1, paired = TRUE)
+t.test(g2, g1, paired = TRUE)$conf.int[1:2]
 ## using R's built in function, another format
+t.test(extra ~ I(relevel(group, 2)),
+       paired = TRUE, data = sleep)$conf.int[1:2]
 ## Below are the results (after a little formatting)
-t.test(extra ~ I(relevel(group, 2)), paired = TRUE, data = sleep)
 ```
+
 
 
 Therefore, since our interval doesn't include 0, our 95% confidence
@@ -193,7 +199,7 @@ for grouped data directly, and using the `t.test` function.
 
 ```{r , echo=TRUE}
 n1 <- length(g1); n2 <- length(g2)
-sp <- sqrt( ((n1 - 1) * sd(x1)^2 + (n2-1) * sd(x2)^2) / (n1 + n2-2))
+sp <- sqrt( ((n1 - 1) * sd(g1)^2 + (n2-1) * sd(g2)^2) / (n1 + n2-2))
 md <- mean(g2) - mean(g1)
 semd <- sp * sqrt(1 / n1 + 1/n2)
 rbind(
@@ -219,8 +225,11 @@ variable using dplyr.
 ```{r , echo=TRUE}
 library(datasets); data(ChickWeight); library(reshape2)
 ##define weight gain or loss
-wideCW <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")
-names(wideCW)[-(1 : 2)] <- paste("time", names(wideCW)[-(1 : 2)], sep = "")
+wideCW <- dcast(ChickWeight, Diet + Chick ~ Time,
+                value.var = "weight")
+names(wideCW)[-(1 : 2)] <- paste("time",
+                                 names(wideCW)[-(1 : 2)],
+                                 sep = "")
 library(dplyr)
 wideCW <- mutate(wideCW,
   gain = time21 - time0
@@ -230,12 +239,24 @@ wideCW <- mutate(wideCW,
 
 Here's a plot of the data.
 
+```{r , echo=FALSE, fig.cap="Chickweight data over time.", label = "chickweight", fig.height=3.5, warning=FALSE}
+g <- ggplot(ChickWeight, aes(x = Time, y = weight, 
+                             colour = Diet, group = Chick))
+g <- g + geom_line()
+g <- g + stat_summary(aes(group = 1), geom = "line", fun.y = mean, size = 1, col = "black")
+g <- g + facet_grid(. ~ Diet)
+g
+```
 
-![Chickweight data over time.](images/chickweight.png)
 
 Here's a plot only of the weight gain for the diets.
 
-![Violin plots of chickweight data by weight gain (final minus baseline) by diet.](images/chickweightgroups.png)
+```{r , echo=FALSE, fig.cap="Violin plots of chickweight data by weight gain (final minus baseline) by diet.", label = "chickweightgroups", warning=FALSE}
+g <- ggplot(wideCW, aes(x = factor(Diet), y = gain, fill = factor(Diet)))
+g <- g + geom_violin(col = "black", size = 2)
+g
+```
+
 
 Now let's do a *t* interval comparing groups 1 and 4. We'll show the two intervals, one
 assuming that the variances are equal and one assuming otherwise.
@@ -244,8 +265,10 @@ assuming that the variances are equal and one assuming otherwise.
 ```{r , echo=TRUE}
 wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
 rbind(
-  t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE, data = wideCW14)$conf,
-  t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
+  t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE,
+         data = wideCW14)$conf,
+  t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE,
+         data = wideCW14)$conf
 )
 ```
 
@@ -281,7 +304,8 @@ unequal variances would be wise. Recall the code is
 
 
 ```{r , echo=TRUE}
-t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
+t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE,
+       data = wideCW14)$conf
 ```
 
 

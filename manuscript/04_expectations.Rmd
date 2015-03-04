@@ -51,17 +51,17 @@ data:
 
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.cap="Galton's Data", label = "galton", fig.height=4}
 library(UsingR); data(galton); library(ggplot2); library(reshape2)
 longGalton <- melt(galton, measure.vars = c("child", "parent"))
-g <- ggplot(longGalton, aes(x = value)) + geom_histogram(aes(y = ..density..,  fill = variable), binwidth=1, color = "black") + geom_density(size = 2)
+g <- ggplot(longGalton, aes(x = value)) +
+  geom_histogram(aes(y = ..density..,  fill = variable),
+                 binwidth=1, color = "black") +
+  geom_density(size = 2)
 g <- g + facet_grid(. ~ variable)
 g
-
 ```
 
-
-![Galton's Data](images/galton.png)
 
 Using rStudio's `manipulate` package, you can try moving the histogram
 around and see what value balances it out. Be sure to watch the video to
@@ -69,7 +69,7 @@ see this in action.
 
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.keep='none', label = "manipulate_histo"}
 library(manipulate)
 myHist <- function(mu){
     g <- ggplot(galton, aes(x = child))
@@ -81,8 +81,8 @@ myHist <- function(mu){
     g <- g + labs(title = paste('mu = ', mu, ' MSE = ', mse))
     g
 }
-manipulate(myHist(mu), mu = slider(62, 74, step = 0.5))
-
+manipulate(myHist(mu),
+           mu = slider(62, 74, step = 0.5, initial=mean(galton$child)))
 ```
 
 
@@ -97,7 +97,9 @@ now go through some examples of mathematically calculating the population mean.
 
 
 ### The center of mass is the empirical mean
-![Histogram illustration](images/lsm.png)
+
+```{r , echo=FALSE, ref.label="manipulate_histo", fig.cap="Histogram illustration", label = "lsm"}
+```
 
 
 ### Example of a population mean, a fair coin
@@ -115,7 +117,11 @@ Note, if thought about geometrically, this answer is obvious;
 if two equal weights are spaced at 0 and 1, the center of mass will be 0.5.
 
 
-![Fair coin mass function](images/fairCoin.png)
+```{r , echo=FALSE, fig.cap="Fair coin mass function", label = "fairCoin", fig.height=4.5}
+ggplot(data.frame(x = factor(0 : 1),
+                  y = c(.5, .5)), aes(x = x, y = y)) +
+  geom_bar(stat = "identity", colour = 'black', fill = "lightblue")
+```
 
 ### What about a biased coin?
 Suppose that a random variable, $X$ , is so that
@@ -148,7 +154,11 @@ $$
 
 Again, the geometric argument makes this answer obvious without calculation.
 
-![Bar graph of die probabilities](images/die.png)
+```{r , echo=FALSE, fig.cap="Bar graph of die probabilities", label = "die", fig.height=3}
+ggplot(data.frame(x = factor(1 : 6),
+                  y = rep(1/6, 6)), aes(x = x, y = y)) +
+  geom_bar(stat = "identity", colour = 'black', fill = "lightblue")
+```
 
 
 ## Continuous random variables
@@ -165,7 +175,14 @@ trying to find the point where it balances out.
 Consider a density where $f(x) = 1$ for $x$ between zero and one.
 Suppose that $X$ follows this density; what is its expected value?  
 
-![Uniform Density](images/uniform.png)
+```{r , echo=FALSE, fig.cap="Uniform Density", label = "uniform"}
+g <- ggplot(data.frame(x = c(-0.25, 0, 0, 1, 1, 1.25),
+                  y = c(0, 0, 1, 1, 0, 0)),
+       aes(x = x, y = y))
+g <- g + geom_line(size = 2, colour = "black")
+g <- g + labs(title = "Uniform density")
+g  
+```
 
 The answer is clear since the density looks like a box, it would balance
 out exactly in the middle, 0.5.
@@ -216,7 +233,15 @@ and plotting their histogram (the salmon colored density). Notice that
 they're centered in the same spot! It's also more concentrated around
 that point. (We'll discuss that more in the next lectures).
 
-![Simulation of normals](images/normalSimulationMean.png)
+```{r , echo=FALSE, fig.cap="Simulation of normals", label = "normalSimulationMean", fig.height=4}
+library(ggplot2)
+nosim <- 10000; n <- 10
+dat <- data.frame(
+    x = c(rnorm(nosim), apply(matrix(rnorm(nosim * n), nosim), 1, mean)),
+    what = factor(rep(c("Obs", "Mean"), c(nosim, nosim))) 
+    )
+ggplot(dat, aes(x = x, fill = what)) + geom_density(size = 2, alpha = .2);
+```
 
 ### Averages of x die rolls
 
@@ -228,7 +253,20 @@ centered at 3.5. So is it for 3 and 4. Notice also the distribution gets
 increasing Gaussian looking (like a bell curve) and increasingly concentrated
 around 3.5.
 
-![Simulation of die rolls](images/dieRollSimulationMean.png)
+```{r , echo=FALSE, fig.cap="Simulation of die rolls", label = "dieRollSimulationMean", fig.height=3}
+dat <- data.frame(
+  x = c(sample(1 : 6, nosim, replace = TRUE),
+        apply(matrix(sample(1 : 6, nosim * 2, replace = TRUE), 
+                     nosim), 1, mean),
+        apply(matrix(sample(1 : 6, nosim * 3, replace = TRUE), 
+                     nosim), 1, mean),
+        apply(matrix(sample(1 : 6, nosim * 4, replace = TRUE), 
+                     nosim), 1, mean)
+        ),
+  size = factor(rep(1 : 4, rep(nosim, 4))))
+g <- ggplot(dat, aes(x = x, fill = size)) + geom_histogram(alpha = .20, binwidth=.25, colour = "black") 
+g + facet_grid(. ~ size)
+```
 
 
 ### Averages of x coin flips
@@ -236,7 +274,20 @@ around 3.5.
 For the coin flip simulation exactly the same occurs. All of the distributions
 are centered around 0.5.
 
-![Simulation of coin flips](images/coinFlipSimulationMean.png)
+```{r , echo=FALSE, fig.cap="Simulation of coin flips", label = "coinFlipSimulationMean", fig.height=3}
+dat <- data.frame(
+  x = c(sample(0 : 1, nosim, replace = TRUE),
+        apply(matrix(sample(0 : 1, nosim * 10, replace = TRUE), 
+                     nosim), 1, mean),
+        apply(matrix(sample(0 : 1, nosim * 20, replace = TRUE), 
+                     nosim), 1, mean),
+        apply(matrix(sample(0 : 1, nosim * 30, replace = TRUE), 
+                     nosim), 1, mean)
+        ),
+  size = factor(rep(c(1, 10, 20, 30), rep(nosim, 4))))
+g <- ggplot(dat, aes(x = x, fill = size)) + geom_histogram(alpha = .20, binwidth = 1 / 12, colour = "black"); 
+g + facet_grid(. ~ size)
+```
 
 ## Summary notes
 - Expected values are properties of distributions.

@@ -9,7 +9,22 @@ The variance, on the other hand, is a measure of *spread*.
 To get a sense, the plot below shows a series of increasing
 variances.
 
-![Distributions with increasing variance](images/normalVariances2.png)
+```{r , echo=FALSE, fig.cap="Distributions with increasing variance", label = "normalVariances2", fig.height=4}
+library(ggplot2)
+xvals <- seq(-10, 10, by = .01)
+dat <- data.frame(
+    y = c(
+        dnorm(xvals, mean = 0, sd = 1),
+        dnorm(xvals, mean = 0, sd = 2),
+        dnorm(xvals, mean = 0, sd = 3),
+        dnorm(xvals, mean = 0, sd = 4)
+    ),
+    x = rep(xvals, 4),
+    factor = factor(rep(1 : 4, rep(length(xvals), 4)))
+)
+ggplot(dat, aes(x = x, y = y, color = factor)) + geom_line(size = 2)
+```
+
 
 We saw another example
 of how variances changed in the last chapter when we looked at the distribution of averages; they were always centered
@@ -72,15 +87,12 @@ maximized at $p = 0.5$. The plot below shows this by
 plotting $p(1-p)$ by $p$.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.cap="Plot of the binomial variance", label = "binomialVariance"}
 p = seq(0 , 1, length = 1000)
 y = p * (1 - p)
 plot(p, y, type = "l", lwd = 3, frame = FALSE)
-
 ```
 
-
-![Plot of the binomial variance](images/binomialVariance.png)
 
 ## The sample variance
 The sample variance is the estimator of the population
@@ -117,7 +129,18 @@ Let's try simulating collections of standard normals and taking the variance.
 If we repeat this over and over, we get a sense of the distribution of
 sample variances variances.
 
-![Simulation of variances of samples of standard normals](images/normalVariances.png)
+```{r , echo=FALSE, fig.cap="Simulation of variances of samples of standard normals", label = "normalVariances", fig.height=5}
+library(ggplot2)
+nosim <- 10000; 
+dat <- data.frame(
+    x = c(apply(matrix(rnorm(nosim * 10), nosim), 1, var),
+          apply(matrix(rnorm(nosim * 20), nosim), 1, var),
+          apply(matrix(rnorm(nosim * 30), nosim), 1, var)),
+    n = factor(rep(c("10", "20", "30"), c(nosim, nosim, nosim))) 
+)
+ggplot(dat, aes(x = x, fill = n)) + geom_density(size = 2, alpha = .2) + geom_vline(xintercept = 1, size = 2)
+```
+
 
 Notice that these histograms are always centered in the same spot, 1. In
 other words, the sample variance is an unbiased estimate of the population
@@ -131,7 +154,22 @@ normals. In this experiment, we simulated samples of die rolls, took the
 variance and then repeated that process over and over. What is plotted
 are histograms of the collections of sample variances.
 
-![Simulated distributions of variances of dies](images/dieVariances.png)
+
+```{r , echo=FALSE, fig.cap="Simulated distributions of variances of dice", label = "dieVariances", fig.height=4}
+dat <- data.frame(
+  x = c(apply(matrix(sample(1 : 6, nosim * 10, replace = TRUE), 
+                     nosim), 1, var),
+        apply(matrix(sample(1 : 6, nosim * 20, replace = TRUE), 
+                     nosim), 1, var),
+        apply(matrix(sample(1 : 6, nosim * 30, replace = TRUE), 
+                     nosim), 1, var)
+        ),
+  size = factor(rep(c(10, 20, 30), rep(nosim, 3))))
+g <- ggplot(dat, aes(x = x, fill = size)) + geom_histogram(alpha = .20, binwidth=.3, colour = "black") 
+g <- g + geom_vline(xintercept = 2.92, size = 2)
+g + facet_grid(. ~ size)
+```
+
 
 Recall that we calculated the variance of a die roll as 2.92 earlier on in
 this chapter. Notice each of the histograms are centered there. In addition,
@@ -273,14 +311,18 @@ Galton.
 library(UsingR); data(father.son);
 x <- father.son$sheight
 n<-length(x)
-
 ```
 
 
 Here's a histogram of the sons' heights from the dataset.
 Let' calculate different variances and interpret them in this context.
 
-![Histogram of the sons' heights](images/fatherSon.png)
+```{r , echo=FALSE, fig.cap="Histogram of the sons' heights", label = "fatherSon"}
+g <- ggplot(data = father.son, aes(x = sheight)) 
+g <- g + geom_histogram(aes(y = ..density..), fill = "lightblue", binwidth=1, colour = "black")
+g <- g + geom_density(size = 2, colour = "black")
+g
+```
 
 
 

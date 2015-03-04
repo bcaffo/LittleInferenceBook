@@ -44,7 +44,7 @@ the LLN is correct, the line should converge to 0, the mean of the standard
 normal distribution.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.cap="Cumulative average from  standard normal simulations.", label = "normalLLN"}
 n <- 10000
 means <- cumsum(rnorm(n))/(1:n)
 library(ggplot2)
@@ -52,11 +52,8 @@ g <- ggplot(data.frame(x = 1:n, y = means), aes(x = x, y = y))
 g <- g + geom_hline(yintercept = 0) + geom_line(size = 2)
 g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
-
 ```
 
-
-![Cumulative average from  standard normal simulations.](images/normalLLN.png)
 
 
 ### Law of large numbers in action, coin flip
@@ -64,17 +61,13 @@ Let's try the same thing, but for a fair coin flip. We'll simulate a lot
 of coin flips and plot the cumulative proportion of heads.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, fig.cap="Cumulative proportion of heads from a sequence of coin flips.", label = "coinLLN"}
 means <- cumsum(sample(0:1, n, replace = TRUE))/(1:n)
 g <- ggplot(data.frame(x = 1:n, y = means), aes(x = x, y = y))
 g <- g + geom_hline(yintercept = 0.5) + geom_line(size = 2)
 g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
-
 ```
-
-
-![Cumulative proportion of heads from a sequence of coin flips.](images/coinLLN.png)
 
 
 ### Discussion
@@ -128,7 +121,23 @@ that the resulting distribution looks like a bell curve.
 - Lets roll $n$ dice, take their mean, subtract off 3.5,
 and divide by $1.71 / \sqrt{n}$ and repeat this over and over.
 
-![Result of coin CLT simulation.](images/dieCLT.png)
+```{r , echo=FALSE, fig.cap="Result of die CLT simulation.", label = "dieCLT", fig.height=4}
+nosim <- 1000
+cfunc <- function(x, n) sqrt(n) * (mean(x) - 3.5) / 1.71
+dat <- data.frame(
+  x = c(apply(matrix(sample(1 : 6, nosim * 10, replace = TRUE), 
+                     nosim), 1, cfunc, 10),
+        apply(matrix(sample(1 : 6, nosim * 20, replace = TRUE), 
+                     nosim), 1, cfunc, 20),
+        apply(matrix(sample(1 : 6, nosim * 30, replace = TRUE), 
+                     nosim), 1, cfunc, 30)
+        ),
+  size = factor(rep(c(10, 20, 30), rep(nosim, 3))))
+g <- ggplot(dat, aes(x = x, fill = size)) + geom_histogram(alpha = .20, binwidth=.3, colour = "black", aes(y = ..density..)) 
+g <- g + stat_function(fun = dnorm, size = 2)
+g + facet_grid(. ~ size)
+```
+
 
 It's pretty remarkable that the approximation works so well with so few rolls
 of the die.
@@ -160,7 +169,22 @@ Let's test this by flipping a coin $n$ times, taking the sample proportion
 of heads, subtract off 0.5 and multiply the result by
 $2 \sqrt{n}$ (divide by $1/(2 \sqrt{n})$).
 
-![Results of the coin CLT simulation.](images/coinCLT.png)
+```{r , echo=FALSE, fig.cap="Results of the coin CLT simulation.", label = "coinCLT", fig.height=4}
+nosim <- 1000
+cfunc <- function(x, n) 2 * sqrt(n) * (mean(x) - 0.5) 
+dat <- data.frame(
+  x = c(apply(matrix(sample(0:1, nosim * 10, replace = TRUE), 
+                     nosim), 1, cfunc, 10),
+        apply(matrix(sample(0:1, nosim * 20, replace = TRUE), 
+                     nosim), 1, cfunc, 20),
+        apply(matrix(sample(0:1, nosim * 30, replace = TRUE), 
+                     nosim), 1, cfunc, 30)
+        ),
+  size = factor(rep(c(10, 20, 30), rep(nosim, 3))))
+g <- ggplot(dat, aes(x = x, fill = size)) + geom_histogram(binwidth=.3, colour = "black", aes(y = ..density..)) 
+g <- g + stat_function(fun = dnorm, size = 2)
+g + facet_grid(. ~ size)
+```
 
 This convergence doesn't look quite as good as the die, since the coin has
 fewer possible outcomes. In fact, among coins of various degrees of bias,
@@ -168,7 +192,22 @@ the convergence to normality is governed by how far from 0.5 $p$ is.
 Let's redo the simulation, now using $p=0.9$ instead of $p=0.5$
 like we did before.
 
-![Results of the simulation when p=0.9](images/coinCLT2.png)
+```{r , echo=FALSE, fig.cap="Results of the simulation when p=0.9", label = "coinCLT2", fig.height=4}
+nosim <- 1000
+cfunc <- function(x, n) sqrt(n) * (mean(x) - 0.9) / sqrt(.1 * .9)
+dat <- data.frame(
+  x = c(apply(matrix(sample(0:1, prob = c(.1,.9), nosim * 10, replace = TRUE), 
+                     nosim), 1, cfunc, 10),
+        apply(matrix(sample(0:1, prob = c(.1,.9), nosim * 20, replace = TRUE), 
+                     nosim), 1, cfunc, 20),
+        apply(matrix(sample(0:1, prob = c(.1,.9), nosim * 30, replace = TRUE), 
+                     nosim), 1, cfunc, 30)
+        ),
+  size = factor(rep(c(10, 20, 30), rep(nosim, 3))))
+g <- ggplot(dat, aes(x = x, fill = size)) + geom_histogram(binwidth=.3, colour = "black", aes(y = ..density..)) 
+g <- g + stat_function(fun = dnorm, size = 2)
+g + facet_grid(. ~ size)
+```
 
 Notice that the convergence to normality is quite poor. Thus, be careful
 when using CLT approximations for sample proportions when your proportion
@@ -320,11 +359,14 @@ coverage <- sapply(pvals, function(p) {
     ul <- phats + qnorm(0.975) * sqrt(phats * (1 - phats)/n)
     mean(ll < p & ul > p)
 })
-
 ```
 
-
-![Plot of Wald interval coverage.](images/waldCoverage.png)
+```{r , echo=FALSE, fig.cap="Plot of Wald interval coverage.", label = "waldCoverage"}
+ggplot(data.frame(pvals, coverage), aes(x = pvals, y = coverage)) +
+  geom_line(size = 2) +
+  geom_hline(yintercept = 0.95) +
+  ylim(.75, 1.0)
+```
 
 The figure shows that if we were to repeatedly try experiments for
 any fixed value of $p$, it's rarely the case that our intervals
@@ -348,11 +390,14 @@ coverage2 <- sapply(pvals, function(p) {
     ul <- phats + qnorm(0.975) * sqrt(phats * (1 - phats)/n)
     mean(ll < p & ul > p)
 })
-
 ```
 
-
-![Output of simulation with $n=100$.](images/waldCoverage2.png)
+```{r , echo=FALSE, fig.cap="Output of simulation with $n=100$.", label = "waldCoverage2"}
+ggplot(data.frame(pvals, coverage), aes(x = pvals, y = coverage2)) +
+  geom_line(size = 2) +
+  geom_hline(yintercept = 0.95) +
+  ylim(.75, 1.0)
+```
 
 Now it looks much better. Of course, increasing our sample size is rarely
 an option. There's exact fixes to make this interval work better for small
@@ -378,11 +423,14 @@ coverage <- sapply(pvals, function(p) {
     ul <- phats + qnorm(0.975) * sqrt(phats * (1 - phats)/n)
     mean(ll < p & ul > p)
 })
-
 ```
 
-
-![Coverage of the Agresti/Coull interval with $n=20$](images/agrestiCoull.png)
+```{r , echo=FALSE, fig.cap="Coverage of the Agresti/Coull interval with $n=20$", label = "agrestiCoull"}
+ggplot(data.frame(pvals, coverage), aes(x = pvals, y = coverage)) +
+  geom_line(size = 2) +
+  geom_hline(yintercept = 0.95) +
+  ylim(.75, 1.0)
+```
 
 The coverage is better, if maybe a little conservative in the sense of being
 over the 95% line most of the time. If the interval is too conservative, it's
@@ -456,18 +504,37 @@ coverage <- sapply(lambdavals, function(lambda) {
     ul <- lhats + qnorm(0.975) * sqrt(lhats/t)
     mean(ll < lambda & ul > lambda)
 })
-
 ```
 
-
-![Coverage of Poisson intervals for various values of lambda](images/poissonCoverage.png)
+```{r , echo=FALSE, fig.cap="Coverage of Poisson intervals for various values of lambda", label = "poissonCoverage"}
+ggplot(data.frame(lambdavals, coverage),
+       aes(x = lambdavals, y = coverage)) +
+  geom_line(size = 2) +
+  geom_hline(yintercept = 0.95) +
+  ylim(0, 1.0)
+```
 
 
 The coverage can be low for low values of lambda. In this case the asymptotics
 works as we increase the monitoring time, t. Here's the coverage if we
 increase $t$ to 1,000.
 
-![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2.png)
+```{r , echo=FALSE, fig.cap="Coverage of Poisson intervals for various values of lambda and t=1000", label = "poissonCoverage2"}
+lambdavals <- seq(0.005, 0.10, by = .01); nosim <- 1000
+t <- 1000
+coverage <- sapply(lambdavals, function(lambda){
+  lhats <- rpois(nosim, lambda = lambda * t) / t
+  ll <- lhats - qnorm(.975) * sqrt(lhats / t)
+  ul <- lhats + qnorm(.975) * sqrt(lhats / t)
+  mean(ll < lambda & ul > lambda)
+})
+ggplot(data.frame(lambdavals, coverage),
+       aes(x = lambdavals, y = coverage)) +
+  geom_line(size = 2) +
+  geom_hline(yintercept = 0.95) +
+  ylim(0, 1.0)
+```
+
 
 ## Summary notes
 * The LLN states that averages of iid samples.
