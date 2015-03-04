@@ -1,0 +1,12 @@
+---
+output:
+  html_document:
+    toc: yes
+---
+<!--pandoc
+toc:
+toc-depth: 2
+from: markdown-implicit_figures+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash
+template: ./scripts/rstudio-default.tex
+highlight-style: tango
+-->

@@ -1,0 +1,7 @@
+
+```{r echo = FALSE, message=FALSE}
+# Options for book knitting
+knitr::opts_chunk$set(fig.path = "LeanPub/images/",
+                      chunk_hook = TRUE)
+```
+
