@@ -82,11 +82,9 @@ $$
 
 
 ```{r , echo=TRUE}
-> choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
-[1] 0.03516
-> pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
-[1] 0.03516
+choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
 
+pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
 ```
 
 
@@ -231,9 +229,7 @@ days are independent and identically distributed)? We can obtain this as:
 
 
 ```{r , echo=TRUE}
-> qnorm(0.75, mean = 1020, sd = 50)
-[1] 1054
-
+qnorm(0.75, mean = 1020, sd = 50)
 ```
 
 
@@ -282,9 +278,7 @@ is the probability that $3$ or fewer people show up for the whole time?
 
 
 ```{r , echo=TRUE}
-> ppois(3, lambda = 2.5 * 4)
-[1] 0.01034
-
+ppois(3, lambda = 2.5 * 4)
 ```
 
 
@@ -308,11 +302,9 @@ What's the probability of 2 or fewer successes?
 
 
 ```{r , echo=TRUE}
-> pbinom(2, size = 500, prob = 0.01)
-[1] 0.1234
-> ppois(2, lambda = 500 * 0.01)
-[1] 0.1247
+pbinom(2, size = 500, prob = 0.01)
 
+ppois(2, lambda = 500 * 0.01)
 ```
 
 

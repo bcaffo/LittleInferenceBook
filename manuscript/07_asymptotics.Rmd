@@ -217,12 +217,10 @@ Give a confidence interval for the average height of sons in Galton's data.
 
 
 ```{r , echo=TRUE}
-> library(UsingR)
-> data(father.son)
-> x <- father.son$sheight
-> (mean(x) + c(-1, 1) * qnorm(0.975) * sd(x)/sqrt(length(x)))/12
-[1] 5.710 5.738
-
+library(UsingR)
+data(father.son)
+x <- father.son$sheight
+(mean(x) + c(-1, 1) * qnorm(0.975) * sd(x)/sqrt(length(x)))/12
 ```
 
 
@@ -258,9 +256,7 @@ Without access to a computer or calculator, how precise is this estimate?
 
 
 ```{r , echo=TRUE}
-> 1/sqrt(100)
-[1] 0.1
-
+1/sqrt(100)
 ```
 
 
@@ -275,9 +271,7 @@ for about 1 decimal place, 10,000 for 2, 1,000,000 for 3.
 
 
 ```{r , echo=TRUE}
-> round(1/sqrt(10^(1:6)), 3)
-[1] 0.316 0.100 0.032 0.010 0.003 0.001
-
+round(1/sqrt(10^(1:6)), 3)
 ```
 
 
@@ -294,11 +288,8 @@ and using `binom.test`.
 
 
 ```{r , echo=TRUE}
-> 0.56 + c(-1, 1) * qnorm(0.975) * sqrt(0.56 * 0.44/100)
-[1] 0.4627 0.6573
-> binom.test(56, 100)$conf.int
-[1] 0.4572 0.6592
-
+0.56 + c(-1, 1) * qnorm(0.975) * sqrt(0.56 * 0.44/100)
+binom.test(56, 100)$conf.int
 ```
 
 
@@ -433,12 +424,10 @@ Give a 95% confidence interval for the failure rate per day.
 
 
 ```{r , echo=TRUE}
-> x <- 5
-> t <- 94.32
-> lambda <- x/t
-> round(lambda + c(-1, 1) * qnorm(0.975) * sqrt(lambda/t), 3)
-[1] 0.007 0.099
-
+x <- 5
+t <- 94.32
+lambda <- x/t
+round(lambda + c(-1, 1) * qnorm(0.975) * sqrt(lambda/t), 3)
 ```
 
 
@@ -447,9 +436,7 @@ it has to be evaluated numerically.
 
 
 ```{r , echo=TRUE}
-> poisson.test(x, T = 94.32)$conf
-[1] 0.01721 0.12371
-
+poisson.test(x, T = 94.32)$conf
 ```
 
 

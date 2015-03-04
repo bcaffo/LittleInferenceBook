@@ -117,9 +117,7 @@ And here is some results.
 
 
 ```{r , echo=TRUE}
-> sd(medians)
-[1] 0.08424
-
+sd(medians)
 ```
 
 
@@ -130,10 +128,7 @@ bootstrap 95% confidence interval for the median.
 
 
 ```{r , echo=TRUE}
-> quantile(medians, c(.025, .975))
- 2.5% 97.5%
-68.43 68.81
-
+quantile(medians, c(.025, .975))
 ```
 
 
@@ -244,9 +239,7 @@ Let's look at some of the results. First let's look at the observed statistic.
 
 
 ```{r , echo=TRUE}
-> observedStat
-[1] 13.25
-
+observedStat
 ```
 
 
@@ -256,8 +249,6 @@ statistic larger than our observed statistic.
 
 ```{r , echo=TRUE}
 mean(permutations > observedStat)
-[1] 0
-
 ```
 
 

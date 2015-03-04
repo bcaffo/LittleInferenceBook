@@ -44,9 +44,7 @@ What's the probability of getting a *t* statistic as large as 2.5?
 
 
 ```{r , echo=TRUE}
-> pt(2.5, 15, lower.tail = FALSE)
-[1] 0.01225
-
+pt(2.5, 15, lower.tail = FALSE)
 ```
 
 
@@ -95,9 +93,7 @@ Recall here's the calculation:
 
 
 ```{r , echo=TRUE}
-> pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
-[1] 0.03516
-
+pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
 ```
 
 
@@ -123,9 +119,7 @@ Consider $H_a: \lambda > 0.05$.
 
 
 ```{r , echo=TRUE}
-> ppois(9, 5, lower.tail = FALSE)
-[1] 0.03183
-
+ppois(9, 5, lower.tail = FALSE)
 ```
 
 

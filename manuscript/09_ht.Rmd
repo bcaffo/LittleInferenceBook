@@ -248,20 +248,8 @@ data.
 
 
 ```{r , echo=TRUE}
-> library(UsingR); data(father.son)
-> t.test(father.son$sheight - father.son$fheight)
-
- 	One Sample t-test
-
- data:  father.son$sheight - father.son$fheight
- t = 11.79, df = 1077, p-value < 2.2e-16
- alternative hypothesis: true mean is not equal to 0
- 95 percent confidence interval:
-  0.831 1.163
- sample estimates:
- mean of x
-     0.997
-
+library(UsingR); data(father.son)
+t.test(father.son$sheight - father.son$fheight)
 ```
 
 
@@ -320,21 +308,9 @@ wideCW <- mutate(wideCW,
 
 
 ```{r , echo=TRUE}
-> wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
-> t.test(gain ~ Diet, paired = FALSE,
-+       var.equal = TRUE, data = wideCW14)
-
-  	Two Sample t-test
-
-  data:  gain by Diet
-  t = -2.725, df = 23, p-value = 0.01207
-  alternative hypothesis: true difference in means is not equal to 0
-  95 percent confidence interval:
-   -108.15  -14.81
-  sample estimates:
-  mean in group 1 mean in group 4
-            136.2           197.7
-
+wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
+t.test(gain ~ Diet, paired = FALSE,
+       var.equal = TRUE, data = wideCW14)
 ```
 
 

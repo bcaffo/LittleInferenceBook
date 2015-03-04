@@ -305,10 +305,7 @@ and height 1.5. The R code below shows the calculation.
 
 
 ```{r , echo=TRUE}
-> 1.5 * 0.75/2
-
-[1] 0.5625
-
+1.5 * 0.75/2
 ```
 
 
@@ -321,10 +318,7 @@ probability.
 
 
 ```{r , echo=TRUE}
-> pbeta(0.75, 2, 1)
-
-[1] 0.5625
-
+pbeta(0.75, 2, 1)
 ```
 
 
@@ -389,10 +383,7 @@ and $F(.6)$
 
 
 ```{r , echo=TRUE}
-> pbeta(c(0.4, 0.5, 0.6), 2, 1)
-
-[1] 0.16 0.25 0.36
- 
+pbeta(c(0.4, 0.5, 0.6), 2, 1)
 ```
 
 
@@ -440,10 +431,7 @@ We want to solve $0.5 = F(x) = x^2$, resulting in the solution
 
 
 ```{r , echo=TRUE}
-> sqrt(0.5)
-
-[1] 0.7071
-
+sqrt(0.5)
 ```
 
 
@@ -455,10 +443,7 @@ prefix `q` in front of the distribution name
 
 
 ```{r , echo=TRUE}
-> qbeta(0.5, 2, 1)
-
-[1] 0.7071
-
+qbeta(0.5, 2, 1)
 ```
 
 

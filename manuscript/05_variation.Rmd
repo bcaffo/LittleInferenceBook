@@ -189,15 +189,13 @@ means of $n$ standard normals. If our theory is correct, they should
 
 
 ```{r , echo=TRUE}
-> nosim <- 1000
-> n <- 10
+nosim <- 1000
+n <- 10
 ## simulate nosim averages of 10 standard normals
-> sd(apply(matrix(rnorm(nosim * n), nosim), 1, mean))
-[1] 0.3156
-## Let's check to make sure that this is sigma / sqrt(n)
-> 1 / sqrt(n)
-[1] 0.3162
+sd(apply(matrix(rnorm(nosim * n), nosim), 1, mean))
 
+## Let's check to make sure that this is sigma / sqrt(n)
+1 / sqrt(n)
 ```
 
 
@@ -217,13 +215,11 @@ have sd $1/\sqrt{12 \times n}$. Let's try it with a simulation.
 
 
 ```{r , echo=TRUE}
-> nosim <- 1000
-> n <- 10
-> sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
-[1] 0.09017
-> 1 / sqrt(12 * n)
-[1] 0.09129
+nosim <- 1000
+n <- 10
+sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
 
+1 / sqrt(12 * n)
 ```
 
 
@@ -234,13 +230,11 @@ should have standard deviation $2/\sqrt{n}$. Again let's try it out.
 
 
 ```{r , echo=TRUE}
-> nosim <- 1000
-> n <- 10
-> sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
-[1] 0.6219
-> 2 / sqrt(n)
-[1] 0.6325
+nosim <- 1000
+n <- 10
+sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
 
+2 / sqrt(n)
 ```
 
 
@@ -258,14 +252,12 @@ Let's try it.
 
 
 ```{r , echo=TRUE}
-> nosim <- 1000
-> n <- 10
-> sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
+nosim <- 1000
+n <- 10
+sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
                 nosim), 1, mean))
-[1] 0.1587
-> 1 / (2 * sqrt(n))
-[1] 0.1581
 
+1 / (2 * sqrt(n))
 ```
 
 
@@ -293,9 +285,7 @@ Let' calculate different variances and interpret them in this context.
 
 
 ```{r , echo=TRUE}
->round(c(var(x), var(x) / n, sd(x), sd(x) / sqrt(n)),2)
-[1] 7.92 0.01 2.81 0.09
-
+round(c(var(x), var(x) / n, sd(x), sd(x) / sqrt(n)),2)
 ```
 
 
