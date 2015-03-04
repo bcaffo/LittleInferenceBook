@@ -6,10 +6,6 @@ knitr::knit_hooks$set(document = function(x) {
   x <- gsub(pattern = "[$]{2}[\n ]*([\\]begin[^$]*)[$]{2}",
             replacement = "\\1",
             x = x)
-  # Add non-breaking space after figures to disable captioning
-  x <- gsub(pattern = "([!][[][^]]*[]][(][^)]*[)])",
-            replacement = "\\1\\\\ ",
-            x = x)
 })
 ```
 
