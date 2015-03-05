@@ -1,4 +1,5 @@
 
+
 # Variation
 
 ## The variance
@@ -9,7 +10,8 @@ The variance, on the other hand, is a measure of *spread*.
 To get a sense, the plot below shows a series of increasing
 variances.
 
-![Distributions with increasing variance](images/normalVariances2.png)
+![Distributions with increasing variance](images/normalVariances2-1.png) 
+
 
 We saw another example
 of how variances changed in the last chapter when we looked at the distribution of averages; they were always centered
@@ -71,14 +73,16 @@ to memory. It's interesting to note that this function is
 maximized at {$$}p = 0.5{/$$}. The plot below shows this by
 plotting {$$}p(1-p){/$$} by {$$}p{/$$}.
 
-{title="Plotting the binomial variance", line-numbers=off,lang=r}
+
+{title="Plotting the binomial variance:", lang=r, line-numbers=off}
 ~~~
 p = seq(0 , 1, length = 1000)
 y = p * (1 - p)
 plot(p, y, type = "l", lwd = 3, frame = FALSE)
 ~~~
 
-![Plot of the binomial variance](images/binomialVariance.png)
+![Plot of the binomial variance](images/binomialVariance-1.png) 
+
 
 ## The sample variance
 The sample variance is the estimator of the population
@@ -115,7 +119,8 @@ Let's try simulating collections of standard normals and taking the variance.
 If we repeat this over and over, we get a sense of the distribution of
 sample variances variances.
 
-![Simulation of variances of samples of standard normals](images/normalVariances.png)
+![Simulation of variances of samples of standard normals](images/normalVariances-1.png) 
+
 
 Notice that these histograms are always centered in the same spot, 1. In
 other words, the sample variance is an unbiased estimate of the population
@@ -129,7 +134,9 @@ normals. In this experiment, we simulated samples of die rolls, took the
 variance and then repeated that process over and over. What is plotted
 are histograms of the collections of sample variances.
 
-![Simulated distributions of variances of dies](images/dieVariances.png)
+
+![Simulated distributions of variances of dice](images/dieVariances-1.png) 
+
 
 Recall that we calculated the variance of a die roll as 2.92 earlier on in
 this chapter. Notice each of the histograms are centered there. In addition,
@@ -185,17 +192,39 @@ means of {$$}n{/$$} standard normals. If our theory is correct, they should
  have standard deviation {$$}1/\sqrt{n}{/$$}
 
 
-{title="Simulating means of random normals", line-numbers=off,lang=r}
+
+{title="Simulating means of random normals:", lang=r, line-numbers=off}
 ~~~
-> nosim <- 1000
-> n <- 10
+nosim <- 1000
+n <- 10
 ## simulate nosim averages of 10 standard normals
-> sd(apply(matrix(rnorm(nosim * n), nosim), 1, mean))
-[1] 0.3156
-## Let's check to make sure that this is sigma / sqrt(n)
-> 1 / sqrt(n)
-[1] 0.3162
+sd(apply(matrix(rnorm(nosim * n), nosim), 1, mean))
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.313551
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## Let's check to make sure that this is sigma / sqrt(n)
+1 / sqrt(n)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.3162278
+~~~
+
+
+
 
 So, in this simulation, we simulated 1000 means of 10 standard normals. Our
 theory says the standard deviation of averages of 10 standard normals must
@@ -211,30 +240,74 @@ have sd {$$}1/\sqrt{12 \times n}{/$$}. Let's try it with a simulation.
 
 
 
-{title="Simulating means of uniforms", line-numbers=off,lang=r}
+
+{title="Simulating means of uniforms:", lang=r, line-numbers=off}
 ~~~
-> nosim <- 1000
-> n <- 10
-> sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
-[1] 0.09017
-> 1 / sqrt(12 * n)
-[1] 0.09129
+nosim <- 1000
+n <- 10
+sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.08856019
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+1 / sqrt(12 * n)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.09128709
+~~~
+
+
+
 
 ### Simulation example 3: Poisson
 Poisson(4) random variables have variance {$$}4{/$$}. Thus means of
 random samples of {$$}n{/$$} Poisson(4)
 should have standard deviation {$$}2/\sqrt{n}{/$$}. Again let's try it out.
 
-{title="Simulating means of Poisson variates", line-numbers=off,lang=r}
+
+{title="Simulating means of Poisson variates:", lang=r, line-numbers=off}
 ~~~
-> nosim <- 1000
-> n <- 10
-> sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
-[1] 0.6219
-> 2 / sqrt(n)
-[1] 0.6325
+nosim <- 1000
+n <- 10
+sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.6336028
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+2 / sqrt(n)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.6324555
+~~~
+
+
+
 
 ### Simulation example 4: coin flips
 Our last example is an important one. Recall that the variance of a
@@ -248,16 +321,38 @@ Let's try it.
 
 
 
-{title="Simulating means of coin flips", line-numbers=off,lang=r}
+
+{title="Simulating means of coin flips:", lang=r, line-numbers=off}
 ~~~
-> nosim <- 1000
-> n <- 10
-> sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
+nosim <- 1000
+n <- 10
+sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
                 nosim), 1, mean))
-[1] 0.1587
-> 1 / (2 * sqrt(n))
-[1] 0.1581
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.15867
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+1 / (2 * sqrt(n))
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.1581139
+~~~
+
+
+
 
 ## Data example
 [Watch this before beginning.](http://youtu.be/Lm2DMVyZVxk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
@@ -266,30 +361,46 @@ Now let's work through a data example to show how the standard error of the
 mean is used in practice. We'll use the `father.son` height data from Francis
 Galton.
 
-{title="Loading the data", line-numbers=off,lang=r}
+
+{title="Loading the data:", lang=r, line-numbers=off}
 ~~~
 library(UsingR); data(father.son);
-x <- father.son$sheight
+x <- father.son{$$}sheight
 n<-length(x)
 ~~~
+
+
+
 
 Here's a histogram of the sons' heights from the dataset.
 Let' calculate different variances and interpret them in this context.
 
-![Histogram of the sons' heights](images/fatherSon.png)
+![Histogram of the sons' heights](images/fatherSon-1.png) 
 
 
-{title="Loading the data", line-numbers=off,lang=r}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
->round(c(var(x), var(x) / n, sd(x), sd(x) / sqrt(n)),2)
-[1] 7.92 0.01 2.81 0.09
+round(c(var(x), var(x) / n, sd(x), sd(x) / sqrt(n)),2)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 7.92 0.01 2.81 0.09
+~~~
+
+
+
 
 The first number, 7.92, and its square root, 2.81, are the estimated variance
 and standard deviation of the sons' heights. Therefore, 7.92 tells us exactly how variable
 sons' heights were in the data and estimates how variable sons' heights are
 in the population. In contrast 0.01, and the square root 0.09, estimate how
-variable averages of {$$}n{/$$} sons' heights are.
+variable averages of {/$$}n{$$} sons' heights are.
 
 Therefore, the smaller numbers discuss the precision of our estimate of the mean
 of sons' heights. The larger numbers discuss how variable sons' heights are in general.
@@ -300,7 +411,7 @@ of sons' heights. The larger numbers discuss how variable sons' heights are in g
 what its estimating.
 * It gets more concentrated around the population variance with larger sample sizes.
 * The variance of the sample mean is the population variance
-divided by {$$}n{/$$}.
+divided by {/$$}n{$$}.
   * The square root is the standard error.
 * It turns out that we can say a lot about the distribution of
 averages from random samples,
@@ -315,20 +426,20 @@ even though we only get one to look at in a given data set.
 2. The distribution of the sample variance of a random sample from a population is centered at what?
   - The population variance.
   - The population mean.
-3. I keep drawing samples of size {$$}n{/$$} from a population with variance {$$}\sigma^2{/$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
-4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
-  - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
+3. I keep drawing samples of size {/$$}n{$$} from a population with variance {/$$}\sigma^2{$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
+4. You get a random sample of {/$$}n{$$} observations from a population and take their average. You would like to estimate the variability of averages of {/$$}n{$$} observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
+  - No, we can multiply our estimate of the population variance by {/$$}1/n{$$} to get a good estimate of the variability of the average.
   - Yes, you have to get repeat averages.
 5. A random variable takes the value -4 with probability .2 and 1 with probability .8. What
 is the variance of this random variable? [Watch a video solution to this problem.](http://youtu.be/Em-xJeQO1rc?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
 and [look at a version with a worked out solution.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#6)
-6. If {$$}\bar X{/$$} and {$$}\bar Y{/$$} are comprised of n iid random variables arising from distributions
-having  means {$$}\mu_x{/$$} and {$$}\mu_y{/$$}, respectively and common variance
-{$$}\sigma^2{/$$}
-what is the variance {$$}\bar X - \bar Y{/$$}?
+6. If {/$$}\bar X{$$} and {/$$}\bar Y{$$} are comprised of n iid random variables arising from distributions
+having  means {/$$}\mu_x{$$} and {/$$}\mu_y{$$}, respectively and common variance
+{/$$}\sigma^2{$$}
+what is the variance {/$$}\bar X - \bar Y{$$}?
 [Watch a video solution to this problem here](http://youtu.be/7zJhPzX6jns?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see a typed up solution here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#7)
-7. Let {$$}X{/$$} be a random variable having standard deviation {$$}\sigma{/$$}. What can
-be said about the variance of {$$}X /\sigma{/$$}? [Watch a video solution to this
+7. Let {/$$}X{$$} be a random variable having standard deviation {/$$}\sigma{$$}. What can
+be said about the variance of {/$$}X /\sigma$? [Watch a video solution to this
 problem here](http://youtu.be/0WUj18_BUPA?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and
 [typed  up solutions here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#8).
 8. Consider the following pmf given in R by the code `p <- c(.1, .2, .3, .4)`

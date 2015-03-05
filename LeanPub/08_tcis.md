@@ -1,3 +1,4 @@
+
 # *t* Confidence intervals
 
 ## Small sample confidence intervals
@@ -47,7 +48,8 @@ where {$$}t_{n-1}{/$$} is the relevant quantile from the *t* distribution.
 You can use rStudio's manipulate function to to compare the *t* and Z
 distributions.
 
-{title="Code for investigating *t* and Z densities.", line-numbers=off,lang=r}
+
+{title="Code for investigating *t* and Z densities.:", lang=r, line-numbers=off}
 ~~~
 k <- 1000
 xvals <- seq(-5, 5, length = k)
@@ -62,11 +64,15 @@ myplot <- function(df){
 manipulate(myplot(mu), mu = slider(1, 20, step = 1))  
 ~~~
 
+
+
+
 The difference is perhaps easier to see in the tails. Therefore,
 the following code plots the upper quantiles of the Z distribution by
 those of the *t* distribution.
 
-{title="Code for investigating the upper quantiles of the *t* and Z densities.", line-numbers=off,lang=r}
+
+{title="Code for investigating the upper quantiles of the *t* and Z densities.:", lang=r, line-numbers=off}
 ~~~
 pvals <- seq(.5, .99, by = .01)
 myplot2 <- function(df){
@@ -81,6 +87,9 @@ myplot2 <- function(df){
 }
 manipulate(myplot2(df), df = slider(1, 20, step = 1))
 ~~~
+
+
+
 
 ### Summary notes
 
@@ -99,53 +108,75 @@ In this section, we give an overview of important facts about the *t* distributi
 
 [Watch this video before beginning.](http://youtu.be/2L41xqPvPso?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-In R typing `r data(sleep)` brings up the sleep data originally
+In R typing  brings up the sleep data originally
 analyzed in Gosset's Biometrika paper, which shows the increase in
 hours for 10 patients on two soporific drugs. R treats the data as two
 groups rather than paired.
 
 ## The data
 
-{title="Loading Galton's data.", line-numbers=off,lang=r}
+
+{title="Loading Galton's data.:", lang=r, line-numbers=off}
 ~~~
-> data(sleep)
-> head(sleep)
-   extra group ID
- 1   0.7     1  1
- 2  -1.6     1  2
- 3  -0.2     1  3
- 4  -1.2     1  4
- 5  -0.1     1  5
- 6   3.4     1  6
+data(sleep)
+head(sleep)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+##   extra group ID
+## 1   0.7     1  1
+## 2  -1.6     1  2
+## 3  -0.2     1  3
+## 4  -1.2     1  4
+## 5  -0.1     1  5
+## 6   3.4     1  6
+~~~
+
+
+
 
 Here's a plot of the data. In this plot paired observations are connected with a line.
 
-![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep.png)
+![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep-1.png) 
+
 
 Now let's calculate the *t* interval for the differences from baseline to follow up.
 Below we give four different ways for calculating the interval.
 
-{title="Loading Galton's data.", line-numbers=off,lang=r}
+
+{title="*t* interval from baseline to follow up.:", lang=r, line-numbers=off}
 ~~~
-g1 <- sleep$extra[1 : 10]; g2 <- sleep$extra[11 : 20]
+g1 <- sleep{$$}extra[1 : 10]; g2 <- sleep{/$$}extra[11 : 20]
 difference <- g2 - g1
 mn <- mean(difference); s <- sd(difference); n <- 10
 ## Calculating directly
 mn + c(-1, 1) * qt(.975, n-1) * s / sqrt(n)
 ## using R's built in function
-t.test(difference)
+t.test(difference){$$}conf.int[1:2]
 ## using R's built in function, another format
-t.test(g2, g1, paired = TRUE)
+t.test(g2, g1, paired = TRUE){/$$}conf.int[1:2]
 ## using R's built in function, another format
-t.test(extra ~ I(relevel(group, 2)), paired = TRUE, data = sleep)
+t.test(extra ~ I(relevel(group, 2)),
+       paired = TRUE, data = sleep){$$}conf.int[1:2]
 ## Below are the results (after a little formatting)
-        [,1] [,2]
- [1,] 0.7001 2.46
- [2,] 0.7001 2.46
- [3,] 0.7001 2.46
- [4,] 0.7001 2.46
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.7001142 2.4598858
+## [1] 0.7001142 2.4598858
+## [1] 0.7001142 2.4598858
+## [1] 0.7001142 2.4598858
+~~~
+
+
+
+
 
 Therefore, since our interval doesn't include 0, our 95% confidence
 interval estimate for the mean change (follow up - baseline) is 0.70 to 2.45.
@@ -168,20 +199,20 @@ We now present methods for creating confidence intervals for comparing independe
 
 ## Confidence interval
 
-A {$$}(1 - \alpha)\times 100\%{/$$} confidence interval for the mean difference between the groups,
-{$$}\mu_y - \mu_x{/$$} is:
+A {/$$}(1 - \alpha)\times 100\%{$$} confidence interval for the mean difference between the groups,
+{/$$}\mu_y - \mu_x{$$} is:
 
-{$$}
+{/$$}
 \bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p
 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)^{1/2}.
-{/$$}
-
-The notation {$$}t_{n_x + n_y - 2, 1 - \alpha/2}{/$$} means a *t* quantile with
-{$$}n_x + n_y - 2 {/$$} degrees of freedom. The pooled variance estimator is:
-
 {$$}
-S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2).
+
+The notation {/$$}t_{n_x + n_y - 2, 1 - \alpha/2}{$$} means a *t* quantile with
+{/$$}n_x + n_y - 2{$$} degrees of freedom. The pooled variance estimator is:
+
 {/$$}
+S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2).
+{$$}
 
 This variance estimate is used if one is willing to assume a constant variance across the groups.
 It is a weighted average of the group-specific variances, with greater weight given to whichever
@@ -194,30 +225,34 @@ If there is some doubt about the constant variance assumption, assume a differen
 
 Let's first go through an example where we treat paired data as if it were independent.
 Consider Galton's sleep data from before. In the code below, we do the R code
-for grouped data directly, and using the `r t.test` function.
+for grouped data directly, and using the `t.test` function.
 
-{title="Galton's data treated as grouped and independent.", line-numbers=off,lang=r}
+
+{title="Galton's data treated as grouped and independent.:", lang=r, line-numbers=off}
 ~~~
 n1 <- length(g1); n2 <- length(g2)
-sp <- sqrt( ((n1 - 1) * sd(x1)^2 + (n2-1) * sd(x2)^2) / (n1 + n2-2))
+sp <- sqrt( ((n1 - 1) * sd(g1)^2 + (n2-1) * sd(g2)^2) / (n1 + n2-2))
 md <- mean(g2) - mean(g1)
 semd <- sp * sqrt(1 / n1 + 1/n2)
 rbind(
   md + c(-1, 1) * qt(.975, n1 + n2 - 2) * semd,  
-  t.test(g2, g1, paired = FALSE, var.equal = TRUE)$conf,
-  t.test(g2, g1, paired = TRUE)$conf
+  t.test(g2, g1, paired = FALSE, var.equal = TRUE){/$$}conf,
+  t.test(g2, g1, paired = TRUE){$$}conf
 )
 ~~~
 
-The results are:
 
-{line-numbers=off,lang=r}
+
+{lang=r, line-numbers=off}
 ~~~
-       [,1]  [,2]
-[1,] -0.2039 3.364
-[2,] -0.2039 3.364
-[3,]  0.7001 2.460
+##            [,1]     [,2]
+## [1,] -0.2038740 3.363874
+## [2,] -0.2038740 3.363874
+## [3,]  0.7001142 2.459886
 ~~~
+
+
+
 
 Notice that the paired interval (the last row) is entirely above zero.
 The grouped interval (first two rows) contains zero.  Thus, acknowledging the pairing explains variation that would otherwise be absorbed into the
@@ -230,45 +265,64 @@ Now let's try an example with actual independent groups. Load in the `ChickWeigh
 data in R. We are also going to manipulate the dataset to have a total weight gain
 variable using dplyr.
 
-{line-numbers=off,lang=r}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
 library(datasets); data(ChickWeight); library(reshape2)
 ##define weight gain or loss
-wideCW <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")
-names(wideCW)[-(1 : 2)] <- paste("time", names(wideCW)[-(1 : 2)], sep = "")
+wideCW <- dcast(ChickWeight, Diet + Chick ~ Time,
+                value.var = "weight")
+names(wideCW)[-(1 : 2)] <- paste("time",
+                                 names(wideCW)[-(1 : 2)],
+                                 sep = "")
 library(dplyr)
 wideCW <- mutate(wideCW,
   gain = time21 - time0
 )
 ~~~
 
+
+
+
 Here's a plot of the data.
 
+![Chickweight data over time.](images/chickweight-1.png) 
 
-![Chickweight data over time.](images/chickweight.png)
 
 Here's a plot only of the weight gain for the diets.
 
-![Violin plots of chickweight data by weight gain (final minus baseline) by diet.](images/chickweightgroups.png)
+![Violin plots of chickweight data by weight gain (final minus baseline) by diet.](images/chickweightgroups-1.png) 
+
 
 Now let's do a *t* interval comparing groups 1 and 4. We'll show the two intervals, one
 assuming that the variances are equal and one assuming otherwise.
 
-{title="Code for t interval of the chickWeight data", line-numbers=off,lang=r}
+
+{title="Code for t interval of the chickWeight data:", lang=r, line-numbers=off}
 ~~~
 wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
 rbind(
-  t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE, data = wideCW14)$conf,
-  t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
+  t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE,
+         data = wideCW14){/$$}conf,
+  t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE,
+         data = wideCW14){$$}conf
 )
 ~~~
 
-{line-numbers=off,lang=r}
+
+
+{lang=r, line-numbers=off}
 ~~~
-      [,1]   [,2]
-[1,] -108.1 -14.81
-[2,] -104.7 -18.30
+##           [,1]      [,2]
+## [1,] -108.1468 -14.81154
+## [2,] -104.6590 -18.29932
 ~~~
+
+
+
+
 
 For the time being, let's interpret the equal variance interval. Since the interval is entirely
 below zero it suggest that group 1 had less weight gain than group 4 (at 95% confidence).
@@ -279,17 +333,17 @@ below zero it suggest that group 1 had less weight gain than group 4 (at 95% con
 
 Under unequal variances our *t* interval becomes:
 
-{$$}
-\bar Y - \bar X \pm t_{df} \times \left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}
 {/$$}
-
-where {$$}t_{df}{/$$} is the *t* quantile calculated with degrees of freedom:
-
+\bar Y - \bar X \pm t_{df} \times \left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}
 {$$}
+
+where {/$$}t_{df}{$$} is the *t* quantile calculated with degrees of freedom:
+
+{/$$}
 df=    \frac{\left(S_x^2 / n_x + S_y^2/n_y\right)^2}
     {\left(\frac{S_x^2}{n_x}\right)^2 / (n_x - 1) +
       \left(\frac{S_y^2}{n_y}\right)^2 / (n_y - 1)}
-{/$$}
+{$$}
 
 which will be approximately a 95% interval. This works really well.
 So when in doubt, just assume unequal variances. Also, we present the formula
@@ -298,11 +352,26 @@ for completeness. In practice, it's easy to mess up, so make sure to do `t.test`
 Referring back to the previous `ChickWeight` example, the violin plots suggest that considering
 unequal variances would be wise. Recall the code is
 
-{line-numbers=off,lang=r}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE, data = wideCW14)$conf
-[2,] -104.7 -18.30
+t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE,
+       data = wideCW14){/$$}conf
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] -104.65901  -18.29932
+## attr(,"conf.level")
+## [1] 0.95
+~~~
+
+
+
 
 This interval is remains entirely below zero. However, it is wider than the equal variance interval.
 
@@ -335,7 +404,7 @@ For other kinds of data, there are preferable small and large sample intervals a
   - The population variances are identical, but the sample variances may be different.
 4. Load the data set `mtcars` in the `datasets` R package. Calculate a
 95% confidence interval to the nearest MPG for the variable `mpg`. [Watch a video solution](https://www.youtube.com/watch?v=5BPY6JqRLbE&index=19&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see written solutions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#3).
-5. Suppose that standard deviation of 9 paired differences is $1$. What value would the average difference have to be so that the lower endpoint of a 95%
+5. Suppose that standard deviation of 9 paired differences is {$$}1{/$$}. What value would the average difference have to be so that the lower endpoint of a 95%
 students t confidence interval touches zero? [Watch a video solution here](https://www.youtube.com/watch?v=ioDwUPCy508&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=20)
 and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#4).
 6. An independent group Student's T interval is used instead of

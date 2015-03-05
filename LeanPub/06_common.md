@@ -1,3 +1,4 @@
+
 # Some common distributions
 
 
@@ -15,7 +16,7 @@ The mean of a Bernoulli random variable is {$$}p{/$$} and the variance is
 it is typical to call {$$}X=1{/$$} as a "success" and {$$}X=0{/$$} as a "failure".
 
 If a random variable follows a Bernoulli distribution with success probability
-{$$}p{/$$} we write that {$$}X \sim {/$$} Bernoulli{$$}(p){/$$}.
+{$$}p{/$$} we write that {$$}X \sim{/$$} Bernoulli{$$}(p){/$$}.
 
 Bernoulli random variables are commonly used for modeling any binary trait
 for a random sample. So, for example, in a random sample whether or not
@@ -32,7 +33,7 @@ is the total number of heads.
 To write it out as mathematics, let {$$}X_1,\ldots,X_n{/$$} be iid
 Bernoulli{$$}(p){/$$}, then {$$}X = \sum_{i=1}^n X_i{/$$} is a
 binomial random variable. We write out that
-{$$}X \sim {/$$} Binomial{$$}(n,p){/$$}. The binomial mass function is
+{$$}X \sim{/$$} Binomial{$$}(n,p){/$$}. The binomial mass function is
 
 {$$}
 P(X = x) =
@@ -80,13 +81,35 @@ birth, what's the probability of getting {$$}7{/$$} or more girls out of
 {/$$}
 
 
-{title="Simulating means of coin flips", line-numbers=off,lang=r}
+
+{title="Simulating means of coin flips:", lang=r, line-numbers=off}
 ~~~
-> choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
-[1] 0.03516
-> pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
-[1] 0.03516
+choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.03515625
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.03515625
+~~~
+
+
+
 
 ## The normal distribution
 [Watch this video before beginning](http://youtu.be/dUTWvKa0Leo?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
@@ -134,7 +157,8 @@ at 0, 1, 2 and 3 standard deviations above and below 0. This is for the standard
 normal; however, all of the rules apply to non standard normals as 0, 1, 2
 and 3 standard deviations above and below {$$}\mu{/$$}, the population mean.
 
-![Standard normal reference lines.](images/normalReference.png)
+![Standard normal reference lines.](images/normalReference-1.png) 
+
 
 The most relevant probabilities are.
 
@@ -188,7 +212,7 @@ standard deviation of 4.73. Assuming normality of BMI, what is the population
 29 + 4.73 \times 1.645 = 36.78.
 {/$$}
 
-Or alternatively, we could simply type `r qnorm(.95, 29, 4.73)` in R.
+Or alternatively, we could simply type 36.7801577 in R.
 
 Now let's reverse the process. Imaging asking what's the probability that
 a randomly drawn subject from this population has a BMI less than 24.27?
@@ -218,8 +242,8 @@ standard normal quantiles that the probability of being larger
 than 2 standard deviation is 2.5% and 3 standard deviations is far in the tail.
 Therefore, we know that the probability has to be smaller than 2.5% and should
 be very small. We can obtain it
-exactly as `r pnorm(1160, 1020, 50, lower.tail = FALSE)` which is 0.3%. Note
-that we can also obtain the probability as `r pnorm(2.8, lower.tail = FALSE)`.
+exactly as 0.0025551 which is 0.3%. Note
+that we can also obtain the probability as 0.0025551.
 
 ### Example
 Consider the previous example again. What number of daily ad clicks
@@ -227,11 +251,21 @@ would represent
 the one where 75% of days have fewer clicks (assuming
 days are independent and identically distributed)? We can obtain this as:
 
-{title="Finding a normal quantile", line-numbers=off,lang=r}
+
+{title="Finding a normal quantile:", lang=r, line-numbers=off}
 ~~~
-> qnorm(0.75, mean = 1020, sd = 50)
-[1] 1054
+qnorm(0.75, mean = 1020, sd = 50)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 1053.724
+~~~
+
+
+
 
 ## The Poisson distribution
 [Watch this video before beginning.](http://youtu.be/ZPLZg7qz4xE?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
@@ -273,14 +307,24 @@ and {$$}t{/$$} is the total monitoring time.
 ### Example
 The number of people that show up at a bus stop is Poisson with
 a mean of 2.5 per hour. If watching the bus stop for 4 hours, what
-is the probability that $3$ or fewer people show up for the whole time?
+is the probability that {$$}3{/$$} or fewer people show up for the whole time?
 
 
-{title="Finding a normal quantile", line-numbers=off,lang=r}
+
+{title="Finding a Poisson quantile:", lang=r, line-numbers=off}
 ~~~
-> ppois(3, lambda = 2.5 * 4)
-[1] 0.01034
+ppois(3, lambda = 2.5 * 4)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.01033605
+~~~
+
+
+
 
 Therefore, there is about a 1% chance that 3 or fewer people show up. Notice
 the multiplication by four in the function argument. Since lambda is
@@ -300,13 +344,35 @@ We flip a coin with success probability 0.01 five hundred times.
 What's the probability of 2 or fewer successes?
 
 
-{title="Finding a normal quantile", line-numbers=off,lang=r}
+
+{title="Aproximating a binomial quantile:", lang=r, line-numbers=off}
 ~~~
-> pbinom(2, size = 500, prob = 0.01)
-[1] 0.1234
-> ppois(2, lambda = 500 * 0.01)
-[1] 0.1247
+pbinom(2, size = 500, prob = 0.01)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.1233858
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+ppois(2, lambda = 500 * 0.01)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.124652
+~~~
+
+
+
 
 So we can see that the probabilities agree quite well. This approximation is
 often done as the Poisson model is a more convenient model in many respects.

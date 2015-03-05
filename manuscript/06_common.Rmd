@@ -81,7 +81,7 @@ $$
 
 
 
-```{r , echo=TRUE}
+```{r title="Simulating means of coin flips", echo=TRUE}
 choose(8, 7) * 0.5^8 + choose(8, 8) * 0.5^8
 
 pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
@@ -236,7 +236,7 @@ the one where 75% of days have fewer clicks (assuming
 days are independent and identically distributed)? We can obtain this as:
 
 
-```{r , echo=TRUE}
+```{r title="Finding a normal quantile", echo=TRUE}
 qnorm(0.75, mean = 1020, sd = 50)
 ```
 
@@ -285,7 +285,7 @@ is the probability that $3$ or fewer people show up for the whole time?
 
 
 
-```{r , echo=TRUE}
+```{r title="Finding a Poisson quantile", echo=TRUE}
 ppois(3, lambda = 2.5 * 4)
 ```
 
@@ -309,7 +309,7 @@ What's the probability of 2 or fewer successes?
 
 
 
-```{r , echo=TRUE}
+```{r title="Aproximating a binomial quantile", echo=TRUE}
 pbinom(2, size = 500, prob = 0.01)
 
 ppois(2, lambda = 500 * 0.01)

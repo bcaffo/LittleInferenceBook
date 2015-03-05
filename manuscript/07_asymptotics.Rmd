@@ -44,7 +44,7 @@ the LLN is correct, the line should converge to 0, the mean of the standard
 normal distribution.
 
 
-```{r , echo=TRUE, fig.cap="Cumulative average from  standard normal simulations.", label = "normalLLN"}
+```{r title="Simulating standard normals", echo=TRUE, fig.cap="Cumulative average from standard normal simulations.", label = "normalLLN"}
 n <- 10000
 means <- cumsum(rnorm(n))/(1:n)
 library(ggplot2)
@@ -61,7 +61,7 @@ Let's try the same thing, but for a fair coin flip. We'll simulate a lot
 of coin flips and plot the cumulative proportion of heads.
 
 
-```{r , echo=TRUE, fig.cap="Cumulative proportion of heads from a sequence of coin flips.", label = "coinLLN"}
+```{r title="Simulating many coinflips", echo=TRUE, fig.cap="Cumulative proportion of heads from a sequence of coin flips.", label = "coinLLN"}
 means <- cumsum(sample(0:1, n, replace = TRUE))/(1:n)
 g <- ggplot(data.frame(x = 1:n, y = means), aes(x = x, y = y))
 g <- g + geom_hline(yintercept = 0.5) + geom_line(size = 2)
@@ -255,7 +255,7 @@ If instead of a 95% interval, you wanted a 90% interval, then
 Give a confidence interval for the average height of sons in Galton's data.
 
 
-```{r , echo=TRUE}
+```{r title="Finding a confidence interval.", echo=TRUE}
 library(UsingR)
 data(father.son)
 x <- father.son$sheight
@@ -349,7 +349,7 @@ $p$ and look at the Wald interval's coverage when we repeatedly
 create confidence intervals.
 
 
-```{r , echo=TRUE}
+```{r title="Code for investigating Wald interval coverage", echo=TRUE}
 n <- 20
 pvals <- seq(0.1, 0.9, by = 0.05)
 nosim <- 1000
@@ -380,7 +380,7 @@ for many of the values of $p$. Let's see if the coverage improves
 for larger $n$.
 
 
-```{r , echo=TRUE}
+```{r title="Code for investigating Wald interval coverage", echo=TRUE}
 n <- 100
 pvals <- seq(0.1, 0.9, by = 0.05)
 nosim <- 1000
@@ -413,7 +413,7 @@ via a simulation.
 
 
 
-```{r , echo=TRUE}
+```{r title="Code for investigating Agresti/Coull interval coverage when n=20.", echo=TRUE}
 n <- 20
 pvals <- seq(0.1, 0.9, by = 0.05)
 nosim <- 1000
@@ -471,7 +471,7 @@ A nuclear pump failed 5 times out of 94.32 days.
 Give a 95% confidence interval for the failure rate per day.
 
 
-```{r , echo=TRUE}
+```{r title="Code for asymptotic Poisson confidence interval", echo=TRUE}
 x <- 5
 t <- 94.32
 lambda <- x/t
@@ -483,7 +483,7 @@ A non-asymptotic test, one that guarantees coverage, is also available. But,
 it has to be evaluated numerically.
 
 
-```{r , echo=TRUE}
+```{r title="Code for exact Poisson confidence interval", echo=TRUE}
 poisson.test(x, T = 94.32)$conf
 ```
 
@@ -494,7 +494,7 @@ Let's see how the asymptotic interval performs for lambda
 values near what we're estimating.
 
 
-```{r , echo=TRUE}
+```{r title="Code for evaluating the coverage of the asymptotic Poisson confidence interval", echo=TRUE}
 lambdavals <- seq(0.005, 0.1, by = 0.01)
 nosim <- 1000
 t <- 100

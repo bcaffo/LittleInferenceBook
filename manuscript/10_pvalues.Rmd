@@ -43,7 +43,7 @@ versus $H_a : \mu > \mu_0$.
 What's the probability of getting a *t* statistic as large as 2.5?
 
 
-```{r , echo=TRUE}
+```{r title="P-value calculation in R.", echo=TRUE}
 pt(2.5, 15, lower.tail = FALSE)
 ```
 
@@ -92,7 +92,7 @@ probability of having a girl for each birth.
 Recall here's the calculation:
 
 
-```{r , echo=TRUE}
+```{r title="Example of a Binomial P-value calculation in R.", echo=TRUE}
 pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
 ```
 
@@ -118,7 +118,7 @@ with respect to a Poisson distribution with a rate of 5 events per 100.
 Consider $H_a: \lambda > 0.05$.
 
 
-```{r , echo=TRUE}
+```{r title="Poisson P-value calculation.", echo=TRUE}
 ppois(9, 5, lower.tail = FALSE)
 ```
 

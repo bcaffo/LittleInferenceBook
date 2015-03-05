@@ -1,3 +1,4 @@
+
 # Asymptopia
 
 ## Asymptotics
@@ -43,7 +44,8 @@ Let's simulate a lot of standard normals and plot the cumulative means. If
 the LLN is correct, the line should converge to 0, the mean of the standard
 normal distribution.
 
-{title="Finding a normal quantile", line-numbers=off,lang=r}
+
+{title="Simulating standard normals:", lang=r, line-numbers=off}
 ~~~
 n <- 10000
 means <- cumsum(rnorm(n))/(1:n)
@@ -54,14 +56,16 @@ g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
 ~~~
 
-![Cumulative average from  standard normal simulations.](images/normalLLN.png)
+![Cumulative average from standard normal simulations.](images/normalLLN-1.png) 
+
 
 
 ### Law of large numbers in action, coin flip
 Let's try the same thing, but for a fair coin flip. We'll simulate a lot
 of coin flips and plot the cumulative proportion of heads.
 
-{title="Finding a normal quantile", line-numbers=off,lang=r}
+
+{title="Simulating many coinflips:", lang=r, line-numbers=off}
 ~~~
 means <- cumsum(sample(0:1, n, replace = TRUE))/(1:n)
 g <- ggplot(data.frame(x = 1:n, y = means), aes(x = x, y = y))
@@ -70,7 +74,7 @@ g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
 ~~~
 
-![Cumulative proportion of heads from a sequence of coin flips.](images/coinLLN.png)
+![Cumulative proportion of heads from a sequence of coin flips.](images/coinLLN-1.png) 
 
 
 ### Discussion
@@ -124,7 +128,8 @@ that the resulting distribution looks like a bell curve.
 - Lets roll {$$}n{/$$} dice, take their mean, subtract off 3.5,
 and divide by {$$}1.71 / \sqrt{n}{/$$} and repeat this over and over.
 
-![Result of coin CLT simulation.](images/dieCLT.png)
+![Result of die CLT simulation.](images/dieCLT-1.png) 
+
 
 It's pretty remarkable that the approximation works so well with so few rolls
 of the die.
@@ -156,7 +161,7 @@ Let's test this by flipping a coin {$$}n{/$$} times, taking the sample proportio
 of heads, subtract off 0.5 and multiply the result by
 {$$}2 \sqrt{n}{/$$} (divide by {$$}1/(2 \sqrt{n}){/$$}).
 
-![Results of the coin CLT simulation.](images/coinCLT.png)
+![Results of the coin CLT simulation.](images/coinCLT-1.png) 
 
 This convergence doesn't look quite as good as the die, since the coin has
 fewer possible outcomes. In fact, among coins of various degrees of bias,
@@ -164,7 +169,7 @@ the convergence to normality is governed by how far from 0.5 {$$}p{/$$} is.
 Let's redo the simulation, now using {$$}p=0.9{/$$} instead of {$$}p=0.5{/$$}
 like we did before.
 
-![Results of the simulation when p=0.9](images/coinCLT2.png)
+![Results of the simulation when p=0.9](images/coinCLT2-1.png) 
 
 Notice that the convergence to normality is quite poor. Thus, be careful
 when using CLT approximations for sample proportions when your proportion
@@ -211,14 +216,24 @@ If instead of a 95% interval, you wanted a 90% interval, then
 ### Example CI
 Give a confidence interval for the average height of sons in Galton's data.
 
-{title="Finding a confidence interval.", line-numbers=off,lang=r}
+
+{title="Finding a confidence interval.:", lang=r, line-numbers=off}
 ~~~
-> library(UsingR)
-> data(father.son)
-> x <- father.son$sheight
-> (mean(x) + c(-1, 1) * qnorm(0.975) * sd(x)/sqrt(length(x)))/12
-[1] 5.710 5.738
+library(UsingR)
+data(father.son)
+x <- father.son{$$}sheight
+(mean(x) + c(-1, 1) * qnorm(0.975) * sd(x)/sqrt(length(x)))/12
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 5.709670 5.737674
+~~~
+
+
+
 
 Here we divided by 12 to get our interval in feet instead of
 inches. So we estimate the average height of the sons as 5.71 to 5.74 with 95%
@@ -226,21 +241,21 @@ confidence.
 
 ### Example using sample proportions
 
-In the event that each {$$}X_i{/$$} is 0 or 1
-with common success probability {$$}p{/$$} then {$$}\sigma^2 = p(1 - p){/$$}.
+In the event that each {/$$}X_i{$$} is 0 or 1
+with common success probability {/$$}p{$$} then {/$$}\sigma^2 = p(1 - p){$$}.
 The interval takes the form:
 
-{$$}
-\hat p \pm z_{1 - \alpha/2}  \sqrt{\frac{p(1 - p)}{n}}.
 {/$$}
+\hat p \pm z_{1 - \alpha/2}  \sqrt{\frac{p(1 - p)}{n}}.
+{$$}
 
-Replacing {$$}p{/$$} by {$$}\hat p{/$$} in the standard error results in what
-is called a Wald confidence interval for {$$}p{/$$}. Remember also that
-{$$}p(1 - p){/$$} is maximized at 1/4. Plugging this in and setting
-our {$$}Z{/$$} quantile as 2 (which is about a 95% interval) we find
+Replacing {/$$}p{$$} by {/$$}\hat p{$$} in the standard error results in what
+is called a Wald confidence interval for {/$$}p{$$}. Remember also that
+{/$$}p(1 - p){$$} is maximized at 1/4. Plugging this in and setting
+our {/$$}Z{$$} quantile as 2 (which is about a 95% interval) we find
 that a quick and dirty confidence interval is:
 
-{$$}\hat p \pm \frac{1}{\sqrt{n}}.{/$$}
+{/$$}\hat p \pm \frac{1}{\sqrt{n}}.{$$}
 
 This is useful for doing quick confidence intervals for binomial
 proportions in your head.
@@ -250,45 +265,95 @@ Your campaign advisor told you that in a random sample of 100 likely voters,
 56 intent to vote for you. Can you relax? Do you have this race in the bag?
 Without access to a computer or calculator, how precise is this estimate?
 
-{line-numbers=off,lang=r}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> 1/sqrt(100)
-[1] 0.1
+1/sqrt(100)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.1
+~~~
+
+
+
 
 so a back of the envelope calculation gives an approximate 95% interval
 of `(0.46, 0.66)`.
 
 Thus, since the interval contains 0.5 and numbers below it, there's not enough votes for you to relax; better go do more campaigning!
 
-The basic rule of thumb is then, {$$}1/\sqrt{n}{/$$} gives you a
-good estimate for the margin of error of a proportion. Thus, {$$}n=100{/$$}  
+The basic rule of thumb is then, {/$$}1/\sqrt{n}{$$} gives you a
+good estimate for the margin of error of a proportion. Thus, {/$$}n=100{$$}  
 for about 1 decimal place, 10,000 for 2, 1,000,000 for 3.
 
-{line-numbers=off,lang=r}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> round(1/sqrt(10^(1:6)), 3)
-[1] 0.316 0.100 0.032 0.010 0.003 0.001
+round(1/sqrt(10^(1:6)), 3)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.316 0.100 0.032 0.010 0.003 0.001
+~~~
+
+
+
 
 We could very easily do the full Wald interval, which is less conservative
 (may provide a narrower interval). Remember the Wald interval for a
 binomial proportion is:
 
-{$$}
-\hat p \pm Z_{1-\alpha/2} \sqrt{\frac{\hat p (1 - \hat p)}{n}}.
 {/$$}
+\hat p \pm Z_{1-\alpha/2} \sqrt{\frac{\hat p (1 - \hat p)}{n}}.
+{$$}
 
 Here's the R code for our election setting, both coding it directly
 and using `binom.test`.
 
-{line-numbers=off,lang=r}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> 0.56 + c(-1, 1) * qnorm(0.975) * sqrt(0.56 * 0.44/100)
-[1] 0.4627 0.6573
-> binom.test(56, 100)$conf.int
-[1] 0.4572 0.6592
+0.56 + c(-1, 1) * qnorm(0.975) * sqrt(0.56 * 0.44/100)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.4627099 0.6572901
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+binom.test(56, 100){/$$}conf.int
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.4571875 0.6591640
+## attr(,"conf.level")
+## [1] 0.95
+~~~
+
+
+
 
 ## Simulation of confidence intervals
 
@@ -306,7 +371,8 @@ We can do this via simulation. Let's consider different values of
 {$$}p{/$$} and look at the Wald interval's coverage when we repeatedly
 create confidence intervals.
 
-{title="Code for investigating Wald interval coverage", line-numbers=off,lang=r}
+
+{title="Code for investigating Wald interval coverage:", lang=r, line-numbers=off}
 ~~~
 n <- 20
 pvals <- seq(0.1, 0.9, by = 0.05)
@@ -319,7 +385,9 @@ coverage <- sapply(pvals, function(p) {
 })
 ~~~
 
-![Plot of Wald interval coverage.](images/waldCoverage.png)
+
+
+![Plot of Wald interval coverage.](images/waldCoverage-1.png) 
 
 The figure shows that if we were to repeatedly try experiments for
 any fixed value of {$$}p{/$$}, it's rarely the case that our intervals
@@ -332,7 +400,8 @@ So what's happening? Recall that the CLT is an approximation. In this case
 for many of the values of {$$}p{/$$}. Let's see if the coverage improves
 for larger {$$}n{/$$}.
 
-{title="Code for investigating Wald interval coverage", line-numbers=off,lang=r}
+
+{title="Code for investigating Wald interval coverage:", lang=r, line-numbers=off}
 ~~~
 n <- 100
 pvals <- seq(0.1, 0.9, by = 0.05)
@@ -345,7 +414,9 @@ coverage2 <- sapply(pvals, function(p) {
 })
 ~~~
 
-![Output of simulation with {$$}n=100{/$$}.](images/waldCoverage2.png)
+
+
+![Output of simulation with {$$}n=100{/$$}.](images/waldCoverage2-1.png) 
 
 Now it looks much better. Of course, increasing our sample size is rarely
 an option. There's exact fixes to make this interval work better for small
@@ -360,7 +431,8 @@ This interval has much better coverage. Let's show it
 via a simulation.
 
 
-{title="Code for investigating Agresti/Coull interval coverage when n=20.", line-numbers=off,lang=r}
+
+{title="Code for investigating Agresti/Coull interval coverage when n=20.:", lang=r, line-numbers=off}
 ~~~
 n <- 20
 pvals <- seq(0.1, 0.9, by = 0.05)
@@ -373,7 +445,9 @@ coverage <- sapply(pvals, function(p) {
 })
 ~~~
 
-![Coverage of the Agresti/Coull interval with {$$}n=20{/$$}](images/agrestiCoull.png)
+
+
+![Coverage of the Agresti/Coull interval with {$$}n=20{/$$}](images/agrestiCoull-1.png) 
 
 The coverage is better, if maybe a little conservative in the sense of being
 over the 95% line most of the time. If the interval is too conservative, it's
@@ -413,30 +487,53 @@ So our Poisson interval is:
 A nuclear pump failed 5 times out of 94.32 days.
 Give a 95% confidence interval for the failure rate per day.
 
-{title="Code for asymptotic Poisson confidence interval", line-numbers=off,lang=r}
+
+{title="Code for asymptotic Poisson confidence interval:", lang=r, line-numbers=off}
 ~~~
-> x <- 5
-> t <- 94.32
-> lambda <- x/t
-> round(lambda + c(-1, 1) * qnorm(0.975) * sqrt(lambda/t), 3)
-[1] 0.007 0.099
+x <- 5
+t <- 94.32
+lambda <- x/t
+round(lambda + c(-1, 1) * qnorm(0.975) * sqrt(lambda/t), 3)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.007 0.099
+~~~
+
+
+
 
 A non-asymptotic test, one that guarantees coverage, is also available. But,
 it has to be evaluated numerically.
 
-{title="Code for exact Poisson confidence interval", line-numbers=off,lang=r}
+
+{title="Code for exact Poisson confidence interval:", lang=r, line-numbers=off}
 ~~~
-> poisson.test(x, T = 94.32)$conf
-[1] 0.01721 0.12371
+poisson.test(x, T = 94.32){$$}conf
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.01721254 0.12371005
+## attr(,"conf.level")
+## [1] 0.95
+~~~
+
+
+
 
 
 ### Simulating the Poisson coverage rate
 Let's see how the asymptotic interval performs for lambda
 values near what we're estimating.
 
-{title="Code for evaluating the coverage of the asymptotic Poisson confidence interval", line-numbers=off,lang=r}
+
+{title="Code for evaluating the coverage of the asymptotic Poisson confidence interval:", lang=r, line-numbers=off}
 ~~~
 lambdavals <- seq(0.005, 0.1, by = 0.01)
 nosim <- 1000
@@ -449,14 +546,17 @@ coverage <- sapply(lambdavals, function(lambda) {
 })
 ~~~
 
-![Coverage of Poisson intervals for various values of lambda](images/poissonCoverage.png)
+
+
+![Coverage of Poisson intervals for various values of lambda](images/poissonCoverage-1.png) 
 
 
 The coverage can be low for low values of lambda. In this case the asymptotics
 works as we increase the monitoring time, t. Here's the coverage if we
-increase {$$}t{/$$} to 1,000.
+increase {/$$}t{$$} to 1,000.
 
-![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2.png)
+![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2-1.png) 
+
 
 ## Summary notes
 * The LLN states that averages of iid samples.
@@ -465,7 +565,7 @@ converge to the population means that they are estimating.
 distributions.
   * centered at the population mean.
   * with standard deviation equal to the standard error of the mean.
-  * CLT gives no guarantee that $n$ is large enough.
+  * CLT gives no guarantee that {/$$}n{$$} is large enough.
 * Taking the mean and adding and subtracting the relevant.
 normal quantile times the SE yields a confidence interval for the mean.
   * Adding and subtracting 2 SEs works for 95% intervals.
@@ -486,6 +586,6 @@ don't require the CLT.
 5. The rate of search entries into a web site was 10 per minute when monitoring for an hour. Use R to calculate the exact Poisson interval for the rate of events per minute?
 6. Consider a uniform distribution. If we were to sample 100 draws from a
 a uniform distribution (which has mean 0.5, and variance 1/12) and take their
-mean, {$$}\bar X{/$$}.
+mean, {/$$}\bar X$.
 What is the approximate probability of getting as large as 0.51 or larger?
 [Watch this video solution](https://www.youtube.com/watch?v=JsiLK0g3IZ4&index=15&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem and solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#9).

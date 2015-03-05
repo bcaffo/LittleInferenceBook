@@ -1,3 +1,4 @@
+
 # Probability
 [Watch this video before beginning.](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
@@ -108,22 +109,20 @@ Answer: No, the events can simultaneously occur and so
  are not mutually
 exclusive. To elaborate let:
 
-{$$}
- \begin{eqnarray*}
+\begin{eqnarray*}
      A_1 & = & \{\mbox{Person has sleep apnea}\} \\
 A_2 & = & \{\mbox{Person has RLS}\}
    \end{eqnarray*}
- {/$$}
+
 
 Then
 
-{$$}
- \begin{eqnarray*}
+\begin{eqnarray*}
      P(A_1 \cup A_2 ) & = & P(A_1) + P(A_2) - P(A_1 \cap
 A_2) \\
     & = & 0.13 - \mbox{Probability of having both}
    \end{eqnarray*}
- {/$$}
+
 
 Given the scenario, it's likely that some fraction of the population has both.
 This example serves as a reminder *don't add probabilities unless the events are
@@ -230,8 +229,8 @@ Suppose that we do not know whether or not the coin is fair; Let
  {$$}\theta{/$$} be
 the probability of a head expressed as a proportion
  (between 0 and 1).
-{$$}p(x) = \theta^{x} (1 - \theta)^{1-x} {/$$}
-for {$$}x = 0,1 {/$$}
+{$$}p(x) = \theta^{x} (1 - \theta)^{1-x}{/$$}
+for {$$}x = 0,1{/$$}
 
 ## Probability density functions
 
@@ -266,19 +265,24 @@ Specifically, to be a valid pdf, a function must satisfy
 ### Example
 
 Suppose that the proportion of help calls that get addressed in
-a random day by a help line is given by {$$} f(x) = 2 x {/$$}
+a random day by a help line is given by {$$}f(x) = 2 x{/$$}
 for {$$}0< x < 1{/$$}. The R code for plotting this density is
 
-{title="Code for plotting the density", line-numbers=off,lang=r}
-~~~~~~
+
+{title="Code for plotting the density:", lang=r, line-numbers=off}
+~~~
 x <- c(-0.5, 0, 1, 1, 1.5)
 y <- c(0, 0, 2, 0, 0)
-plot(x, y, lwd = 3,frame = FALSE, type = "l")
-~~~~~~
+p <- plot(x, y, lwd = 3,frame = FALSE, type = "l")
+~~~
+
+
+
 
 The result of the code is given below.
 
-![Help call density](images/triangleDensity.png)
+![Help call density](images/triangleDensity-1.png) 
+
 
 Is this a mathematically valid density? To answer this
 we need to make sure it satisfies our two conditions.
@@ -296,17 +300,29 @@ Remember, for continuous random variables, probabilities are represented
 by areas underneath the density function. So, we want the area from
 0.75 and below, as illustrated by the figure below.
 
-![Help call density](images/triangleDensityArea.png)
+
+![Help call density](images/triangleDensityArea-1.png) 
 
 This again is a right triangle, with length of the base as 0.75
 and height 1.5. The R code below shows the calculation.
 
-{line-numbers=off,lang=r}
-~~~~~~
-> 1.5 * 0.75/2
 
-[1] 0.5625
-~~~~~~
+
+
+{lang=r, line-numbers=off}
+~~~
+1.5 * 0.75/2
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.5625
+~~~
+
+
+
 
 Thus, the probability of 75% or fewer calls getting addressed in a random
 day for this help line is 56%. We'll do this a lot throughout this class
@@ -315,13 +331,23 @@ density is a special case of the so called *beta* density. Below I show how
 to use R's built in evaluation function for the beta density to get the
 probability.
 
-{line-numbers=off,lang=r}
-~~~~~~
 
-> pbeta(0.75, 2, 1)
 
-[1] 0.5625
-~~~~~~
+
+{lang=r, line-numbers=off}
+~~~
+pbeta(0.75, 2, 1)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.5625
+~~~
+
+
+
 
 Notice the syntax `pbeta`. In R, a prefix of `p` returns probabilities,
 `d` returns the density, `q` returns the quantile and `r` returns generated
@@ -382,12 +408,23 @@ Again, R has a function that calculates the distribution function for us
 in this case, `pbeta`. Let's try calculating {$$}F(.4){/$$}, {$$}F(.5){/$$}
 and {$$}F(.6){/$$}
 
-{line-numbers=off,lang=r}
-~~~~~~
-> pbeta(c(0.4, 0.5, 0.6), 2, 1)
 
-[1] 0.16 0.25 0.36
- ~~~~~~
+
+
+{lang=r, line-numbers=off}
+~~~
+pbeta(c(0.4, 0.5, 0.6), 2, 1)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.16 0.25 0.36
+~~~
+
+
+
 
 Notice, of course, these are simply the numbers squared. By default the prefix
 `p` in front of a density in R gives the distribution function (`pbeta`, `pnorm`,
@@ -431,12 +468,23 @@ sample were shorter.
 What is the median of the distribution that we were working with before?
 We want to solve {$$}0.5 = F(x) = x^2{/$$}, resulting in the solution
 
-{line-numbers=off,lang=r}
-~~~~~~
-> sqrt(0.5)
 
-[1] 0.7071
-~~~~~~
+
+
+{lang=r, line-numbers=off}
+~~~
+sqrt(0.5)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.7071068
+~~~
+
+
+
 
 Therefore, 0.7071 of calls being answered on a random day is the median.
 Or, the probability that 70% or fewer calls get answered is 50%.
@@ -444,12 +492,23 @@ Or, the probability that 70% or fewer calls get answered is 50%.
 R can approximate quantiles for you for common distributions with the
 prefix `q` in front of the distribution name
 
-{line-numbers=off,lang=r}
-~~~~~~
-> qbeta(0.5, 2, 1)
 
-[1] 0.7071
-~~~~~~
+
+
+{lang=r, line-numbers=off}
+~~~
+qbeta(0.5, 2, 1)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.7071068
+~~~
+
+
+
 
 ## Exercises
 

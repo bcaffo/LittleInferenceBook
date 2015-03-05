@@ -74,7 +74,7 @@ The code below creates resamples via draws of size n with replacement with the o
 and plots a histogram of the median of each resampled dataset.
 
 
-```{r , echo=TRUE}
+```{r title="Bootstrapping example", echo=TRUE}
 library(UsingR)
 data(father.son)
 x <- father.son$sheight
@@ -247,7 +247,7 @@ Let's create some code for our example. Our statistic will be the difference
 in the means in each group.
 
 
-```{r , echo=TRUE}
+```{r title="Permutation distribution for the insect sprays dataset.", echo=TRUE}
 subdata <- InsectSprays[InsectSprays$spray %in% c("B", "C"),]
 y <- subdata$count
 group <- as.character(subdata$spray)

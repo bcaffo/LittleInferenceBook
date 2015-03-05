@@ -1,3 +1,4 @@
+
 # The bootstrap and resampling
 
 ## The bootstrap
@@ -14,14 +15,16 @@ obtained by repeatedly averaging 50 independent die rolls. By this simulation, w
 any mathematics, we have a good idea of what the distribution of averages of 50 die
 rolls looks like.
 
-![Image of true die roll distribution (left) and simulation of averages of 50 die rolls](images/bootstrapping1.png)
+![Image of true die roll distribution (left) and simulation of averages of 50 die rolls](images/bootstrapping1-1.png) 
+
 
 Now imagine a case where we didn't know whether or not the die was fair. We have a sample of
 size 50 and we'd like to investigate the distribution of the average of 50 die rolls
 *where we're not allowed to roll the die anymore*. This is more like a real data analysis, we only get one sample
 from the population.
 
-![Image of empirical die roll distribution (left) and simulates of averages of 50 die rolls from this distribution](images/bootstrapping2.png)
+![Image of empirical die roll distribution (left) and simulates of averages of 50 die rolls from this distribution](images/bootstrapping2-1.png) 
+
 
 The bootstrap principle is to use the empirical mass function of the data to perform the simulation,
 rather than the true distribution. That is, we simulate averages of 50 samples
@@ -44,21 +47,22 @@ The code below creates resamples via draws of size n with replacement with the o
  of the son's heights from Galton's data
 and plots a histogram of the median of each resampled dataset.
 
-{title="Bootstrapping example", lang=r, line-numbers=off}
+
+{title="Bootstrapping example:", lang=r, line-numbers=off}
 ~~~
 library(UsingR)
 data(father.son)
-x <- father.son$sheight
+x <- father.son{$$}sheight
 n <- length(x)
 B <- 10000
-resamples <- matrix(sample(x,
-                           n * B,
-                           replace = TRUE),
-                    B, n)
+resamples <- matrix(sample(x, n * B, replace = TRUE), B, n)
 resampledMedians <- apply(resamples, 1, median)
 ~~~
 
-![Bootstrapping example for the median of sons' heights from Galton's ](images/bootstrapping3.png)
+
+
+![Bootstrapping example for the median of sons' heights from Galton's](images/bootstrapping3-1.png) 
+
 
 ## The bootstrap principle
 
@@ -79,16 +83,16 @@ Use the simulated statistics to either define a confidence interval or take the 
 
 ### Nonparametric bootstrap algorithm example
 
-Bootstrap procedure for calculating confidence interval for the median from a data set of {$$}n{/$$} observations:
+Bootstrap procedure for calculating confidence interval for the median from a data set of {/$$}n{$$} observations:
 
-1. Sample {$$}n{/$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
+1. Sample {/$$}n{$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
 2. Take the median of the simulated data set
-3. Repeat these two steps {$$}B{/$$} times, resulting in {$$}B{/$$} simulated medians
-4. These medians are approximately drawn from the sampling distribution of the median of {$$}n{/$$} observations; therefore we can:
+3. Repeat these two steps {/$$}B{$$} times, resulting in {/$$}B{$$} simulated medians
+4. These medians are approximately drawn from the sampling distribution of the median of {/$$}n{$$} observations; therefore we can:
 
     - Draw a histogram of them
     - Calculate their standard deviation to estimate the standard error of the median
-    - Take the {$$}2.5^{th}{/$$} and {$$}97.5^{th}{/$$} percentiles as a confidence interval for the median
+    - Take the {/$$}2.5^{th}{$$} and {/$$}97.5^{th}{$$} percentiles as a confidence interval for the median
 
 For the general bootstrap, just replace the median with whatever statistic that
 you're investigating.
@@ -99,7 +103,10 @@ you're investigating.
 Consider our father/son data from before. Here is
 the relevant code for doing the resampling.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
 B <- 10000
 resamples <- matrix(sample(x,
@@ -109,36 +116,68 @@ resamples <- matrix(sample(x,
 medians <- apply(resamples, 1, median)
 ~~~
 
+
+
+
 And here is some results.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> sd(medians)
-[1] 0.08424
+sd(medians)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.0847079
+~~~
+
+
+
 
 Thus, 0.084 estimates the standard error of the median for this data set. It did this
 by repeatedly sampling medians from the observed distribution and taking the standard deviation
 of the resulting collection of medians. Taking the 2.5 and 97.5 percentiles gives us a
 bootstrap 95% confidence interval for the median.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> quantile(medians, c(.025, .975))
- 2.5% 97.5%
-68.43 68.81
+quantile(medians, c(.025, .975))
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+##     2.5%    97.5% 
+## 68.42972 68.81509
+~~~
+
+
+
 
 We also always want to plot a histogram or density estimate of our simulated statistic.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
 g = ggplot(data.frame(medians = medians), aes(x = medians))
-g = g + geom_histogram(color = "black", fill = "lightblue", binwidth = 0.05)
+g = g + geom_histogram(color = "black", fill = "lightblue",
+                       binwidth = 0.05)
 g
 ~~~
 
-![Bootstrapping example for the median of sons' heights from Galton's ](images/bootstrapping3.png)
+![A plot of the histrogram of the resamples](images/bootstrapping4-1.png) 
+
 
 ### Summary notes on the bootstrap
 
@@ -152,7 +191,10 @@ g
 
 Consider comparing two independent groups. Example, comparing sprays B and C.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
 data(InsectSprays)
 g = ggplot(InsectSprays, aes(spray, count, fill = spray))
@@ -160,7 +202,8 @@ g = g + geom_boxplot()
 g
 ~~~
 
-![Comparison of insect spray.](images/bootstrapping4.png)
+![Comparison of insect spray.](images/bootstrapping5-1.png) 
+
 
 ## Permutation tests
 Consider comparing means between the group. However, let's
@@ -188,13 +231,11 @@ been reinvented several times in statistic. The table below gives three
 famous tests that are obtained by permuting group labels.
 
 
-|----------|---------------------|---------------------|
 |Data type | Statistic           | Test name           |
 |----------|---------------------|---------------------|
 |Ranks     | rank sum            | rank sum test       |
 |Binary    | hypergeometric prob | Fisher's exact test |
 |Raw data  |                     | permutation test    |
-|----------|---------------------|---------------------|
 
 
 Also, so-called *randomization tests* are exactly permutation tests, with a
@@ -216,38 +257,67 @@ These tests work very well in massively multivariate settings.
 Let's create some code for our example. Our statistic will be the difference
 in the means in each group.
 
-{title="Permutation distribution for the insect sprays dataset.", lang=r,line-numbers=off}
+
+{title="Permutation distribution for the insect sprays dataset.:", lang=r, line-numbers=off}
 ~~~
-subdata <- InsectSprays[InsectSprays$spray %in% c("B", "C"),]
-y <- subdata$count
-group <- as.character(subdata$spray)
+subdata <- InsectSprays[InsectSprays{/$$}spray %in% c("B", "C"),]
+y <- subdata{$$}count
+group <- as.character(subdata{/$$}spray)
 testStat <- function(w, g) mean(w[g == "B"]) - mean(w[g == "C"])
 observedStat <- testStat(y, group)
-permutations <- sapply(1 : 10000, function(i) testStat(y, sample(group)))
+permutations <- sapply(1 : 10000,
+                       function(i) testStat(y, sample(group)))
 ~~~
+
+
+
 
 Let's look at some of the results. First let's look at the observed statistic.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
-> observedStat
-[1] 13.25
+observedStat
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 13.25
+~~~
+
+
+
 
 Now let's see what proportion of times we got a simulated
 statistic larger than our observed statistic.
 
-{lang=r,line-numbers=off}
+
+
+
+{lang=r, line-numbers=off}
 ~~~
 mean(permutations > observedStat)
-[1] 0
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0
+~~~
+
+
+
 
 Since this is 0, our estimate of the P-value is 0 (i.e. we strongly reject the
   NULL). It's useful to look at a histogram of permuted statistics with a
   vertical line drawn at the observed test statistic for reference.
 
-![Permutation distribution from the insectsprays dataset](images/bootstrapping5.png)
+![Permutation distribution from the insectsprays dataset](images/bootstrapping6-1.png) 
 
 ## Exercises
 1. The bootstrap uses what to estimate the sampling distribution of a statistic?

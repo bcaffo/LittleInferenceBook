@@ -51,7 +51,7 @@ data:
 
 
 
-```{r , echo=TRUE, fig.cap="Galton's Data", label = "galton", fig.height=4}
+```{r title="Loading in and displaying the Galton data", echo=TRUE, fig.cap="Galton's Data", label = "galton", fig.height=4}
 library(UsingR); data(galton); library(ggplot2); library(reshape2)
 longGalton <- melt(galton, measure.vars = c("child", "parent"))
 g <- ggplot(longGalton, aes(x = value)) +
@@ -69,7 +69,7 @@ see this in action.
 
 
 
-```{r , echo=TRUE, fig.keep='none', label = "manipulate_histo"}
+```{r title="Using manipulate to explore the mean", echo=TRUE, fig.keep='none', label = "manipulate_histo"}
 library(manipulate)
 myHist <- function(mu){
     g <- ggplot(galton, aes(x = child))

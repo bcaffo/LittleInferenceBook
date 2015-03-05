@@ -246,7 +246,7 @@ Let's try the *t* test on the pairs of fathers and sons in Galton's
 data.
 
 
-```{r , echo=TRUE}
+```{r title="Example of using the *t* test in R.", echo=TRUE}
 library(UsingR); data(father.son)
 t.test(father.son$sheight - father.son$fheight)
 ```
@@ -292,7 +292,7 @@ Let's just go through an example.
 Recall that we reformatted this data as follows
 
 
-```{r , echo=TRUE}
+```{r title="Reformatting the data.", echo=TRUE}
 library(datasets); data(ChickWeight); library(reshape2)
 ##define weight gain or loss
 wideCW <- dcast(ChickWeight, Diet + Chick ~ Time,
@@ -308,7 +308,7 @@ wideCW <- mutate(wideCW,
 
 
 
-```{r , echo=TRUE}
+```{r title="Unequal variance T test comparing diets 1 and 4.", echo=TRUE}
 wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
 t.test(gain ~ Diet, paired = FALSE,
        var.equal = TRUE, data = wideCW14)

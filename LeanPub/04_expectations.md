@@ -1,3 +1,4 @@
+
 # Expected values
 [Watch this video before beginning.](http://youtu.be/zljxRbu6jyc?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
@@ -50,23 +51,29 @@ center of mass of observed data. Below we plot Galton's fathers and sons
 data:
 
 
-{title="Loading in and displaying the Galton data", line-numbers=off,lang=r}
+
+{title="Loading in and displaying the Galton data:", lang=r, line-numbers=off}
 ~~~
 library(UsingR); data(galton); library(ggplot2); library(reshape2)
 longGalton <- melt(galton, measure.vars = c("child", "parent"))
-g <- ggplot(longGalton, aes(x = value)) + geom_histogram(aes(y = ..density..,  fill = variable), binwidth=1, color = "black") + geom_density(size = 2)
+g <- ggplot(longGalton, aes(x = value)) +
+  geom_histogram(aes(y = ..density..,  fill = variable),
+                 binwidth=1, color = "black") +
+  geom_density(size = 2)
 g <- g + facet_grid(. ~ variable)
 g
 ~~~
 
-![Galton's Data](images/galton.png)
+![Galton's Data](images/galton-1.png) 
+
 
 Using rStudio's `manipulate` package, you can try moving the histogram
 around and see what value balances it out. Be sure to watch the video to
 see this in action.
 
 
-{title="Using manipulate to explore the mean", line-numbers=off,lang=r}
+
+{title="Using manipulate to explore the mean:", lang=r, line-numbers=off}
 ~~~
 library(manipulate)
 myHist <- function(mu){
@@ -75,12 +82,16 @@ myHist <- function(mu){
       binwidth=1, aes(y = ..density..), color = "black")
     g <- g + geom_density(size = 2)
     g <- g + geom_vline(xintercept = mu, size = 2)
-    mse <- round(mean((galton$child - mu)^2), 3)  
+    mse <- round(mean((galton{$$}child - mu)^2), 3)  
     g <- g + labs(title = paste('mu = ', mu, ' MSE = ', mse))
     g
 }
-manipulate(myHist(mu), mu = slider(62, 74, step = 0.5))
+manipulate(myHist(mu),
+           mu = slider(62, 74, step = 0.5, initial=mean(galton{/$$}child)))
 ~~~
+
+
+
 
 Going through this exercise, you find that the point that balances out
 the histogram is the empirical mean. (Note there's a small distinction here
@@ -93,7 +104,8 @@ now go through some examples of mathematically calculating the population mean.
 
 
 ### The center of mass is the empirical mean
-![Histogram illustration](images/lsm.png)
+
+![Histogram illustration](images/lsm-1.png) 
 
 
 ### Example of a population mean, a fair coin
@@ -111,7 +123,7 @@ Note, if thought about geometrically, this answer is obvious;
 if two equal weights are spaced at 0 and 1, the center of mass will be 0.5.
 
 
-![Fair coin mass function](images/fairCoin.png)
+![Fair coin mass function](images/fairCoin-1.png) 
 
 ### What about a biased coin?
 Suppose that a random variable, {$$}X{/$$} , is so that
@@ -144,7 +156,7 @@ E[X] = 1 \times \frac{1}{6} + 2 \times \frac{1}{6} +
 
 Again, the geometric argument makes this answer obvious without calculation.
 
-![Bar graph of die probabilities](images/die.png)
+![Bar graph of die probabilities](images/die-1.png) 
 
 
 ## Continuous random variables
@@ -161,7 +173,7 @@ trying to find the point where it balances out.
 Consider a density where {$$}f(x) = 1{/$$} for {$$}x{/$$} between zero and one.
 Suppose that {$$}X{/$$} follows this density; what is its expected value?  
 
-![Uniform Density](images/uniform.png)
+![Uniform Density](images/uniform-1.png) 
 
 The answer is clear since the density looks like a box, it would balance
 out exactly in the middle, 0.5.
@@ -212,7 +224,7 @@ and plotting their histogram (the salmon colored density). Notice that
 they're centered in the same spot! It's also more concentrated around
 that point. (We'll discuss that more in the next lectures).
 
-![Simulation of normals](images/normalSimulationMean.png)
+![Simulation of normals](images/normalSimulationMean-1.png) 
 
 ### Averages of x die rolls
 
@@ -224,7 +236,7 @@ centered at 3.5. So is it for 3 and 4. Notice also the distribution gets
 increasing Gaussian looking (like a bell curve) and increasingly concentrated
 around 3.5.
 
-![Simulation of die rolls](images/dieRollSimulationMean.png)
+![Simulation of die rolls](images/dieRollSimulationMean-1.png) 
 
 
 ### Averages of x coin flips
@@ -232,7 +244,7 @@ around 3.5.
 For the coin flip simulation exactly the same occurs. All of the distributions
 are centered around 0.5.
 
-![Simulation of coin flips](images/coinFlipSimulationMean.png)
+![Simulation of coin flips](images/coinFlipSimulationMean-1.png) 
 
 ## Summary notes
 - Expected values are properties of distributions.
@@ -249,7 +261,7 @@ concentrated its density / mass function is around the population mean.
 1. A standard die takes the values 1, 2, 3, 4, 5, 6 with equal probability. What is the expected value?
 2. Consider a density that is uniform from -1 to 1. (I.e. has height equal to 1/2 and looks like a box starting at -1 and ending at 1). What is the mean of this distribution?
 3. If a population has mean {$$}\mu{/$$}, what is the mean of the distribution of averages of 20 observations from this distribution?
-4. You are playing a game with a friend where you flip a coin and if it comes up heads you give her  {$$}X{/$$} dollars and if it comes up tails she gives you $Y$ dollars. The odds that the coin is heads is {$$}d{/$$}. What is your expected earnings? [Watch a video of the solution to this problem](http://youtu.be/5J88Zq0q81o?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [look at the problem and the solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#5).
+4. You are playing a game with a friend where you flip a coin and if it comes up heads you give her  {$$}X{/$$} dollars and if it comes up tails she gives you {$$}Y{/$$} dollars. The odds that the coin is heads is {$$}d{/$$}. What is your expected earnings? [Watch a video of the solution to this problem](http://youtu.be/5J88Zq0q81o?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [look at the problem and the solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#5).
 5. If you roll ten standard dice, take their average, then repeat this process over and over and construct a histogram what would it be centered at?
 [Watch a video solution here](https://www.youtube.com/watch?v=ia3n2URiJaw&index=16&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
 and [see the original problem here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#11).

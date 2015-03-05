@@ -48,7 +48,7 @@ You can use rStudio's manipulate function to to compare the *t* and Z
 distributions.
 
 
-```{r , echo=TRUE, fig.keep='none', eval=FALSE}
+```{r title="Code for investigating *t* and Z densities.", echo=TRUE, fig.keep='none', eval=FALSE}
 k <- 1000
 xvals <- seq(-5, 5, length = k)
 myplot <- function(df){
@@ -68,7 +68,7 @@ the following code plots the upper quantiles of the Z distribution by
 those of the *t* distribution.
 
 
-```{r , echo=TRUE, fig.keep='none', eval=FALSE}
+```{r title="Code for investigating the upper quantiles of the *t* and Z densities.", echo=TRUE, fig.keep='none', eval=FALSE}
 pvals <- seq(.5, .99, by = .01)
 myplot2 <- function(df){
   d <- data.frame(n= qnorm(pvals),t=qt(pvals, df),
@@ -109,7 +109,7 @@ groups rather than paired.
 ## The data
 
 
-```{r , echo=TRUE}
+```{r title="Loading Galton's data.", echo=TRUE}
 data(sleep)
 head(sleep)
 ```
@@ -129,7 +129,7 @@ Now let's calculate the *t* interval for the differences from baseline to follow
 Below we give four different ways for calculating the interval.
 
 
-```{r , echo=TRUE, results='hold', label="t_tests_ci"}
+```{r title="*t* interval from baseline to follow up.", echo=TRUE, results='hold', label="t_tests_ci"}
 g1 <- sleep$extra[1 : 10]; g2 <- sleep$extra[11 : 20]
 difference <- g2 - g1
 mn <- mean(difference); s <- sd(difference); n <- 10
@@ -197,7 +197,7 @@ Consider Galton's sleep data from before. In the code below, we do the R code
 for grouped data directly, and using the `t.test` function.
 
 
-```{r , echo=TRUE}
+```{r title="Galton's data treated as grouped and independent.", echo=TRUE}
 n1 <- length(g1); n2 <- length(g2)
 sp <- sqrt( ((n1 - 1) * sd(g1)^2 + (n2-1) * sd(g2)^2) / (n1 + n2-2))
 md <- mean(g2) - mean(g1)
@@ -262,7 +262,7 @@ Now let's do a *t* interval comparing groups 1 and 4. We'll show the two interva
 assuming that the variances are equal and one assuming otherwise.
 
 
-```{r , echo=TRUE}
+```{r title="Code for t interval of the chickWeight data", echo=TRUE}
 wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
 rbind(
   t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE,

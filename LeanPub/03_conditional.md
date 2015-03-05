@@ -1,3 +1,4 @@
+
 # Conditional probability
 
 ## Conditional probability, motivation
@@ -131,14 +132,13 @@ Mathematically, we want {$$}P(D ~|~ +){/$$} given the sensitivity, {$$}P(+ ~|~ D
 the specificity, {$$}P(- ~|~ D^c) =.985{/$$} and the prevalence
 {$$}P(D) = .001{/$$}.
 
-{$$}
 \begin{eqnarray*}
 P(D ~|~ +) & = &\frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}\\
  & = & \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + \{1-P(-~|~D^c)\}\{1 - P(D)\}} \\
  & = & \frac{.997\times .001}{.997 \times .001 + .015 \times .999}\\
  & = & .062
 \end{eqnarray*}
-{/$$}
+
 
 In this population a positive test result only suggests a 6% probability that
 the subject has the disease, (the positive predictive value is 6% for this test).
@@ -169,7 +169,7 @@ How do we interpret the DLRs? This is easiest when looking at so called
 
 Using Bayes rule, we have
 
-{$$}  
+{$$}
 P(D ~|~ +) = \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}
 {/$$}
 

@@ -1,3 +1,4 @@
+
 # P-values
 
 ## Introduction to P-values
@@ -42,11 +43,21 @@ for 15 degrees of freedom  testing {$$}H_0:\mu = \mu_0{/$$}
 versus {$$}H_a : \mu > \mu_0{/$$}.
 What's the probability of getting a *t* statistic as large as 2.5?
 
-{title="P-value calculation in R.", line-numbers=off,lang=r}
+
+{title="P-value calculation in R.:", lang=r, line-numbers=off}
 ~~~
-> pt(2.5, 15, lower.tail = FALSE)
-[1] 0.01225
+pt(2.5, 15, lower.tail = FALSE)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.0122529
+~~~
+
+
+
 
 Therefore, the probability of seeing evidence as extreme or more extreme than that actually obtained under {$$}H_0{/$$} is 0.0123. So, (assuming our model is correct)
 either we observed data that was pretty unlikely under the null, or the null
@@ -91,11 +102,21 @@ probability of having a girl for each birth.
 
 Recall here's the calculation:
 
-{title="Example of a Binomial P-value calculation in R.", line-numbers=off,lang=r}
+
+{title="Example of a Binomial P-value calculation in R.:", lang=r, line-numbers=off}
 ~~~
-> pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
-[1] 0.03516
+pbinom(6, size = 8, prob = 0.5, lower.tail = FALSE)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.03515625
+~~~
+
+
+
 
 Since our P-value is less than 0.05 we would reject at a 5% error rate. Note,
 however, if we were doing a two sided test, we would have to double the P-value
@@ -117,11 +138,21 @@ where {$$}\lambda{/$$} is the rate of infections per person day so that
 with respect to a Poisson distribution with a rate of 5 events per 100.
 Consider {$$}H_a: \lambda > 0.05{/$$}.
 
-{title="Poisson P-value calculation.", line-numbers=off,lang=r}
+
+{title="Poisson P-value calculation.:", lang=r, line-numbers=off}
 ~~~
-> ppois(9, 5, lower.tail = FALSE)
-[1] 0.03183
+ppois(9, 5, lower.tail = FALSE)
 ~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.03182806
+~~~
+
+
+
 
 Again, since this P-value is less than 0.05 we reject the null hypothesis.
 The P-value would be 0.06 for  two sided hypothesis (double) and so we would

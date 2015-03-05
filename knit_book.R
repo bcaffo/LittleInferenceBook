@@ -21,7 +21,9 @@ book <- readLines(con = "./manuscript/Book.txt")
 # Remove extension if provided
 book <- sub(pattern = "[.].*$", replacement = "", x = book)
 
-# book <- book[c(13)]
+# book <- book[c(10)] # Try a subset of the files
+
+
 
 
 #-----------------------------------------------------------------------------*
@@ -54,7 +56,7 @@ compilation <- paste0("\\newpage\n",
                       book,
                       ".Rmd\"",
                       ", quiet = TRUE",
-                      ", options = list(chunk_hook=FALSE)",
+                      ", options = list(chunk_hook=FALSE, title=\"\")",
                       "))\n```\n")
 
 # Output Rmd file
@@ -69,12 +71,16 @@ cat(header, settings, hooks, compilation, sep = "\n",
 #-----------------------------------------------------------------------------*
 
 # Start from zero
-knitr::clean_cache()
+rm(list = ls())
+set.seed(2015-03-04)
 
 # Knit Rmd file
 knitr::knit(input = "LittleInferenceBook.Rmd",
             output = "LittleInferenceBook.md",
             quiet = TRUE)
+
+# Clear chache after each run
+knitr::clean_cache()
 
 # Produce pdf from knitted md
 knitr::pandoc(input = "LittleInferenceBook.md", format = "latex",

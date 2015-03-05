@@ -1,3 +1,4 @@
+
 ## About this book
 This book is written as a companion book to the [Statistical Inference](https://www.coursera.org/course/statinference)
 Coursera class as part of the [Data Science Specialization](https://www.coursera.org/specialization/jhudatascience/1?utm_medium=courseDescripTop). However, if you do not take the class, the book mostly stands on its own. A

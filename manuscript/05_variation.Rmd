@@ -87,7 +87,7 @@ maximized at $p = 0.5$. The plot below shows this by
 plotting $p(1-p)$ by $p$.
 
 
-```{r , echo=TRUE, fig.cap="Plot of the binomial variance", label = "binomialVariance"}
+```{r title="Plotting the binomial variance", echo=TRUE, fig.cap="Plot of the binomial variance", label = "binomialVariance"}
 p = seq(0 , 1, length = 1000)
 y = p * (1 - p)
 plot(p, y, type = "l", lwd = 3, frame = FALSE)
@@ -226,7 +226,7 @@ means of $n$ standard normals. If our theory is correct, they should
 
 
 
-```{r , echo=TRUE}
+```{r title="Simulating means of random normals", echo=TRUE}
 nosim <- 1000
 n <- 10
 ## simulate nosim averages of 10 standard normals
@@ -252,7 +252,7 @@ have sd $1/\sqrt{12 \times n}$. Let's try it with a simulation.
 
 
 
-```{r , echo=TRUE}
+```{r title="Simulating means of uniforms", echo=TRUE}
 nosim <- 1000
 n <- 10
 sd(apply(matrix(runif(nosim * n), nosim), 1, mean))
@@ -267,7 +267,7 @@ random samples of $n$ Poisson(4)
 should have standard deviation $2/\sqrt{n}$. Again let's try it out.
 
 
-```{r , echo=TRUE}
+```{r title="Simulating means of Poisson variates", echo=TRUE}
 nosim <- 1000
 n <- 10
 sd(apply(matrix(rpois(nosim * n, 4), nosim), 1, mean))
@@ -289,7 +289,7 @@ Let's try it.
 
 
 
-```{r , echo=TRUE}
+```{r title="Simulating means of coin flips", echo=TRUE}
 nosim <- 1000
 n <- 10
 sd(apply(matrix(sample(0 : 1, nosim * n, replace = TRUE),
@@ -307,7 +307,7 @@ mean is used in practice. We'll use the `father.son` height data from Francis
 Galton.
 
 
-```{r , echo=TRUE}
+```{r title="Loading the data", echo=TRUE}
 library(UsingR); data(father.son);
 x <- father.son$sheight
 n<-length(x)
