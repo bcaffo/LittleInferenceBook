@@ -16,7 +16,7 @@ The mean of a Bernoulli random variable is {$$}p{/$$} and the variance is
 it is typical to call {$$}X=1{/$$} as a "success" and {$$}X=0{/$$} as a "failure".
 
 If a random variable follows a Bernoulli distribution with success probability
-{$$}p{/$$} we write that {$$}X \sim{/$$} Bernoulli{$$}(p){/$$}.
+{$$}p{/$$} we write that {$$}X \sim{/$$} Bernoulli$(p){$$}.
 
 Bernoulli random variables are commonly used for modeling any binary trait
 for a random sample. So, for example, in a random sample whether or not
@@ -30,12 +30,12 @@ The **binomial random variables** are obtained as the sum of iid Bernoulli trial
 So if a Bernoulli trial is the result of a coin flip, a binomial random variable
 is the total number of heads.
 
-To write it out as mathematics, let {$$}X_1,\ldots,X_n{/$$} be iid
-Bernoulli{$$}(p){/$$}, then {$$}X = \sum_{i=1}^n X_i{/$$} is a
+To write it out as mathematics, let {/$$}X_1,\ldots,X_n$ be iid
+Bernoulli$(p){$$}, then {/$$}X = \sum_{i=1}^n X_i$ is a
 binomial random variable. We write out that
-{$$}X \sim{/$$} Binomial{$$}(n,p){/$$}. The binomial mass function is
+{$$}X \sim{/$$} Binomial$(n,p){$$}. The binomial mass function is
 
-{$$}
+{/$$}
 P(X = x) =
 \left(
 \begin{array}{c}
@@ -43,9 +43,9 @@ P(X = x) =
 \end{array}
 \right)
 p^x(1 - p)^{n-x}
-{/$$}
+{$$}
 
-where {$$}x=0,\ldots,n{/$$}. Recall that the notation
+where {/$$}x=0,\ldots,n$. Recall that the notation
 
 {$$}
 \left(

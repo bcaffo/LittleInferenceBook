@@ -52,7 +52,7 @@ and plots a histogram of the median of each resampled dataset.
 ~~~
 library(UsingR)
 data(father.son)
-x <- father.son{$$}sheight
+x <- father.son$sheight
 n <- length(x)
 B <- 10000
 resamples <- matrix(sample(x, n * B, replace = TRUE), B, n)
@@ -83,16 +83,16 @@ Use the simulated statistics to either define a confidence interval or take the 
 
 ### Nonparametric bootstrap algorithm example
 
-Bootstrap procedure for calculating confidence interval for the median from a data set of {/$$}n{$$} observations:
+Bootstrap procedure for calculating confidence interval for the median from a data set of {$$}n{/$$} observations:
 
-1. Sample {/$$}n{$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
+1. Sample {$$}n{/$$} observations **with replacement** from the observed data resulting in one simulated complete data set.
 2. Take the median of the simulated data set
-3. Repeat these two steps {/$$}B{$$} times, resulting in {/$$}B{$$} simulated medians
-4. These medians are approximately drawn from the sampling distribution of the median of {/$$}n{$$} observations; therefore we can:
+3. Repeat these two steps {$$}B{/$$} times, resulting in {$$}B{/$$} simulated medians
+4. These medians are approximately drawn from the sampling distribution of the median of {$$}n{/$$} observations; therefore we can:
 
     - Draw a histogram of them
     - Calculate their standard deviation to estimate the standard error of the median
-    - Take the {/$$}2.5^{th}{$$} and {/$$}97.5^{th}{$$} percentiles as a confidence interval for the median
+    - Take the {$$}2.5^{th}{/$$} and {$$}97.5^{th}{/$$} percentiles as a confidence interval for the median
 
 For the general bootstrap, just replace the median with whatever statistic that
 you're investigating.
@@ -260,9 +260,9 @@ in the means in each group.
 
 {title="Permutation distribution for the insect sprays dataset.:", lang=r, line-numbers=off}
 ~~~
-subdata <- InsectSprays[InsectSprays{/$$}spray %in% c("B", "C"),]
-y <- subdata{$$}count
-group <- as.character(subdata{/$$}spray)
+subdata <- InsectSprays[InsectSprays$spray %in% c("B", "C"),]
+y <- subdata$count
+group <- as.character(subdata$spray)
 testStat <- function(w, g) mean(w[g == "B"]) - mean(w[g == "C"])
 observedStat <- testStat(y, group)
 permutations <- sapply(1 : 10000,

@@ -82,12 +82,12 @@ myHist <- function(mu){
       binwidth=1, aes(y = ..density..), color = "black")
     g <- g + geom_density(size = 2)
     g <- g + geom_vline(xintercept = mu, size = 2)
-    mse <- round(mean((galton{$$}child - mu)^2), 3)  
+    mse <- round(mean((galton$child - mu)^2), 3)  
     g <- g + labs(title = paste('mu = ', mu, ' MSE = ', mse))
     g
 }
 manipulate(myHist(mu),
-           mu = slider(62, 74, step = 0.5, initial=mean(galton{/$$}child)))
+           mu = slider(62, 74, step = 0.5, initial=mean(galton$child)))
 ~~~
 
 

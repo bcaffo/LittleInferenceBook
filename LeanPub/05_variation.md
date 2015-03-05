@@ -365,7 +365,7 @@ Galton.
 {title="Loading the data:", lang=r, line-numbers=off}
 ~~~
 library(UsingR); data(father.son);
-x <- father.son{$$}sheight
+x <- father.son$sheight
 n<-length(x)
 ~~~
 
@@ -400,7 +400,7 @@ The first number, 7.92, and its square root, 2.81, are the estimated variance
 and standard deviation of the sons' heights. Therefore, 7.92 tells us exactly how variable
 sons' heights were in the data and estimates how variable sons' heights are
 in the population. In contrast 0.01, and the square root 0.09, estimate how
-variable averages of {/$$}n{$$} sons' heights are.
+variable averages of {$$}n{/$$} sons' heights are.
 
 Therefore, the smaller numbers discuss the precision of our estimate of the mean
 of sons' heights. The larger numbers discuss how variable sons' heights are in general.
@@ -411,7 +411,7 @@ of sons' heights. The larger numbers discuss how variable sons' heights are in g
 what its estimating.
 * It gets more concentrated around the population variance with larger sample sizes.
 * The variance of the sample mean is the population variance
-divided by {/$$}n{$$}.
+divided by {$$}n{/$$}.
   * The square root is the standard error.
 * It turns out that we can say a lot about the distribution of
 averages from random samples,
@@ -426,20 +426,20 @@ even though we only get one to look at in a given data set.
 2. The distribution of the sample variance of a random sample from a population is centered at what?
   - The population variance.
   - The population mean.
-3. I keep drawing samples of size {/$$}n{$$} from a population with variance {/$$}\sigma^2{$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
-4. You get a random sample of {/$$}n{$$} observations from a population and take their average. You would like to estimate the variability of averages of {/$$}n{$$} observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
-  - No, we can multiply our estimate of the population variance by {/$$}1/n{$$} to get a good estimate of the variability of the average.
+3. I keep drawing samples of size {$$}n{/$$} from a population with variance {$$}\sigma^2{/$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
+4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of {$$}n{/$$} observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
+  - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
   - Yes, you have to get repeat averages.
 5. A random variable takes the value -4 with probability .2 and 1 with probability .8. What
 is the variance of this random variable? [Watch a video solution to this problem.](http://youtu.be/Em-xJeQO1rc?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
 and [look at a version with a worked out solution.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#6)
-6. If {/$$}\bar X{$$} and {/$$}\bar Y{$$} are comprised of n iid random variables arising from distributions
-having  means {/$$}\mu_x{$$} and {/$$}\mu_y{$$}, respectively and common variance
-{/$$}\sigma^2{$$}
-what is the variance {/$$}\bar X - \bar Y{$$}?
+6. If {$$}\bar X{/$$} and {$$}\bar Y{/$$} are comprised of n iid random variables arising from distributions
+having  means {$$}\mu_x{/$$} and {$$}\mu_y{/$$}, respectively and common variance
+{$$}\sigma^2{/$$}
+what is the variance {$$}\bar X - \bar Y{/$$}?
 [Watch a video solution to this problem here](http://youtu.be/7zJhPzX6jns?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see a typed up solution here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#7)
-7. Let {/$$}X{$$} be a random variable having standard deviation {/$$}\sigma{$$}. What can
-be said about the variance of {/$$}X /\sigma$? [Watch a video solution to this
+7. Let {$$}X{/$$} be a random variable having standard deviation {$$}\sigma{/$$}. What can
+be said about the variance of {$$}X /\sigma{/$$}? [Watch a video solution to this
 problem here](http://youtu.be/0WUj18_BUPA?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and
 [typed  up solutions here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#8).
 8. Consider the following pmf given in R by the code `p <- c(.1, .2, .3, .4)`

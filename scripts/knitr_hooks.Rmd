@@ -16,8 +16,10 @@ knitr::knit_hooks$set(chunk = function(x, options) {
     leanpub <- x
     
     # Fix equation markup
-    leanpub <- gsub(pattern = "[$]{1,2}([^$]*)[$]{1,2}",
-                    replacement = "{$$}\\1{/$$}",
+    leanpub <- gsub(pattern = paste0("([^[:alnum:]])",
+                                     "[$]{1,2}([^$]*)[$]{1,2}",
+                                     ""),
+                    replacement = "\\1{$$}\\2{/$$}\\3",
                     x = leanpub)
     
     # Fix titled code chunk markup

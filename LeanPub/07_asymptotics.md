@@ -221,7 +221,7 @@ Give a confidence interval for the average height of sons in Galton's data.
 ~~~
 library(UsingR)
 data(father.son)
-x <- father.son{$$}sheight
+x <- father.son$sheight
 (mean(x) + c(-1, 1) * qnorm(0.975) * sd(x)/sqrt(length(x)))/12
 ~~~
 
@@ -241,21 +241,21 @@ confidence.
 
 ### Example using sample proportions
 
-In the event that each {/$$}X_i{$$} is 0 or 1
-with common success probability {/$$}p{$$} then {/$$}\sigma^2 = p(1 - p){$$}.
+In the event that each {$$}X_i{/$$} is 0 or 1
+with common success probability {$$}p{/$$} then {$$}\sigma^2 = p(1 - p){/$$}.
 The interval takes the form:
 
-{/$$}
-\hat p \pm z_{1 - \alpha/2}  \sqrt{\frac{p(1 - p)}{n}}.
 {$$}
+\hat p \pm z_{1 - \alpha/2}  \sqrt{\frac{p(1 - p)}{n}}.
+{/$$}
 
-Replacing {/$$}p{$$} by {/$$}\hat p{$$} in the standard error results in what
-is called a Wald confidence interval for {/$$}p{$$}. Remember also that
-{/$$}p(1 - p){$$} is maximized at 1/4. Plugging this in and setting
-our {/$$}Z{$$} quantile as 2 (which is about a 95% interval) we find
+Replacing {$$}p{/$$} by {$$}\hat p{/$$} in the standard error results in what
+is called a Wald confidence interval for {$$}p{/$$}. Remember also that
+{$$}p(1 - p){/$$} is maximized at 1/4. Plugging this in and setting
+our {$$}Z{/$$} quantile as 2 (which is about a 95% interval) we find
 that a quick and dirty confidence interval is:
 
-{/$$}\hat p \pm \frac{1}{\sqrt{n}}.{$$}
+{$$}\hat p \pm \frac{1}{\sqrt{n}}.{/$$}
 
 This is useful for doing quick confidence intervals for binomial
 proportions in your head.
@@ -288,8 +288,8 @@ of `(0.46, 0.66)`.
 
 Thus, since the interval contains 0.5 and numbers below it, there's not enough votes for you to relax; better go do more campaigning!
 
-The basic rule of thumb is then, {/$$}1/\sqrt{n}{$$} gives you a
-good estimate for the margin of error of a proportion. Thus, {/$$}n=100{$$}  
+The basic rule of thumb is then, {$$}1/\sqrt{n}{/$$} gives you a
+good estimate for the margin of error of a proportion. Thus, {$$}n=100{/$$}  
 for about 1 decimal place, 10,000 for 2, 1,000,000 for 3.
 
 
@@ -314,9 +314,9 @@ We could very easily do the full Wald interval, which is less conservative
 (may provide a narrower interval). Remember the Wald interval for a
 binomial proportion is:
 
-{/$$}
-\hat p \pm Z_{1-\alpha/2} \sqrt{\frac{\hat p (1 - \hat p)}{n}}.
 {$$}
+\hat p \pm Z_{1-\alpha/2} \sqrt{\frac{\hat p (1 - \hat p)}{n}}.
+{/$$}
 
 Here's the R code for our election setting, both coding it directly
 and using `binom.test`.
@@ -340,7 +340,7 @@ and using `binom.test`.
 
 {lang=r, line-numbers=off}
 ~~~
-binom.test(56, 100){/$$}conf.int
+binom.test(56, 100){$$}conf.int
 ~~~
 
 
@@ -368,7 +368,7 @@ So called Bayesian credible intervals address this issue at the expense
 For our purposes, we're using confidence intervals and so will investigate
 their frequency performance over repeated realizations of the experiment.
 We can do this via simulation. Let's consider different values of
-{$$}p{/$$} and look at the Wald interval's coverage when we repeatedly
+{/$$}p$ and look at the Wald interval's coverage when we repeatedly
 create confidence intervals.
 
 
@@ -553,7 +553,7 @@ coverage <- sapply(lambdavals, function(lambda) {
 
 The coverage can be low for low values of lambda. In this case the asymptotics
 works as we increase the monitoring time, t. Here's the coverage if we
-increase {/$$}t{$$} to 1,000.
+increase {/$$}t$ to 1,000.
 
 ![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2-1.png) 
 
@@ -565,7 +565,7 @@ converge to the population means that they are estimating.
 distributions.
   * centered at the population mean.
   * with standard deviation equal to the standard error of the mean.
-  * CLT gives no guarantee that {/$$}n{$$} is large enough.
+  * CLT gives no guarantee that {$$}n{/$$} is large enough.
 * Taking the mean and adding and subtracting the relevant.
 normal quantile times the SE yields a confidence interval for the mean.
   * Adding and subtracting 2 SEs works for 95% intervals.
@@ -586,6 +586,6 @@ don't require the CLT.
 5. The rate of search entries into a web site was 10 per minute when monitoring for an hour. Use R to calculate the exact Poisson interval for the rate of events per minute?
 6. Consider a uniform distribution. If we were to sample 100 draws from a
 a uniform distribution (which has mean 0.5, and variance 1/12) and take their
-mean, {/$$}\bar X$.
+mean, {$$}\bar X{/$$}.
 What is the approximate probability of getting as large as 0.51 or larger?
 [Watch this video solution](https://www.youtube.com/watch?v=JsiLK0g3IZ4&index=15&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the problem and solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#9).

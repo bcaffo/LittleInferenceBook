@@ -149,7 +149,7 @@ Below we give four different ways for calculating the interval.
 
 {title="*t* interval from baseline to follow up.:", lang=r, line-numbers=off}
 ~~~
-g1 <- sleep{$$}extra[1 : 10]; g2 <- sleep{/$$}extra[11 : 20]
+g1 <- sleep$extra[1 : 10]; g2 <- sleep$extra[11 : 20]
 difference <- g2 - g1
 mn <- mean(difference); s <- sd(difference); n <- 10
 ## Calculating directly
@@ -200,19 +200,19 @@ We now present methods for creating confidence intervals for comparing independe
 ## Confidence interval
 
 A {/$$}(1 - \alpha)\times 100\%{$$} confidence interval for the mean difference between the groups,
-{/$$}\mu_y - \mu_x{$$} is:
+{/$$}\mu_y - \mu_x$ is:
 
-{/$$}
+{$$}
 \bar Y - \bar X \pm t_{n_x + n_y - 2, 1 - \alpha/2}S_p
 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)^{1/2}.
-{$$}
-
-The notation {/$$}t_{n_x + n_y - 2, 1 - \alpha/2}{$$} means a *t* quantile with
-{/$$}n_x + n_y - 2{$$} degrees of freedom. The pooled variance estimator is:
-
 {/$$}
-S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2).
+
+The notation {$$}t_{n_x + n_y - 2, 1 - \alpha/2}{/$$} means a *t* quantile with
+{$$}n_x + n_y - 2{/$$} degrees of freedom. The pooled variance estimator is:
+
 {$$}
+S_p^2 = \{(n_x - 1) S_x^2 + (n_y - 1) S_y^2\}/(n_x + n_y - 2).
+{/$$}
 
 This variance estimate is used if one is willing to assume a constant variance across the groups.
 It is a weighted average of the group-specific variances, with greater weight given to whichever
@@ -236,8 +236,8 @@ md <- mean(g2) - mean(g1)
 semd <- sp * sqrt(1 / n1 + 1/n2)
 rbind(
   md + c(-1, 1) * qt(.975, n1 + n2 - 2) * semd,  
-  t.test(g2, g1, paired = FALSE, var.equal = TRUE){/$$}conf,
-  t.test(g2, g1, paired = TRUE){$$}conf
+  t.test(g2, g1, paired = FALSE, var.equal = TRUE){$$}conf,
+  t.test(g2, g1, paired = TRUE){/$$}conf
 )
 ~~~
 
@@ -305,9 +305,9 @@ assuming that the variances are equal and one assuming otherwise.
 wideCW14 <- subset(wideCW, Diet %in% c(1, 4))
 rbind(
   t.test(gain ~ Diet, paired = FALSE, var.equal = TRUE,
-         data = wideCW14){/$$}conf,
+         data = wideCW14){$$}conf,
   t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE,
-         data = wideCW14){$$}conf
+         data = wideCW14){/$$}conf
 )
 ~~~
 
@@ -333,17 +333,17 @@ below zero it suggest that group 1 had less weight gain than group 4 (at 95% con
 
 Under unequal variances our *t* interval becomes:
 
-{/$$}
-\bar Y - \bar X \pm t_{df} \times \left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}
 {$$}
-
-where {/$$}t_{df}{$$} is the *t* quantile calculated with degrees of freedom:
-
+\bar Y - \bar X \pm t_{df} \times \left(\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}\right)^{1/2}
 {/$$}
+
+where {$$}t_{df}{/$$} is the *t* quantile calculated with degrees of freedom:
+
+{$$}
 df=    \frac{\left(S_x^2 / n_x + S_y^2/n_y\right)^2}
     {\left(\frac{S_x^2}{n_x}\right)^2 / (n_x - 1) +
       \left(\frac{S_y^2}{n_y}\right)^2 / (n_y - 1)}
-{$$}
+{/$$}
 
 which will be approximately a 95% interval. This works really well.
 So when in doubt, just assume unequal variances. Also, we present the formula
@@ -358,7 +358,7 @@ unequal variances would be wise. Recall the code is
 {lang=r, line-numbers=off}
 ~~~
 t.test(gain ~ Diet, paired = FALSE, var.equal = FALSE,
-       data = wideCW14){/$$}conf
+       data = wideCW14){$$}conf
 ~~~
 
 
@@ -393,7 +393,7 @@ For other kinds of data, there are preferable small and large sample intervals a
 
 ## Exercises
 
-1. For iid Gaussian data, the statistic {$$}\frac{\bar X - \mu}{s / \sqrt{n}}{/$$} must follow a:
+1. For iid Gaussian data, the statistic {/$$}\frac{\bar X - \mu}{s / \sqrt{n}}{$$} must follow a:
   - Z distribution
   - *t* distribution
 2. Paired differences T confidence intervals are useful when:
@@ -404,7 +404,7 @@ For other kinds of data, there are preferable small and large sample intervals a
   - The population variances are identical, but the sample variances may be different.
 4. Load the data set `mtcars` in the `datasets` R package. Calculate a
 95% confidence interval to the nearest MPG for the variable `mpg`. [Watch a video solution](https://www.youtube.com/watch?v=5BPY6JqRLbE&index=19&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see written solutions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#3).
-5. Suppose that standard deviation of 9 paired differences is {$$}1{/$$}. What value would the average difference have to be so that the lower endpoint of a 95%
+5. Suppose that standard deviation of 9 paired differences is {/$$}1$. What value would the average difference have to be so that the lower endpoint of a 95%
 students t confidence interval touches zero? [Watch a video solution here](https://www.youtube.com/watch?v=ioDwUPCy508&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=20)
 and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#4).
 6. An independent group Student's T interval is used instead of
