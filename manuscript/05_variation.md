@@ -133,7 +133,7 @@ are histograms of the collections of sample variances.
 
 Recall that we calculated the variance of a die roll as 2.92 earlier on in
 this chapter. Notice each of the histograms are centered there. In addition,
-the get more concentrated around 2.92 as more the variances are comprised
+they get more concentrated around 2.92 as more the variances are comprised
 of more dice.
 
 
