@@ -28,7 +28,7 @@ where the sum is taken over the possible values of {$$}x{/$$}. Where did
 they get this idea from? It's taken from the physical idea of the center
 of mass. Specifically, {$$}E[X]{/$$}
 represents the center of mass of a collection of locations and weights,
-{$$}\{x, p(x)\}{/$$}. We can exploit this fact the quickly calculate
+{$$}\{x, p(x)\}{/$$}. We can exploit this fact to quickly calculate
 population means for distributions where the center of mass is obvious.
 
 ## The sample mean
