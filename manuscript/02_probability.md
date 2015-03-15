@@ -159,14 +159,14 @@ random draw from the population.
 So our definition is that a **random variable** is a numerical outcome of an
 experiment.
  The random variables that we study will come in two varieties,
-**discrete** or **continuous**. Discrete random variable are random variables
+**discrete** or **continuous**. Discrete random variables are random variables
 that take on only a
  countable number of possibilities. Mass functions will
 assign probabilities that they
  take specific values.  Continuous random
 variable can conceptually take any value on the real line or
  some subset of the
-real line and we talk about the probability that they line within some range.
+real line and we talk about the probability that they lie within some range.
 Densities
  will characterize these probabilities.
 
