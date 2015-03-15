@@ -3,7 +3,7 @@
 ## Conditional probability, motivation
 [Watch this video before beginning.](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-Conditioning a central subject in statistics.
+Conditioning is a central subject in statistics.
 If we are given information about a random variable, it changes
 the probabilities associated with it. For example,
 the probability of getting a one when rolling a (standard) die
