@@ -453,7 +453,7 @@ prefix `q` in front of the distribution name
 
 ## Exercises
 
-1. Can you add the probabilities of any to events to get the probability of at least one occurring?
+1. Can you add the probabilities of any two events to get the probability of at least one occurring?
 2. I define a PMF, {$$}p{/$$} so that for {$$}x = 0{/$$} and {$$}x=1{/$$} we have
 {$$}p(0) = -0.1{/$$} and {$$}p(1)  = 1.1{/$$}. Is this a valid PMF?
 3. What is the probability that 75% or fewer calls get answered in a randomly sampled day from the population distribution from this chapter?
