@@ -247,7 +247,7 @@ leads us to the central dogma of probability density functions:
 
 Therefore, when one says that intelligence quotients (IQ) in population follows a bell
 curve, they are saying that the probability of a randomly
-selected from this population having an IQ between
+selected person from this population having an IQ between
 two values is given by the area under the bell curve.
 
 Not every function can be a valid probability density
