@@ -155,7 +155,7 @@ from.
 This is very useful, since we don't have repeat sample means
 to get its variance directly using the data. We already know a good estimate of
 {$$}\sigma^2{/$$} via the sample variance. So, we can get a good estimate
-of the variability of the mean, even though we only get to observer 1 mean.
+of the variability of the mean, even though we only get to observe 1 mean.
 
 Notice also this explains why in all of our simulation experiments the
 variance of the sample mean kept getting smaller as the sample size
