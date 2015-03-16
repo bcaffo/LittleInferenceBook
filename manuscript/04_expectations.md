@@ -172,7 +172,7 @@ distributions. The expected value, or mean, height is the center of the
 population density of heights.
 
 Of course, the average of ten randomly sampled
-people's height is itself of random variable, in the same way that the
+people's height is itself a random variable, in the same way that the
 average of ten die rolls is itself a random number. Thus, the distribution
 of heights gives rise to the distribution of averages of ten heights
 in the same way that distribution associated with a die roll gives
