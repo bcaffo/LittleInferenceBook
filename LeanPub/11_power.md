@@ -1,0 +1,304 @@
+
+# Power
+
+## Power
+[Watch this video before beginning.](http://youtu.be/-TsBOLiW4rQ?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+and then
+[watch this video as well.](http://youtu.be/GRS2b1aedmk?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+Power is the probability of rejecting the null hypothesis when it is false.
+Ergo, power (as its name would suggest) is a good thing; you want more power.
+A type II error (a bad thing, as its name would suggest) is failing to reject
+the null hypothesis when it's false; the probability of a type II error is
+usually called {$$}\beta{/$$}. Note Power  {$$}= 1 - \beta{/$$}.
+
+Let's go through an example of calculating power.
+Consider our previous example involving RDI.
+{$$}H_0: \mu = 30{/$$} versus {$$}H_a: \mu > 30{/$$}.
+Then power is:
+
+{$$}P\left(\frac{\bar X - 30}{s /\sqrt{n}} > t_{1-\alpha,n-1} ~;~ \mu = \mu_a \right).{/$$}
+
+Note that this is a function that depends on the specific value of {$$}\mu_a{/$$}!
+Further notice that as {$$}\mu_a{/$$} approaches 30 the power approaches {$$}\alpha{/$$}.
+
+
+Pushing this example further, we reject if
+
+{$$}Z = \frac{\bar X - 30}{\sigma /\sqrt{n}} > z_{1-\alpha}{/$$}
+
+Or, equivalently, if
+
+{$$}\bar X > 30 + Z_{1-\alpha} \frac{\sigma}{\sqrt{n}}{/$$}
+
+But, note that, under {$$}H_0 : \bar X \sim N(\mu_0, \sigma^2 / n){/$$}.
+However, under {$$}H_a : \bar X \sim N(\mu_a, \sigma^2 / n){/$$}.
+
+So for this test we could calculate power with this R code:
+
+
+{title="Power calculation for the sleep example in R:", lang=r, line-numbers=off}
+~~~
+alpha = 0.05
+mu0 = 30; mua = 32; n = 16; sigma = 4
+z = qnorm(1 - alpha)
+pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n),
+      lower.tail = FALSE)
+~~~
+
+
+
+
+Let's plug in the specific numbers for our example where:
+{$$}\mu_a = 32{/$$}, {$$}\mu_0 = 30{/$$}, {$$}n =16{/$$}, {$$}\sigma = 4{/$$}.
+
+
+
+
+{lang=r, line-numbers=off}
+~~~
+mu0 = 30
+mua = 32
+sigma = 4
+n = 16
+z = qnorm(1 - alpha)
+pnorm(mu0 + z * sigma/sqrt(n), mean = mu0, sd = sigma/sqrt(n),
+      lower.tail = FALSE)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.05
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+pnorm(mu0 + z * sigma/sqrt(n), mean = mua, sd = sigma/sqrt(n),
+      lower.tail = FALSE)
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.63876
+~~~
+
+
+
+
+When we plug in {$$}\mu_0{/$$}, the value under the null hypothesis, we
+get that the probability of rejection is 5%, as the test was designed. However,
+when we plug in a value of 32, we get 64%. Therefore, the probability of
+rejection is 64% when the true value of {$$}\mu{/$$} is 32. We could create
+a curve of the power as a function of {$$}\mu_a{/$$}, as seen below.
+We also varied the sample size to see how the curve depends on that.
+
+![Plot of power as {$$}\mu_a{/$$} varies.](images/powerCurve-1.png) 
+
+
+The code below shows how to use manipulate to investigate power
+as the various inputs change.
+
+
+{title="Code for investigating power.:", lang=r, line-numbers=off}
+~~~
+library(manipulate)
+mu0 = 30
+myplot <- function(sigma, mua, n, alpha) {
+    g = ggplot(data.frame(mu = c(27, 36)), aes(x = mu))
+    g = g + stat_function(fun = dnorm, geom = "line",
+                          args = list(mean = mu0,
+        sd = sigma/sqrt(n)), size = 2, col = "red")
+    g = g + stat_function(fun = dnorm, geom = "line",
+                          args = list(mean = mua,
+        sd = sigma/sqrt(n)), size = 2, col = "blue")
+    xitc = mu0 + qnorm(1 - alpha) * sigma/sqrt(n)
+    g = g + geom_vline(xintercept = xitc, size = 3)
+    g
+}
+manipulate(myplot(sigma, mua, n, alpha),
+           sigma = slider(1, 10, step = 1, initial = 4),
+    mua = slider(30, 35, step = 1, initial = 32),
+    n = slider(1, 50, step = 1, initial = 16),
+    alpha = slider(0.01, 0.1, step = 0.01, initial = 0.05))
+~~~
+
+
+
+
+## Question
+[Watch this video before beginning.](http://youtu.be/3bWhP5MyuqI?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+ When testing {$$}H_a : \mu > \mu_0{/$$}, notice if power is {$$}1 - \beta{/$$}, then
+
+{$$}1 - \beta = P\left(\bar X > \mu_0 + z_{1-\alpha} \frac{\sigma}{\sqrt{n}} ; \mu = \mu_a \right){/$$}
+
+where {$$}\bar X \sim N(\mu_a, \sigma^2 / n){/$$}. The
+unknowns in the equation are: {$$}\mu_a{/$$}, {$$}\sigma{/$$}, {$$}n{/$$},
+{$$}\beta{/$$} and the knowns are: {$$}\mu_0{/$$}, {$$}\alpha{/$$}.
+Specify any 3 of the unknowns and you can solve for the remainder.
+
+## Notes
+- The calculation for {$$}H_a:\mu < \mu_0{/$$} is similar
+- For {$$}H_a: \mu \neq \mu_0{/$$} calculate the one sided power using
+  {$$}\alpha / 2{/$$} (this is only approximately right, it excludes the probability of
+  getting a large TS in the opposite direction of the truth)
+- Power goes up as {$$}\alpha{/$$} gets larger
+- Power of a one sided test is greater than the power of the
+  associated two sided test
+- Power goes up as {$$}\mu_1{/$$} gets further away from {$$}\mu_0{/$$}
+- Power goes up as {$$}n{/$$} goes up
+- Power doesn't need {$$}\mu_a{/$$}, {$$}\sigma{/$$} and {$$}n{/$$}, instead only {$$}\frac{\sqrt{n}(\mu_a - \mu_0)}{\sigma}{/$$}
+  - The quantity {$$}\frac{\mu_a - \mu_0}{\sigma}{/$$} is called the *effect size*, the difference in the means in standard deviation units.
+  - Being unit free, it has some hope of interpretability across settings.
+
+## T-test power
+[Watch this before beginning.](http://youtu.be/1DiwutNpt5Y?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
+Consider calculating power for a Gosset's *t* test for our example where
+we now assume that {$$}n=16{/$$}. The power is
+
+{$$}
+P\left(\frac{\bar X - \mu_0}{S /\sqrt{n}} > t_{1-\alpha, n-1} ~;~ \mu = \mu_a \right).
+{/$$}
+
+Calculating this requires the so-called non-central t distribution.
+However, fortunately for us, the R function `power.t.test` does this very well.
+Omit (exactly) any one of the arguments and it solves for it. Our t-test
+power again only relies on the effect size.
+
+Let's do our example trying different options.
+
+
+{title="Example of using 'power.t.test' in R.:", lang=r, line-numbers=off}
+~~~
+# omitting the power and getting a power estimate
+power.t.test(n = 16, delta = 2/4, sd = 1,
+             type = "one.sample", alt = "one.sided"){$$}power
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.6040329
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+# illustrating that it depends only on the effect size, delta/sd
+power.t.test(n = 16, delta = 2, sd = 4,
+             type = "one.sample", alt = "one.sided"){/$$}power
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.6040329
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+# same thing again
+power.t.test(n = 16, delta = 100, sd = 200,
+             type = "one.sample", alt = "one.sided"){$$}power
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 0.6040329
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+# specifying the power and getting n
+power.t.test(power = 0.8, delta = 2/4, sd = 1,
+             type = "one.sample", alt = "one.sided"){/$$}n
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 26.13751
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+# again illustrating that the effect size is all that matters
+power.t.test(power = 0.8, delta = 2, sd = 4,
+             type = "one.sample", alt = "one.sided"){$$}n
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 26.13751
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+# again illustrating that the effect size is all that matters
+power.t.test(power = 0.8, delta = 100, sd = 200,
+             type = "one.sample", alt = "one.sided"){/$$}n
+~~~
+
+
+
+{lang=r, line-numbers=off}
+~~~
+## [1] 26.13751
+~~~
+
+
+
+
+## Exercises
+
+1. Power is a probability calculation assuming which is true:
+  - The null hypothesis
+  - The alternative hypothesis
+  - Both the null and alternative
+2. As your sample size gets bigger, all else equal, what do you think would happen to power?
+  - It would get larger
+  - It would get smaller
+  - It would stay the same
+  - It cannot be determined from the information given
+3. What happens to power as {$$}\mu_a{/$$} gets further from {$$}\mu_0{/$$}?
+  - Power decreases
+  - Power increases
+  - Power stays the same
+  - Power oscillates
+4. In the context of calculating power, the effect size is?
+  - The null mean divided by the standard deviation
+  - The alternative mean divided by the standard error
+  - The difference between the null and alternative means divided by the standard deviation
+  - The standard error divided by the null mean
+5. Recall this problem "Suppose that in an AB test, one advertising scheme led to an average of 10 purchases per day for a sample of 100 days, while the other led to 11 purchases per day, also for a sample of 100 days.
+Assuming a common standard deviation of 4 purchases per day." Assuming that 10 purchases per day is a benchmark null value,
+that days are iid and that the standard deviation is 4 purchases for day. Suppose that you
+plan on sampling 100 days. What would be the power for a one sided 5%
+Z mean test that purchases per day
+have increased under the alternative of {$$}\mu = 11{/$$} purchase per day? [Watch a video
+solution](https://www.youtube.com/watch?v=RiS6EFnPYY8&index=34&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#10).
+6. Researchers would like to conduct a study of healthy adults to detect a four year mean brain volume loss of .01 mm3. Assume that the standard deviation of four year volume loss in this population is .04 mm3.  What is necessary sample size for the study for a 5% one sided test versus a null hypothesis of no volume loss to achieve 80% power? [Watch the video solution](https://www.youtube.com/watch?v=lrXyJrtatzk&index=35&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
+and [see the text](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw4.html#11).

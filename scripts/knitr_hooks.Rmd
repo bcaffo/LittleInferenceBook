@@ -1,0 +1,52 @@
+
+```{r echo = FALSE, message=FALSE}
+# knitr hook to process the book into pdf
+knitr::knit_hooks$set(document = function(x) {
+  # Remove $$ from explicit equation environments 
+  x <- gsub(pattern = "[$]{2}[\n ]*([\\]begin[^$]*)[$]{2}",
+            replacement = "\\1",
+            x = x)
+})
+
+# Set of knitr chunk hooks to capture output for LeanPub publishing
+knitr::knit_hooks$set(chunk = function(x, options) {
+  # Use hook only if asked for (complete files, i.e. first level chunks)
+  if(options$chunk_hook){
+    # Capture output for LeanPub publishing
+    leanpub <- x
+    
+    # Fix equation markup
+    leanpub <- gsub(pattern = paste0("([^[:alnum:]])",
+                                     "[$]{1,2}([^$]*)[$]{1,2}",
+                                     ""),
+                    replacement = "\\1{$$}\\2{/$$}\\3",
+                    x = leanpub)
+    
+    # Fix titled code chunk markup
+    leanpub <- gsub(pattern = paste("(\\\\vspace[{]1pc[}]\\\\verb;([^;]*);[[:space:]]*)?",
+                                    "[`]{3}r?([^`]*)[`]{3}", sep = ""),
+                    replacement = paste("{title=\"\\2\", lang=r, line-numbers=off}",
+                                        "~~~\\3~~~", sep = "\n"),
+                    x = leanpub)
+    leanpub <- gsub(pattern = "title=\"\",? ?",
+                    replacement = "",
+                    x = leanpub)
+    
+    # Fix image paths
+    leanpub <- gsub(pattern = "(![[][^[]*[]][(])LeanPub/([^)]*[)])",
+                    replacement = "\\1\\2",
+                    x = leanpub)
+    
+    # Export LeanPub compatible markdown
+    cat(leanpub, file = paste0("LeanPub/", options$label, ".md"))
+  } else {
+    # Second level chunks (i.e. chunks inside manuscript files)
+    # Add title to {r title="labeled-chunks"}
+    if(options$title != ""){
+      x <- paste("\\vspace{1pc}\\verb;", options$title, ":;\n", x, sep = "")
+    }
+  }
+  x
+})
+```
+
