@@ -754,7 +754,7 @@ here](http://youtu.be/UXcarD-1xAM?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [
 ## Conditional probability, motivation
 [Watch this video before beginning.](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-Conditioning a central subject in statistics.
+Conditioning is a central subject in statistics.
 If we are given information about a random variable, it changes
 the probabilities associated with it. For example,
 the probability of getting a one when rolling a (standard) die
@@ -1036,7 +1036,7 @@ a central modeling assumption made in statistics. Specifically the idea of a
 random sample. Random variables are said to be independent and
 identically distributed (*iid*) if they are independent and all are drawn from
 the same  population. The reason iid samples are so important is that they are
-are model for random samples. This is a default starting point for most
+a model for random samples. This is a default starting point for most
 statistical inferences.
 
 The idea of having a random sample is powerful for a variety of reasons. Consider
@@ -1105,7 +1105,7 @@ where the sum is taken over the possible values of $x$. Where did
 they get this idea from? It's taken from the physical idea of the center
 of mass. Specifically, $E[X]$
 represents the center of mass of a collection of locations and weights,
-$\{x, p(x)\}$. We can exploit this fact the quickly calculate
+$\{x, p(x)\}$. We can exploit this fact to quickly calculate
 population means for distributions where the center of mass is obvious.
 
 ## The sample mean
@@ -1264,7 +1264,7 @@ distributions. The expected value, or mean, height is the center of the
 population density of heights.
 
 Of course, the average of ten randomly sampled
-people's height is itself of random variable, in the same way that the
+people's height is itself a random variable, in the same way that the
 average of ten die rolls is itself a random number. Thus, the distribution
 of heights gives rise to the distribution of averages of ten heights
 in the same way that distribution associated with a die roll gives
@@ -1492,7 +1492,7 @@ are histograms of the collections of sample variances.
 
 Recall that we calculated the variance of a die roll as 2.92 earlier on in
 this chapter. Notice each of the histograms are centered there. In addition,
-the get more concentrated around 2.92 as more the variances are comprised
+they get more concentrated around 2.92 as more the variances are comprised
 of more dice.
 
 
@@ -1514,7 +1514,7 @@ from.
 This is very useful, since we don't have repeat sample means
 to get its variance directly using the data. We already know a good estimate of
 $\sigma^2$ via the sample variance. So, we can get a good estimate
-of the variability of the mean, even though we only get to observer 1 mean.
+of the variability of the mean, even though we only get to observe 1 mean.
 
 Notice also this explains why in all of our simulation experiments the
 variance of the sample mean kept getting smaller as the sample size
@@ -3721,10 +3721,10 @@ The following manuscripts are interesting reads about P-values.
 ## What is a P-value?
 
 The central idea of a P-value is to assume that the null hypothesis is true and
-calculate how unusual it would be to see data as extreme as was seen
+calculate how unusual it would be to see data (in the form of a test statistic) as extreme as was seen
 in favor of the alternative hypothesis. The formal definition is:
 
-A **P-value** is the probability of observing data as or more extreme in
+A **P-value** is the probability of observing a test statistic as or more extreme in
 favor of the alternative than was actually obtained, where the probability
 is calculated assuming that the null hypothesis is true.
 

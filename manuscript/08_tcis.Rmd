@@ -222,7 +222,7 @@ data in R. We are also going to manipulate the dataset to have a total weight ga
 variable using dplyr.
 
 
-```{r , echo=TRUE}
+```{r , echo=TRUE, message = FALSE}
 library(datasets); data(ChickWeight); library(reshape2)
 ##define weight gain or loss
 wideCW <- dcast(ChickWeight, Diet + Chick ~ Time,
