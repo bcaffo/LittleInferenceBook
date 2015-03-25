@@ -21,10 +21,10 @@ The following manuscripts are interesting reads about P-values.
 ## What is a P-value?
 
 The central idea of a P-value is to assume that the null hypothesis is true and
-calculate how unusual it would be to see data as extreme as was seen
+calculate how unusual it would be to see data (in the form of a test statistic) as extreme as was seen
 in favor of the alternative hypothesis. The formal definition is:
 
-A **P-value** is the probability of observing data as or more extreme in
+A **P-value** is the probability of observing a test statistic as or more extreme in
 favor of the alternative than was actually obtained, where the probability
 is calculated assuming that the null hypothesis is true.
 
