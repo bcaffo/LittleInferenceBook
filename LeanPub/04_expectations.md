@@ -29,7 +29,7 @@ where the sum is taken over the possible values of {$$}x{/$$}. Where did
 they get this idea from? It's taken from the physical idea of the center
 of mass. Specifically, {$$}E[X]{/$$}
 represents the center of mass of a collection of locations and weights,
-{$$}\{x, p(x)\}{/$$}. We can exploit this fact the quickly calculate
+{$$}\{x, p(x)\}{/$$}. We can exploit this fact to quickly calculate
 population means for distributions where the center of mass is obvious.
 
 ## The sample mean
@@ -184,7 +184,7 @@ distributions. The expected value, or mean, height is the center of the
 population density of heights.
 
 Of course, the average of ten randomly sampled
-people's height is itself of random variable, in the same way that the
+people's height is itself a random variable, in the same way that the
 average of ten die rolls is itself a random number. Thus, the distribution
 of heights gives rise to the distribution of averages of ten heights
 in the same way that distribution associated with a die roll gives
