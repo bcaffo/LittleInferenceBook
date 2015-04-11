@@ -14,41 +14,41 @@ locations throughout.
 
 Before beginning, we assume that you have a working knowledge
 of the R programming language. If not, there is a wonderful Coursera class
-by Roger Peng, [that can be found here](https://www.coursera.org/course/rprog).
+by Roger Peng [that can be found here](https://www.coursera.org/course/rprog).
 
 The entirety of the book is on GitHub [here](https://github.com/bcaffo/LittleInferenceBook).
-Please submit pull requests if you find errata! In addition the course notes can be found
-also on GitHub [here](https://github.com/bcaffo/courses/tree/master/06_StatisticalInference).
+Please submit pull requests if you find errata! In addition, the course notes can also be found
+on GitHub [here](https://github.com/bcaffo/courses/tree/master/06_StatisticalInference).
 While most code is in the book, *all* of the code for every figure and analysis in the
 book is in the R markdown files files (.Rmd) for the respective lectures.
 
-Finally, we should mention `swirl` (statistics with interactive R programming).
+Finally, we should mention `swirl` ("statistics with interactive R learning").
 `swirl` is an intelligent tutoring system developed by Nick Carchedi, with contributions
 by Sean Kross and Bill and Gina Croft. It offers a way to learn R in R.
 Download `swirl` [here](http://swirlstats.com). There's a swirl
-[module for this course!](https://github.com/swirldev/swirl_courses#swirl-courses).
-Try it out, it's probably the most effective way to learn.
+[module for this course!](https://github.com/swirldev/swirl_courses#swirl-courses)
+Try it out; it's probably the most effective way to learn.
 
 ## Statistical inference defined
 
 [Watch this video before beginning.](http://youtu.be/WkOinijQmPU?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 We'll define statistical inference as the process of generating conclusions about
-a population from a noisy sample. Without statistical inference we're simply
+a population from a noisy sample. Without statistical inference, we're simply
 living within our data. With statistical inference, we're trying to generate
 new knowledge.
 
-Knowledge and parsimony,
-(using simplest reasonable models to explain complex phenomena), go hand in hand.
+Knowledge and parsimony (using simplest reasonable models to explain complex phenomena) 
+go hand in hand.
 Probability models will serve as our parsimonious description of the world.
-The use of probability models as the connection between our data and a
+The use of probability models as the connection between our data and 
 populations represents the most effective way to obtain inference.
 
 ### Motivating example: who's going to win the election?
 
 In every major election, pollsters would like to know, ahead of the
 actual election, who's going to win. Here, the target of
-estimation (the estimand) is clear, the percentage of people in
+estimation (the *estimand*) is clear: the percentage of people in
 a particular group (city, state, county, country or other electoral
 grouping) who will vote for each candidate.
 
@@ -58,14 +58,14 @@ How do we collect a reasonable subset of data and quantify the
 uncertainty in the process to produce a good guess at who will win?
 
 
-### Motivating example, predicting the weather
+### Motivating example: predicting the weather
 
 When a weatherman tells you the probability that it will rain tomorrow is
 70%, they're trying to use historical data
-to predict tomorrow's weather - and to actually attach a probability to it.
+to predict tomorrow's weather – and to actually attach a probability to it.
 That probability refers to population.
 
-#### Motivating example, brain activation
+### Motivating example: brain activation
 
 An example that's very close to the research I do is trying to predict what
 areas of the brain activate when a person is put in the fMRI scanner. In
@@ -83,7 +83,7 @@ to use data to create general conclusions about a population.
 Paramount among our concerns are:
 
 * Is the sample representative of the population that we'd like to draw inferences about?
-* Are there known and observed, known and unobserved or unknown and unobserved variables that contaminate our conclusions?
+* Are there known and observed, known and unobserved, or unknown and unobserved variables that contaminate our conclusions?
 * Is there systematic bias created by missing data or the design or conduct of the study?
 * What randomness exists in the data and how do we use or adjust for it? Here randomness can either be explicit via randomization
 or random sampling, or implicit as the aggregation of many complex unknown processes.
@@ -98,13 +98,13 @@ You should recognize the goals of inference. Here we list five
 examples of inferential goals.
 
 1. Estimate and quantify the uncertainty of an estimate of
-a population quantity (the proportion of people who will
-  vote for a candidate).
+a population quantity. ("What proportion of people will
+  vote for a candidate?")
 2. Determine whether a population quantity
-  is a benchmark value ("is the treatment effective?").
+  is a benchmark value. ("Is the treatment effective?")
 3. Infer a mechanistic relationship when quantities are measured with
-  noise ("What is the slope for Hooke's law?")
-4. Determine the impact of a policy? ("If we reduce pollution levels,
+  noise. ("What is the slope for Hooke's law?")
+4. Determine the impact of a policy. ("If we reduce pollution levels,
   will asthma rates decline?")
 5. Talk about the probability that something occurs.
 
@@ -141,20 +141,20 @@ styles of inference. Two broad categories that get discussed a lot are:
 2. *Frequency style inference*: uses frequency interpretations of probabilities
 to control error rates. Answers questions like "What should I decide
 given my data controlling the long run proportion of mistakes I make at
-a tolerable level."
+a tolerable level?"
 3. *Bayesian probability*: is the probability calculus of beliefs, given that beliefs follow certain rules.
 4. *Bayesian style inference*: the use of Bayesian probability representation
 of beliefs to perform inference. Answers questions like "Given my subjective beliefs and the objective information from the data, what
 should I believe now?"
 
 Data scientists tend to fall within shades of gray of these and various other schools of inference.
-Furthermore, there are so many shades of gray between the styles of inferences
+Furthermore, there are so many shades of gray between the styles of inference
 that it is hard to pin down most modern statisticians as either Bayesian or
 frequentist. In this class, we will primarily focus on basic sampling models,
 basic probability models and frequency style analyses
 to create standard inferences. This is the most popular style of inference by far.
 
-Being data scientists,  we will also consider some inferential strategies that  
+Being data scientists,  we will also consider some inferential strategies that
 rely heavily on the observed data, such as permutation testing
 and bootstrapping. As probability modeling will be our starting point, we first build
 up basic probability as our first task.
@@ -165,7 +165,7 @@ up basic probability as our first task.
   - Infer facts about a population from a sample.
   - Infer facts about the sample from a population.
   - Calculate sample quantities to understand your data.
-  - To torture Data Science students.
+  - Torture Data Science students.
 2. The goal of randomization of a treatment in a randomized trial is to?
   - It doesn't really do anything.
   - To obtain a representative sample of subjects from the population of interest.
