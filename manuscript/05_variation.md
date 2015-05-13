@@ -335,4 +335,5 @@ problem here](http://youtu.be/0WUj18_BUPA?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9
 and 'x <- 2 : 5`. What is the variance? [Watch a video solution to this problem here](http://youtu.be/HSn8n4DsGSg?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
 and [here is the problem worked out](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#10).
 9. If you roll ten standard dice, take their average, then repeat this process over and over and construct a histogram,  what would be its variance expressed to 3 decimal places?
-[Watch a video solution here](https://www.youtube.com/watch?v=MLfo9zz1zX4&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=17) and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#10).
+[Watch a video solution here](https://www.youtube.com/watch?v=MLfo9zz1zX4&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=17) and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#11).
+12. The number of web hits to a site is Poisson with mean 16.5 per day. What is the probability of getting 20 or fewer in 2 days expressed as a percentage to one decimal place?  [Watch a video solution here](https://youtu.be/PMPFbwtpp1k?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#12).
