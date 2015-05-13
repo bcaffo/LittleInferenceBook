@@ -273,7 +273,7 @@ and {$$}t{/$$} is the total monitoring time.
 ### Example
 The number of people that show up at a bus stop is Poisson with
 a mean of 2.5 per hour. If watching the bus stop for 4 hours, what
-is the probability that $3$ or fewer people show up for the whole time?
+is the probability that 3 or fewer people show up for the whole time?
 
 
 {title="Finding a normal quantile", line-numbers=off,lang=r}
