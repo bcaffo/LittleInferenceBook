@@ -199,7 +199,7 @@ Notice that
 {/$$}
 
 Therefore, 24.27 is 1 standard deviation below the mean. We know that 16% lies
-below or above 1 standard deviation from the mean. Thus 16% lies below.
+below or above 1 standard deviation from the mean. Thus 16% lies below -1.
 Alternatively, `pnorm(24.27, 29, 4.73)` yields the result.
 
 ### Example
