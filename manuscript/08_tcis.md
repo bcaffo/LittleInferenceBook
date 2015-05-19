@@ -335,7 +335,7 @@ For other kinds of data, there are preferable small and large sample intervals a
   - The population variances are identical, but the sample variances may be different.
 4. Load the data set `mtcars` in the `datasets` R package. Calculate a
 95% confidence interval to the nearest MPG for the variable `mpg`. [Watch a video solution](https://www.youtube.com/watch?v=5BPY6JqRLbE&index=19&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see written solutions](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#3).
-5. Suppose that standard deviation of 9 paired differences is $1$. What value would the average difference have to be so that the lower endpoint of a 95%
+5. Suppose that standard deviation of 9 paired differences is 1. What value would the average difference have to be so that the lower endpoint of a 95%
 students t confidence interval touches zero? [Watch a video solution here](https://www.youtube.com/watch?v=ioDwUPCy508&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L&index=20)
 and [see the text here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw3.html#4).
 6. An independent group Student's T interval is used instead of
