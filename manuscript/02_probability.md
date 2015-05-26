@@ -4,21 +4,21 @@
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
 
-Before we begin discussing probability, let's dispense with some deep philosophical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occurring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
+Before we begin discussing probability, let's dispense with some deep philosophical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occurring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long run proportion of times something occurs in repeated unrelated realizations. For example, think of the proportion of times a head results when flipping a coin.
 
 For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
 
 
 ## Where to get a more thorough treatment of  probability
 
-In this lecture, we will cover the fundamentals of probability at low enough of
-a level to have a basic understanding for the rest of the series. For a more
-complete treatment see the class Mathematical Biostatistics Boot Camp 1, which
+In this lecture, we will cover the fundamentals of probability at a low enough level 
+to have a basic understanding for the rest of the series. For a more
+complete treatment, see the class Mathematical Biostatistics Boot Camp 1, which
 can be viewed on YouTube [here](Youtube:
 www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
-there's  the actual [Coursera course](Coursera:
+there's the actual [Coursera course](Coursera:
 www.coursera.org/course/biostats) that I run periodically (this is the first
-Coursera class that I ever taught).  Also there are a set of [notes on
+Coursera class that I ever taught).  Also there is a set of [notes on
 GitHub](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a follow up
 class, uninspiringly named  Mathematical Biostatistics Boot Camp 2, that is more
 devoted  to biostatistical topics that has an associated [YouTube
@@ -33,7 +33,7 @@ beginning.](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Given a random experiment (say rolling a die) a probability measure is a
 population quantity
- that summarizes the randomness.  The brilliant discovery of
+ that summarizes the randomness.  The brilliant discovery by
 the father of probability, the [Russian mathematician
 Kolmogorov](http://en.wikipedia.org/wiki/Andrey_Kolmogorov), was that
  to
@@ -46,7 +46,7 @@ outcome from an experiment and:
 1. assigns it a number between 0 and 1
 2. requires that the probability that
 something occurs is 1
-3. required that the probability of the union of any two
+3. requires that the probability of the union of any two
 sets of outcomes that have nothing in common (mutually exclusive)
  is the sum of
 their respective probabilities.
@@ -55,14 +55,14 @@ From these simple rules all of the familiar rules of probability can be
 developed.  This all might seem a little odd at first and so we'll build up our
 intuition with some simple examples based on coin flipping and die rolling.
 
-I would like to reiterate the important definition that we wrote out: *mutually
+I would like to reiterate the important condition that we wrote out: *mutually
 exclusive*.  Two events are mutually exclusive if they cannot both
-simultaneously occur. For example, we cannot simultaneously get a 1 and a 2 on a
+simultaneously occur. For example, we cannot simultaneously get a 1 and a 2 on the same
 die.  Rule 3 says that since the event of getting a 1 and 2 on a die are
-mutually exclusive, the probability of getting at least one (the union) is the
+mutually exclusive, the probability of getting at least one of the two (the union) is the
 sum of their probabilities. So if we know that the probability of getting a 1 is
 1/6 and the probability of getting a 2 is 1/6, then the probability of getting a
-1 or a 2 is 2/6, the sum of the two probabilities since they are mutually
+1 or a 2 is 2/6, the sum of the two probabilities, since they are mutually
 exclusive.
 
 ## Consequences of The Three Rules
@@ -81,7 +81,7 @@ something occurs, which is 1 by rule number 2.  So we have that
 
 We won't go through this tedious exercise (since Kolmogorov already did it for
 us). Instead here's a list of some of the consequences of Kolmogorov's rules
-that are often useful.
+that are often useful:
 
 1. The probability that nothing occurs is 0
 2. The probability that something occurs is 1
@@ -90,7 +90,7 @@ that are often useful.
 5. For any two events the probability that at least one occurs is the sum of their probabilities minus their intersection.
 
 This last rules states that {$$}P(A \cup B) = P(A) + P(B)  - P(A \cap B){/$$}
-shows what is the issue with adding probabilities that are not mutually
+illustrates the issue with adding probabilities that are not mutually
 exclusive.  If we do this, we've added the probability that both occur in twice!
 (Watch the video where I draw a Venn diagram to illustrate this).
 
@@ -143,17 +143,17 @@ density. In this section
  you'll learn exactly what the bell curve is and how to
 work with it.
 
-Remember, everything we're talking about up to at this point is a population
+Remember, everything we've talked about up to this point is a population
 quantity,
  not a statement about what occurs in our data. Think about the fact that
 50% probability for head is a statement about
  the coin and how we're flipping
 it, not a statement about the percentage of heads we obtained in a particular
 set of flips.  This is an important distinction that we will emphasize over and
-over in this course. Statistical
+over again in this course. Statistical
  inference is about describing populations
 using data. Probability density functions are a way to mathematically
-characterize the population. In this course, we'll assume that our sample is a
+characterize that population. In this course, we'll assume that our sample is a
 random draw from the population.
 
 So our definition is that a **random variable** is a numerical outcome of an
@@ -164,9 +164,9 @@ that take on only a
  countable number of possibilities. Mass functions will
 assign probabilities that they
  take specific values.  Continuous random
-variable can conceptually take any value on the real line or
+variable can conceptually take any value on the real number line or
  some subset of the
-real line and we talk about the probability that they lie within some range.
+real number line and we talk about the probability that they lie within some range.
 Densities
  will characterize these probabilities.
 
@@ -179,15 +179,15 @@ they aren't interesting in the sense of seeming very contrived. Nonetheless,
 the coin example is particularly useful since many of the experiments we
 consider will be modeled as if tossing a biased coin. Modeling
 any binary characteristic from a random sample of a population can be
-thought of as a coin toss, with the random sampling performing the roll of the
-toss and the population percentage of individuals with the characteristic
-is the probability of a head. Consider, for example, logging whether or
+thought of as a coin toss, with the random sampling performing the
+toss and the population percentage of individuals with a characteristic
+as the probability of a head. Consider, for example, logging whether or
 not subjects were hypertensive in a random sample. Each subject's
 outcome can be modeled as a coin toss. In a similar sense the die roll serves
 as our model for phenomena with more than one level, such as hair color or
 rating scales.
 
-Consider also the random variable of the number of web hits for a site each day.
+Consider also the random variable of the number of daily web hits for a site.
 This variable is a count, but is largely unbounded (or at least we couldn't
 put a specific reasonable upper limit). Random variables like this are often modeled
 with the so called Poisson distribution.
@@ -203,10 +203,10 @@ functions to model the probabilities of collections of realizations. These
 functions, called mass functions and densities,
 take possible values of the random variables, and assign the associated
 probabilities. These entities describe the population of interest. So, consider
-the most famous density, the normal distribution. Saying that body mass
+the most famous density: the normal distribution. Saying that body mass
 indices follow a normal distribution is a statement about the population of
 interest. The goal is to use our data to figure out things about that normal
-distribution, where it's centered, how spread out it is and even
+distribution, where it's centered, how spread out it is, and even
 whether our assumption of normality is warranted!
 
 ## Probability mass functions
@@ -258,16 +258,16 @@ probabilities larger than one. The following two
 rules tell us when a function is a valid probability
 density function.
 
-Specifically, to be a valid pdf, a function must satisfy
+Specifically, to be a valid pdf, a function must satisfy:
 
 1. It must be larger than or equal to zero everywhere.
 2. The total area under it must be one.
 
 ### Example
 
-Suppose that the proportion of help calls that get addressed in
+Suppose that the proportion of help calls that get addressed on
 a random day by a help line is given by {$$} f(x) = 2 x {/$$}
-for {$$}0< x < 1{/$$}. The R code for plotting this density is
+for {$$}0< x < 1{/$$}. The R code for plotting this density is:
 
 {title="Code for plotting the density", line-numbers=off,lang=r}
 ~~~~~~
