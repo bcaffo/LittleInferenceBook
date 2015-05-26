@@ -41,8 +41,8 @@ new knowledge.
 Knowledge and parsimony,
 (using simplest reasonable models to explain complex phenomena), go hand in hand.
 Probability models will serve as our parsimonious description of the world.
-The use of probability models as the connection between our data and a
-populations represents the most effective way to obtain inference.
+The use of probability models as the connection between our sample data and a
+population's true data distribution represents the most effective way to obtain inference.
 
 ### Motivating example: who's going to win the election?
 
@@ -54,8 +54,8 @@ grouping) who will vote for each candidate.
 
 We can not poll everyone. Even if we could, some polled
 may change their vote by the time the election occurs.
-How do we collect a reasonable subset of data and quantify the
-uncertainty in the process to produce a good guess at who will win?
+How do we collect a reasonable subset of data, and quantify the
+uncertainty in the process, to produce a good guess at who will win?
 
 
 ### Motivating example, predicting the weather
@@ -63,12 +63,12 @@ uncertainty in the process to produce a good guess at who will win?
 When a weatherman tells you the probability that it will rain tomorrow is
 70%, they're trying to use historical data
 to predict tomorrow's weather - and to actually attach a probability to it.
-That probability refers to population.
+That probability refers to the true population.
 
 #### Motivating example, brain activation
 
 An example that's very close to the research I do is trying to predict what
-areas of the brain activate when a person is put in the fMRI scanner. In
+areas of the brain activate when a person is put in an fMRI scanner. In
 that case, people are doing a task while in the scanner. For example, they
 might be tapping their finger. We'd like to compare when they are
 tapping their finger to when they are not tapping their finger and try to
@@ -83,7 +83,7 @@ to use data to create general conclusions about a population.
 Paramount among our concerns are:
 
 * Is the sample representative of the population that we'd like to draw inferences about?
-* Are there known and observed, known and unobserved or unknown and unobserved variables that contaminate our conclusions?
+* Are there known and observed, known and unobserved, or unknown and unobserved variables that contaminate our conclusions?
 * Is there systematic bias created by missing data or the design or conduct of the study?
 * What randomness exists in the data and how do we use or adjust for it? Here randomness can either be explicit via randomization
 or random sampling, or implicit as the aggregation of many complex unknown processes.
@@ -95,7 +95,7 @@ tools and subsequently thinking about how to draw conclusions from data.
 ## The goals of inference
 
 You should recognize the goals of inference. Here we list five
-examples of inferential goals.
+examples of inferential goals:
 
 1. Estimate and quantify the uncertainty of an estimate of
 a population quantity (the proportion of people who will
@@ -112,7 +112,7 @@ a population quantity (the proportion of people who will
 ## The tools of the trade
 
 Several tools are key to the use of statistical inference. We'll only
-be able to cover a few in this class, but you should recognize them anyway.
+be able to cover a few in this class, but you should recognize them anyway:
 
 1. *Randomization*: concerned with balancing unobserved variables that may confound inferences of interest.
 2. *Random sampling*: concerned with obtaining data that is representative
@@ -125,8 +125,8 @@ estimation.
 6. *Probability models*: a formal connection between the data and a population of interest. Often probability models are assumed or are
 approximated.
 7. *Study design*: the process of designing an experiment to minimize biases and variability.
-8. *Nonparametric* bootstrapping: the process of using the data to,
-  with minimal probability model assumptions, create inferences.
+8. *Nonparametric* bootstrapping: the process of using the data to create inferences,
+  with minimal probability model assumptions.
 9. *Permutation*, randomization and exchangeability testing: the process
 of using data permutations to perform inferences.
 
@@ -147,14 +147,14 @@ a tolerable level."
 of beliefs to perform inference. Answers questions like "Given my subjective beliefs and the objective information from the data, what
 should I believe now?"
 
-Data scientists tend to fall within shades of gray of these and various other schools of inference.
+Data scientists tend to fall within shades of gray for these and various other schools of inference.
 Furthermore, there are so many shades of gray between the styles of inferences
 that it is hard to pin down most modern statisticians as either Bayesian or
 frequentist. In this class, we will primarily focus on basic sampling models,
-basic probability models and frequency style analyses
-to create standard inferences. This is the most popular style of inference by far.
+basic probability models, and frequency style analyses
+to create standard inferences. This is by far the most popular style of inference.
 
-Being data scientists,  we will also consider some inferential strategies that  
+Being Data Scientists, we will also consider some inferential strategies that  
 rely heavily on the observed data, such as permutation testing
 and bootstrapping. As probability modeling will be our starting point, we first build
 up basic probability as our first task.
@@ -165,12 +165,12 @@ up basic probability as our first task.
   - Infer facts about a population from a sample.
   - Infer facts about the sample from a population.
   - Calculate sample quantities to understand your data.
-  - To torture Data Science students.
+  - Torture Data Science students.
 2. The goal of randomization of a treatment in a randomized trial is to?
   - It doesn't really do anything.
-  - To obtain a representative sample of subjects from the population of interest.
+  - Obtain a representative sample of subjects from the population of interest.
   - Balance unobserved covariates that may contaminate the comparison between the treated and control groups.
-  - To add variation to our conclusions.
+  - Add variation to our conclusions.
 3. Probability is a?
   - Population quantity that we can potentially estimate from data.
-  - A data quantity that does not require the idea of a population.
+  - Data quantity that does not require the idea of a population.
