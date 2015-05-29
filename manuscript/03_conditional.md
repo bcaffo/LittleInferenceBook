@@ -3,7 +3,7 @@
 ## Conditional probability, motivation
 [Watch this video before beginning.](http://youtu.be/u6AH6qsSVA4?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-Conditioning a central subject in statistics.
+Conditioning is a central subject in statistics.
 If we are given information about a random variable, it changes
 the probabilities associated with it. For example,
 the probability of getting a one when rolling a (standard) die
@@ -286,7 +286,7 @@ a central modeling assumption made in statistics. Specifically the idea of a
 random sample. Random variables are said to be independent and
 identically distributed (*iid*) if they are independent and all are drawn from
 the same  population. The reason iid samples are so important is that they are
-are model for random samples. This is a default starting point for most
+a model for random samples. This is a default starting point for most
 statistical inferences.
 
 The idea of having a random sample is powerful for a variety of reasons. Consider
