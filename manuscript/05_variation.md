@@ -95,8 +95,9 @@ The sample standard deviation is the square root of the sample variance.
 Note again that
 the sample variance is almost, but not quite, the average squared deviation from
 the sample mean since we divide by {$$}n-1{/$$} instead of
-{$$}n{/$$}. Why do we do this you might ask? To answer that question
-we have to think in the terms of simulations. Remember that the
+{$$}n{/$$}. Why do we do this you might ask? The answer is to get an unbiased
+estimate of the sample mean. To see that, we have to think in the terms of
+simulations. Remember that the
 sample variance is a random variable, thus it has a distribution
 and that distribution has an associated population mean. That
 mean is the population variance that we're trying to estimate
