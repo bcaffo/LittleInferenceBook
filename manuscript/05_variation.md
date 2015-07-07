@@ -96,7 +96,7 @@ Note again that
 the sample variance is almost, but not quite, the average squared deviation from
 the sample mean since we divide by {$$}n-1{/$$} instead of
 {$$}n{/$$}. Why do we do this you might ask? The answer is to get an unbiased
-estimate of the sample mean. To see that, we have to think in the terms of
+estimate of the sample variance. To see that, we have to think in the terms of
 simulations. Remember that the
 sample variance is a random variable, thus it has a distribution
 and that distribution has an associated population mean. That
