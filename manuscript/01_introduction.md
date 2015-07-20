@@ -65,7 +65,7 @@ When a weatherman tells you the probability that it will rain tomorrow is
 to predict tomorrow's weather - and to actually attach a probability to it.
 That probability talks about, refers to population.
 
-#### Motivating example, brain activation
+### Motivating example, brain activation
 
 An example that's very close to the research I do is trying to predict what
 areas of the brain activate when a person is put in the fMRI scanner. In
