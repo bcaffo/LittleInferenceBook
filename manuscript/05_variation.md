@@ -133,7 +133,7 @@ are histograms of the collections of sample variances.
 
 Recall that we calculated the variance of a die roll as 2.92 earlier on in
 this chapter. Notice each of the histograms are centered there. In addition,
-the get more concentrated around 2.92 as more the variances are comprised
+they get more concentrated around 2.92 as more the variances are comprised
 of more dice.
 
 
@@ -155,7 +155,7 @@ from.
 This is very useful, since we don't have repeat sample means
 to get its variance directly using the data. We already know a good estimate of
 {$$}\sigma^2{/$$} via the sample variance. So, we can get a good estimate
-of the variability of the mean, even though we only get to observer 1 mean.
+of the variability of the mean, even though we only get to observe 1 mean.
 
 Notice also this explains why in all of our simulation experiments the
 variance of the sample mean kept getting smaller as the sample size

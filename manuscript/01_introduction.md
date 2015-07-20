@@ -63,7 +63,7 @@ uncertainty in the process to produce a good guess at who will win?
 When a weatherman tells you the probability that it will rain tomorrow is
 70%, they're trying to use historical data
 to predict tomorrow's weather - and to actually attach a probability to it.
-That probability talks about, refers to population.
+That probability refers to population.
 
 ### Motivating example, brain activation
 

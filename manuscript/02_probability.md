@@ -4,7 +4,7 @@
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
 
-Before we begin discussing probability, let's dispense with some deep philosophical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occurring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
+Before we begin discussing probability, let's dispense with some deep philosophical questions, such as "What is randomness?" and "What is the fundamental interpretation of probability?". One could spend a lifetime studying these questions (and some have). For our purposes, randomness is any process occurring without apparent deterministic patterns. Thus we will treat many things as if they were random when, in fact they are completely deterministic. In my field, biostatistics, we often model disease outcomes as if they were random when they are the result of many mechanistic components whose aggregate behavior appears random. Probability for us will be the long run proportion of times some occurs in repeated unrelated realizations. So, think of the proportion of times that you get a head when flipping a coin.
 
 For the interested student, I would recommend the books and work by Ian Hacking to learn more about these deep philosophical issues. For us data scientists, the above definitions will work fine.
 
@@ -159,14 +159,14 @@ random draw from the population.
 So our definition is that a **random variable** is a numerical outcome of an
 experiment.
  The random variables that we study will come in two varieties,
-**discrete** or **continuous**. Discrete random variable are random variables
+**discrete** or **continuous**. Discrete random variables are random variables
 that take on only a
  countable number of possibilities. Mass functions will
 assign probabilities that they
  take specific values.  Continuous random
 variable can conceptually take any value on the real line or
  some subset of the
-real line and we talk about the probability that they line within some range.
+real line and we talk about the probability that they lie within some range.
 Densities
  will characterize these probabilities.
 
@@ -247,7 +247,7 @@ leads us to the central dogma of probability density functions:
 
 Therefore, when one says that intelligence quotients (IQ) in population follows a bell
 curve, they are saying that the probability of a randomly
-selected from this population having an IQ between
+selected person from this population having an IQ between
 two values is given by the area under the bell curve.
 
 Not every function can be a valid probability density
@@ -453,7 +453,7 @@ prefix `q` in front of the distribution name
 
 ## Exercises
 
-1. Can you add the probabilities of any to events to get the probability of at least one occurring?
+1. Can you add the probabilities of any two events to get the probability of at least one occurring?
 2. I define a PMF, {$$}p{/$$} so that for {$$}x = 0{/$$} and {$$}x=1{/$$} we have
 {$$}p(0) = -0.1{/$$} and {$$}p(1)  = 1.1{/$$}. Is this a valid PMF?
 3. What is the probability that 75% or fewer calls get answered in a randomly sampled day from the population distribution from this chapter?
