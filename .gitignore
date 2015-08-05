@@ -1,6 +1,26 @@
 manuscript/images/Thumbs.db
 *.db
-*.db
-*.db
-*.db
-*.db
+.Rproj.user
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Example code in package build process
+*-Ex.R
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# more files
+manuscript/*.html
+*.Rproj
+*.bak
+
