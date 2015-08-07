@@ -76,7 +76,7 @@ people without. They could take several people who are already known to
 have the disease and apply the test and conversely take people known not
 to have the disease. However, for the collection of people with a positive
 test result, the reverse probability is more of interest, "given a positive
-test what is the probability of having the disease?", and "given a given
+test what is the probability of having the disease?", and "given
 a negative test what is the probability of not having the disease?".
 
 Bayes' rule allows us to switch the conditioning event, provided a little
