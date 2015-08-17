@@ -16,7 +16,7 @@ a level to have a basic understanding for the rest of the series. For a more
 complete treatment see the class Mathematical Biostatistics Boot Camp 1, which
 can be viewed on YouTube [here](Youtube:
 www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
-there's  the actual [Coursera course](Coursera:
+there's  the actual [Coursera course](http:
 www.coursera.org/course/biostats) that I run periodically (this is the first
 Coursera class that I ever taught).  Also there are a set of [notes on
 GitHub](http://github.com/bcaffo/Caffo-Coursera). Finally, there's a follow up
