@@ -304,7 +304,7 @@ unequal variances would be wise. Recall the code is
 [2,] -104.7 -18.30
 ~~~
 
-This interval is remains entirely below zero. However, it is wider than the equal variance interval.
+This interval remains entirely below zero and it is narrower than the equal variance interval.
 
 ## Summary notes
 * The *t* distribution is useful for small sample size comparisons.
