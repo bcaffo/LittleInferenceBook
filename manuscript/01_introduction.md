@@ -38,8 +38,7 @@ a population from a noisy sample. Without statistical inference we're simply
 living within our data. With statistical inference, we're trying to generate
 new knowledge.
 
-Knowledge and parsimony,
-(using simplest reasonable models to explain complex phenomena), go hand in hand.
+Knowledge and parsimony (using simplest reasonable models to explain complex phenomena) go hand in hand.
 Probability models will serve as our parsimonious description of the world.
 The use of probability models as the connection between our data and a
 populations represents the most effective way to obtain inference.
