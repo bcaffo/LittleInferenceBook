@@ -42,10 +42,10 @@ needed.
 Consider an experiment with a random outcome. Probability takes a possible
 outcome from an experiment and:
 
-1. assigns it a number between 0 and 1
-2. requires that the probability that
+1. assigns it a number between 0 and 1,
+2. requires that the probability that,
 something occurs is 1
-3. required that the probability of the union of any two
+3. requires that the probability of the union of any two
 sets of outcomes that have nothing in common (mutually exclusive)
  is the sum of
 their respective probabilities.
