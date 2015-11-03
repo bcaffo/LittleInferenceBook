@@ -1,5 +1,5 @@
 # Probability
-[Watch this video before beginning.](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
@@ -28,8 +28,7 @@ notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2).
 
 ## Kolmogorov's Three Rules
 
-[Watch this lecture before
-beginning.](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Given a random experiment (say rolling a die) a probability measure is a
 population quantity
