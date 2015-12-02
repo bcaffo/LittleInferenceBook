@@ -316,7 +316,7 @@ even though we only get one to look at in a given data set.
   - The population variance.
   - The population mean.
 3. I keep drawing samples of size {$$}n{/$$} from a population with variance {$$}\sigma^2{/$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
-4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
+4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of {$$}n{/$$} observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
   - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
   - Yes, you have to get repeat averages.
 5. A random variable takes the value -4 with probability .2 and 1 with probability .8. What
