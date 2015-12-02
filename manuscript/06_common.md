@@ -180,7 +180,7 @@ is the appropriate standard normal quantile.
 
 To put some context on our previous setting, population
 mean BMI for men [is reported as](http://www.ncbi.nlm.nih.gov/pubmed/23675464)
-29 {$$}kg/mg^2{/$$} with a
+29 {$$}kg/m^2{/$$} with a
 standard deviation of 4.73. Assuming normality of BMI, what is the population
 {$$}95^{th}{/$$} percentile? The answer is then:
 
