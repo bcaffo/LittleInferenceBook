@@ -138,7 +138,7 @@ and 3 standard deviations above and below {$$}\mu{/$$}, the population mean.
 
 The most relevant probabilities are.
 
-1. Approximately 68\%, 95\% and 99\%  of the normal density lies within 1, 2 and 3 standard deviations from the mean, respectively.
+1. Approximately 68%, 95% and 99%  of the normal density lies within 1, 2 and 3 standard deviations from the mean, respectively.
 2. -1.28, -1.645, -1.96 and -2.33 are the {$$}10^{th}{/$$}, {$$}5^{th}{/$$},
 {$$}2.5^{th}{/$$} and {$$}1^{st}{/$$} percentiles of the standard normal
 distribution, respectively.
