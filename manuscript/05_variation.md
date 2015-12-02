@@ -88,7 +88,7 @@ The sample variance is (almost) the average squared deviation
 of observations around the sample mean. It is given by
 
 {$$}
-S^2 = \frac{\sum_{i=1} (X_i - \bar X)^2}{n-1}
+S^2 = \frac{\sum_{i=1}^{n} (X_i - \bar X)^2}{n-1}
 {/$$}
 
 The sample standard deviation is the square root of the sample variance.
