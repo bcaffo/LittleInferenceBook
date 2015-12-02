@@ -218,8 +218,8 @@ standard normal quantiles that the probability of being larger
 than 2 standard deviation is 2.5% and 3 standard deviations is far in the tail.
 Therefore, we know that the probability has to be smaller than 2.5% and should
 be very small. We can obtain it
-exactly as `r pnorm(1160, 1020, 50, lower.tail = FALSE)` which is 0.3%. Note
-that we can also obtain the probability as `r pnorm(2.8, lower.tail = FALSE)`.
+exactly as `pnorm(1160, 1020, 50, lower.tail = FALSE)` which is 0.3%. Note
+that we can also obtain the probability as `pnorm(2.8, lower.tail = FALSE)`.
 
 ### Example
 Consider the previous example again. What number of daily ad clicks
