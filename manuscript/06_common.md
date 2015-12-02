@@ -188,7 +188,7 @@ standard deviation of 4.73. Assuming normality of BMI, what is the population
 29 + 4.73 \times 1.645 = 36.78.
 {/$$}
 
-Or alternatively, we could simply type `r qnorm(.95, 29, 4.73)` in R.
+Or alternatively, we could simply type `qnorm(.95, 29, 4.73)` in R.
 
 Now let's reverse the process. Imaging asking what's the probability that
 a randomly drawn subject from this population has a BMI less than 24.27?
