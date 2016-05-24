@@ -55,8 +55,8 @@ where {$$}x=0,\ldots,n{/$$}. Recall that the notation
 (read "{$$}n{/$$} choose {$$}x{/$$}") counts the number of ways of
 selecting {$$}x{/$$} items out of {$$}n{/$$}
 without replacement disregarding the order of the items. It turns out
-that {$$}n{/$$} choose 0, {$$}n{/$$} choose 1 and
-{$$}n{/$$} choose {$$}n-1{/$$} are all 1.
+that {$$}n{/$$} choose 0 is 1 and {$$}n{/$$} choose 1 and
+{$$}n{/$$} choose {$$}n-1{/$$} are both {$$}n{/$$}.
 
 ### Example
 
