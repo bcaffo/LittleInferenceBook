@@ -109,20 +109,20 @@ Answer: No, the events can simultaneously occur and so
 exclusive. To elaborate let:
 
 {$$}
- \begin{eqnarray*}
-     A_1 & = & \{\mbox{Person has sleep apnea}\} \\
-A_2 & = & \{\mbox{Person has RLS}\}
-   \end{eqnarray*}
+ \begin{aligned}
+     A_1 &=  \{\mbox{Person has sleep apnea}\} \\
+A_2 &=  \{\mbox{Person has RLS}\}
+   \end{aligned}
  {/$$}
 
 Then
 
 {$$}
- \begin{eqnarray*}
-     P(A_1 \cup A_2 ) & = & P(A_1) + P(A_2) - P(A_1 \cap
+ \begin{aligned}
+     P(A_1 \cup A_2 ) &=  P(A_1) + P(A_2) - P(A_1 \cap
 A_2) \\
-    & = & 0.13 - \mbox{Probability of having both}
-   \end{eqnarray*}
+    &=  0.13 - \mbox{Probability of having both}
+   \end{aligned}
  {/$$}
 
 Given the scenario, it's likely that some fraction of the population has both.

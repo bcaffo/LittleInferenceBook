@@ -132,12 +132,12 @@ the specificity, {$$}P(- ~|~ D^c) =.985{/$$} and the prevalence
 {$$}P(D) = .001{/$$}.
 
 {$$}
-\begin{eqnarray*}
+\begin{aligned}
 P(D ~|~ +) & = &\frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + P(+~|~D^c)P(D^c)}\\
  & = & \frac{P(+~|~D)P(D)}{P(+~|~D)P(D) + \{1-P(-~|~D^c)\}\{1 - P(D)\}} \\
  & = & \frac{.997\times .001}{.997 \times .001 + .015 \times .999}\\
  & = & .062
-\end{eqnarray*}
+\end{aligned}
 {/$$}
 
 In this population a positive test result only suggests a 6% probability that
