@@ -170,7 +170,7 @@ standard error.
 * The sample variance, {$$}S^2{/$$}, estimates the population variance, {$$}\sigma^2{/$$}.
 * The distribution of the sample variance is centered around {$$}\sigma^2{/$$}.
 * The variance of the sample mean is {$$}\sigma^2 / n{/$$}.
-  * Its logical estimate is {$$}s^2 / n{/$$}.
+  * Its logical estimate is {$$}S^2 / n{/$$}.
   * The logical estimate of the standard error is {$$}S / \sqrt{n}{/$$}.
 * {$$}S{/$$}, the standard deviation, talks about how variable the population is.
 * {$$}S/\sqrt{n}{/$$}, the standard error, talks about how variable averages of random
