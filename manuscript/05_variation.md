@@ -199,7 +199,7 @@ means of {$$}n{/$$} standard normals. If our theory is correct, they should
 
 So, in this simulation, we simulated 1000 means of 10 standard normals. Our
 theory says the standard deviation of averages of 10 standard normals must
-be {$$}1/\sqrt{n}{/$$}. Taking the standard deviation of the 10000 means yields
+be {$$}1/\sqrt{n}{/$$}. Taking the standard deviation of the 1000 means yields
 nearly exactly that. (Note that it's only close, 0.3156 versus 0.31632.
  To get it to be exact, we'd have to simulate
 infinitely many means.)
