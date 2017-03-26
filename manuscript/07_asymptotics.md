@@ -194,7 +194,7 @@ is pretty far in the left tail (only 2.5% chance of a normal being smaller than
 2 standard deviations in the tail). So the probability
 {$$}\bar X{/$$} is bigger than {$$}\mu + 2 \sigma / \sqrt{n}{/$$}
 or smaller than {$$}\mu - 2 \sigma / \sqrt{n}{/$$} is 5%.
-Or equivalently, the probability that these limits contain {$$}\mu{/$$}
+Or equivalently, the probability that these limits contain {$$}\bar X{/$$}
 is 95%. The quantity:
 
 {$$}\bar X \pm 2 \sigma /\sqrt{n}{/$$}
