@@ -106,7 +106,7 @@ groups rather than paired.
 
 ## The data
 
-{title="Loading Galton's data.", line-numbers=off,lang=r}
+{title="Loading Gosset's data.", line-numbers=off,lang=r}
 ~~~
 > data(sleep)
 > head(sleep)
@@ -121,12 +121,12 @@ groups rather than paired.
 
 Here's a plot of the data. In this plot paired observations are connected with a line.
 
-![A plot of the pairs of observations from Galton's sleep data.](images/galtonSleep.png)
+![A plot of the pairs of observations from Gosset's sleep data.](images/galtonSleep.png)
 
 Now let's calculate the *t* interval for the differences from baseline to follow up.
 Below we give four different ways for calculating the interval.
 
-{title="Loading Galton's data.", line-numbers=off,lang=r}
+{title="Calculating the *t* interval for the differences in Gosset's data.", line-numbers=off,lang=r}
 ~~~
 g1 <- sleep$extra[1 : 10]; g2 <- sleep$extra[11 : 20]
 difference <- g2 - g1
@@ -159,7 +159,7 @@ those who received the treatment to those who received a placebo. The randomizat
 attempting to balance unobserved covariates that might contaminate our results. Because of the randomization, it
 would be reasonable to compare the two groups without considering further variables.
 
-We cannot use the paired *t* interval that we just used for Galton's data,
+We cannot use the paired *t* interval that we just used for Gosset's data,
  because the groups are independent. Person 1 from the treated group has no relationship with person 1
  from the control group. Moreover, the groups may have different sample sizes, so taking paired differences
  may not even be possible even if it isn't advisable in this setting.
@@ -193,10 +193,10 @@ If there is some doubt about the constant variance assumption, assume a differen
 ## Mistakenly treating the sleep data as grouped
 
 Let's first go through an example where we treat paired data as if it were independent.
-Consider Galton's sleep data from before. In the code below, we do the R code
+Consider Gosset's sleep data from before. In the code below, we do the R code
 for grouped data directly, and using the `r t.test` function.
 
-{title="Galton's data treated as grouped and independent.", line-numbers=off,lang=r}
+{title="Gosset's data treated as grouped and independent.", line-numbers=off,lang=r}
 ~~~
 n1 <- length(g1); n2 <- length(g2)
 sp <- sqrt( ((n1 - 1) * sd(x1)^2 + (n2-1) * sd(x2)^2) / (n1 + n2-2))
