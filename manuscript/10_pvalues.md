@@ -48,7 +48,7 @@ What's the probability of getting a *t* statistic as large as 2.5?
 [1] 0.01225
 ~~~
 
-Therefore, the probability of seeing evidence as extreme or more extreme than that actually obtained under {$$}H_0{/$$} is 0.0123. So, (assuming our model is correct)
+Therefore, the probability of seeing evidence as extreme or more extreme than that actually obtained under {$$}H_0{/$$} is 0.01225. So, (assuming our model is correct)
 either we observed data that was pretty unlikely under the null, or the null
 hypothesis if false.
 
