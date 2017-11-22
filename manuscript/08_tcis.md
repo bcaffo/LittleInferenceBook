@@ -26,7 +26,7 @@ The *t* distribution was invented by William Gosset
 (under the pseudonym "Student") in 1908. Fisher provided further mathematical
 details about the distribution later. This distribution
 has thicker tails than the normal. It's
-indexed by a degrees of freedom and it gets more like a standard normal as
+indexed by degrees of freedom and it gets more like a standard normal as
 the degrees of freedom get larger. It assumes that the underlying data are iid
 Gaussian with the result that
 
@@ -44,7 +44,7 @@ The interval is
 where {$$}t_{n-1}{/$$} is the relevant quantile from the *t* distribution.
 
 ### Code for manipulate
-You can use rStudio's manipulate function to to compare the *t* and Z
+You can use rStudio's manipulate function to compare the *t* and Z
 distributions.
 
 {title="Code for investigating *t* and Z densities.", line-numbers=off,lang=r}
@@ -271,7 +271,7 @@ rbind(
 ~~~
 
 For the time being, let's interpret the equal variance interval. Since the interval is entirely
-below zero it suggest that group 1 had less weight gain than group 4 (at 95% confidence).
+below zero it suggests that group 1 had less weight gain than group 4 (at 95% confidence).
 
 ## Unequal variances
 
@@ -304,7 +304,7 @@ unequal variances would be wise. Recall the code is
 [2,] -104.7 -18.30
 ~~~
 
-This interval is remains entirely below zero. However, it is wider than the equal variance interval.
+This interval remains entirely below zero. However, it is wider than the equal variance interval.
 
 ## Summary notes
 * The *t* distribution is useful for small sample size comparisons.
