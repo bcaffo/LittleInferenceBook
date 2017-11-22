@@ -63,9 +63,9 @@ how about 0.001?
 The smallest value for alpha that you still reject the null hypothesis is called
 the *attained significance level*.
 This is mathematically equivalent, but philosophically a little different from,
-the *P-value*. Whereas the P-value is interpreted in the terms of how
+the *P-value*. Whereas the P-value is interpreted in terms of how
 probabilistically extreme our test statistic is under the null, the attained
-significance level merely conveys what the smallest level of {$$}\alpha{/$$}
+significance level merely conveys the smallest level of {$$}\alpha{/$$}
 that one could reject at.
 
 
@@ -73,10 +73,10 @@ This equivalence makes P-values very convenient to convey. The reader of
 the results can perform the test at whatever {$$}\alpha{/$$} he or she
 choses. This is especially useful in multiple testing circumstances.
 
-Here's the two rules for performing hypothesis tests with P-values.
-* If the P-value for a test is less than {$$}\alpha{/$$} you reject the null hypothesis
-* For two sided hypothesis test, double the smaller of the two one
-  sided hypothesis test Pvalues
+Here are the two rules for performing hypothesis tests with P-values.
+- If the P-value for a test is less than {$$}\alpha{/$$} you reject the null hypothesis
+- For two sided hypothesis test, double the smaller of the two one
+  sided hypothesis test P-values.
 
 
 ## Binomial P-value example
@@ -105,15 +105,15 @@ and thus would then fail to reject.
 [Watch this video before beginning.](http://youtu.be/Tcw2OVyEX3s?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ )
 
 Suppose that a hospital has an infection rate of
-10 infections per 100 person/days at risk (rate of 0.1)
+10 infections per 100 person-days at risk (rate of 0.1)
 during the last monitoring period. Assume that an infection rate of 0.05
 is an important benchmark.
 
 Given a Poisson model, could the observed rate being larger than
 0.05 be attributed to chance? We want to test {$$}H_0: \lambda = 0.05{/$$}
-where {$$}\lambda{/$$} is the rate of infections per person day so that
+where {$$}\lambda{/$$} is the rate of infections per person-day so that
 5 would be the rate per 100 days. Thus we want to know if 9 events per
-100 person/days is unusual
+100 person-days is unusual
 with respect to a Poisson distribution with a rate of 5 events per 100.
 Consider {$$}H_a: \lambda > 0.05{/$$}.
 
