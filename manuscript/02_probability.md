@@ -46,7 +46,7 @@ outcome from an experiment and:
 1. assigns it a number between 0 and 1
 2. requires that the probability that
 something occurs is 1
-3. required that the probability of the union of any two
+3. requires that the probability of the union of any two
 sets of outcomes that have nothing in common (mutually exclusive)
  is the sum of
 their respective probabilities.
@@ -143,7 +143,7 @@ density. In this section
  you'll learn exactly what the bell curve is and how to
 work with it.
 
-Remember, everything we're talking about up to at this point is a population
+Remember, everything we're talking about up to this point is a population
 quantity,
  not a statement about what occurs in our data. Think about the fact that
 50% probability for head is a statement about
@@ -392,7 +392,7 @@ and {$$}F(.6){/$$}
 Notice, of course, these are simply the numbers squared. By default the prefix
 `p` in front of a density in R gives the distribution function (`pbeta`, `pnorm`,
   `pgamma`). If you want the survival function values, you could always subtract
-  by one, or give the argument `lower.tail = FALSE` as an argument to the function,
+  from one, or give the argument `lower.tail = FALSE` as an argument to the function,
   which asks R to calculate the upper area instead of the lower.
 
 ## Quantiles
@@ -424,7 +424,7 @@ lies below it.
 are not probabilities! Remember that quantiles have units. So the population
 median height is the height (in inches say) so that the probability that a randomly selected
 person from the population is shorter is 50%. The sample, or empirical,
-median would be the height so in a sample so that 50% of the people in the
+median would be the height in a sample so that 50% of the people in the
 sample were shorter.
 
 ### Example
