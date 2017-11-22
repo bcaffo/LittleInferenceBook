@@ -4,7 +4,7 @@
 ## The variance
 [Watch this video before beginning.](http://youtu.be/oLQVU-VRiHo?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
-Recall that the mean of distribution was a measure of its center.
+Recall that the mean of a distribution was a measure of its center.
 The variance, on the other hand, is a measure of *spread*.
 To get a sense, the plot below shows a series of increasing
 variances.
@@ -16,7 +16,7 @@ of how variances changed in the last chapter when we looked at the distribution 
 at the same spot as the original distribution, but are less spread out.
 Thus, it is less likely for sample means to be far away from the population
 mean than it is for individual observations. (This is why the sample mean is
-  a better estimate than the population mean.)
+  a better estimate of the population mean.)
 
 If {$$}X{/$$} is a random variable with mean {$$}\mu{/$$}, the variance of
 {$$}X{/$$} is defined as
@@ -34,7 +34,7 @@ a lower variance. The square root of the variance is called the
 is that they have the same units as the data, whereas the variance has the
 units squared.
 
-In this class, we'll only cover a few basic examples for calculating a variance.
+In this class, we'll only cover a few basic examples of calculating a variance.
 Otherwise, we're going to use the ideas without the formalism. Also remember, what we're talking
 about is the population variance. It measures how spread out the population
 of interest is, unlike the sample variance which measures how spread out the
@@ -113,7 +113,7 @@ variance that it's estimating.
 ### Simulating from a population with variance 1
 Let's try simulating collections of standard normals and taking the variance.
 If we repeat this over and over, we get a sense of the distribution of
-sample variances variances.
+sample variances.
 
 ![Simulation of variances of samples of standard normals](images/normalVariances.png)
 
@@ -133,7 +133,7 @@ are histograms of the collections of sample variances.
 
 Recall that we calculated the variance of a die roll as 2.92 earlier on in
 this chapter. Notice each of the histograms are centered there. In addition,
-they get more concentrated around 2.92 as more the variances are comprised
+they get more concentrated around 2.92 as the variances are comprised
 of more dice.
 
 
@@ -141,7 +141,7 @@ of more dice.
 
 At last, we finally get to a perhaps very surprising (and useful) fact:
 how to estimate the variability of the mean of a sample, when we only get to observe
-one realization.  Recall that the average of random sample from a population
+one realization.  Recall that the average of random samples from a population
 is itself a random variable having a distribution, which in simulation
 settings we can explore by repeated sampling averages. We know that this
 distribution is centered around the population mean,
@@ -316,7 +316,7 @@ even though we only get one to look at in a given data set.
   - The population variance.
   - The population mean.
 3. I keep drawing samples of size {$$}n{/$$} from a population with variance {$$}\sigma^2{/$$} and taking their average. I do this thousands of times. If I were to take the variance of the collection of averages, about what would it be?
-4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeated collect averages to do this?
+4. You get a random sample of {$$}n{/$$} observations from a population and take their average. You would like to estimate the variability of averages of $$n$$ observations from this population to better understand how precise of an estimate it is. Do you need to repeatedly collect averages to do this?
   - No, we can multiply our estimate of the population variance by {$$}1/n{/$$} to get a good estimate of the variability of the average.
   - Yes, you have to get repeat averages.
 5. A random variable takes the value -4 with probability .2 and 1 with probability .8. What
