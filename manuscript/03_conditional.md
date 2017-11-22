@@ -270,13 +270,13 @@ of murder.
 Relevant to this discussion, the principal mistake was to *assume* that the
 events of having SIDs within a family are independent. That is,
 {$$}P(A_1 \cap A_2){/$$} is not necessarily equal to {$$}P(A_1)P(A_2){/$$}.
-This is because biological processes that have a believed genetic or familiar
+This is because biological processes that have a believed genetic or familial
 environmental component, of course, tend to be dependent within families.
 Thus, we can't just multiply the probabilities to obtain the result.
 
 There are many other interesting aspects to the case. For example, the idea of
 a low probability of an event representing evidence against a plaintiff. (Could
-we convict all lottery winners of fixing the lotter since the chance that they
+we convict all lottery winners of fixing the lottery since the chance that they
 would win is so small.)
 
 
