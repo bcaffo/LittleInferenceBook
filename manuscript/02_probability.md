@@ -1,5 +1,5 @@
 # Probability
-[Watch this video before beginning.](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+
 
 Probability forms the foundation for almost all treatments of statistical inference.
 In our treatment, probability is a law that assigns numbers to the long run occurrence of random phenomena after repeated unrelated realizations.
@@ -28,8 +28,7 @@ notes](https://github.com/bcaffo/MathematicsBiostatisticsBootCamp2).
 
 ## Kolmogorov's Three Rules
 
-[Watch this lecture before
-beginning.](http://youtu.be/Shzt9uZ8BII?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
+[Watch this video before beginning.](http://youtu.be/oTERv_vrmJM?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 Given a random experiment (say rolling a die) a probability measure is a
 population quantity
@@ -43,10 +42,10 @@ needed.
 Consider an experiment with a random outcome. Probability takes a possible
 outcome from an experiment and:
 
-1. assigns it a number between 0 and 1
-2. requires that the probability that
+1. assigns it a number between 0 and 1,
+2. requires that the probability that,
 something occurs is 1
-3. required that the probability of the union of any two
+3. requires that the probability of the union of any two
 sets of outcomes that have nothing in common (mutually exclusive)
  is the sum of
 their respective probabilities.
@@ -213,11 +212,11 @@ whether our assumption of normality is warranted!
 
 A probability mass function evaluated at a value corresponds to the
  probability
-that a random variable takes that value. To be a valid pmf a function, {$$}p{/$$},
-must satisfy:
+that a random variable takes that value. A function {$$}p{/$$}, to be a valid pmf,
+must satisfy the following properties:
 
-1. It must always be larger than or equal to 0.
-2. The sum of the possible values that the random variable can take has to add up to one.
+1. each resulting probability (output value of {$$}p{/$$}) must always be larger than or equal to 0,
+2. the sum of each resulting probability value, for each input value of {$$}p{/$$} (that the random variable can take), has to add up to one.
 
 
 ### Example
