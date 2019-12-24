@@ -176,7 +176,7 @@ is very close to 0 or 1.
 Confidence intervals are methods for quantifying uncertainty in our estimates.
 The fact that the interval has width characterizes that there is randomness
 that prevents us from getting  a perfect estimate. Let's go through how
-a confidence interval using the CLT is constructed.
+a confidence interval is constructed using the CLT.
 
 According to the CLT, the sample mean, {$$}\bar X{/$$},
 is approximately normal with mean {$$}\mu{/$$} and standard
