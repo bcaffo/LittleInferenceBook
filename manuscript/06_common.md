@@ -138,7 +138,7 @@ and 3 standard deviations above and below {$$}\mu{/$$}, the population mean.
 
 The most relevant probabilities are.
 
-1. Approximately 68\%, 95\% and 99\%  of the normal density lies within 1, 2 and 3 standard deviations from the mean, respectively.
+1. Approximately 68%, 95% and 99%  of the normal density lies within 1, 2 and 3 standard deviations from the mean, respectively.
 2. -1.28, -1.645, -1.96 and -2.33 are the {$$}10^{th}{/$$}, {$$}5^{th}{/$$},
 {$$}2.5^{th}{/$$} and {$$}1^{st}{/$$} percentiles of the standard normal
 distribution, respectively.
@@ -180,7 +180,7 @@ is the appropriate standard normal quantile.
 
 To put some context on our previous setting, population
 mean BMI for men [is reported as](http://www.ncbi.nlm.nih.gov/pubmed/23675464)
-29 {$$}kg/mg^2{/$$} with a
+29 {$$}kg/m^2{/$$} with a
 standard deviation of 4.73. Assuming normality of BMI, what is the population
 {$$}95^{th}{/$$} percentile? The answer is then:
 
@@ -188,7 +188,7 @@ standard deviation of 4.73. Assuming normality of BMI, what is the population
 29 + 4.73 \times 1.645 = 36.78.
 {/$$}
 
-Or alternatively, we could simply type `r qnorm(.95, 29, 4.73)` in R.
+Or alternatively, we could simply type `qnorm(.95, 29, 4.73)` in R.
 
 Now let's reverse the process. Imaging asking what's the probability that
 a randomly drawn subject from this population has a BMI less than 24.27?
@@ -218,8 +218,8 @@ standard normal quantiles that the probability of being larger
 than 2 standard deviation is 2.5% and 3 standard deviations is far in the tail.
 Therefore, we know that the probability has to be smaller than 2.5% and should
 be very small. We can obtain it
-exactly as `r pnorm(1160, 1020, 50, lower.tail = FALSE)` which is 0.3%. Note
-that we can also obtain the probability as `r pnorm(2.8, lower.tail = FALSE)`.
+exactly as `pnorm(1160, 1020, 50, lower.tail = FALSE)` which is 0.3%. Note
+that we can also obtain the probability as `pnorm(2.8, lower.tail = FALSE)`.
 
 ### Example
 Consider the previous example again. What number of daily ad clicks
