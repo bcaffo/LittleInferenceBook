@@ -190,7 +190,7 @@ standard deviation of 4.73. Assuming normality of BMI, what is the population
 
 Or alternatively, we could simply type `r qnorm(.95, 29, 4.73)` in R.
 
-Now let's reverse the process. Imaging asking what's the probability that
+Now let's reverse the process. Imagine asking what's the probability that
 a randomly drawn subject from this population has a BMI less than 24.27?
 Notice that
 
@@ -237,7 +237,7 @@ days are independent and identically distributed)? We can obtain this as:
 [Watch this video before beginning.](http://youtu.be/ZPLZg7qz4xE?list=PLpl-gQkQivXiBmGyzLrUjzsblmQsLtkzJ)
 
 The Poisson distribution is used to model counts. It is perhaps only second
-to the normal distribution usefulness. In fact, the Bernoulli, binomial
+to the normal distribution in usefulness. In fact, the Bernoulli, binomial
 and multinomial distributions can all be modeled by clever uses of the
 Poisson.
 
@@ -331,7 +331,7 @@ be the point so that only 5% of averages of 50 days of web traffic have more hit
 7. You don't believe that your friend can discern good wine from cheap. Assuming
 that you're right, in a blind test where you randomize 6 paired varieties (Merlot,
 Chianti, ...) of cheap and expensive wines.
-What is the change that she gets 5 or 6 right? [Watch a video solution](https://www.youtube.com/watch?v=ILm2OUl6p_w&index=14&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the original problem](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#8).
+What is the chance that she gets 5 or 6 right? [Watch a video solution](https://www.youtube.com/watch?v=ILm2OUl6p_w&index=14&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [see the original problem](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#8).
 8.  The number of web hits to a site is Poisson with mean 16.5 per day.
 What is the probability of getting 20 or fewer in 2 days? [Watch a video solution](https://www.youtube.com/watch?v=PMPFbwtpp1k&index=18&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
 and [see a written solution](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#12).
