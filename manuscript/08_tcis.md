@@ -199,7 +199,7 @@ for grouped data directly, and using the `r t.test` function.
 {title="Galton's data treated as grouped and independent.", line-numbers=off,lang=r}
 ~~~
 n1 <- length(g1); n2 <- length(g2)
-sp <- sqrt( ((n1 - 1) * sd(x1)^2 + (n2-1) * sd(x2)^2) / (n1 + n2-2))
+sp <- sqrt( ((n1 - 1) * sd(g1)^2 + (n2-1) * sd(g2)^2) / (n1 + n2-2))
 md <- mean(g2) - mean(g1)
 semd <- sp * sqrt(1 / n1 + 1/n2)
 rbind(
