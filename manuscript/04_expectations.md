@@ -75,7 +75,7 @@ myHist <- function(mu){
       binwidth=1, aes(y = ..density..), color = "black")
     g <- g + geom_density(size = 2)
     g <- g + geom_vline(xintercept = mu, size = 2)
-    mse <- round(mean((galton$child - mu)^2), 3)  
+    mse <- round(mean((galton$child - mu)^2), 3)
     g <- g + labs(title = paste('mu = ', mu, ' MSE = ', mse))
     g
 }
@@ -159,7 +159,7 @@ trying to find the point where it balances out.
 ### Example
 
 Consider a density where {$$}f(x) = 1{/$$} for {$$}x{/$$} between zero and one.
-Suppose that {$$}X{/$$} follows this density; what is its expected value?  
+Suppose that {$$}X{/$$} follows this density; what is its expected value?
 
 ![Uniform Density](images/uniform.png)
 
@@ -244,7 +244,7 @@ are centered around 0.5.
 - The more data that goes into the sample mean, the more 
 concentrated its density / mass function is around the population mean.
 
-## Exercises  
+## Exercises
 
 1. A standard die takes the values 1, 2, 3, 4, 5, 6 with equal probability. What is the expected value?
 2. Consider a density that is uniform from -1 to 1. (I.e. has height equal to 1/2 and looks like a box starting at -1 and ending at 1). What is the mean of this distribution?
@@ -252,4 +252,4 @@ concentrated its density / mass function is around the population mean.
 4. You are playing a game with a friend where you flip a coin and if it comes up heads you give her  {$$}X{/$$} dollars and if it comes up tails she gives you $Y$ dollars. The odds that the coin is heads is {$$}d{/$$}. What is your expected earnings? [Watch a video of the solution to this problem](http://youtu.be/5J88Zq0q81o?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [look at the problem and the solution here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#5).
 5. If you roll ten standard dice, take their average, then repeat this process over and over and construct a histogram what would it be centered at?
 [Watch a video solution here](https://www.youtube.com/watch?v=ia3n2URiJaw&index=16&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
-and [see the original problem here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#11).
+and [see the original problem here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#10).
