@@ -52,7 +52,7 @@ estimation (the estimand) is clear, the percentage of people in
 a particular group (city, state, county, country or other electoral
 grouping) who will vote for each candidate.
 
-We can not poll everyone. Even if we could, some polled
+We cannot poll everyone. Even if we could, some polled
 may change their vote by the time the election occurs.
 How do we collect a reasonable subset of data and quantify the
 uncertainty in the process to produce a good guess at who will win?
@@ -154,7 +154,7 @@ frequentist. In this class, we will primarily focus on basic sampling models,
 basic probability models and frequency style analyses
 to create standard inferences. This is the most popular style of inference by far.
 
-Being data scientists,  we will also consider some inferential strategies that  
+Being data scientists, we will also consider some inferential strategies that  
 rely heavily on the observed data, such as permutation testing
 and bootstrapping. As probability modeling will be our starting point, we first build
 up basic probability as our first task.
