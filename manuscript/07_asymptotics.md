@@ -236,7 +236,7 @@ The interval takes the form:
 
 Replacing {$$}p{/$$} by {$$}\hat p{/$$} in the standard error results in what
 is called a Wald confidence interval for {$$}p{/$$}. Remember also that
-{$$}p(1 - p){/$$} is maximized at 1/4. Plugging this in and setting
+{$$}p(1 - p){/$$} is maximized at 1/2. Plugging this in and setting
 our {$$}Z{/$$} quantile as 2 (which is about a 95% interval) we find
 that a quick and dirty confidence interval is:
 
