@@ -14,8 +14,7 @@ For the interested student, I would recommend the books and work by Ian Hacking 
 In this lecture, we will cover the fundamentals of probability at low enough of
 a level to have a basic understanding for the rest of the series. For a more
 complete treatment see the class Mathematical Biostatistics Boot Camp 1, which
-can be viewed on YouTube [here](Youtube:
-www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
+can be viewed on YouTube [here](https://www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-).  In addition,
 there's  the actual [Coursera course](Coursera:
 www.coursera.org/course/biostats) that I run periodically (this is the first
 Coursera class that I ever taught).  Also there are a set of [notes on
