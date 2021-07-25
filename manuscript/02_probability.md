@@ -375,7 +375,7 @@ for {$$}1 \geq x \geq 0{/$$}. Notice that calculating the survival function
 is now trivial given that we've already calculated the distribution function.
 
 {$$}
- S(x) = 1 = F(x) = 1 - x^2
+ S(x) = 1 - F(x) = 1 - x^2
 {/$$}
 
 Again, R has a function that calculates the distribution function for us
