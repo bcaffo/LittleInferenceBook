@@ -10,7 +10,7 @@ Asymptotics often make hard problems easy and difficult calculations simple.
 We will not cover the philosophical considerations
  in this book, but is true nonetheless, that asymptotics
 often lead to nice understanding of procedures. In fact, the ideas of asymptotics
-are so important form the basis for frequency interpretation of probabilities
+are so important they form the basis for frequency interpretation of probabilities
 by considering the long run proportion of times an event occurs.
 
 Some things to bear in mind about the seemingly magical nature of asymptotics.
@@ -28,7 +28,7 @@ The first of these results we intuitively already know.
 It says that the average limits to what its estimating, the population mean.
 This result is called the Law of Large Numbers. It simply says that if you
 go to the trouble of collecting an infinite amount of data, you estimate the
-population mean perfectly. Note there's sampling assumptions that have to
+population mean perfectly. Note there are sampling assumptions that have to
 hold for this result to be true. The data have to be iid.
 
 A great example of this comes from coin flipping. Imagine if {$$}\bar X_n{/$$}
@@ -61,7 +61,7 @@ g
 Let's try the same thing, but for a fair coin flip. We'll simulate a lot
 of coin flips and plot the cumulative proportion of heads.
 
-{title="Finding a normal quantile", line-numbers=off,lang=r}
+{title="Finding a coin flip quantile", line-numbers=off,lang=r}
 ~~~
 means <- cumsum(sample(0:1, n, replace = TRUE))/(1:n)
 g <- ggplot(data.frame(x = 1:n, y = means), aes(x = x, y = y))
@@ -89,7 +89,7 @@ For our purposes, the CLT states that the distribution of averages of iid variab
 becomes that of a standard normal as the sample size increases. Consider this fact
 for a second. We already know the mean and standard deviation of the distribution
 of averages from iid samples. The CLT gives us an approximation to the full distribution!
-Thus, for iid samples, we have a good sense of distribution of the average event
+Thus, for iid samples, we have a good sense of distribution of the average even
 though: (1)
 we only observed one average and (2) we don't know what the
 population distribution is. Because of this, the CLT applies in an endless
@@ -112,7 +112,7 @@ is approximately {$$}N(\mu, \sigma^2 / n){/$$}.
 ## CLT simulation experiments
 
 Let's try simulating lots of averages from various distributions and showing
-that the resulting distribution looks like a bell curve.
+that the resulting distributions look like bell curves.
 
 ### Die rolling
 
@@ -120,11 +120,11 @@ that the resulting distribution looks like a bell curve.
 - Let {$$}X_i{/$$} be the outcome for die {$$}i{/$$}.
 - Then note that {$$}\mu = E[X_i] = 3.5{/$$}.
 - Recall also that {$$}Var(X_i) = 2.92{/$$}.
-- SE {$$}\sqrt{2.92 / n} = 1.71 / \sqrt{n}{/$$}.
+- SE ={$$}\sqrt{2.92 / n} = 1.71 / \sqrt{n}{/$$}.
 - Lets roll {$$}n{/$$} dice, take their mean, subtract off 3.5,
 and divide by {$$}1.71 / \sqrt{n}{/$$} and repeat this over and over.
 
-![Result of coin CLT simulation.](images/dieCLT.png)
+![Result of die rolling CLT simulation.](images/dieCLT.png)
 
 It's pretty remarkable that the approximation works so well with so few rolls
 of the die.
@@ -247,7 +247,7 @@ proportions in your head.
 
 ### Example
 Your campaign advisor told you that in a random sample of 100 likely voters,
-56 intent to vote for you. Can you relax? Do you have this race in the bag?
+56 intend to vote for you. Can you relax? Do you have this race in the bag?
 Without access to a computer or calculator, how precise is this estimate?
 
 {line-numbers=off,lang=r}
@@ -348,10 +348,10 @@ coverage2 <- sapply(pvals, function(p) {
 ![Output of simulation with {$$}n=100{/$$}.](images/waldCoverage2.png)
 
 Now it looks much better. Of course, increasing our sample size is rarely
-an option. There's exact fixes to make this interval work better for small
+an option. There are exact fixes to make this interval work better for small
 sample sizes.
 
-However, for a
+However, a
 quick fix is to take your data and add two successes and two failures.
 So, for example, in our election example, we would form our interval
 with 58 votes out of 104 sampled (disregarding that the actual numbers
@@ -459,14 +459,14 @@ increase {$$}t{/$$} to 1,000.
 ![Coverage of Poisson intervals for various values of lambda and t=1000](images/poissonCoverage2.png)
 
 ## Summary notes
-* The LLN states that averages of iid samples.
+* The LLN states that averages of iid samples 
 converge to the population means that they are estimating.
 * The CLT states that averages are approximately normal, with
 distributions.
   * centered at the population mean.
   * with standard deviation equal to the standard error of the mean.
   * CLT gives no guarantee that $n$ is large enough.
-* Taking the mean and adding and subtracting the relevant.
+* Taking the mean and adding and subtracting the relevant 
 normal quantile times the SE yields a confidence interval for the mean.
   * Adding and subtracting 2 SEs works for 95% intervals.
 * Confidence intervals get wider as the coverage increases.
@@ -478,10 +478,10 @@ don't require the CLT.
 
 ## Exercises
 1. I simulate 1,000,000 standard normals. The LLN says that their sample average must be close to?
-2. About what is the probability of getting 45 or fewer heads out 100 flips of a fair coin? (Use the CLT, not the exact binomial calculation).
+2. About what is the probability of getting 45 or fewer heads out of 100 flips of a fair coin? (Use the CLT, not the exact binomial calculation).
 3. Consider the father.son data. Using the CLT and assuming that the fathers are a random sample from a population of interest, what is a 95% confidence mean height in inches?
-4. The goal of a a confidence interval having coverage 95% is to imply that:
-  - If one were to repeated collect samples and reconstruct the intervals, around 95% percent of them would contain the true mean being estimated.
+4. The goal of a confidence interval having coverage 95% is to imply that:
+  - If one were to repeatedly collect samples and reconstruct the intervals, around 95% percent of them would contain the true mean being estimated.
   - The probability that the sample mean is in the interval is 95%.
 5. The rate of search entries into a web site was 10 per minute when monitoring for an hour. Use R to calculate the exact Poisson interval for the rate of events per minute?
 6. Consider a uniform distribution. If we were to sample 100 draws from a

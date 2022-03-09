@@ -20,7 +20,7 @@ The entirety of the book is on GitHub [here](https://github.com/bcaffo/LittleInf
 Please submit pull requests if you find errata! In addition the course notes can be found
 also on GitHub [here](https://github.com/bcaffo/courses/tree/master/06_StatisticalInference).
 While most code is in the book, *all* of the code for every figure and analysis in the
-book is in the R markdown files files (.Rmd) for the respective lectures.
+book is in the R markdown files (.Rmd) for the respective lectures.
 
 Finally, we should mention `swirl` (statistics with interactive R programming).
 `swirl` is an intelligent tutoring system developed by Nick Carchedi, with contributions
@@ -38,11 +38,11 @@ a population from a noisy sample. Without statistical inference we're simply
 living within our data. With statistical inference, we're trying to generate
 new knowledge.
 
-Knowledge and parsimony,
-(using simplest reasonable models to explain complex phenomena), go hand in hand.
+Knowledge and parsimony
+(using simplest reasonable models to explain complex phenomena) go hand in hand.
 Probability models will serve as our parsimonious description of the world.
 The use of probability models as the connection between our data and a
-populations represents the most effective way to obtain inference.
+population represents the most effective way to obtain inference.
 
 ### Motivating example: who's going to win the election?
 
@@ -58,14 +58,14 @@ How do we collect a reasonable subset of data and quantify the
 uncertainty in the process to produce a good guess at who will win?
 
 
-### Motivating example, predicting the weather
+### Motivating example: predicting the weather
 
 When a weatherman tells you the probability that it will rain tomorrow is
 70%, they're trying to use historical data
 to predict tomorrow's weather - and to actually attach a probability to it.
 That probability refers to population.
 
-### Motivating example, brain activation
+### Motivating example: brain activation
 
 An example that's very close to the research I do is trying to predict what
 areas of the brain activate when a person is put in the fMRI scanner. In

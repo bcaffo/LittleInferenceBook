@@ -183,7 +183,7 @@ look like?".  This question is important, since it tells us things about
 averages, the best way to estimate the population mean, when we only get
 to observe one average.
 
-Consider the die rolls again. If wanted to know the distribution of averages
+Consider the die rolls again. If we wanted to know the distribution of averages
 of 100 die rolls, you could (at least in principle) roll 100 dice, take the
 average and repeat that process. Imagine, if you could only roll the 100
 dice once. Then we would have direct information about the distribution of
@@ -241,7 +241,7 @@ are centered around 0.5.
 - The sample mean is an estimate of the population mean.
 - The sample mean is unbiased: the population mean of its distribution is the mean that it's
   trying to estimate.
-- The more data that goes into the sample mean, the more.
+- The more data that goes into the sample mean, the more 
 concentrated its density / mass function is around the population mean.
 
 ## Exercises  
@@ -249,7 +249,7 @@ concentrated its density / mass function is around the population mean.
 1. A standard die takes the values 1, 2, 3, 4, 5, 6 with equal probability. What is the expected value?
 2. Consider a density that is uniform from -1 to 1. (I.e. has height equal to 1/2 and looks like a box starting at -1 and ending at 1). What is the mean of this distribution?
 3. If a population has mean {$$}\mu{/$$}, what is the mean of the distribution of averages of 20 observations from this distribution?
-4. You are playing a game with a friend where you flip a coin and if it comes up heads you give her  {$$}X{/$$} dollars and if it comes up tails she gives you $Y$ dollars. The odds that the coin is heads is {$$}d{/$$}. What is your expected earnings? [Watch a video of the solution to this problem](http://youtu.be/5J88Zq0q81o?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [look at the problem and the solution here.](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#5).
+4. You are playing a game with a friend where you flip a coin and if it comes up heads you give her  {$$}X{/$$} dollars and if it comes up tails she gives you $Y$ dollars. The odds that the coin is heads is {$$}d{/$$}. What is your expected earnings? [Watch a video of the solution to this problem](http://youtu.be/5J88Zq0q81o?list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L) and [look at the problem and the solution here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw1.html#5).
 5. If you roll ten standard dice, take their average, then repeat this process over and over and construct a histogram what would it be centered at?
 [Watch a video solution here](https://www.youtube.com/watch?v=ia3n2URiJaw&index=16&list=PLpl-gQkQivXhHOcVeU3bSJg78zaDYbP9L)
 and [see the original problem here](http://bcaffo.github.io/courses/06_StatisticalInference/homework/hw2.html#11).
